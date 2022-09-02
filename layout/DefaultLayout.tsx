@@ -22,7 +22,7 @@ export default function DefaultLayout({
         )}
       </Head>
       <Header />
-      {children}
+      <main>{children}</main>
       <Footer />
     </>
   );
