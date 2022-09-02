@@ -10,5 +10,29 @@
       { "text": "EXPERIENCE ", "link": "/experience" },
       { "text": "CONTACT US ", "link": "/contact us" }
     ]
-  }
+  },
+  "footer": [
+    {
+      "title": "COMPANY INFO",
+      "group": [
+        { "text": "About Jinterros", "link": "/our-story" },
+        { "text": "Experience", "link": "/experience" },
+        { "text": "History", "link": "/history" }
+      ]
+    },
+    {
+      "title": "HELP & SUPPORT",
+      "group": [
+        { "text": "Shipping Info", "link": "/shipping-info" },
+        { "text": "Cocktails Guide", "link": "/cocktails" }
+      ]
+    },
+    {
+      "title": "CUSTOMER CARE",
+      "group": [
+        { "text": "Contact Us", "link": "/contact-us" },
+        { "text": "Payment", "link": "/payment" }
+      ]
+    }
+  ]
 }
