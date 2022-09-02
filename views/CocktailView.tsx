@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 
 import cocktailcontent from "@/json/cocktail.json";
@@ -7,30 +8,32 @@ export default function CocktailView() {
   return (
     <>
       <section className="w-full">
-        <div className="cocktail-group">
+        <div className="cocktail-group grid grid-cols-3 gap-7 mt-20">
           {cocktailcontent.map((item) => (
             <div key={item.img} className="cocktail">
-              <Image src={item.img} alt={item.text} height={700} width={870} />
+              <Image
+                src={item.img}
+                alt={item.text}
+                height={850}
+                width={870}
+                layout="responsive"
+              />
               <div className="text-view bg-dark-brown w-full flex items-center justify-center">
-                <p className="text-white text-center">{item.text}</p>
+                <p className="text-white text-center text-xl">{item.text}</p>
               </div>
             </div>
           ))}
         </div>
         <Button
-          className="border border-brown-light px-12 py-4 flex mx-auto my-6"
+          className="border border-brown-light px-20 py-4 flex mx-auto my-12"
           text="MORE COCKTAILS"
         />
-        <Image src="/cocktail.webp" alt="cocktail" height={1000} width={800} />
+        <div className="image-wrapper mx-auto block w-1/2  justify-center">
+          <img src="/cocktail.webp" alt="cocktail" />
+        </div>
       </section>
       <style jsx>
         {`
-          .cocktail-group {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 70px;
-          }
           .text-view {
             height: 60px;
           }

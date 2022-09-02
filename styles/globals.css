@@ -10,6 +10,14 @@
   color: #e49b3a;
 }
 
+.bg-carton-brown {
+  background-color: rgba(223, 149, 55, 0.36);
+}
+
+.bg-carton-brown-hover:hover {
+  background-color: rgba(223, 149, 55, 0.36);
+}
+
 .bg-dark-brown {
   background-color: #bd6a2c;
 }
