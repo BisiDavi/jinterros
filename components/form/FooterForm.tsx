@@ -8,7 +8,7 @@ export default function FooterForm() {
         <input
           type="email"
           placeholder="Your Email Address"
-          className="bg-white border-0 py-2 px-6 "
+          className="bg-white border-0 py-2 px-6 hover:rounded-0"
           required
         />
         <Button
