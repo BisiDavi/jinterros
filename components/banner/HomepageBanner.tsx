@@ -11,7 +11,7 @@ export default function HomepageBanner() {
             <div className="text-content">
               <h1 className="text-3xl font-bold">JINTERROS</h1>
               <p className="text-sm">Rum with Natural Flavours</p>
-              <Button className="dark-brown px-8 py-4" text="ORDER NOW" />
+              <Button className="bg-dark-brown px-8 py-4" text="ORDER NOW" />
             </div>
           </div>
           <div className="w-1/2">
