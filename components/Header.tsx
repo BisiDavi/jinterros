@@ -4,9 +4,11 @@ import Logo from "@/components/Logo";
 export default function Header() {
   return (
     <header className="bg-white w-full">
-      <div className="container mx-auto">
+      <div className="container mx-auto flex h-20 items-center justify-between relative">
         <HeaderLinks section="left" />
-        <Logo />
+        <div className="w-52 mt-36">
+          <Logo />
+        </div>
         <HeaderLinks section="right" />
       </div>
     </header>

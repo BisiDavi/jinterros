@@ -11,7 +11,7 @@ export default function HeaderLinks({ section }: Props) {
     <>
       {linksContent.header[section].map((linkItem) => (
         <Link key={linkItem.link} href={linkItem.link}>
-          <a>{linkItem.text}</a>
+          <a className="text-dark-brown mx-2 text-xl">{linkItem.text}</a>
         </Link>
       ))}
     </>
