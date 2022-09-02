@@ -51,20 +51,26 @@ export default function Policies() {
               </h3>
             </div>
           </div>
-          <div className="policy-content h-52 flex">
+          <div className="policy-content h-72 flex">
             <ul className="w-1/3">
-              {policiesContentSelector.map((listItem) => (
-                <li
-                  key={listItem.key}
-                  className="h-10 flex items-center bg-gray-100 border-b px-4 justify-center hover:bg-gray-200"
-                >
-                  <Button
-                    text={listItem.text}
-                    className="h-full w-full"
-                    onClick={() => changePolicyHandler(listItem.key)}
-                  />
-                </li>
-              ))}
+              {policiesContentSelector.map((listItem) => {
+                const activePolicy =
+                  listItem.key === policies
+                    ? "border-width-medium border-leaf-green bg-white"
+                    : "border-b bg-gray-100";
+                return (
+                  <li
+                    key={listItem.key}
+                    className={`h-12 flex items-center   px-4 justify-center hover:bg-gray-200 ${activePolicy}`}
+                  >
+                    <Button
+                      text={listItem.text}
+                      className="h-full w-full"
+                      onClick={() => changePolicyHandler(listItem.key)}
+                    />
+                  </li>
+                );
+              })}
             </ul>
             <div className="w-2/3 px-6 py-2">
               <h4 className="font-medium my-2 text-xl text-gray-600">
@@ -73,24 +79,24 @@ export default function Policies() {
               <p className="text-sm text-gray-600">{policy.text}</p>
             </div>
           </div>
-          <div className="buttonGroup flex justify-between my-4 h-20  border-top items-center">
+          <div className="buttonGroup flex justify-between my-4 h-16  pt-12 border-t items-center">
             <Button
               text="Confirm Choices"
-              className="bg-leaf-green px-6 py-2 text-white font-bold h-12"
+              className="bg-leaf-green px-6 py-2 text-white font-bold h-12 w-1/4 hover:opacity-80"
             />
             <Button
               text="Allow All"
-              className="bg-leaf-green px-6 py-2 text-white font-bold h-12"
+              className="bg-leaf-green px-6 py-2 text-white font-bold h-12 w-1/4 hover:opacity-80"
             />
           </div>
-          <div className="footer h-10 bg-gray flex items-center justify-end px-4">
-            <Image
-              src="/PoweredByOneTrust.webp"
-              alt="Powered by OneTrust"
-              height={14}
-              width={120}
-            />
-          </div>
+        </div>
+        <div className="footer h-10 bg-gray flex items-center justify-end px-4">
+          <Image
+            src="/PoweredByOneTrust.webp"
+            alt="Powered by OneTrust"
+            height={14}
+            width={120}
+          />
         </div>
       </div>
     </FormLayout>

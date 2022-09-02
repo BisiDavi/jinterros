@@ -41,3 +41,11 @@
 .bg-gray {
   background-color: #efefef;
 }
+
+.border-leaf-green {
+  border-color: #6abf4b;
+}
+
+.border-width-medium {
+  border-left-width: 20px;
+}
