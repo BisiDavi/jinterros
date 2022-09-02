@@ -6,27 +6,19 @@ import FormLayout from "@/layout/FormLayout";
 import policiesContent from "@/json/policies.json";
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { updatePolicies } from "@/redux/ui-slice";
-
-import type { policiesStateType } from "@/types/redux-types";
 import toSlug from "@/lib/toSlug";
 
-type listItemType = {
-  title: policiesStateType;
-  text: string;
-};
+import type { policiesStateType } from "@/types/redux-types";
 
 export default function Policies() {
   const dispatch = useAppDispatch();
   const { policies } = useAppSelector((state) => state.UI);
-  const router = useRouter();
   const policy = policiesContent.filter(
     (item) => toSlug(item.title) === policies
   )[0];
 
   function changePolicyHandler(policyKey: string) {
     const TpolicyKey: policiesStateType | any = toSlug(policyKey);
-    router.query.section = toSlug(policyKey);
-    router.push(router);
     dispatch(updatePolicies(TpolicyKey));
   }
 
