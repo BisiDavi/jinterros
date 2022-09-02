@@ -34,5 +34,29 @@
         { "text": "Payment", "link": "/payment" }
       ]
     }
+  ],
+  "socials": [
+    { "text": "Instagram", "link": "" },
+    { "text": "Twitter", "link": "" },
+    { "text": "Facebook", "link": "" }
+  ],
+  "others": [
+    { "text": "Privacy", "link": "/privacy" },
+    {
+      "text": "Center Privacy & Cookie Policy Manage",
+      "link": "/center-privacy-and-cookie-policy-manage"
+    },
+    {
+      "text": "Cookies Terms & Conditions",
+      "link": "/cookies-terms-and-conditions"
+    },
+    {
+      "text": "Copyright Notice",
+      "link": "/copyright-notice"
+    },
+    {
+      "text": "Imprint",
+      "link": "/imprint"
+    }
   ]
 }
