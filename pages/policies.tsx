@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import Button from "@/components/button";
 import FormLayout from "@/layout/FormLayout";
@@ -7,24 +8,26 @@ import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { updatePolicies } from "@/redux/ui-slice";
 
 import type { policiesStateType } from "@/types/redux-types";
+import toSlug from "@/lib/toSlug";
 
 type listItemType = {
-  key: policiesStateType;
+  title: policiesStateType;
   text: string;
 };
-
-const policiesContentSelector: listItemType[] | any[] =
-  policiesContent.selector;
 
 export default function Policies() {
   const dispatch = useAppDispatch();
   const { policies } = useAppSelector((state) => state.UI);
-  const policy = policiesContent.content.filter(
-    (item) => item.key === policies
+  const router = useRouter();
+  const policy = policiesContent.filter(
+    (item) => toSlug(item.title) === policies
   )[0];
 
-  function changePolicyHandler(policyKey: policiesStateType) {
-    dispatch(updatePolicies(policyKey));
+  function changePolicyHandler(policyKey: string) {
+    const TpolicyKey: policiesStateType | any = toSlug(policyKey);
+    router.query.section = toSlug(policyKey);
+    router.push(router);
+    dispatch(updatePolicies(TpolicyKey));
   }
 
   return (
@@ -53,20 +56,20 @@ export default function Policies() {
           </div>
           <div className="policy-content h-72 flex">
             <ul className="w-1/3">
-              {policiesContentSelector.map((listItem) => {
+              {policiesContent.map((listItem) => {
                 const activePolicy =
-                  listItem.key === policies
+                  toSlug(listItem.title) === policies
                     ? "border-width-medium border-leaf-green bg-white"
                     : "border-b bg-gray-100";
                 return (
                   <li
-                    key={listItem.key}
+                    key={listItem.title}
                     className={`h-12 flex items-center   px-4 justify-center hover:bg-gray-200 ${activePolicy}`}
                   >
                     <Button
-                      text={listItem.text}
+                      text={listItem.title}
                       className="h-full w-full"
-                      onClick={() => changePolicyHandler(listItem.key)}
+                      onClick={() => changePolicyHandler(listItem.title)}
                     />
                   </li>
                 );

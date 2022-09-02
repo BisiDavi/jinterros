@@ -1,8 +1,8 @@
 export type policiesStateType =
-  | "yourPrivacy"
-  | "strictlyNecessaryCookies"
-  | "performanceCookies"
-  | "targetingCookies";
+  | "your-privacy"
+  | "strictly-necessary-cookies"
+  | "performance-cookies"
+  | "targeting-cookies";
 
 export type UIStateType = {
   policies: policiesStateType;

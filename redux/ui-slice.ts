@@ -4,7 +4,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { UIStateType } from "@/types/redux-types";
 
 const initialState: UIStateType = {
-  policies: "yourPrivacy",
+  policies: "your-privacy",
 };
 
 const UISlice = createSlice({
