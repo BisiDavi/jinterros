@@ -23,7 +23,7 @@ export default function CocktailView() {
         ))}
       </div>
       <Button
-        className="border border-brown-light px-20 py-4 flex mx-auto my-12"
+        className="border border-brown-light px-20 py-4 flex mx-auto my-12 bg-dark-brown-hover hover:text-white"
         text="MORE COCKTAILS"
       />
       <div className="image-wrapper mx-auto block w-1/2  justify-center">

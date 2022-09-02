@@ -14,7 +14,7 @@ export default function LearnmoreView() {
           </p>
           <Button
             text="LEARN MORE"
-            className="border border-brown-light px-20 py-4 flex mx-auto my-24"
+            className="border border-brown-light bg-dark-brown-hover hover:text-white px-20 py-4 flex mx-auto my-24"
           />
         </div>
       </section>

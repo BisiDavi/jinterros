@@ -22,6 +22,10 @@
   background-color: #bd6a2c;
 }
 
+.bg-dark-brown-hover:hover {
+  background-color: #bd6a2c;
+}
+
 .border-brown-light {
   border-color: #e49b3a;
 }
