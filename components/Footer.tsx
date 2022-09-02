@@ -1,12 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
 import links from "@/json/links.json";
+import FooterForm from "./form/FooterForm";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <>
       <footer className="bg-carton-brown footer w-full">
-        <div className="layer-1 w-full py-20">
+        <div className="layer-1 w-full py-16">
           <div className="container mx-auto flex justify-between">
             <div className="w-1/2 left-pane">
               <div className="links-group grid grid-cols-3">
@@ -25,7 +28,7 @@ export default function Footer() {
                   </ul>
                 ))}
               </div>
-              <div className="bottom-content mt-32">
+              <div className="bottom-content mt-28">
                 <p className="mb-4 text-xs">Copyright 2022 | Jinterros</p>
                 <ul className="flex items-center">
                   {links.others.map((linkItem, index) => {
@@ -47,7 +50,7 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
-            <div className="w-1/2 right-pane items-right">
+            <div className="w-1/3 right-pane">
               <h5 className="text-lg font-medium mb-3">FIND US</h5>
               <ul className="flex">
                 {links.socials.map((social, index) => {
@@ -63,6 +66,22 @@ export default function Footer() {
                   );
                 })}
               </ul>
+              <FooterForm />
+              <div className="payment mt-12">
+                <h5 className="font-medium text-xl">WE ACCEPT</h5>
+                <ul className="flex items-center my-2">
+                  {links.paymentGateway.map((linkItem) => (
+                    <li key={linkItem} className="mr-4">
+                      <img
+                        src={linkItem}
+                        alt="payment gateway"
+                        height="40px"
+                        width="80px"
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>

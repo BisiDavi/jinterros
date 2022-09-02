@@ -58,5 +58,6 @@
       "text": "Imprint",
       "link": "/imprint"
     }
-  ]
+  ],
+  "paymentGateway":["/paypal.webp", "/visa.webp", "/mastercard.webp"]
 }
