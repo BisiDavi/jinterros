@@ -8,6 +8,7 @@ import store from "@/redux/store";
 import NextNProgress from "@/components/loader/NextNProgress";
 
 import "react-toastify/dist/ReactToastify.css";
+import BeerLoader from "@/components/loader/BeerLoader";
 
 export default function Providerlayout({ children }: PropsWithChildren<{}>) {
   let persistor = persistStore(store);
@@ -15,7 +16,7 @@ export default function Providerlayout({ children }: PropsWithChildren<{}>) {
   return (
     <>
       <Provider store={store}>
-        <PersistGate loading={"loading..."} persistor={persistor}>
+        <PersistGate loading={<BeerLoader />} persistor={persistor}>
           <NextNProgress color="#4e44c4" />
           <ToastContainer />
           {children}
