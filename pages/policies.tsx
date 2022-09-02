@@ -1,3 +1,4 @@
+import Button from "@/components/button";
 import FormLayout from "@/layout/FormLayout";
 
 export default function Policies() {
@@ -8,8 +9,8 @@ export default function Policies() {
           YOU MUST BE OF LEGAL AGE FOR PURCHASING <br /> AND CONSUMING ALCOHOL
           TO ENTER THIS SITE
         </h4>
-        <div className="policy-view bg-white h-96">
-          <div className="header h-32 border border-b">
+        <div className="policy-view bg-white h-96 p-5">
+          <div className="header h-32 border-b">
             <div className="w-1/3">
               <h3>OneTrust</h3>
               <p>PRIVACY, SECURITY & GOVERNANCE</p>
@@ -22,6 +23,16 @@ export default function Policies() {
           <div className="policy-content">
             <div className="w-1/3"></div>
             <div className="w-2/3"></div>
+          </div>
+          <div className="buttonGroup flex justify-between my-4">
+            <Button
+              text="Confirm Choices"
+              className="bg-leaf-green px-6 py-2 text-white font-bold"
+            />
+            <Button
+              text="Allow All"
+              className="bg-leaf-green px-6 py-2 text-white font-bold"
+            />
           </div>
           <div className="footer h-12">
             <p>
