@@ -21,7 +21,7 @@ export default function HomepageBanner() {
             <Image
               src="/rum-bottles.webp"
               alt="rum-bottles"
-              height={2500}
+              height={2400}
               width={2000}
               layout="responsive"
             />
