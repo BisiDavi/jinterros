@@ -10,20 +10,20 @@ export default function HomepageBanner() {
           <div className="w-1/2 mx-auto flex justify-center">
             <div className="text-content text-white">
               <h1 className="text-8xl font-bold my-4">JINTERROS</h1>
-              <p className="text-xl my-2">Rum with Natural Flavours</p>
+              <p className="text-3xl my-2">Rum with Natural Flavours</p>
               <Button
                 className="bg-dark-brown hover:opacity-80 px-8 py-4 flex justify-center w-2/3 my-6 font-bold"
                 text="ORDER NOW"
               />
             </div>
           </div>
-          <div className="w-2/3 mt-52">
+          <div className="w-2/3 mt-40">
             <Image
               src="/rum-bottles.webp"
               alt="rum-bottles"
               height={2500}
-              width={1800}
-              // layout="responsive"
+              width={2000}
+              layout="responsive"
             />
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function HomepageBanner() {
             background-image: url("/homepage-bg.webp");
             background-repeat: no-repeat;
             background-size: cover;
-            height: 100vh;
+            height: 85vh;
           }
         `}
       </style>
