@@ -16,6 +16,9 @@ export default function FormLayout({ children }: PropsWithChildren) {
         {`
           .form-layout {
             background-image: url("/form-bg.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: bottom;
           }
         `}
       </style>

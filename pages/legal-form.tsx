@@ -24,7 +24,7 @@ export default function LegalForm() {
           />
           <p className="text-center">
             We use tracking and other cookies
-            <span className="underline font-medium">Cookie Policy</span> &{" "}
+            <span className="underline font-medium ml-1">Cookie Policy</span> &{" "}
             <span className="underline  font-medium">Privacy Policy</span>
           </p>
           <p className="mt-4 text-center">
