@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 
 import cocktailcontent from "@/json/cocktail.json";
@@ -17,7 +16,7 @@ export default function CocktailView() {
               width={870}
               layout="responsive"
             />
-            <div className="text-view bg-dark-brown w-full flex items-center justify-center">
+            <div className="text-view h-16 bg-dark-brown w-full flex items-center justify-center">
               <p className="text-white text-center text-xl">{item.text}</p>
             </div>
           </div>
@@ -28,7 +27,13 @@ export default function CocktailView() {
         text="MORE COCKTAILS"
       />
       <div className="image-wrapper mx-auto block w-1/2  justify-center">
-        <img src="/cocktail.webp" alt="cocktail" />
+        <Image
+          src="/cocktail.webp"
+          alt="cocktail"
+          height={700}
+          width={700}
+          layout="responsive"
+        />
       </div>
     </section>
   );

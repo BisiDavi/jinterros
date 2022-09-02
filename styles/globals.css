@@ -23,5 +23,9 @@
 }
 
 .border-brown-light {
-  color: #e49b3a;
+  border-color: #e49b3a;
+}
+
+.bg-brown-light {
+  background-color: #e49b3a;
 }
