@@ -10,10 +10,8 @@ export default function LoaderLayout({ children }: PropsWithChildren) {
     const start = () => {
       setLoading(true);
     };
-    const end = () => {
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
+    const end: any = () => {
+      return setTimeout(() => setLoading(false), 1000);
     };
     Router.events.on("routeChangeStart", start);
     Router.events.on("routeChangeComplete", end);
