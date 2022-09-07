@@ -30,12 +30,12 @@ export default function CocktailPage() {
             <Image
               src={mainContent.banner}
               alt={mainContent.title}
-              height={600}
-              width={1400}
+              height={400}
+              width={800}
               layout="responsive"
             />
           )}
-          <div className="mx-auto w-3/4 shadow-xl -mt-40 py-6 mb-14 relative rounded">
+          <div className="mx-auto w-3/4 shadow-xl -mt-60 py-6 mb-14 relative rounded">
             <div className="Cocktails w-1/3 items-start px-16 bg-dark-brown h-16 flex items-center justify-center text-xl text-white font-bold">
               <h4>{mainContent.title}</h4>
             </div>
@@ -52,10 +52,12 @@ export default function CocktailPage() {
           </div>
         </div>
         <div className="cocktail-images w-3/4 mx-auto">
-          <h3 className="text-3xl text-center font-bold mb-4">YOU MAY ALSO LIKE</h3>
+          <h3 className="text-3xl text-center font-bold mb-4">
+            YOU MAY ALSO LIKE
+          </h3>
           <div className="grid grid-cols-3 gap-5 my-10">
             {otherCocktails.map((item) => (
-              <CocktailItemView key={item.img} item={item} />
+              <CocktailItemView key={item.img} item={item} link />
             ))}
           </div>
         </div>
