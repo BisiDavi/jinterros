@@ -6,6 +6,7 @@ import Providerlayout from "@/layout/ProviderLayout";
 
 import "aos/dist/aos.css";
 import "@/styles/globals.css";
+import LoaderLayout from "@/layout/LoaderLayout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -17,7 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <Providerlayout>
-      <Component {...pageProps} />
+      <LoaderLayout>
+        <Component {...pageProps} />
+      </LoaderLayout>
     </Providerlayout>
   );
 }
