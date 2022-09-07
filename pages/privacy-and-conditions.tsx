@@ -1,5 +1,8 @@
 import DefaultLayout from "@/layout/DefaultLayout";
 
 export default function PrivacyAndConditionsPage() {
-  return <DefaultLayout title="thanks-for-order"></DefaultLayout>;
+  return <DefaultLayout title="privacy-and-conditions">
+
+  </DefaultLayout>;
 }
+    
