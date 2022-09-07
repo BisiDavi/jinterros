@@ -1,14 +1,14 @@
 [
   {
-    "text": "Dark and Stormy",
+    "title": "Dark and Stormy",
     "img": "/dark-n-stormy.webp"
   },
   {
-    "text": "Original 1940s Mai Tai",
+    "title": "Original 1940s Mai Tai",
     "img": "/mai-tai.webp"
   },
   {
-    "text": "Opulent Rum Daiquiri",
+    "title": "Opulent Rum Daiquiri",
     "img": "/opulent-rum.webp"
   }
 ]

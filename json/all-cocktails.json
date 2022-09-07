@@ -1,30 +1,99 @@
 [
   {
-    "text": "Dark and Stormy",
-    "img": "/dark-n-stormy.webp"
+    "title": "Dark and Stormy",
+    "img": "/dark-n-stormy.webp",
+    "banner": "/dark-stormy-big.webp",
+    "ingredients": [
+      "2 ounces Jinterros rum",
+      "1/2 ounce fresh lime juice",
+      "Ginger beer, (about 5 ounces)",
+      " Garnish: lime wedge"
+    ],
+    "instructions": [
+      "Mix rum with fresh lime juice.",
+      "Then place it in a tall glass with ice.",
+      "Add ginger beer Garnish with lime wedge."
+    ]
   },
   {
-    "text": "Original 1940s Mai Tai",
-    "img": "/mai-tai-rum.webp"
+    "title": "Original 1940s Mai Tai",
+    "img": "/mai-tai-rum.webp",
+    "banner": "/mai-tai-rum-big.webp",
+    "ingredients": [
+      "Aged Jinterros Rum",
+      "Orange liqueur",
+      "Lime Juice",
+      "Orgeat syrup",
+      "Dark Rum"
+    ],
+    "instructions": [
+      "Place all the ingredients into a cocktail shaker, add ice, and shake it well.",
+      "Place the Dark rum on top of the drink. This will let it float.",
+      "Strain into a glass. Garnish with mint leaves, cherries, lime, or even pineapple.",
+      "This drink is great for impressing guests at your next summer party!"
+    ]
   },
   {
-    "text": "Opulent Rum Daiquiri",
-    "img": "/daiquiri-rum.webp"
+    "title": "Opulent Rum Daiquiri",
+    "img": "/daiquiri-rum.webp",
+    "banner": "/Opulent-Rum-Daiquiri-big.webp",
+    "ingredients": ["Jinterros Rum", "Simple Syrup", "Fresh lime juice"],
+    "instructions": [
+      "Combine all three into a shaker filled with ice.",
+      "Strain into a Nick & Nora glass.",
+      "Add a pineapple for garnish."
+    ]
   },
   {
-    "text": "Rum Old Fashioned",
-    "img": "/rum-old-fashioned.webp"
+    "title": "Rum Old Fashioned",
+    "img": "/rum-old-fashioned.webp",
+    "banner": "/rum-old-fashioned-big.webp",
+    "ingredients": [
+      "2 ounces Aged Jinterros rum",
+      "1 teaspoon demerara syrup",
+      "2 dashes Angostura orange bitters",
+      "Garnish: orange twist"
+    ],
+    "instructions": [
+      "Place a large ice cube into an old fashioned glass.",
+      "Place the rum, Demerara, and the orange bitter into the glass. Stir until well mixed.",
+      "Lastly garnish with an orange peel to add that beautiful vintage look."
+    ]
   },
   {
-    "text": " Piña and Rum",
-    "img": "/pina-rum.webp"
+    "title": " Piña and Rum",
+    "img": "/pina-rum.webp",
+    "ingredients": ["2 ounces Rum", "Cola"],
+    "instructions": [
+      "Add both ingredients into a glass cup filled with ice and stir.",
+      "Easy as that!"
+    ]
   },
   {
-    "text": "Rum and Coke",
-    "img": "/rum-coke.webp"
+    "title": "Rum and Coke",
+    "img": "/rum-coke.webp",
+    "banner": "/rum-coke-big.webp",
+    "ingredients": ["2 ounces Rum", "Cola"],
+    "instructions": [
+      "Add both ingredients into a glass cup filled with ice and stir.",
+      "Easy as that!"
+    ]
   },
   {
-    "text": "Rum Fruit Punch",
-    "img": "/rum-fruit-punch.webp"
+    "title": "Rum Fruit Punch",
+    "img": "/rum-fruit-punch.webp",
+    "banner": "/rum-fruit-punch-big.webp",
+    "ingredients": [
+      "1 cup of Jinterros rum",
+      "2 1/2 cup of Orange Juice",
+      "2 1/2 cup of Lime Juice",
+      "3tb Grenadine",
+      "2 1/2 cup of Pineapple Juice"
+    ],
+    "instructions": [
+      "Mix rum with fresh lime juice.",
+      "Then place it in a tall glass with ice",
+      "Garnish with Pineapple slice"
+    ]
   }
 ]
