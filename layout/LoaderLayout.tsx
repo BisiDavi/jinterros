@@ -11,7 +11,9 @@ export default function LoaderLayout({ children }: PropsWithChildren) {
       setLoading(true);
     };
     const end = () => {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     };
     Router.events.on("routeChangeStart", start);
     Router.events.on("routeChangeComplete", end);
@@ -20,6 +22,7 @@ export default function LoaderLayout({ children }: PropsWithChildren) {
       Router.events.on("routeChangeStart", start);
       Router.events.on("routeChangeComplete", end);
       Router.events.on("routeChangeError", end);
+      clearTimeout(end);
     };
   }, []);
   return (
