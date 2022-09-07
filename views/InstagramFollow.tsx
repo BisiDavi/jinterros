@@ -11,7 +11,7 @@ export default function InstagramFollow() {
       <p className="text-center text-xl my-4">
         Share your great times with Jinterros
       </p>
-      <div className="image-grid grid grid-cols-3 gap-6">
+      <div className="image-grid grid grid-cols-3 gap-x-3 gap-y-6">
         {instagramPictures.map((item) => (
           <Image
             key={item}

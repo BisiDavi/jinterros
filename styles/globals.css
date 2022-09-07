@@ -64,6 +64,6 @@
 
 .cocktail img:hover,
 .image-grid img:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) !important;
   transition: 0.5s;
 }

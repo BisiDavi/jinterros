@@ -17,7 +17,12 @@ export default function HomepageBanner() {
               />
             </div>
           </div>
-          <div className="w-2/3 mt-40">
+          <div
+            className="w-2/3 mt-40"
+            data-aos="fade-left"
+            data-aos-easing="linear"
+            data-aos-duration="1000"
+          >
             <Image
               src="/rum-bottles.webp"
               alt="rum-bottles"
