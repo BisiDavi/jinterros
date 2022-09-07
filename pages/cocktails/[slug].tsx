@@ -5,6 +5,7 @@ import DefaultLayout from "@/layout/DefaultLayout";
 import allCocktailContent from "@/json/all-cocktails.json";
 import CocktailItemView from "@/views/CocktailItemView";
 import toSlug from "@/lib/toSlug";
+import CocktailList from "@/components/cocktail/CocktailList";
 
 export default function CocktailPage() {
   const router = useRouter();
@@ -34,11 +35,35 @@ export default function CocktailPage() {
               layout="responsive"
             />
           )}
-          <div className="Cocktails">
+          <div className="title">
             <h4>{mainContent.title}</h4>
           </div>
+          <div className="mx-auto w-3/4">
+            <div className="content">
+              <CocktailList
+                type="ingredient"
+                listArray={mainContent.ingredients}
+              />
+              <CocktailList
+                type="ingredient"
+                listArray={mainContent.instructions}
+              />
+              <h6>Ingredients:</h6>
+              <ul>
+                {mainContent.ingredients.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+              <h6>Instructions:</h6>
+              <ul>
+                {mainContent.instructions.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
-        <div className="cocktail-images container">
+        <div className="cocktail-images w-3/4 mx-auto">
           {otherCocktails.map((item) => (
             <CocktailItemView key={item.img} item={item} />
           ))}
