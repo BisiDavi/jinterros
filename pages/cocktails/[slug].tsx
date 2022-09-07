@@ -25,34 +25,39 @@ export default function CocktailPage() {
   return (
     <DefaultLayout>
       <div className="view">
-        <div className="banner w-full">
+        <div className="w-full">
           {mainContent.banner && (
             <Image
               src={mainContent.banner}
               alt={mainContent.title}
-              height={950}
+              height={600}
               width={1400}
               layout="responsive"
             />
           )}
-          <div className="title">
-            <h4>{mainContent.title}</h4>
-          </div>
-          <div className="ingredients mx-auto w-3/4">
-            <CocktailList
-              type="ingredient"
-              listArray={mainContent.ingredients}
-            />
-            <CocktailList
-              type="instruction"
-              listArray={mainContent.instructions}
-            />
+          <div className="mx-auto w-3/4 shadow-xl -mt-40 py-6 mb-14 relative rounded">
+            <div className="Cocktails w-1/3 items-start px-16 bg-dark-brown h-16 flex items-center justify-center text-xl text-white font-bold">
+              <h4>{mainContent.title}</h4>
+            </div>
+            <div className="ingredients mx-auto w-full p-10 bg-white">
+              <CocktailList
+                type="ingredient"
+                listArray={mainContent.ingredients}
+              />
+              <CocktailList
+                type="instruction"
+                listArray={mainContent.instructions}
+              />
+            </div>
           </div>
         </div>
         <div className="cocktail-images w-3/4 mx-auto">
-          {otherCocktails.map((item) => (
-            <CocktailItemView key={item.img} item={item} />
-          ))}
+          <h3 className="text-3xl text-center font-bold mb-4">YOU MAY ALSO LIKE</h3>
+          <div className="grid grid-cols-3 gap-5 my-10">
+            {otherCocktails.map((item) => (
+              <CocktailItemView key={item.img} item={item} />
+            ))}
+          </div>
         </div>
       </div>
     </DefaultLayout>

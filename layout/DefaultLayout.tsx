@@ -22,7 +22,7 @@ export default function DefaultLayout({
         )}
       </Head>
       <Header />
-      <main>{children}</main>
+      <main className="mt-20">{children}</main>
       <Footer />
     </>
   );

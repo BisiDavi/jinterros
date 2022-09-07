@@ -23,7 +23,7 @@ export default function Cocktails() {
         <div className="cocktail-images container mx-auto">
           <div className="grid grid-cols-3 gap-5 my-10">
             {allCocktailContent.map((item) => (
-              <CocktailItemView key={item.img} item={item} />
+              <CocktailItemView key={item.img} item={item} link />
             ))}
           </div>
         </div>
