@@ -8,7 +8,7 @@
     "right": [
       { "text": "SHOP ", "link": "/shop" },
       { "text": "EXPERIENCE ", "link": "/experience" },
-      { "text": "CONTACT US ", "link": "/contact us" }
+      { "text": "CONTACT US ", "link": "/contact-us" }
     ]
   },
   "footer": [

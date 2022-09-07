@@ -16,7 +16,7 @@ export default function OurStory() {
           layout="responsive"
           className="mt-20"
         />
-        <section className="content w-full mt-40">
+        <section className="content w-full mt-32">
           <div className="layer w-full">
             <div className="text-content w-2/3 mx-auto my-26">
               {storyContent.map((item) => (

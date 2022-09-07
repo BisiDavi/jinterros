@@ -2,6 +2,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+* {
+  font-family: "Ubuntu", sans-serif;
+}
+
 .text-dark-brown {
   color: #bd6a2c;
 }
