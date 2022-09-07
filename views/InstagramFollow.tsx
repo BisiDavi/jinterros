@@ -13,7 +13,16 @@ export default function InstagramFollow() {
       </p>
       <div className="image-grid grid grid-cols-3 gap-6">
         {instagramPictures.map((item) => (
-          <Image key={item} src={item} alt={item} height={400} width={400} />
+          <Image
+            key={item}
+            src={item}
+            alt={item}
+            height={400}
+            width={400}
+            data-aos="zoom-in-down"
+            data-aos-easing="linear"
+            data-aos-duration="1000"
+          />
         ))}
       </div>
     </section>
