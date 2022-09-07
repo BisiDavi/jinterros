@@ -3,10 +3,10 @@ import Logo from "@/components/Logo";
 
 export default function Header() {
   return (
-    <header className="bg-white w-full shadow">
+    <header className="bg-white w-full shadow-2xl fixed top-0 z-50">
       <div className="container mx-auto flex h-20 items-center justify-between relative">
         <HeaderLinks section="left" />
-        <div className="w-52 mt-36 z-50">
+        <div className="w-40 mt-24 z-50">
           <Logo />
         </div>
         <HeaderLinks section="right" />

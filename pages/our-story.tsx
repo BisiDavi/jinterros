@@ -7,7 +7,7 @@ import Button from "@/components/button";
 export default function OurStory() {
   return (
     <DefaultLayout title="Our Story">
-      <div className="content">
+      <div className="content mb-24">
         <Image
           src="/our-story-banner.webp"
           alt="Our Story"
@@ -16,7 +16,7 @@ export default function OurStory() {
           layout="responsive"
           className="mt-20"
         />
-        <section className="content w-full">
+        <section className="content w-full mt-40">
           <div className="layer w-full">
             <div className="text-content w-2/3 mx-auto my-26">
               {storyContent.map((item) => (
@@ -43,7 +43,8 @@ export default function OurStory() {
         </div>
         <Button
           text="SHOP NOW"
-          className="bg-dark-brown hover:opacity-80 mx-auto py-3 px-16 flex my-10 text-white font-bold text-xl"
+          className="bg-dark-brown hover:opacity-80 mx-auto py-3 px-16 flex my-10 text-white font-bold text-xl w-1/5 justify-center"
+          href="/shop"
         />
       </div>
     </DefaultLayout>
