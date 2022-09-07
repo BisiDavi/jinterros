@@ -38,29 +38,15 @@ export default function CocktailPage() {
           <div className="title">
             <h4>{mainContent.title}</h4>
           </div>
-          <div className="mx-auto w-3/4">
-            <div className="content">
-              <CocktailList
-                type="ingredient"
-                listArray={mainContent.ingredients}
-              />
-              <CocktailList
-                type="ingredient"
-                listArray={mainContent.instructions}
-              />
-              <h6>Ingredients:</h6>
-              <ul>
-                {mainContent.ingredients.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-              <h6>Instructions:</h6>
-              <ul>
-                {mainContent.instructions.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
+          <div className="ingredients mx-auto w-3/4">
+            <CocktailList
+              type="ingredient"
+              listArray={mainContent.ingredients}
+            />
+            <CocktailList
+              type="instruction"
+              listArray={mainContent.instructions}
+            />
           </div>
         </div>
         <div className="cocktail-images w-3/4 mx-auto">
