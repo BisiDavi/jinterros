@@ -2,24 +2,14 @@ import Image from "next/image";
 
 import cocktailcontent from "@/json/cocktail.json";
 import Button from "@/components/button";
+import CocktailItemView from "@/views/CocktailItemView";
 
 export default function CocktailView() {
   return (
     <section className="w-full mt-40 mb-20">
       <div className="cocktail-group grid grid-cols-3 gap-7">
         {cocktailcontent.map((item) => (
-          <div key={item.img} className="cocktail">
-            <Image
-              src={item.img}
-              alt={item.text}
-              height={850}
-              width={870}
-              layout="responsive"
-            />
-            <div className="text-view h-16 bg-dark-brown w-full flex items-center justify-center">
-              <p className="text-white text-center text-xl">{item.text}</p>
-            </div>
-          </div>
+          <CocktailItemView key={item.img} item={item} />
         ))}
       </div>
       <Button
