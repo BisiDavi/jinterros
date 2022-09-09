@@ -57,7 +57,7 @@ export default function CocktailPage() {
           </h3>
           <div className="grid grid-cols-3 gap-5 my-10">
             {otherCocktails.map((item) => (
-              <CocktailItemView key={item.img} item={item} link />
+              <CocktailItemView key={item.img} item={item} />
             ))}
           </div>
         </div>
