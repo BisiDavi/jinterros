@@ -1,14 +1,50 @@
-import DefaultLayout from "@/layout/DefaultLayout";
+import Image from "next/image";
 
-export default function shop() {
+import DefaultLayout from "@/layout/DefaultLayout";
+import shop from "@/json/shop.json";
+import Button from "@/components/button";
+import AddToCartIcon from "@/public/icons/AddToCartIcon";
+
+export default function ShopPage() {
   return (
     <DefaultLayout title="Shop">
-      <div className="content mt-52">
-        <h4 className="text-center text-xl font-bold">
+      <div className="content mt-60">
+        <h4 className="text-center text-xl font-bold my-4">
           “A party is best enjoyed with a circle of friends and a bottle of
           rum.”
         </h4>
-        <div className="shop-view"></div>
+        <div className="shop-view bg-orange flex p-20 h-800 mb-20">
+          <div className="w-1/2 relative">
+            <div className="image-wrapper mx-auto flex justify-center mt0">
+              <Image
+                src="/rum-bottle.webp"
+                alt="jinterros"
+                title="jinterros"
+                height={800}
+                width={300}
+                // layout="responsive"
+              />
+            </div>
+          </div>
+          <div className="w-1/2 text-xl font-bold">
+            <h6 className="text-white mb-10 w-3/4 mt-20 ">
+              {shop.description}
+            </h6>
+            <ul>
+              {shop.others.map((other) => (
+                <li key={other.value} className="text-white my-2">
+                  <span className="mr-1">{other.text}</span>
+                  {other.value}
+                </li>
+              ))}
+            </ul>
+            <Button
+              icon={<AddToCartIcon className="mr-6" />}
+              text="$40.00"
+              className="flex items-center bg-rum-brown w-2/5 font-bold hover:opacity-80 justify-center py-1 text-white text-3xl mt-20"
+            />
+          </div>
+        </div>
       </div>
     </DefaultLayout>
   );

@@ -30,6 +30,14 @@
   background-color: #bd6a2c;
 }
 
+.bg-orange {
+  background-color: #f5ae30;
+}
+
+.bg-rum-brown {
+  background-color: #cf712b;
+}
+
 .border-brown-light {
   border-color: #e49b3a;
 }
@@ -66,4 +74,8 @@
 .image-grid img:hover {
   transform: scale(1.1) !important;
   transition: 0.5s;
+}
+
+.h-800 {
+  height: 800px;
 }
