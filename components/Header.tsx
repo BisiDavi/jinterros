@@ -5,8 +5,10 @@ import UserIcon from "@/public/icons/UserIcon";
 import Dropdown from "@/components/Dropdown";
 import dropdown from "@/json/dropdown.json";
 import Button from "@/components/button";
+import { useAppSelector } from "@/hooks/useRedux";
 
 export default function Header() {
+  const { cart } = useAppSelector((state) => state.cart);
   return (
     <header className="bg-white w-full shadow-2xl fixed top-0 z-50">
       <div className="container mx-auto flex h-20 items-center justify-between relative">
@@ -18,7 +20,10 @@ export default function Header() {
         <Dropdown options={dropdown.header}>
           <UserIcon />
         </Dropdown>
-        <Button href="/cart" icon={<CartIcon />} />
+        <div className="cart-icon flex items-start">
+          <Button href="/cart" icon={<CartIcon />} />
+          <span className="text-rum-dark-brown font-bold ml-1">{cart}</span>
+        </div>
       </div>
     </header>
   );

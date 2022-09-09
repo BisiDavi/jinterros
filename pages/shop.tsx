@@ -1,11 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import DefaultLayout from "@/layout/DefaultLayout";
 import shop from "@/json/shop.json";
 import Button from "@/components/button";
+import { useAppDispatch } from "@/hooks/useRedux";
+import { updateCart } from "@/redux/cart-slice";
 
 export default function ShopPage() {
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+
+  function addToCart() {
+    dispatch(updateCart("inc"));
+    router.push("/cart");
+  }
   return (
     <DefaultLayout title="Shop">
       <div className="content mt-60">
@@ -42,6 +52,7 @@ export default function ShopPage() {
                 <img src="/cartIcon.webp" alt="cart-icon" className="mr-6" />
               }
               text="$40.00"
+              onClick={addToCart}
               className="flex items-center bg-rum-brown w-2/5 font-bold hover:opacity-80 justify-center py-1 text-white text-3xl mt-20"
             />
           </div>

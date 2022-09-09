@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import Button from "@/components/button";
+import { useAppSelector } from "@/hooks/useRedux";
 import DefaultLayout from "@/layout/DefaultLayout";
 
 export default function Cart() {
+  const { cart } = useAppSelector((state) => state.cart);
   return (
     <DefaultLayout title="Cart">
       <section className="cart container w-4/5 mx-auto flex my-52">
