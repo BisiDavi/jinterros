@@ -1,14 +1,41 @@
+/* eslint-disable @next/next/no-img-element */
+import Button from "@/components/button";
 import DefaultLayout from "@/layout/DefaultLayout";
 
 export default function Cart() {
   return (
     <DefaultLayout title="Cart">
-      <div className="cart">
-        <div className="w-3/4">
-
+      <section className="cart container w-4/5 mx-auto my-52">
+        <div className="w-3/4 shadow">
+          <h4 className="text-xl py-1 ml-4">Cart(1)</h4>
+          <hr />
+          <div className="view  w-4/5 flex mx-auto my-6 items-center justify-center ">
+            <img src="/rum-bottle-2.webp" alt="jinterros" title="jinterros" />
+            <div className="text-content w-3/5">
+              <h2 className="font-bold text-3xl text-orange my-2">
+                Bottle of Rum
+              </h2>
+              <p className="w">Your order will be delivered for free</p>
+              <p className="">(Within Texas, excluding large items)</p>
+            </div>
+            <div className="controls w-2/5">
+              <h6 className="price text-xl font-bold text-center">$40</h6>
+              <div className="row flex items-center justify-between mt-6">
+                <Button
+                  className="bg-rum-light-brown h-6 flex text-white items-center justify-center text-4xl w-10"
+                  text="-"
+                />{" "}
+                <span className="font-bold text-2xl">1</span>{" "}
+                <Button
+                  className="bg-rum-brown h-6 flex items-center text-white justify-center text-3xl w-10"
+                  text="+"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="w-1/4"></div>
-      </div>
+        <div className="w-1/4 shadow"></div>
+      </section>
     </DefaultLayout>
   );
 }

@@ -12,6 +12,7 @@ export default function HomepageBanner() {
               <h1 className="text-8xl font-bold my-4">JINTERROS</h1>
               <p className="text-3xl my-2">Rum with Natural Flavours</p>
               <Button
+                href="/shop"
                 className="bg-dark-brown hover:opacity-80 px-8 py-4 flex justify-center w-2/3 my-6 font-bold"
                 text="ORDER NOW"
               />

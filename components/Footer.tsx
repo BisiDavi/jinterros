@@ -67,7 +67,7 @@ export default function Footer() {
               </ul>
               <FooterForm />
               <div className="payment mt-12">
-                <h5 className="font-medium text-xl">WE ACCEPT</h5>
+                <h5 className="font-medium">WE ACCEPT</h5>
                 <ul className="flex items-center my-2">
                   {links.paymentGateway.map((linkItem) => (
                     <li key={linkItem} className="mr-4">
