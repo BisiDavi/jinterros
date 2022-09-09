@@ -76,11 +76,11 @@ export default function Policies() {
           <div className="buttonGroup flex justify-between my-4 h-16  pt-12 border-t items-center">
             <Button
               text="Confirm Choices"
-              className="bg-leaf-green px-6 py-2 text-white font-bold h-12 w-1/4 hover:opacity-80"
+              className="bg-leaf-green px-6 py-2 text-white font-bold h-12 w-1/4 hover:opacity-80 flex items-center justify-center"
             />
             <Button
               text="Allow All"
-              className="bg-leaf-green px-6 py-2 text-white font-bold h-12 w-1/4 hover:opacity-80"
+              className="bg-leaf-green flex items-center justify-center px-6 py-2 text-white font-bold h-12 w-1/4 hover:opacity-80"
               href="/"
             />
           </div>
