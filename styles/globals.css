@@ -79,3 +79,9 @@
 .h-800 {
   height: 800px;
 }
+
+.shop-background-image {
+  background-image: url("/jinterros-rum.webp"), url("/flower-2.webp");
+  background-position: bottom, right;
+  background-repeat: no-repeat, no-repeat;
+}

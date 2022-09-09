@@ -13,7 +13,7 @@ export default function ShopPage() {
           “A party is best enjoyed with a circle of friends and a bottle of
           rum.”
         </h4>
-        <div className="shop-view bg-orange flex p-20 h-800 mb-20">
+        <div className="shop-view bg-orange flex p-20 h-800 mb-40 shop-background-image w-screen">
           <div className="w-1/2 relative">
             <div className="image-wrapper mx-auto flex justify-center mt0">
               <Image
