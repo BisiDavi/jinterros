@@ -1,5 +1,7 @@
 import HeaderLinks from "@/components/HeaderLinks";
 import Logo from "@/components/Logo";
+import CartIcon from "@/public/icons/CartIcon";
+import UserIcon from "@/public/icons/UserIcon";
 
 export default function Header() {
   return (
@@ -10,6 +12,8 @@ export default function Header() {
           <Logo />
         </div>
         <HeaderLinks section="right" />
+        <UserIcon />
+        <CartIcon />
       </div>
     </header>
   );
