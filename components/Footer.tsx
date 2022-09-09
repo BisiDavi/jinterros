@@ -17,8 +17,8 @@ export default function Footer() {
                     <h5 className="text-lg font-medium mb-3">
                       {footerItem.title}
                     </h5>
-                    {footerItem.group.map((groupItem) => (
-                      <li key={groupItem.link} className="my-2">
+                    {footerItem.group.map((groupItem, index) => (
+                      <li key={`${groupItem.link}-${index}`} className="my-2">
                         <Link href={groupItem.link}>
                           <a className="font-light">{groupItem.text}</a>
                         </Link>
@@ -34,7 +34,7 @@ export default function Footer() {
                     const showBorder =
                       Number(links.others.length - 1) !== index ? "|" : "";
                     return (
-                      <li key={linkItem.link}>
+                      <li key={`${linkItem.link}-${index}`}>
                         <Link href={linkItem.link}>
                           <>
                             <a className="underline hover:text-red-500 text-xs">
@@ -69,8 +69,8 @@ export default function Footer() {
               <div className="payment mt-12">
                 <h5 className="font-medium">WE ACCEPT</h5>
                 <ul className="flex items-center my-2">
-                  {links.paymentGateway.map((linkItem) => (
-                    <li key={linkItem} className="mr-4">
+                  {links.paymentGateway.map((linkItem, index) => (
+                    <li key={`${linkItem}-${index}`} className="mr-4">
                       <img src={linkItem} alt="payment gateway" />
                     </li>
                   ))}
