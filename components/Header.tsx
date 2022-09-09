@@ -4,6 +4,7 @@ import CartIcon from "@/public/icons/CartIcon";
 import UserIcon from "@/public/icons/UserIcon";
 import Dropdown from "@/components/Dropdown";
 import dropdown from "@/json/dropdown.json";
+import Button from "@/components/button";
 
 export default function Header() {
   return (
@@ -17,7 +18,7 @@ export default function Header() {
         <Dropdown options={dropdown.header}>
           <UserIcon />
         </Dropdown>
-        <CartIcon />
+        <Button href="/cart" icon={<CartIcon />} />
       </div>
     </header>
   );
