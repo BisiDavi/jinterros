@@ -3,4 +3,5 @@ export type InputType = {
   placeholder: string;
   className: string;
   elementType: string;
+  name: string;
 };

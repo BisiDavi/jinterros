@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import links from "@/json/links.json";
 import FooterForm from "./form/FooterForm";
-import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -72,12 +71,7 @@ export default function Footer() {
                 <ul className="flex items-center my-2">
                   {links.paymentGateway.map((linkItem) => (
                     <li key={linkItem} className="mr-4">
-                      <img
-                        src={linkItem}
-                        alt="payment gateway"
-                        height="40px"
-                        width="80px"
-                      />
+                      <img src={linkItem} alt="payment gateway" />
                     </li>
                   ))}
                 </ul>
