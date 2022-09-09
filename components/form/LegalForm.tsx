@@ -1,22 +1,39 @@
 import Image from "next/image";
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useEffect } from "react";
 
 import Button from "@/components/button";
 import { legalSchema } from "./schema/legalformSchema";
+import { useAppDispatch } from "@/hooks/useRedux";
+import { updateBirthYear } from "@/redux/birth-year-slice";
 
 export default function LegalForm() {
+  const dispatch = useAppDispatch();
   const methods = useForm({
     resolver: yupResolver(legalSchema),
     mode: "all",
   });
   const {
     register,
+    watch,
     formState: { errors },
   }: any = methods;
+
+  const birthYear = watch("birthYear");
+
+  useEffect(() => {
+    if (birthYear?.length === 4) {
+      dispatch(updateBirthYear(birthYear));
+    }
+  }, [birthYear]);
+
   return (
     <FormProvider {...methods}>
-      <form className="bg-white rounded-2xl relative px-8 w-full py-3 mt-20">
+      <form
+        className="bg-white rounded-2xl relative px-8 w-full py-3 mt-20"
+        onSubmit={methods.handleSubmit((value) => console.log("value", value))}
+      >
         <div className="image-wrapper flex mx-auto items-center justify-center -mt-20">
           <Image src="/logo-small.webp" alt="logo" height={150} width={150} />
         </div>
@@ -30,7 +47,7 @@ export default function LegalForm() {
           {...register("birthYear")}
         />
         {errors?.birthYear && (
-          <p className="text-red-500 text-center">
+          <p className="text-red-500 text-center -mt-3">
             {errors?.birthYear?.message}
           </p>
         )}

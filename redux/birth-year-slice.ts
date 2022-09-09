@@ -9,11 +9,11 @@ const birthYearSlice = createSlice({
   name: "UI",
   initialState,
   reducers: {
-    updateAge(state, action: PayloadAction<string>) {
+    updateBirthYear(state, action: PayloadAction<string>) {
       state.year = action.payload;
     },
   },
 });
 
-export const { updateAge } = birthYearSlice.actions;
+export const { updateBirthYear } = birthYearSlice.actions;
 export default birthYearSlice.reducer;
