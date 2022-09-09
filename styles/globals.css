@@ -125,3 +125,13 @@
   background-position: bottom, right;
   background-repeat: no-repeat, no-repeat;
 }
+
+.learnmore {
+  background-image: url("/learn-more-bg.webp");
+}
+
+.main {
+  background-image: url("/coconut.webp"), url("/flower-2.webp");
+  background-position: left, right;
+  background-repeat: no-repeat, no-repeat;
+}
