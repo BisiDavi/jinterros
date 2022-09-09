@@ -18,8 +18,8 @@
   [
     {
       "type": "text",
-      "name": "lastName",
-      "placeholder": "Last Name",
+      "name": "address1",
+      "placeholder": "Address Line 1",
       "elementType": "input",
       "className": "input-border-lighter"
     }
@@ -27,8 +27,8 @@
   [
     {
       "type": "text",
-      "name": "lastName",
-      "placeholder": "Last Name",
+      "name": "address2",
+      "placeholder": "Address Line 2 (Optional)",
       "elementType": "input",
       "className": "input-border-lighter"
     }
@@ -36,15 +36,15 @@
   [
     {
       "type": "text",
-      "name": "firstName",
+      "name": "city",
       "elementType": "input",
-      "placeholder": "First Name",
+      "placeholder": "City",
       "className": "input-border-lighter"
     },
     {
       "type": "text",
-      "name": "lastName",
-      "placeholder": "Last Name",
+      "name": "state",
+      "placeholder": "State",
       "elementType": "input",
       "className": "input-border-lighter"
     }
@@ -52,15 +52,15 @@
   [
     {
       "type": "text",
-      "name": "firstName",
+      "name": "phoneNumber",
       "elementType": "input",
-      "placeholder": "First Name",
+      "placeholder": "Phone Number",
       "className": "input-border-lighter"
     },
     {
-      "type": "text",
-      "name": "lastName",
-      "placeholder": "Last Name",
+      "type": "email",
+      "name": "email",
+      "placeholder": "Email Address",
       "elementType": "input",
       "className": "input-border-lighter"
     }
