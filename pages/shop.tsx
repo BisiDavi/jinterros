@@ -1,9 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 
 import DefaultLayout from "@/layout/DefaultLayout";
 import shop from "@/json/shop.json";
 import Button from "@/components/button";
-import AddToCartIcon from "@/public/icons/AddToCartIcon";
 
 export default function ShopPage() {
   return (
@@ -22,7 +22,6 @@ export default function ShopPage() {
                 title="jinterros"
                 height={800}
                 width={300}
-                // layout="responsive"
               />
             </div>
           </div>
@@ -39,7 +38,9 @@ export default function ShopPage() {
               ))}
             </ul>
             <Button
-              icon={<AddToCartIcon className="mr-6" />}
+              icon={
+                <img src="/cartIcon.webp" alt="cart-icon" className="mr-6" />
+              }
               text="$40.00"
               className="flex items-center bg-rum-brown w-2/5 font-bold hover:opacity-80 justify-center py-1 text-white text-3xl mt-20"
             />
