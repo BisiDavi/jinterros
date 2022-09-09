@@ -1,0 +1,68 @@
+[
+  [
+    {
+      "type": "text",
+      "name": "firstName",
+      "elementType": "input",
+      "placeholder": "First Name",
+      "className": "input-border-lighter"
+    },
+    {
+      "type": "text",
+      "name": "lastName",
+      "placeholder": "Last Name",
+      "elementType": "input",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "name": "lastName",
+      "placeholder": "Last Name",
+      "elementType": "input",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "name": "lastName",
+      "placeholder": "Last Name",
+      "elementType": "input",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "name": "firstName",
+      "elementType": "input",
+      "placeholder": "First Name",
+      "className": "input-border-lighter"
+    },
+    {
+      "type": "text",
+      "name": "lastName",
+      "placeholder": "Last Name",
+      "elementType": "input",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "name": "firstName",
+      "elementType": "input",
+      "placeholder": "First Name",
+      "className": "input-border-lighter"
+    },
+    {
+      "type": "text",
+      "name": "lastName",
+      "placeholder": "Last Name",
+      "elementType": "input",
+      "className": "input-border-lighter"
+    }
+  ]
+]

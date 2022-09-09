@@ -54,6 +54,10 @@
   border: 1px solid #f5ae30;
 }
 
+.input-border-lighter {
+  border: 1px solid #f5ae3080;
+}
+
 .bottom-border-orange {
   border-bottom: 1px solid #f5ae30;
 }

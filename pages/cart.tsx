@@ -49,6 +49,7 @@ export default function Cart() {
           <Button
             text="CHECKOUT"
             className="bg-rum-brown w-3/4 mx-auto my-10  flex items-center justify-center font-bold hover:opacity-80 h-10 text-white"
+            href="/checkout"
           />
         </div>
       </section>
