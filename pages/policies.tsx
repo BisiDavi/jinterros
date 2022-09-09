@@ -81,6 +81,7 @@ export default function Policies() {
             <Button
               text="Allow All"
               className="bg-leaf-green px-6 py-2 text-white font-bold h-12 w-1/4 hover:opacity-80"
+              href="/"
             />
           </div>
         </div>

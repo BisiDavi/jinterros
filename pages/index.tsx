@@ -1,3 +1,4 @@
+import type { GetServerSidePropsContext } from "next";
 import type { NextPage } from "next";
 
 import HomepageBanner from "@/components/banner/HomepageBanner";
@@ -16,5 +17,22 @@ const Home: NextPage = () => {
     </DefaultLayout>
   );
 };
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const { req } = context;
+
+  if (!req.cookies?.birthYear) {
+    return {
+      redirect: {
+        destination: "/legal-form",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+}
 
 export default Home;

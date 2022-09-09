@@ -1,15 +1,24 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Image from "next/image";
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
+import { useCookies } from "react-cookie";
 
 import Button from "@/components/button";
-import { legalSchema } from "./schema/legalformSchema";
-import { useAppDispatch } from "@/hooks/useRedux";
+import { legalSchema } from "@/components/form/schema/legalformSchema";
+import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { updateBirthYear } from "@/redux/birth-year-slice";
 
 export default function LegalForm() {
   const dispatch = useAppDispatch();
+  const { year } = useAppSelector((state) => state.birth);
+  const [, setCookie] = useCookies(["birthYear"]);
+
+  const currentYear = new Date().getFullYear();
+  const userAge = currentYear - Number(year);
+  const validAge = userAge >= 18;
+
   const methods = useForm({
     resolver: yupResolver(legalSchema),
     mode: "all",
@@ -28,6 +37,15 @@ export default function LegalForm() {
     }
   }, [birthYear]);
 
+  useEffect(() => {
+    if (validAge) {
+      setCookie("birthYear", JSON.stringify(userAge), {
+        path: "/",
+        sameSite: true,
+      });
+    }
+  }, [validAge]);
+
   return (
     <FormProvider {...methods}>
       <form
@@ -43,6 +61,7 @@ export default function LegalForm() {
         <input
           placeholder="YYYY"
           max="3"
+          defaultValue={year}
           className="text-7xl px-2 w-1/4 mx-auto justify-center flex my-4"
           {...register("birthYear")}
         />
@@ -62,16 +81,20 @@ export default function LegalForm() {
           <span className="font-medium">Custom Cookie</span> / Accept All
           Cookies
         </p>
-        <div className="button-group flex items-center my-8">
-          <Button
-            text="MANAGE"
-            className="border border-brown-light bg-dark-brown-hover hover:text-white px-20 py-4 flex mx-auto"
-          />
-          <Button
-            text="AGREE"
-            className="border hover:opacity-50 bg-dark-brown text-white px-20 py-4 flex mx-auto"
-          />
-        </div>
+        {validAge && (
+          <div className="button-group flex items-center my-8">
+            <Button
+              text="MANAGE"
+              className="border border-brown-light bg-dark-brown-hover hover:text-white px-20 py-4 flex mx-auto"
+              href="/policies"
+            />
+            <Button
+              text="AGREE"
+              className="border hover:opacity-50 bg-dark-brown text-white px-20 py-4 flex mx-auto"
+              href="/"
+            />
+          </div>
+        )}
       </form>
     </FormProvider>
   );
