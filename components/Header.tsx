@@ -2,6 +2,8 @@ import HeaderLinks from "@/components/HeaderLinks";
 import Logo from "@/components/Logo";
 import CartIcon from "@/public/icons/CartIcon";
 import UserIcon from "@/public/icons/UserIcon";
+import Dropdown from "@/components/Dropdown";
+import dropdown from "@/json/dropdown.json";
 
 export default function Header() {
   return (
@@ -12,7 +14,9 @@ export default function Header() {
           <Logo />
         </div>
         <HeaderLinks section="right" />
-        <UserIcon />
+        <Dropdown options={dropdown.header}>
+          <UserIcon />
+        </Dropdown>
         <CartIcon />
       </div>
     </header>

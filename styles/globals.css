@@ -34,6 +34,10 @@
   background-color: #f5ae30;
 }
 
+.bottom-border-orange {
+  border-bottom: 1px solid #f5ae30;
+}
+
 .bg-rum-brown {
   background-color: #cf712b;
 }
