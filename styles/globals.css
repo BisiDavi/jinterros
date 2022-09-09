@@ -18,6 +18,10 @@
   background-color: rgba(223, 149, 55, 0.36);
 }
 
+.grayish {
+  color: #bebbbb;
+}
+
 .bg-carton-brown-hover:hover {
   background-color: rgba(223, 149, 55, 0.36);
 }
@@ -37,7 +41,6 @@
 .text-orange {
   color: #f5ae30;
 }
-
 
 .input-border-dark {
   border: 1px solid #65361080;
