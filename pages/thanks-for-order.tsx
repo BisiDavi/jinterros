@@ -19,9 +19,10 @@ export default function Thanks4OrderPage() {
           <Button
             text="Track Order"
             className="bg-dark-brown text-white mx-auto hover:opacity-80 px-8 py-4 flex justify-center w-full  my-6 font-bold"
+            href="/order-progress"
           />
         </div>
       </section>
-    </DefaultLayout>
+    </DefaultLayout>      
   );
 }
