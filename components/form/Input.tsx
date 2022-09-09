@@ -1,14 +1,17 @@
+import { InputType } from "@/types/form-types";
+
 interface Props {
-  input: {
-    type: string;
-    placeholder: string;
-  };
+  input: InputType;
 }
 
 export default function Input({ input }: Props) {
   return (
     <div>
-      <input className="" type={input.type} placeholder={input.placeholder} />
+      <input
+        className={`${input.className} h-12 w-1/2`}
+        type={input.type}
+        placeholder={input.placeholder}
+      />
     </div>
   );
 }
