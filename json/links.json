@@ -7,7 +7,7 @@
     ],
     "right": [
       { "text": "SHOP ", "link": "/shop" },
-      { "text": "EXPERIENCE ", "link": "/experience" },
+      { "text": "EXPERIENCE ", "link": "/policies" },
       { "text": "CONTACT US ", "link": "/contact-us" }
     ]
   },
@@ -16,14 +16,14 @@
       "title": "COMPANY INFO",
       "group": [
         { "text": "About Jinterros", "link": "/our-story" },
-        { "text": "Experience", "link": "/experience" },
+        { "text": "Experience", "link": "/policies" },
         { "text": "History", "link": "/history" }
       ]
     },
     {
       "title": "HELP & SUPPORT",
       "group": [
-        { "text": "Shipping Info", "link": "/shipping-info" },
+        { "text": "Shipping Info", "link": "/policies" },
         { "text": "Cocktails Guide", "link": "/cocktails" }
       ]
     },
@@ -31,7 +31,7 @@
       "title": "CUSTOMER CARE",
       "group": [
         { "text": "Contact Us", "link": "/contact-us" },
-        { "text": "Payment", "link": "/payment" }
+        { "text": "Payment", "link": "/contact-us" }
       ]
     }
   ],
@@ -41,23 +41,19 @@
     { "text": "Facebook", "link": "" }
   ],
   "others": [
-    { "text": "Privacy", "link": "/privacy" },
+    { "text": "Privacy", "link": "/privacy-and-conditions" },
     {
       "text": "Center Privacy & Cookie Policy Manage",
-      "link": "/center-privacy-and-cookie-policy-manage"
+      "link": "/policies"
     },
     {
       "text": "Cookies Terms & Conditions",
-      "link": "/cookies-terms-and-conditions"
+      "link": "/privacy-and-conditions"
     },
     {
       "text": "Copyright Notice",
-      "link": "/copyright-notice"
-    },
-    {
-      "text": "Imprint",
-      "link": "/imprint"
+      "link": "/policies"
     }
   ],
-  "paymentGateway":["/paypal.webp", "/visa.webp", "/mastercard.webp"]
+  "paymentGateway": ["/paypal.webp", "/visa.webp", "/mastercard.webp"]
 }

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
 
 import Button from "@/components/button";
 import FormLayout from "@/layout/FormLayout";

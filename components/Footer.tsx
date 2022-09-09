@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 import links from "@/json/links.json";
-import FooterForm from "./form/FooterForm";
+import FooterForm from "@/components/form/FooterForm";
 
 export default function Footer() {
   return (
