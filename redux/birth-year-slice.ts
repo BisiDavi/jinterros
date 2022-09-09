@@ -5,7 +5,7 @@ const initialState = {
   year: "",
 };
 
-const AgeSlice = createSlice({
+const birthYearSlice = createSlice({
   name: "UI",
   initialState,
   reducers: {
@@ -15,5 +15,5 @@ const AgeSlice = createSlice({
   },
 });
 
-export const { updateAge } = AgeSlice.actions;
-export default AgeSlice.reducer;
+export const { updateAge } = birthYearSlice.actions;
+export default birthYearSlice.reducer;
