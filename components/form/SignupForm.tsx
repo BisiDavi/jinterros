@@ -2,6 +2,8 @@ import { Fragment } from "react";
 
 import formElements from "@/json/auth.json";
 import displayForm from "@/components/form/displayForm";
+import Button from "@/components/button";
+
 export default function SignupForm() {
   return (
     <div className="w-1/2 mx-auto border-l">
@@ -14,6 +16,10 @@ export default function SignupForm() {
             {displayForm(formElement)}
           </Fragment>
         ))}
+        <Button
+          text="Register"
+          className="bg-orange w-full h-12 mt-10 text-white font-bold text-xl hover:opacity-80"
+        />
       </form>
     </div>
   );

@@ -38,6 +38,10 @@
   background-color: #f5ae30;
 }
 
+.bg-orange-hover:hover {
+  background-color: #f5ae30;
+}
+
 .text-orange {
   color: #f5ae30;
 }
