@@ -1,15 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import Button from "@/components/button";
-import { useAppSelector } from "@/hooks/useRedux";
+import useCart from "@/hooks/useCart";
 import DefaultLayout from "@/layout/DefaultLayout";
 
 export default function Cart() {
-  const { cart } = useAppSelector((state) => state.cart);
+  const { cart, updateCartHandler } = useCart();
+  const amount = 40 * cart;
   return (
     <DefaultLayout title="Cart">
       <section className="cart container w-4/5 mx-auto flex my-52">
         <div className="w-4/5 shadow-lg">
-          <h4 className="text-xl py-1 ml-4">Cart(1)</h4>
+          <h4 className="text-xl py-1 ml-4">Cart({cart})</h4>
           <hr />
           <div className="view  w-4/5 flex mx-auto my-6 items-center justify-center ">
             <img src="/rum-bottle-2.webp" alt="jinterros" title="jinterros" />
@@ -26,11 +27,13 @@ export default function Cart() {
                 <Button
                   className="bg-rum-light-brown h-6 flex text-white items-center justify-center text-4xl w-10 hover:opacity-80"
                   text="-"
+                  onClick={() => updateCartHandler("dec")}
                 />{" "}
-                <span className="font-bold text-2xl">1</span>{" "}
+                <span className="font-bold text-2xl">{cart}</span>{" "}
                 <Button
                   className="bg-rum-brown h-6 flex items-center text-white justify-center text-3xl w-10 hover:opacity-80"
                   text="+"
+                  onClick={() => updateCartHandler("inc")}
                 />
               </div>
             </div>
@@ -44,7 +47,9 @@ export default function Cart() {
               <h3 className="text-2xl font-bold">Subtotal</h3>
               <p className="text-sm">Delivery fees not included yet.</p>
             </div>
-            <p className="text-xl font-bold">$40</p>
+            <p className="text-lg font-bold">
+              $40 * {cart} = ${amount.toFixed(2)}
+            </p>
           </div>
           <hr />
 

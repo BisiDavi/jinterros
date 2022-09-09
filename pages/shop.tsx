@@ -5,15 +5,15 @@ import { useRouter } from "next/router";
 import DefaultLayout from "@/layout/DefaultLayout";
 import shop from "@/json/shop.json";
 import Button from "@/components/button";
-import { useAppDispatch } from "@/hooks/useRedux";
-import { updateCart } from "@/redux/cart-slice";
+import useCart from "@/hooks/useCart";
 
 export default function ShopPage() {
-  const dispatch = useAppDispatch();
+  const { updateCartHandler } = useCart();
+
   const router = useRouter();
 
   function addToCart() {
-    dispatch(updateCart("inc"));
+    updateCartHandler("inc");
     router.push("/cart");
   }
   return (

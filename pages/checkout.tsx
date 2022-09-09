@@ -1,11 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
-import DefaultLayout from "@/layout/DefaultLayout";
+import Link from "next/link";
 
+import DefaultLayout from "@/layout/DefaultLayout";
 import checkoutForm from "@/json/checkout-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
+import useCart from "@/hooks/useCart";
 
 export default function Checkout() {
+  const { cart } = useCart();
+
+  const cartText = cart > 1 ? "Bottles" : "Bottle";
+
   return (
     <DefaultLayout title="Cart">
       <section className="chekcout my-52 flex items-start container mx-auto">
@@ -40,7 +46,9 @@ export default function Checkout() {
             <div className="row flex items-center w-3/4 justify-between mx-auto">
               <img src="/rum-bottle-2.webp" alt="jinterros" title="jinterros" />
               <div className="text flex flex-col text-xl">
-                <h6 className="text-2xl font-thin">1 Bottle of Rum</h6>
+                <h6 className="text-2xl font-thin">
+                  {cart} {cartText} of Rum
+                </h6>
                 <h4 className="text-rum-brown font-bold">$40</h4>
                 <p className="text-base">
                   Qty:
@@ -64,9 +72,11 @@ export default function Checkout() {
                 <span className="text-rum-brown">$55</span>
               </div>
             </div>
-            <h4 className="text-rum-brown mt-4 text-lg text-center font-bold">
-              MODIFY CART
-            </h4>
+            <Link href="/cart" passHref>
+              <a className="text-rum-brown mt-2 hover:opacity-70 text-lg text-center flex mx-auto justify-center font-bold">
+                MODIFY CART
+              </a>
+            </Link>
           </div>
         </div>
       </section>

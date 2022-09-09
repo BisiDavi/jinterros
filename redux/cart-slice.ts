@@ -12,8 +12,8 @@ const CartSlice = createSlice({
     updateCart(state, action: PayloadAction<"inc" | "dec">) {
       if (action.payload === "inc") {
         state.cart = state.cart + 1;
-      } else if (action.payload === "dec") {
-        state.cart = state.cart + 1;
+      } else if (action.payload === "dec" && state.cart > 0) {
+        state.cart = state.cart - 1;
       }
     },
   },
