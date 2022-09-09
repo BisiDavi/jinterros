@@ -16,9 +16,9 @@ export default function DefaultLayout({
     <>
       <Head>
         {title ? (
-          <title> Jinterros | {title}</title>
+          <title> Jinterros | Rum with Natural Flavours | {title}</title>
         ) : (
-          <title>Welcome to Jinterros</title>
+          <title>Welcome to Jinterros | Rum with Natural Flavours</title>
         )}
       </Head>
       <Header />
@@ -27,4 +27,3 @@ export default function DefaultLayout({
     </>
   );
 }
- 
