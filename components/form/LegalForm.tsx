@@ -17,7 +17,7 @@ export default function LegalForm() {
 
   const currentYear = new Date().getFullYear();
   const userAge = currentYear - Number(year);
-  const validAge = userAge >= 18;
+  const validAge = userAge >= 18 && userAge < 100;
 
   const methods = useForm({
     resolver: yupResolver(legalSchema),
@@ -68,6 +68,11 @@ export default function LegalForm() {
         {errors?.birthYear && (
           <p className="text-red-500 text-center -mt-3">
             {errors?.birthYear?.message}
+          </p>
+        )}
+        {!validAge && (
+          <p className="text-red-500 text-center -mt-3">
+            Please enter a valid year
           </p>
         )}
         <p className="text-center">
