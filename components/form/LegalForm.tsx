@@ -70,9 +70,9 @@ export default function LegalForm() {
             {errors?.birthYear?.message}
           </p>
         )}
-        {!validAge && (
-          <p className="text-red-500 text-center -mt-3">
-            Please enter a valid year
+        {!validAge && year.length >= 4 && (
+          <p className="text-red-500 text-center">
+            Please enter a valid year, you must be above 18 years
           </p>
         )}
         <p className="text-center">
