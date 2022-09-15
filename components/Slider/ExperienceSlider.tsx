@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+
 import "@splidejs/react-splide/css";
 
 const slider = {
@@ -31,14 +33,19 @@ const slider = {
 
 export default function ExperienceSlider() {
   const mobileWidth = useMediaQuery("(max-width:768px)");
+  const sliderArray = mobileWidth ? slider.small : slider.big;
+
   return (
-    <Splide options={{ rewind: true }} aria-label="React Splide Example">
-      <SplideSlide>
-        <img src="image1.jpg" alt="Image 1" />
-      </SplideSlide>
-      <SplideSlide>
-        <img src="image2.jpg" alt="Image 2" />
-      </SplideSlide>
+    <Splide
+      options={{ rewind: true }}
+      aria-label="get to know us"
+        className="mx-auto justify-center flex items-center container my-10"
+    >
+      {sliderArray.map((item) => (
+        <SplideSlide key={item}>
+          <img src={`/slider/${item}`} alt={item} />
+        </SplideSlide>
+      ))}
     </Splide>
   );
 }
