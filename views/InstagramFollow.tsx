@@ -4,14 +4,14 @@ import instagramPictures from "@/json/instagramfollow.json";
 
 export default function InstagramFollow() {
   return (
-    <section className="container mx-auto my-20">
-      <h1 className="text-center text-4xl font-bold my-4">
+    <section className="container mx-auto my-20 px-5 lg:px-0">
+      <h1 className="text-center text-xl lg:text-4xl font-bold lg:my-4">
         FOLLOW JINTERROS ON INSTAGRAM
       </h1>
-      <p className="text-center text-xl my-4">
+      <p className="text-center text-md lg:text-xl mb-4 lg:mb-0 lg:my-4">
         Share your great times with Jinterros
       </p>
-      <div className="image-grid grid grid-cols-3 gap-x-3 gap-y-6">
+      <div className="image-grid grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-6">
         {instagramPictures.map((item) => (
           <Image
             key={item}
