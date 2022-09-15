@@ -37,9 +37,9 @@ export default function ExperienceSlider() {
 
   return (
     <Splide
-      options={{ rewind: true }}
+      options={{ rewind: true, autoplay: true }}
       aria-label="get to know us"
-        className="mx-auto justify-center flex items-center container my-10"
+      className="mx-auto justify-center flex items-center container my-10"
     >
       {sliderArray.map((item) => (
         <SplideSlide key={item}>
