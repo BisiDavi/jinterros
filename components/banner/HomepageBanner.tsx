@@ -26,7 +26,7 @@ export default function HomepageBanner() {
             </div>
           </div>
           <div
-            className="lg:w-2/3 order-1 mx-auto lg:mt-40 block"
+            className="lg:w-2/3 w-full order-1 flex mx-auto lg:mt-40 block"
             data-aos="fade-left"
             data-aos-easing="linear"
             data-aos-duration="500"
@@ -42,6 +42,13 @@ export default function HomepageBanner() {
             background-repeat: no-repeat;
             background-size: cover;
             height: 85vh;
+            width: 100%;
+          }
+          @media (max-width: 768px) {
+            .homepageBanner {
+              height: unset;
+              width: 100%;
+            }
           }
         `}
       </style>

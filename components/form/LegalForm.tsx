@@ -49,20 +49,20 @@ export default function LegalForm() {
   return (
     <FormProvider {...methods}>
       <form
-        className="bg-white rounded-2xl relative px-8 w-full py-3 mt-20"
+        className="bg-white rounded-3xl lg:rounded-2xl relative px-8 w-full py-3 mt-20"
         onSubmit={methods.handleSubmit((value) => console.log("value", value))}
       >
         <div className="image-wrapper flex mx-auto items-center justify-center -mt-20">
           <Image src="/logo-small.webp" alt="logo" height={150} width={150} />
         </div>
-        <h1 className="text-center font-bold text-3xl my-2 mt-4">
+        <h1 className="text-center font-bold text-xl lg:text-3xl my-2 mt-4">
           PLEASE ENTER YOUR YEAR OF BIRTH
         </h1>
         <input
           placeholder="YYYY"
           max="3"
           defaultValue={year}
-          className="text-7xl px-2 w-1/4 mx-auto justify-center flex my-4"
+          className="text-4xl lg:text-7xl px-2 w-2/5  items-center lg:w-1/4 mx-auto justify-center flex my-4"
           {...register("birthYear")}
         />
         {errors?.birthYear && (
@@ -87,15 +87,15 @@ export default function LegalForm() {
           Cookies
         </p>
         {validAge && (
-          <div className="button-group flex items-center my-8">
+          <div className="button-group flex items-center my-8 justify-between px-0">
             <Button
               text="MANAGE"
-              className="border border-brown-light bg-dark-brown-hover hover:text-white px-20 py-4 flex mx-auto"
+              className="border border-brown-light my-2 lg:my-0 bg-dark-brown-hover hover:text-white lg:px-20 px-6 py-2 lg:py-4 flex mx-0 lg:mx-auto"
               href="/policies"
             />
             <Button
               text="AGREE"
-              className="border hover:opacity-50 bg-dark-brown text-white px-20 py-4 flex mx-auto"
+              className="border hover:opacity-50  my-2 lg:my-0 bg-dark-brown text-white lg:px-20 px-6 py-2 lg:py-4 flex mx-0 lg:mx-auto"
               href="/"
             />
           </div>

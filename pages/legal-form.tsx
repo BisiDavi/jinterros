@@ -4,7 +4,7 @@ import LegalForm from "@/components/form/LegalForm";
 export default function LegalFormPage() {
   return (
     <FormLayout>
-      <div className="content ">
+      <div className="content">
         <h4 className="font-bold text-center text-white mt-4">
           YOU MUST BE OF LEGAL AGE FOR PURCHASING <br /> AND CONSUMING ALCOHOL
           TO ENTER THIS SITE

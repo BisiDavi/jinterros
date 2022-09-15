@@ -2,7 +2,7 @@ import Button from "@/components/button";
 
 export default function FooterForm() {
   return (
-    <form className="my-6">
+    <form className="my-6 flex flex-col itemx-center justify-center mx-auto">
       <h3 className="font-medium my-2">SIGN UP FOR JINTERROS NEWSLETTER</h3>
       <div className="form-group my-2">
         <input

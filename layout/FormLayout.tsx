@@ -10,7 +10,7 @@ export default function FormLayout({ children }: PropsWithChildren) {
         </title>
       </Head>
       <section className="h-screen form-layout flex items-center justify-center">
-        <div className="content w-3/5">{children}</div>
+        <div className="content w-5/6 lg:w-3/5">{children}</div>
       </section>
       <style jsx>
         {`
