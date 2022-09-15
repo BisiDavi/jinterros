@@ -3,6 +3,7 @@ import Image from "next/image";
 import cocktailcontent from "@/json/cocktail.json";
 import Button from "@/components/button";
 import CocktailItemView from "@/views/CocktailItemView";
+import CocktailSlider from "@/components/slider/CocktailSlider";
 
 export default function CocktailView() {
   return (
@@ -17,14 +18,7 @@ export default function CocktailView() {
         text="MORE COCKTAILS"
       />
       <div className="image-wrapper mx-auto block w-1/2  justify-center">
-        <Image
-          src="/cocktail.webp"
-          alt="cocktail"
-          height={720}
-          width={700}
-          layout="responsive"
-          className="mx-auto"
-        />
+        <CocktailSlider />
         <p className="text-xl -mt-36 w-2/3 mx-auto text-center">
           Jinterros Rum is a variety of delicious flavors to create unique
           cocktails. Ready to be used directly without pre-mix. All you need is

@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import useMediaQuery from "@/hooks/useMediaQuery";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
+import useMediaQuery from "@/hooks/useMediaQuery";
 import "@splidejs/react-splide/css";
 
 const slider = {
