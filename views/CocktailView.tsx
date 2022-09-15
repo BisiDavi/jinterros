@@ -16,7 +16,7 @@ export default function CocktailView() {
         text="MORE COCKTAILS"
       />
       <CocktailSlider />
-      <p className="text-xl  lg:w-2/5 mx-auto text-center">
+      <p className="text-xl lg:-mt-20  lg:w-2/5 mx-auto text-center">
         Jinterros Rum is a variety of delicious flavors to create unique
         cocktails. Ready to be used directly without pre-mix. All you need is
         ice and the necessary ingredients.
