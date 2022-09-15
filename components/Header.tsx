@@ -2,7 +2,7 @@ import HeaderLinks from "@/components/HeaderLinks";
 import Logo from "@/components/Logo";
 import CartIcon from "@/public/icons/CartIcon";
 import UserIcon from "@/public/icons/UserIcon";
-import Dropdown from "@/components/Dropdown";
+import Dropdown from "@/components/dropdown";
 import dropdown from "@/json/dropdown.json";
 import Button from "@/components/button";
 import { useAppSelector } from "@/hooks/useRedux";
