@@ -17,14 +17,12 @@ export default function CocktailView() {
         className="border border-brown-light px-20 py-4 flex mx-auto mt-12 -mb-10 bg-dark-brown-hover hover:text-white"
         text="MORE COCKTAILS"
       />
-      <div className="image-wrapper mx-auto block w-1/2  justify-center">
-        <CocktailSlider />
-        <p className="text-xl -mt-36 w-2/3 mx-auto text-center">
-          Jinterros Rum is a variety of delicious flavors to create unique
-          cocktails. Ready to be used directly without pre-mix. All you need is
-          ice and the necessary ingredients.
-        </p>
-      </div>
+      <CocktailSlider />
+      <p className="text-xl -mt-36 w-2/5 mx-auto text-center">
+        Jinterros Rum is a variety of delicious flavors to create unique
+        cocktails. Ready to be used directly without pre-mix. All you need is
+        ice and the necessary ingredients.
+      </p>
     </section>
   );
 }
