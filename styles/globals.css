@@ -135,3 +135,11 @@
   background-position: left, right;
   background-repeat: no-repeat, no-repeat;
 }
+
+.experience-banner {
+  background-image: url("/experience-flower.webp");
+  background-position: right;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}

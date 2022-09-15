@@ -7,7 +7,7 @@
     ],
     "right": [
       { "text": "SHOP ", "link": "/shop" },
-      { "text": "EXPERIENCE ", "link": "/policies" },
+      { "text": "EXPERIENCE ", "link": "/experience" },
       { "text": "CONTACT US ", "link": "/contact-us" }
     ]
   },
