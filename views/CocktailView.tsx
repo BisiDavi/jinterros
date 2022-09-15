@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import cocktailcontent from "@/json/cocktail.json";
 import Button from "@/components/button";
 import CocktailItemView from "@/views/CocktailItemView";

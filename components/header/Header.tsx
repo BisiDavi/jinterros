@@ -1,4 +1,4 @@
-import HeaderLinks from "@/components/HeaderLinks";
+import HeaderLinks from "@/components/header/HeaderLinks";
 import Logo from "@/components/Logo";
 import CartIcon from "@/public/icons/CartIcon";
 import UserIcon from "@/public/icons/UserIcon";
