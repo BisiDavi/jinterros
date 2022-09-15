@@ -19,7 +19,7 @@ export default function CocktailItemView({ item }: Props) {
         className="cocktail"
         data-aos="zoom-in-up"
         data-aos-easing="linear"
-        data-aos-duration="1000"
+        data-aos-duration="500"
       >
         <Image
           src={item.img}

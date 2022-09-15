@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     Aos.init({
       easing: "ease-out-cubic",
       once: true,
-      offset: 50,
+      offset: 10,
     });
   }, []);
   return (

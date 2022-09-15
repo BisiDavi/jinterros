@@ -21,7 +21,7 @@ export default function InstagramFollow() {
             width={400}
             data-aos="zoom-in-down"
             data-aos-easing="linear"
-            data-aos-duration="1000"
+            data-aos-duration="500"
           />
         ))}
       </div>

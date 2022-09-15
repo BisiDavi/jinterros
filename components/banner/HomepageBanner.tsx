@@ -22,7 +22,7 @@ export default function HomepageBanner() {
             className="w-2/3 mt-40"
             data-aos="fade-left"
             data-aos-easing="linear"
-            data-aos-duration="1000"
+            data-aos-duration="500"
           >
             <Image
               src="/rum-bottles.webp"
