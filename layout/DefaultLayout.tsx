@@ -1,7 +1,7 @@
 import Head from "next/head";
 import type { PropsWithChildren } from "react";
 
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import MobileHeader from "@/components/header/MobileHeader";
