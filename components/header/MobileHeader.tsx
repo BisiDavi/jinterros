@@ -8,9 +8,11 @@ export default function MobileHeader() {
   const { cart } = useAppSelector((state) => state.cart);
 
   return (
-    <header className="bg-white w-full shadow-2xl justify-between flex  fixed top-0 z-50">
+    <header className="bg-white mx-auto py-4 px-8 w-full items-center shadow-2xl justify-between flex  fixed top-0 z-50">
       <img src="/hamburger.png" alt="mobile-icon" />
-      <Logo />
+      <div className="logo-wrapper-mobile w-1/6 mt-14 fixed">
+        <Logo />
+      </div>
       <div className="cart-icon flex items-start">
         <Button href="/cart" icon={<CartIcon />} />
         <span className="text-rum-dark-brown font-bold ml-1">{cart}</span>
