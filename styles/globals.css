@@ -10,6 +10,10 @@
   color: #bd6a2c;
 }
 
+.text-dark-brown {
+  color: #4a4a4a;
+}
+
 .text-light-brown {
   color: #e49b3a;
 }
@@ -137,9 +141,6 @@
 }
 
 .experience-banner {
-  background-image: url("/experience-flower.webp");
-  background-position: right;
-  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
 }
