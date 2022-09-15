@@ -631,6 +631,18 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.1.4.tgz#0c8b74c50f29ee44f423f7416829c0bf8bb5eb27"
   integrity sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA==
 
+"@splidejs/react-splide@^0.7.10":
+  version "0.7.10"
+  resolved "https://registry.yarnpkg.com/@splidejs/react-splide/-/react-splide-0.7.10.tgz#2602f5044e43f7773af6abc735da199e9f5ff4a0"
+  integrity sha512-W83LCjbx0DTKCCCZGV9zTTnl80CDA7LOOg41rOpQ8NXuTBsDVAhqlQ8+bAvvBiclPbAgSi/dMMDkknA19Guq+A==
+  dependencies:
+    "@splidejs/splide" "^4.0.17"
+
+"@splidejs/splide@^4.0.17":
+  version "4.0.17"
+  resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-4.0.17.tgz#7e6576d4643f496c0f00b589da1f47cab0ae8c77"
+  integrity sha512-k67vDY0+hl7Qi+I+juOF+DO1KuRw+4RfV5x5SlIVrK60DmMzQvp2j9CqDzixUw3jDDoEaPTGY4BKy5SZSiFf1Q==
+
 "@swc/helpers@0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.4.3.tgz#16593dfc248c53b699d4b5026040f88ddb497012"
