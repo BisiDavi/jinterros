@@ -1,7 +1,7 @@
 import cocktailcontent from "@/json/cocktail.json";
 import Button from "@/components/button";
 import CocktailItemView from "@/views/CocktailItemView";
-import CocktailSlider from "@/components/slider/CocktailSlider";
+import CocktailSlider from "@/components/ddrdslider/CocktailSlider";
 
 export default function CocktailView() {
   return (
