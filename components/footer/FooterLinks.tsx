@@ -40,13 +40,13 @@ export function PolicyLinks({ policyLinks, className }: PolicyLinksProps) {
       {policyLinks.map((linkItem, index) => {
         const showBorder = Number(policyLinks.length - 1) !== index ? "|" : "";
         return (
-          <li key={`${linkItem.link}-${index}`}>
+          <li key={`${linkItem.link}-${index}`} className="flex items-center">
             <Link href={linkItem.link}>
               <>
-                <a className="underline hover:text-red-500 text-lg">
+                <a className="underline hover:text-red-500 text-lg lg:text-xs">
                   {linkItem.text}
                 </a>{" "}
-                <span className="mr-1 hidden lg:flex">{showBorder}</span>
+                <span className="mx-1 hidden lg:flex">{showBorder}</span>
               </>
             </Link>
           </li>

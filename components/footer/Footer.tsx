@@ -5,7 +5,7 @@ import {
   PaymentLink,
   PolicyLinks,
   SocialLinks,
-} from "@/components/footer/footerLinks";
+} from "@/components/footer/FooterLinks";
 
 export default function Footer() {
   return (
@@ -15,10 +15,10 @@ export default function Footer() {
           <div className="container px-8 lg:px-0  mx-auto flex lg:flex-row flex-col justify-between">
             <div className="w-full lg:w-1/2 left-pane">
               <PageLinks pageLinks={links.footer} />
-              <div className="bottom-content hidden lg:flex mt-28">
+              <div className="bottom-content hidden lg:flex w-full flex-col mt-28">
                 <p className="mb-4 text-xs">Copyright 2022 | Jinterros</p>
                 <PolicyLinks
-                  className="flex lg:flex-row hidden lg:flex items-center"
+                  className="hidden lg:flex items-center"
                   policyLinks={links.others}
                 />
               </div>
