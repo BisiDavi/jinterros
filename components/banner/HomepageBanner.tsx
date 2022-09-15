@@ -1,18 +1,18 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 
 import Button from "@/components/button";
 
 export default function HomepageBanner() {
   return (
     <>
-      <section className="homepageBanner w-full flex mx-auto">
-        <div className="container my-10 lg:mx-auto flex lg:flex-row flex-col px-5 lg:justify-between items-center">
+      <section className="homepageBanner w-full flex mx-auto my-0">
+        <div className="container my-10 lg:mx-auto flex lg:flex-row flex-col px-5 lg:px-0 lg:justify-between items-center">
           <div className="order-2 lg:order-1 lg:w-1/2 mx-auto flex justify-center">
             <div className="text-content text-white">
               <h1 className="text-2xl text-center lg:text-left lg:text-8xl font-bold lg:my-4">
                 JINTERROS
               </h1>
-              <p className="text-xl lg:text-3xl my-2">
+              <p className="text-xl text-center lg:text-left lg:text-3xl my-2">
                 Rum with Natural Flavours
               </p>
               <p className="text-xl lg:text-3xl text-center lg:text-left lg:w-4/5  lg:mt-6 my-2">
@@ -31,13 +31,7 @@ export default function HomepageBanner() {
             data-aos-easing="linear"
             data-aos-duration="500"
           >
-            <Image
-              src="/rum-bottles.webp"
-              alt="rum-bottles"
-              height={2400}
-              width={2000}
-              layout="responsive"
-            />
+            <img src="/rum-bottles.webp" alt="rum-bottles" />
           </div>
         </div>
       </section>
