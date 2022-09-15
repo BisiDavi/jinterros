@@ -9,6 +9,7 @@ import { useAppSelector } from "@/hooks/useRedux";
 
 export default function Header() {
   const { cart } = useAppSelector((state) => state.cart);
+
   return (
     <header className="bg-white w-full shadow-2xl fixed top-0 z-50">
       <div className="container mx-auto flex h-20 items-center justify-between relative">
