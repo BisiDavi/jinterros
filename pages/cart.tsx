@@ -46,17 +46,17 @@ export default function Cart() {
             </div>
           </div>
         </div>
-        <div className="lg:w-2/5 lg:order-2 shadow-lg lg:ml-6">
+        <div className="lg:w-3/5 lg:order-2 shadow-lg lg:ml-6">
           <h4 className="text-sm lg:text-xl py-1 ml-4">CART SUMMARY</h4>
           <hr />
-          <div className="text flex items-center justify-between items-start  lg:my-20 p-4">
-            <div className="column  lg:order-1">
+          <div className="text flex items-center justify-between lg:my-20 p-4">
+            <div className="column lg:order-1">
               <h3 className="lg:text-2xl font-bold">Subtotal</h3>
               <p className="text-xs lg:text-sm">
                 Delivery fees not included yet.
               </p>
             </div>
-            <p className="lg:text-lg font-bold">
+            <p className="lg:text-lg lg:order-2 font-bold">
               $40 * {cart} = ${amount.toFixed(2)}
             </p>
           </div>
