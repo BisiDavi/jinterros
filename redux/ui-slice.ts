@@ -5,6 +5,7 @@ import type { UIStateType } from "@/types/redux-types";
 
 const initialState: UIStateType = {
   policies: "your-privacy",
+  mobileMenu: false,
 };
 
 const UISlice = createSlice({
@@ -14,8 +15,11 @@ const UISlice = createSlice({
     updatePolicies(state, action: PayloadAction<UIStateType["policies"]>) {
       state.policies = action.payload;
     },
+    updateMobileMenu(state, action: PayloadAction<boolean>) {
+      state.mobileMenu = action.payload;
+    },
   },
 });
 
-export const { updatePolicies } = UISlice.actions;
+export const { updatePolicies, updateMobileMenu } = UISlice.actions;
 export default UISlice.reducer;

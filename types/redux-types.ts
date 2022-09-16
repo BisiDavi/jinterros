@@ -6,4 +6,5 @@ export type policiesStateType =
 
 export type UIStateType = {
   policies: policiesStateType;
+  mobileMenu: boolean;
 };
