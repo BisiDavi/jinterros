@@ -54,7 +54,7 @@ export default function Policies() {
                 return (
                   <li
                     key={listItem.title}
-                    className={`h-8 lg:h-12 flex items-center px-4 justify-center hover:bg-gray-200 ${activePolicy}`}
+                    className={`h-8 lg:h-12 flex items-center px-4 justify-center lg:hover:bg-gray-200 ${activePolicy}`}
                   >
                     <Button
                       text={listItem.title}
