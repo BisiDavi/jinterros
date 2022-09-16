@@ -16,9 +16,9 @@ export default function OurStory() {
           layout="responsive"
           className="mt-20"
         />
-        <section className="content w-full mt-32">
+        <section className="content w-full lg:mt-32">
           <div className="layer w-full">
-            <div className="text-content w-2/3 mx-auto my-26">
+            <div className="text-content w-5/6 lg:w-2/3 mx-auto lg:my-26">
               {storyContent.map((item) => (
                 <div key={item.title} className="text my-10">
                   <h4 className="text-tan font-semibold text-xl">
@@ -32,7 +32,7 @@ export default function OurStory() {
             </div>
           </div>
         </section>
-        <div className="image-wrapper w-2/5 mx-auto my-40">
+        <div className="image-wrapper w-5/6 lg:w-2/5 mx-auto my-20 lg:my-40">
           <Image
             src="/rum-bottles-2.webp"
             alt="Rum bottles"
@@ -43,7 +43,7 @@ export default function OurStory() {
         </div>
         <Button
           text="SHOP NOW"
-          className="bg-dark-brown hover:opacity-80 mx-auto py-3 px-16 flex my-10 text-white font-bold text-xl w-1/5 justify-center"
+          className="bg-dark-brown hover:opacity-80 mx-auto py-3 px-16 flex my-10 text-white font-bold text-xl w-3/5 lg:w-1/5 justify-center"
           href="/shop"
         />
       </div>

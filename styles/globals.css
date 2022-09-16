@@ -148,3 +148,9 @@
 .logo-wrapper-mobile {
   left: 42%;
 }
+
+@media (min-width: 768px) {
+  .lg-h-800 {
+    height: 800px;
+  }
+}

@@ -35,10 +35,10 @@ export default function CocktailPage() {
             />
           )}
           <div className="mx-auto w-5/6 lg:w-3/4 shadow-xl lg:-mt-60 -mt-24 py-6 mb-14 relative rounded">
-            <div className="Cocktails w-3/5 lg:w-1/3 text-center lg:items-start lg:px-16 bg-dark-brown h-10 lg:h-16 flex items-center justify-center text-xl text-white font-bold">
+            <div className="Cocktails w-1/2 lg:w-1/3 text-center lg:px-16 bg-dark-brown h-10 lg:h-16 flex items-center justify-center lg:text-xl text-white font-bold">
               <h4>{mainContent.title}</h4>
             </div>
-            <div className="ingredients mx-auto w-full p-10 bg-white">
+            <div className="ingredients mx-auto w-full p-4 lg:p-10 bg-white">
               <CocktailList
                 type="ingredient"
                 listArray={mainContent.ingredients}

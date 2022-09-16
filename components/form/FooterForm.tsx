@@ -6,8 +6,8 @@ export default function FooterForm() {
       <h3 className="font-medium text-center lg:text-left my-2">
         SIGN UP FOR JINTERROS NEWSLETTER
       </h3>
-      <div className="form-group  my-2">
-        <div className="form-control flex lg:flex-col">
+      <div className="form-group my-2">
+        <div className="form-control flex">
           <input
             type="email"
             placeholder="Your Email Address"
