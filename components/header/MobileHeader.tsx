@@ -4,21 +4,24 @@ import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import CartIcon from "@/public/icons/CartIcon";
 import Button from "@/components/button";
 import { updateMobileMenu } from "@/redux/ui-slice";
+import MenuIcon from "@/public/icons/MenuIcon";
+import MenuCloseIcon from "@/public/icons/MenuCloseIcon";
 
 export default function MobileHeader() {
   const { cart } = useAppSelector((state) => state.cart);
   const { mobileMenu } = useAppSelector((state) => state.UI);
   const dispatch = useAppDispatch();
 
+  const buttonIcon = !mobileMenu ? <MenuIcon /> : <MenuCloseIcon />;
+
   function onClickHandler() {
     dispatch(updateMobileMenu(!mobileMenu));
   }
 
   return (
-    <header className="bg-white mx-auto py-4 px-8 w-full items-center shadow-inner justify-between flex fixed top-0 z-50">
-      {/* <Button icon="/hamburger.png" onClick={onClickHandler} /> */}
-      <img src="/hamburger.png" alt="mobile-icon" />
-      <div className="logo-wrapper-mobile w-1/5 mt-16 fixed">
+    <header className="bg-white mx-auto py-4 px-8 w-full items-center shadow justify-between flex fixed top-0 z-50">
+      <Button icon={buttonIcon} onClick={onClickHandler} />
+      <div className="logo-wrapper-mobile w-1/5 mt-12 fixed">
         <Logo />
       </div>
       <div className="cart-icon flex items-start">
