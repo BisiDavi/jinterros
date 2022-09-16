@@ -14,6 +14,10 @@
   color: #4a4a4a;
 }
 
+.text-gray {
+  color: #a9a9a9;
+}
+
 .text-light-brown {
   color: #e49b3a;
 }
@@ -56,6 +60,10 @@
 
 .input-border-light {
   border: 1px solid #f5ae30;
+}
+
+.input-border-b-light {
+  border-bottom: 1px solid #f5ae30;
 }
 
 .input-border-lighter {

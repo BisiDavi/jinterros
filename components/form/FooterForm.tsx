@@ -11,13 +11,13 @@ export default function FooterForm() {
           <input
             type="email"
             placeholder="Your Email Address"
-            className="bg-white border-0 py-2 px-6 hover:rounded-0"
+            className="bg-white border-0 py-2 px-6 hover:rounded-0 w-3/5"
             required
           />
           <Button
             type="submit"
             text="SUBSCRIBE"
-            className="bg-black text-white font-bold py-2 px-6"
+            className="bg-black text-white font-bold py-2 px-6 w-2/5"
           />
         </div>
         <p className="text-xs font-light mt-1">
