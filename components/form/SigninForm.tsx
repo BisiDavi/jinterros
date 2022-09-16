@@ -7,11 +7,11 @@ import Button from "@/components/button";
 
 export default function SigninForm() {
   return (
-    <div className="w-1/2 mx-auto flex flex-col justify-center">
+    <div className="w-full lg:w-1/2 mx-auto flex flex-col justify-center">
       <h3 className="text-xl font-bold text-orange my-5 text-center">
         Sign In
       </h3>
-      <form className="items-center flex flex-col w-2/3 mx-auto">
+      <form className="items-center flex flex-col w-5/6 lg:w-2/3 mx-auto">
         {formElements.signin.map((formElement, index) => (
           <Fragment key={`${formElement.name}-${index}`}>
             {displayForm(formElement)}
