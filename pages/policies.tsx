@@ -28,7 +28,7 @@ export default function Policies() {
           YOU MUST BE OF LEGAL AGE FOR PURCHASING <br /> AND CONSUMING ALCOHOL
           TO ENTER THIS SITE
         </h4>
-        <div className="policy-view bg-white  p-5 mt-4">
+        <div className="policy-view bg-white p-5 pb-1 mt-4">
           <div className="header pb-3 items-center justify-between border-b flex ">
             <div className="w-1/4 lg:w-1/3">
               <Image
@@ -54,7 +54,7 @@ export default function Policies() {
                 return (
                   <li
                     key={listItem.title}
-                    className={`h-12 flex items-center   px-4 justify-center hover:bg-gray-200 ${activePolicy}`}
+                    className={`h-8 lg:h-12 flex items-center px-4 justify-center hover:bg-gray-200 ${activePolicy}`}
                   >
                     <Button
                       text={listItem.title}
@@ -72,14 +72,14 @@ export default function Policies() {
               <p className="text-sm text-gray-600">{policy.text}</p>
             </div>
           </div>
-          <div className="buttonGroup flex justify-between my-4 h-16  pt-12 border-t items-center">
+          <div className="buttonGroup pt-4 lg:pt-2 flex justify-between my-4 lg:h-16 lg:pt-12 border-t items-center">
             <Button
               text="Confirm Choices"
-              className="bg-leaf-green lg:px-6 py-2 text-white font-bold h-12 w-2/5 text-sm lg:w-1/4 lg:text-base hover:opacity-80 flex items-center justify-center"
+              className="bg-leaf-green lg:px-6 py-1 lg:py-2 text-white font-bold h-10 lg:h-12 w-2/5 text-sm lg:w-1/4 lg:text-base hover:opacity-80 flex items-center justify-center"
             />
             <Button
               text="Allow All"
-              className="bg-leaf-green flex items-center justify-center lg:px-6 py-2 w-2/5 text-white text-sm lg:text-base font-bold h-12 lg:w-1/4 hover:opacity-80"
+              className="bg-leaf-green flex items-center justify-center lg:px-6 py-1 lg:py-2 w-2/5 text-white text-sm lg:text-base font-bold h-10 lg:h-12 lg:w-1/4 hover:opacity-80"
               href="/"
             />
           </div>
