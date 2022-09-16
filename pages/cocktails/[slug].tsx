@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -27,16 +28,14 @@ export default function CocktailPage() {
       <div className="view">
         <div className="w-full">
           {mainContent.banner && (
-            <Image
+            <img
               src={mainContent.banner}
               alt={mainContent.title}
-              height={400}
-              width={800}
-              layout="responsive"
+              className="w-full"
             />
           )}
-          <div className="mx-auto w-3/4 shadow-xl -mt-60 py-6 mb-14 relative rounded">
-            <div className="Cocktails w-1/3 items-start px-16 bg-dark-brown h-16 flex items-center justify-center text-xl text-white font-bold">
+          <div className="mx-auto w-5/6 lg:w-3/4 shadow-xl lg:-mt-60 -mt-24 py-6 mb-14 relative rounded">
+            <div className="Cocktails w-3/5 lg:w-1/3 text-center lg:items-start lg:px-16 bg-dark-brown h-10 lg:h-16 flex items-center justify-center text-xl text-white font-bold">
               <h4>{mainContent.title}</h4>
             </div>
             <div className="ingredients mx-auto w-full p-10 bg-white">
@@ -51,11 +50,11 @@ export default function CocktailPage() {
             </div>
           </div>
         </div>
-        <div className="cocktail-images w-3/4 mx-auto">
-          <h3 className="text-3xl text-center font-bold mb-4">
+        <div className="cocktail-images px-6 lg:w-3/4 mx-auto">
+          <h3 className="text-xl lg:text-3xl text-center font-bold mb-4">
             YOU MAY ALSO LIKE
           </h3>
-          <div className="grid grid-cols-3 gap-5 my-10">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 my-10">
             {otherCocktails.map((item) => (
               <CocktailItemView key={item.img} item={item} />
             ))}
