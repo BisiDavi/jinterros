@@ -4,7 +4,7 @@ import Button from "@/components/button";
 
 export default function ShippingForm() {
   return (
-    <div className="w-3/5 shadow-lg pb-8">
+    <div className="lg:w-3/5 shadow-lg pb-8">
       <h4 className="text-xl py-1 ml-4 pt-3 h-12">SHIPPING ADDRESS</h4>
       <hr />
       <form className="px-10">

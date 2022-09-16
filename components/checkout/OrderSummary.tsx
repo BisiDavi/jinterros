@@ -11,7 +11,7 @@ export default function OrderSummary() {
   const cartText = cart > 1 ? "Bottles" : "Bottle";
 
   return (
-    <div className="w-2/5 shadow-lg ml-10">
+    <div className="w-full lg:w-2/5 shadow-lg lg:ml-10">
       <h4 className="text-xl py-1 ml-4 pt-3 h-12">ORDER SUMMARY</h4>
       <hr />
       <div className="content  py-4">
