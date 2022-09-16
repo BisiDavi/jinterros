@@ -65,7 +65,7 @@ export default function Policies() {
                 );
               })}
             </ul>
-            <div className="w-full h-72 lg:order-2 lg:h-auto overflow-y-scroll lg:w-2/3 lg:px-6 py-2">
+            <div className="w-full h-60 lg:order-2 lg:h-auto overflow-y-scroll lg:w-2/3 lg:px-6 py-2">
               <h4 className="font-medium my-2 text-md lg:text-xl text-gray-600">
                 {policy.title}
               </h4>
