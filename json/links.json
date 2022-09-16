@@ -56,7 +56,7 @@
     }
   ],
   "dropdown": [
-    { "text": "Track Order", "link": "/track-orders" },
+    { "text": "Track Orders", "link": "/track-orders" },
     { "text": "My Orders", "link": "/my-orders" },
     { "text": "Account", "link": "/auth" }
   ],

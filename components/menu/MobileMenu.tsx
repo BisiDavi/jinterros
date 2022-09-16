@@ -8,15 +8,21 @@ interface LinkItemProps {
     link: string;
     text: string;
   }[];
+  border?: boolean;
 }
 
-function LinkItem({ links }: LinkItemProps) {
+function LinkItem({ links, border }: LinkItemProps) {
+  const { onCloseHandler, mobileMenu } = useHeader();
+
+  const linkClassName = border
+    ? "text-xl border-b h-12 items-end flex pb-1 my-2 text-light-brown"
+    : "text-xl my-4 text-light-brown";
   return (
     <>
       {links.map((item) => (
-        <li key={item.link}>
+        <li key={item.link} className={linkClassName} onClick={onCloseHandler}>
           <Link href={item.link}>
-            <a>{item.text}</a>
+            <a className="w-full">{item.text}</a>
           </Link>
         </li>
       ))}
@@ -25,16 +31,14 @@ function LinkItem({ links }: LinkItemProps) {
 }
 
 export default function MobileMenu() {
-  const { onCloseHandler, mobileMenu } = useHeader();
-
   return (
-    <div className="w-full h-screen fixed top-10 py-20 bg-white px-4 z-40">
+    <div className="w-full h-screen fixed top-10 py-20 bg-white px-5 z-40">
       <ul>
-        <LinkItem links={links.header.left} />
-        <LinkItem links={links.header.right} />
+        <LinkItem border links={links.header.left} />
+        <LinkItem border links={links.header.right} />
       </ul>
 
-      <ul className="mt-8">
+      <ul className="mt-10">
         <LinkItem links={links.dropdown} />
         <li></li>
       </ul>

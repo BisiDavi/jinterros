@@ -14,7 +14,7 @@ export default function MobileHeader() {
   const buttonIcon = !mobileMenu ? <MenuIcon /> : <MenuCloseIcon />;
 
   return (
-    <header className="bg-white mx-auto py-4 px-8 w-full items-center shadow justify-between flex fixed top-0 z-50">
+    <header className="bg-white mx-auto py-4  px-8 w-full items-center shadow-xl h-20 justify-between flex fixed top-0 z-50">
       <Button icon={buttonIcon} onClick={onClickHandler} />
       <div className="logo-wrapper-mobile w-1/5 mt-12 fixed">
         <Logo />
