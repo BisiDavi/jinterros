@@ -10,7 +10,7 @@ import { signupSchema } from "@/components/form/schema/authformSchema";
 export default function SignupForm() {
   const methods = useForm({
     resolver: yupResolver(signupSchema),
-    mode: "all",
+    mode: "onTouched"
   });
 
   function onSubmit(data: any) {

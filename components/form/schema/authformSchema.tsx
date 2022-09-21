@@ -11,13 +11,13 @@ export const signinSchema = yup.object({
 export const signupSchema = yup.object({
   firstName: yup
     .string()
-    .matches(/\B@[\w]*([\s]{1}[\w]*)?$/g, "Only letters")
     .min(3, "minium of three letters")
+    .matches(/^[a-zA-Z_ ]*$/, "Only letters")
     .required("your first name is required"),
   lastName: yup
     .string()
-    .matches(/\B@[\w]*([\s]{1}[\w]*)?$/g, "Only letters")
     .min(3, "minium of three letters")
+    .matches(/^[a-zA-Z_ ]*$/, "Only letters")
     .required("your last name is required"),
   email: yup
     .string()

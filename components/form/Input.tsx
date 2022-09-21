@@ -13,7 +13,7 @@ export default function Input({ input }: Props) {
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, touchedFields },
   }: any = useFormContext();
 
   const inputType =
@@ -24,12 +24,13 @@ export default function Input({ input }: Props) {
       : input.type;
 
   return (
-    <div className="h-12 w-full my-4 relative">
+    <label htmlFor={input.name} className="h-12 w-full my-4 relative">
       <input
+        id={input.name}
         className={`${input.className} font-normal w-full h-12 px-5 placeholder-gray-300`}
         type={inputType}
-        aria-invalid={errors[input.name] ? "true" : "false"}
         placeholder={input.placeholder}
+        aria-invalid={errors[input.name] ? "true" : "false"}
         {...register(input.name)}
       />
       {input.type === "password" && (
@@ -38,7 +39,11 @@ export default function Input({ input }: Props) {
           setPasswordVisibility={setPasswordVisibility}
         />
       )}
-      <p className="text-red-500 p-0  text-xs">{errors[input.name]?.message}</p>
-    </div>
+      {touchedFields[input.name] && (
+        <p className="text-red-500 p-0  text-xs">
+          {errors[input.name]?.message}
+        </p>
+      )}
+    </label>
   );
 }
