@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <header className="bg-white w-full shadow-2xl fixed top-0 z-50">
-      <div className="container mx-auto flex h-20 items-center justify-between relative">
+      <nav className="container mx-auto flex h-20 items-center justify-between relative">
         <HeaderLinks section="left" />
         <div className="w-40 mt-24 z-50">
           <Logo />
@@ -23,9 +23,11 @@ export default function Header() {
         </Dropdown>
         <div className="cart-icon flex items-start">
           <Button href="/cart" icon={<CartIcon />} />
-          <span className="text-rum-dark-brown font-bold ml-1">{cart}</span>
+          {cart > 0 && (
+            <span className="text-rum-dark-brown font-bold ml-1">{cart}</span>
+          )}
         </div>
-      </div>
+      </nav>
     </header>
   );
 }
