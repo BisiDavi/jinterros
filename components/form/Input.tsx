@@ -16,11 +16,18 @@ export default function Input({ input }: Props) {
     formState: { errors },
   }: any = useFormContext();
 
+  const inputType =
+    input.type === "password"
+      ? passwordVisiblity
+        ? "text"
+        : "password"
+      : input.type;
+
   return (
     <div className="h-12 w-full my-4 relative">
       <input
         className={`${input.className} font-normal w-full h-12 px-5 placeholder-gray-300`}
-        type={input.type}
+        type={inputType}
         aria-invalid={errors[input.name] ? "true" : "false"}
         placeholder={input.placeholder}
         {...register(input.name)}

@@ -5,7 +5,7 @@ export const signinSchema = yup.object({
     .string()
     .email("Enter a vaild email address")
     .required("E-mail address is required"),
-  password: yup.string().required("Password is required"),
+  password: yup.string().min(6).required("Password is required"),
 });
 
 export const signupSchema = yup.object({
@@ -18,7 +18,7 @@ export const signupSchema = yup.object({
     .string()
     .email("Enter a vaild email address")
     .required("E-mail address is required"),
-  password: yup.string().required("Password is required"),
+  password: yup.string().min(6).required("Password is required"),
   confirmPassword: yup
     .string()
     .required("Confirm password is required")
