@@ -17,7 +17,7 @@ export default function Input({ input }: Props) {
   }: any = useFormContext();
 
   return (
-    <div className="h-12 w-full my-4">
+    <div className="h-12 w-full my-4 relative">
       <input
         className={`${input.className} font-normal w-full h-12 px-5 placeholder-gray-300`}
         type={input.type}
@@ -25,7 +25,7 @@ export default function Input({ input }: Props) {
         placeholder={input.placeholder}
         {...register(input.name)}
       />
-      {input.elementType === "password" && (
+      {input.type === "password" && (
         <ToggleEye
           passwordVisiblity={passwordVisiblity}
           setPasswordVisibility={setPasswordVisibility}

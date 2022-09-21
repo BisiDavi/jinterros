@@ -9,12 +9,11 @@ export const signinSchema = yup.object({
 });
 
 export const signupSchema = yup.object({
-  name: yup
+  fullName: yup
     .string()
     .matches(/^[a-zA-Z_ ]*$/, "Only letters")
     .min(6, "minium of six letters")
     .required("your full name is required"),
-  role: yup.string().required("role is required"),
   email: yup
     .string()
     .email("Enter a vaild email address")
