@@ -1,21 +1,8 @@
-import { useQueryClient } from "@tanstack/react-query";
-
 import useRequestMutation from "@/hooks/useRequestMutation";
 import useAuth from "@/hooks/useAuth";
-import { useAppDispatch } from "@/hooks/useRedux";
-import { updateSidebar } from "@/redux/ui-slice";
-import { updateUserProfile } from "@/redux/user-slice";
-import useAuthModal from "@/hooks/useAuthModal";
 
 export default function useAuthMutation() {
   const { authSignup, authSignIn, authSignOut } = useAuth();
-  const { modal, toggleModal } = useAuthModal();
-  const dispatch = useAppDispatch();
-  const queryClient = useQueryClient();
-
-  function closeSidebar() {
-    dispatch(updateSidebar(null));
-  }
 
   function useSignupMutation() {
     return useRequestMutation(
@@ -24,11 +11,8 @@ export default function useAuthMutation() {
         mutationKey: ["useSignupMutation"],
         success: "Sign up Successful",
         error: "Sign up error",
-        onSuccessMethod: () => {
-          if (modal === "auth-modal") {
-            toggleModal(null);
-          }
-          closeSidebar();
+        onSuccessMethodWithData: (data) => {
+          console.log("data", data);
         },
       }
     );
@@ -41,12 +25,8 @@ export default function useAuthMutation() {
         mutationKey: ["useSigninMutation"],
         success: "Sign in successful",
         error: "oops, an error occured",
-        onSuccessMethod() {
-          if (modal === "auth-modal") {
-            queryClient.invalidateQueries(["getUserProfile"]);
-            toggleModal(null);
-          }
-          return closeSidebar();
+        onSuccessMethodWithData: (data) => {
+          console.log("data", data);
         },
       }
     );
@@ -57,8 +37,8 @@ export default function useAuthMutation() {
       mutationKey: ["useSignoutMutation"],
       success: "logout successful",
       error: "oops, an error occured",
-      onSuccessMethod: () => {
-        dispatch(updateUserProfile(null));
+      onSuccessMethodWithData: (data) => {
+        console.log("data", data);
       },
     });
   }
