@@ -25,3 +25,8 @@ export const createFirebaseApp = () => {
     return initializeApp(firebaseConfig);
   }
 };
+
+export function initFB() {
+  const app = createFirebaseApp();
+  return app;
+}
