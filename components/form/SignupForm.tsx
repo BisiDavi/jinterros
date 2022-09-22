@@ -10,7 +10,7 @@ import { signupSchema } from "@/components/form/schema/authformSchema";
 export default function SignupForm() {
   const methods = useForm({
     resolver: yupResolver(signupSchema),
-    mode: "onTouched"
+    mode: "all"
   });
 
   function onSubmit(data: any) {
@@ -25,7 +25,7 @@ export default function SignupForm() {
       <FormProvider {...methods}>
         <form
           className="items-center w-11/12 lg:w-2/3 mx-auto flex flex-col"
-          onClick={methods.handleSubmit(onSubmit)}
+          onSubmit={methods.handleSubmit(onSubmit)}
         >
           {formElements.signup.map((formElement, index) => (
             <Fragment key={`${formElement.name}-${index}`}>
