@@ -6,15 +6,19 @@ import formElements from "@/json/auth.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { signupSchema } from "@/components/form/schema/authformSchema";
+import useAuthMutation from "@/hooks/useAuthMutation";
 
 export default function SignupForm() {
+  const { useSignupMutation } = useAuthMutation();
+  const { mutate } = useSignupMutation();
   const methods = useForm({
     resolver: yupResolver(signupSchema),
-    mode: "all"
+    mode: "all",
   });
 
   function onSubmit(data: any) {
     console.log("data", data);
+    mutate({ userData: data, password: data.password });
   }
 
   return (
@@ -34,8 +38,8 @@ export default function SignupForm() {
           ))}
           <Button
             text="Register"
-            className="bg-orange w-full h-12 mt-10 text-white font-bold text-xl hover:opacity-80"
             type="submit"
+            className="bg-orange w-full h-12 mt-10 text-white font-bold text-xl hover:opacity-80"
           />
         </form>
       </FormProvider>

@@ -8,21 +8,19 @@ import {
 import axios from "axios";
 
 import useFirebase from "@/hooks/useFirebase";
-import { useQueryClient } from "@tanstack/react-query";
 
 type dataType = {
   email: string;
-  name: string;
-  role: string;
+  firstName: string;
+  lastName: string;
 };
 
 export default function useAuth() {
   const { initFB, writeData } = useFirebase();
   const app = initFB();
-  const queryClient = useQueryClient();
 
   async function authSignup(data: dataType, password: string) {
-    const { email, name } = data;
+    const { email, firstName, lastName } = data;
     console.log("data", data);
     const auth: any = getAuth(app);
     try {
@@ -40,13 +38,12 @@ export default function useAuth() {
         }
       );
       return await updateProfile(auth.currentUser, {
-        displayName: name,
+        displayName: `${firstName} ${lastName}`,
       }).then(() => {
         axios.post("/api/db", {
           collection: "users",
           data,
         });
-        queryClient.invalidateQueries(["getUserProfile"]);
       });
     } catch (err) {
       console.log(err);

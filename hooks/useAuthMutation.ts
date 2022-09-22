@@ -12,7 +12,7 @@ export default function useAuthMutation() {
         success: "Sign up Successful",
         error: "Sign up error",
         onSuccessMethodWithData: (data) => {
-          console.log("data", data);
+          console.log("data-onSuccessMethodWithData", data);
         },
       }
     );

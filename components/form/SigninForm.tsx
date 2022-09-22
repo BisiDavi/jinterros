@@ -40,6 +40,7 @@ export default function SigninForm() {
           ))}
           <Button
             text="Sign In"
+            type="submit"
             className="bg-orange w-full h-12 mt-10 text-white font-bold text-xl hover:opacity-80"
           />
         </form>
