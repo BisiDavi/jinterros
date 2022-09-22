@@ -4,19 +4,23 @@
     "name": "shippingOption",
     "elementType": "radio",
     "label": "Standard Delivery",
-    "note": "3-7 business days"
+    "note": "3-7 business days",
+    "value": "$10"
   },
   {
     "type": "radio",
     "name": "shippingOption",
     "elementType": "radio",
     "label": "Express Delivery",
-    "note": "2-4 business days"
+    "note": "2-4 business days",
+    "value": "$20"
   },
   {
     "type": "radio",
     "name": "shippingOption",
     "elementType": "radio",
-    "label": "Next Business Day"
+    "label": "Next Business Day",
+    "note": "-",
+    "value": "$30"
   }
 ]
