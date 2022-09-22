@@ -15,7 +15,7 @@ export default function ShippingOptionForm() {
       <h4 className="text-xl py-1 ml-4 pt-3 h-12">SELECT SHIPPING OPTION</h4>
       <hr />
       <FormProvider {...methods}>
-        <form className="flex items-center">
+        <form className="flex items-center px-10">
           {shippingOption.map((item, index) => (
             <Fragment key={index}>{displayForm(item)}</Fragment>
           ))}

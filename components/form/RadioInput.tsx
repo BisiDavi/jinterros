@@ -15,7 +15,7 @@ export default function RadioInput({ input }: Props) {
   console.log("input", input);
 
   return (
-    <div className="w-full my-2 text-xs font-thin text-red-400">
+    <div className="w-full my-2 font-thin">
       <label className="font-bold text-red-500">
         <input
           className="accent-orange-400 text-xs  mr-2"

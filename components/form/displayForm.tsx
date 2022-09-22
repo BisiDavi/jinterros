@@ -10,6 +10,6 @@ export default function displayForm(input: InputType) {
     case "checkbox":
       return <Checkbox input={input} />;
     case "radio":
-      return <RadioInput input={input} />;
+    return <RadioInput input={input} />;
   }
 }

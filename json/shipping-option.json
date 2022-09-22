@@ -2,21 +2,21 @@
   {
     "type": "radio",
     "name": "shippingOption",
-    "elementType": "input",
+    "elementType": "radio",
     "label": "Standard Delivery",
     "note": "3-7 business days"
   },
   {
     "type": "radio",
     "name": "shippingOption",
-    "elementType": "input",
+    "elementType": "radio",
     "label": "Express Delivery",
     "note": "2-4 business days"
   },
   {
     "type": "radio",
     "name": "shippingOption",
-    "elementType": "input",
+    "elementType": "radio",
     "label": "Next Business Day"
   }
 ]
