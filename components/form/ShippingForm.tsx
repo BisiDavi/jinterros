@@ -6,6 +6,7 @@ import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { shippingformSchema } from "@/components/form/schema/shippingformSchema";
 import useAuth from "@/hooks/useAuth";
+import { AiFillCheckCircle } from "react-icons/ai";
 
 export default function ShippingForm() {
   const methods = useForm({
@@ -32,7 +33,13 @@ export default function ShippingForm() {
 
   return (
     <div className="w-full order-2 lg:order-1  shadow-lg pb-8">
-      <h4 className="text-xl py-1 ml-4 pt-3 h-12">SHIPPING ADDRESS</h4>
+      <div className="top flex items-center pl-4">
+        <AiFillCheckCircle className="text-4xl text-orange ml-4 mr-4" />
+        <span className="p-4 mx-4 h-4 w-4 flex items-center justify-center text-white font-bold rounded-full bg-orange">
+          1
+        </span>
+        <h4 className="text-xl py-1 ml-4 pt-3 h-12">SHIPPING ADDRESS</h4>
+      </div>
       <hr />
       <FormProvider {...methods}>
         <form

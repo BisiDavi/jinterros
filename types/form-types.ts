@@ -6,5 +6,5 @@ export type InputType = {
   name: string;
   label?: string;
   note?: string;
-  value?: string;
+  value?: string | number;
 };

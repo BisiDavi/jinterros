@@ -5,7 +5,7 @@
     "elementType": "radio",
     "label": "Standard Delivery",
     "note": "3-7 business days",
-    "value": "$10"
+    "value": 10
   },
   {
     "type": "radio",
@@ -13,7 +13,7 @@
     "elementType": "radio",
     "label": "Express Delivery",
     "note": "2-4 business days",
-    "value": "$20"
+    "value": 20
   },
   {
     "type": "radio",
@@ -21,6 +21,6 @@
     "elementType": "radio",
     "label": "Next Business Day",
     "note": "-",
-    "value": "$30"
+    "value": 30
   }
 ]

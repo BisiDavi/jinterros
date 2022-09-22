@@ -21,7 +21,9 @@ export default function RadioInput({ input }: Props) {
         {input.label}
       </label>
       <p>{input?.note}</p>
-      <span className="text-xl">{input?.value}</span>
+      {input.name === "shippingOption" && (
+        <span className="text-xl">${input?.value}</span>
+      )}
     </div>
   );
 }
