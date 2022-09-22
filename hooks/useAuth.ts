@@ -5,7 +5,6 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import axios from "axios";
 
 import useFirebase from "@/hooks/useFirebase";
 
@@ -13,6 +12,8 @@ type dataType = {
   email: string;
   firstName: string;
   lastName: string;
+  newsletter: string;
+  policy: string;
 };
 
 export default function useAuth() {
@@ -31,19 +32,17 @@ export default function useAuth() {
             userCredential
           );
           const user = userCredential.user;
-          writeData(
-            JSON.stringify(user.providerData[0]),
-            `/users/${user.uid}/`
-          );
+          const saveData = {
+            user: user.providerData[0],
+            name: `${firstName} ${lastName}`,
+            policy: data.policy,
+            newsletter: data.newsletter,
+          };
+          writeData(JSON.stringify(saveData), `/users/${user.uid}/`);
         }
       );
       return await updateProfile(auth.currentUser, {
         displayName: `${firstName} ${lastName}`,
-      }).then(() => {
-        axios.post("/api/db", {
-          collection: "users",
-          data,
-        });
       });
     } catch (err) {
       console.log(err);
