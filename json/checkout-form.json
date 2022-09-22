@@ -36,6 +36,22 @@
   [
     {
       "type": "text",
+      "name": "phoneNumber",
+      "elementType": "input",
+      "placeholder": "Phone Number",
+      "className": "input-border-lighter"
+    },
+    {
+      "type": "email",
+      "name": "email",
+      "placeholder": "Email Address",
+      "elementType": "input",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
       "name": "city",
       "elementType": "input",
       "placeholder": "City",
@@ -52,15 +68,15 @@
   [
     {
       "type": "text",
-      "name": "phoneNumber",
+      "name": "zip",
+      "placeholder": "Zip",
       "elementType": "input",
-      "placeholder": "Phone Number",
       "className": "input-border-lighter"
     },
     {
-      "type": "email",
-      "name": "email",
-      "placeholder": "Email Address",
+      "type": "text",
+      "name": "country",
+      "placeholder": "Country",
       "elementType": "input",
       "className": "input-border-lighter"
     }
