@@ -1,6 +1,7 @@
+import useAuth from "@/hooks/useAuth";
 import Link from "next/link";
 import { PropsWithChildren, useState } from "react";
-
+import dropdownContent from "@/json/dropdown.json";
 interface Props {
   options: Array<{ link: string; text: string }>;
 }
@@ -10,9 +11,12 @@ export default function Dropdown({
   options,
 }: PropsWithChildren<Props>) {
   const [dropdown, setDropdown] = useState(false);
+  const { getAuthStatus } = useAuth();
+
+  const user = getAuthStatus();
 
   function onClickHandler() {
-    setDropdown(!dropdown);
+    return setDropdown(!dropdown);
   }
 
   return (
@@ -21,24 +25,28 @@ export default function Dropdown({
         {children}
       </button>
       {dropdown && (
-        <ul className="dropdown mt-14 shadow bg-white py-2 absolute w-48 left-0">
-          {options.map((option, index) => {
-            const className =
-              index === 0 ? "font-bold bottom-border-orange" : "text-gray-600";
-            return (
-              <li
-                key={option.link}
-                className={`${className} text py-1 px-4 hover:bg-gray-400 text-lg`}
-                onClick={() => setDropdown(false)}
-              >
-                {option.link ? (
-                  <Link href={option.link}>{option.text}</Link>
-                ) : (
-                  option.text
-                )}
-              </li>
-            );
-          })}
+        <ul className="dropdown mt-14 z-50 shadow bg-white py-2 absolute w-48 left-0">
+          <li
+            className="font-bold bottom-border-orange text py-1 px-4 hover:bg-gray-400 text-lg"
+            onClick={() => setDropdown(false)}
+          >
+            {!user ? (
+              <Link href={dropdownContent["top-header"].link}>
+                {dropdownContent["top-header"].text}
+              </Link>
+            ) : (
+              <p className="text-sm">Hello, {user}</p>
+            )}
+          </li>
+          {options.map((option) => (
+            <li
+              key={option.link}
+              className="text-gray-600 text py-1 px-4 hover:bg-gray-400 text-lg"
+              onClick={() => setDropdown(false)}
+            >
+              <Link href={option.link}>{option.text}</Link>
+            </li>
+          ))}
         </ul>
       )}
     </div>

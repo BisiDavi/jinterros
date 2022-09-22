@@ -1,4 +1,3 @@
-import { getAuth } from "firebase/auth";
 import { BiLogOut } from "react-icons/bi";
 
 import HeaderLinks from "@/components/header/HeaderLinks";
@@ -9,21 +8,22 @@ import Dropdown from "@/components/dropdown";
 import dropdown from "@/json/dropdown.json";
 import Button from "@/components/button";
 import { useAppSelector } from "@/hooks/useRedux";
-import useFirebase from "@/hooks/useFirebase";
 import useAuthMutation from "@/hooks/useAuthMutation";
+import useAuth from "@/hooks/useAuth";
 
 export default function Header() {
   const { cart } = useAppSelector((state) => state.cart);
-  const { initFB } = useFirebase();
-  const app = initFB();
-  const auth = getAuth(app);
+  const { getAuthStatus } = useAuth();
   const { useSignoutMutation } = useAuthMutation();
   const { mutate } = useSignoutMutation();
 
-  const user = auth ? auth?.currentUser?.displayName : null;
+  const user = getAuthStatus();
+  const headerClassName = user ? "pb-6" : "";
 
   return (
-    <header className="bg-white w-full shadow-2xl fixed top-0 z-50 pb-6">
+    <header
+      className={`bg-white w-full shadow-2xl fixed top-0 z-50 ${headerClassName}`}
+    >
       <nav className="container mx-auto flex h-20 items-center justify-between relative">
         <HeaderLinks section="left" />
         <div className="w-40 mt-24 z-50">

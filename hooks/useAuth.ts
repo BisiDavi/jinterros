@@ -20,6 +20,12 @@ export default function useAuth() {
   const { initFB, writeData } = useFirebase();
   const app = initFB();
 
+  function getAuthStatus() {
+    const auth = getAuth(app);
+    const user = auth ? auth?.currentUser?.displayName : null;
+    return user;
+  }
+
   async function authSignup(data: dataType, password: string) {
     const { email, firstName, lastName } = data;
     console.log("data", data);
@@ -64,5 +70,5 @@ export default function useAuth() {
     return auth?.currentUser;
   }
 
-  return { authSignup, authSignIn, authSignOut, authDetails };
+  return { authSignup, authSignIn, authSignOut, authDetails, getAuthStatus };
 }
