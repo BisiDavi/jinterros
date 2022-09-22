@@ -1,7 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import { useState } from "react";
-import ToggleEye from "@/components/form/ToggleEye";
 
+import ToggleEye from "@/components/form/ToggleEye";
 import type { InputType } from "@/types/form-types";
 
 interface Props {
@@ -13,7 +13,7 @@ export default function Input({ input }: Props) {
 
   const {
     register,
-    formState: { errors, touchedFields },
+    formState: { errors },
   }: any = useFormContext();
 
   const inputType =
@@ -39,11 +39,7 @@ export default function Input({ input }: Props) {
           setPasswordVisibility={setPasswordVisibility}
         />
       )}
-      {touchedFields[input.name] && (
-        <p className="text-red-500 p-0  text-xs">
-          {errors[input.name]?.message}
-        </p>
-      )}
+      <p className="text-red-500 p-0  text-xs">{errors[input.name]?.message}</p>
     </label>
   );
 }

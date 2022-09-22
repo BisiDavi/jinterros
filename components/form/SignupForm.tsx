@@ -18,7 +18,7 @@ export default function SignupForm() {
 
   function onSubmit(data: any) {
     console.log("data", data);
-    mutate({ userData: data, password: data.password });
+    // mutate({ userData: data, password: data.password });
   }
 
   return (

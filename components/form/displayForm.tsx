@@ -1,6 +1,6 @@
 import { InputType } from "@/types/form-types";
 import Input from "@/components/form/Input";
-import Checkbox from "@/components/form/Checbox";
+import Checkbox from "@/components/form/Checkbox";
 
 export default function displayForm(input: InputType) {
   switch (input.elementType) {

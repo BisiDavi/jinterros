@@ -28,4 +28,5 @@ export const signupSchema = yup.object({
     .string()
     .required("Confirm password is required")
     .oneOf([yup.ref("password"), null], "Passwords must match"),
+  policy: yup.boolean().oneOf([true], "Policy is required"),
 });
