@@ -21,8 +21,10 @@ export default function Checkout() {
 
   return (
     <DefaultLayout title="Checkout">
-      <section className="chekcout mt-32 mb-14 lg:my-52 px-6 flex flex-col lg:flex-row items-start container mx-auto">
-        <ShippingForm />
+      <section className="chekout mt-32 mb-14 lg:my-52 px-6 flex flex-col lg:flex-row items-start container mx-auto">
+        <div className="forms lg:w-3/5">
+          <ShippingForm />
+        </div>
         <OrderSummary />
       </section>
     </DefaultLayout>

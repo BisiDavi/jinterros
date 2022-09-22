@@ -16,7 +16,7 @@
       "title": "COMPANY INFO",
       "group": [
         { "text": "About Jinterros", "link": "/our-story" },
-        { "text": "Experience", "link": "/policies" },
+        { "text": "Experience", "link": "/experience" },
         { "text": "History", "link": "/history" }
       ]
     },

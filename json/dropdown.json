@@ -1,7 +1,7 @@
 {
   "header": [
     { "link": "/my-orders", "text": "My Orders" },
-    { "link": "/track-order", "text": "Track Order" }
+    { "link": "/order-progress", "text": "Track Order" }
   ],
   "top-header": { "link": "/auth", "text": "Sign in /Login" }
 }

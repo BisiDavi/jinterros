@@ -31,7 +31,7 @@ export default function ShippingForm() {
   }
 
   return (
-    <div className="lg:w-3/5 order-2 lg:order-1  shadow-lg pb-8">
+    <div className="w-full order-2 lg:order-1  shadow-lg pb-8">
       <h4 className="text-xl py-1 ml-4 pt-3 h-12">SHIPPING ADDRESS</h4>
       <hr />
       <FormProvider {...methods}>
@@ -65,7 +65,7 @@ export default function ShippingForm() {
             );
           })}
           <Button
-            className="bg-rum-brown w-full flex items-center py-2 justify-center text-white font-bold mt-4"
+            className="bg-rum-brown w-full hover:opacity-80 flex items-center py-2 justify-center text-white font-bold mt-4"
             text="SAVE ADDRESS"
             type="submit"
           />
