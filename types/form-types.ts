@@ -4,4 +4,5 @@ export type InputType = {
   className: string;
   elementType: string;
   name: string;
+  label?: string;
 };

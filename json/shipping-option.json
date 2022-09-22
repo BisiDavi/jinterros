@@ -1,20 +1,20 @@
 [
   {
-    "type": "checkbox",
+    "type": "radio",
     "name": "shippingOption",
     "elementType": "input",
     "label": "Standard Delivery",
     "note": "3-7 business days"
   },
   {
-    "type": "checkbox",
+    "type": "radio",
     "name": "shippingOption",
     "elementType": "input",
     "label": "Express Delivery",
     "note": "2-4 business days"
   },
   {
-    "type": "checkbox",
+    "type": "radio",
     "name": "shippingOption",
     "elementType": "input",
     "label": "Next Business Day"
