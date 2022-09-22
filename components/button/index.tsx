@@ -10,6 +10,7 @@ interface Props {
   icon?: JSX.Element;
   disabled?: boolean;
   loading?: boolean;
+  title?: string;
   href?: string;
 }
 
@@ -20,6 +21,7 @@ export default function Button({
   text,
   icon,
   disabled,
+  title,
   loading,
   href,
 }: Props) {
@@ -28,12 +30,13 @@ export default function Button({
     <>
       {href ? (
         <Link href={href}>
-          <a className={className}>
+          <a className={className} title={title}>
             {icon} {text}
           </a>
         </Link>
       ) : (
         <button
+          title={title}
           className={className}
           onClick={onClick}
           type={buttonType}
