@@ -1,9 +1,12 @@
 import { GoogleAuthProvider, signInWithRedirect, getAuth } from "firebase/auth";
 import { getDatabase, ref, set, onValue } from "firebase/database";
+import { useRouter } from "next/router";
 
 import { createFirebaseApp } from "@/lib/firebaseConfig";
 
 export default function useFirebase() {
+  const router = useRouter();
+
   function initFB() {
     const app = createFirebaseApp();
     return app;
@@ -47,7 +50,9 @@ export default function useFirebase() {
     const app = initFB();
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
-    return signInWithRedirect(auth, provider);
+    return signInWithRedirect(auth, provider).then(() => {
+      return router.back();
+    });
   }
 
   return { getAuthdetails, initFB, writeData, readData, googleProvider };
