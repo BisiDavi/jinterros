@@ -22,7 +22,7 @@ export default function useAuth() {
 
   function getAuthStatus() {
     const auth = getAuth(app);
-    const user = auth ? auth?.currentUser : null;
+    const user = auth ? auth?.currentUser?.providerData[0] : null;
     return user;
   }
 

@@ -14,13 +14,21 @@ export default function ShippingForm() {
   });
 
   const { getAuthStatus } = useAuth();
-  const user = getAuthStatus();
+  const user: any = getAuthStatus();
 
   console.log("user", user);
 
   function onSubmit(data: any) {
     console.log("data", data);
   }
+
+  function splitName(name: string) {
+    return name.split(" ");
+  }
+
+  methods.setValue("email", user?.email);
+  methods.setValue("firstName", splitName(user?.displayName)[0]);
+  methods.setValue("lastName", splitName(user?.displayName)[1]);
 
   return (
     <div className="lg:w-3/5 order-2 lg:order-1  shadow-lg pb-8">
