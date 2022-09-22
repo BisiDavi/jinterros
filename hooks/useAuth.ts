@@ -30,7 +30,7 @@ export default function useAuth() {
     const { email, firstName, lastName } = data;
     console.log("data", data);
     const auth: any = getAuth(app);
-    try { 
+    try {
       await createUserWithEmailAndPassword(auth, email, password).then(
         (userCredential) => {
           console.log(

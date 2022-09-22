@@ -1,5 +1,5 @@
+import { GoogleAuthProvider, signInWithRedirect, getAuth } from "firebase/auth";
 import { getDatabase, ref, set, onValue } from "firebase/database";
-import { getAuth } from "firebase/auth";
 
 import { createFirebaseApp } from "@/lib/firebaseConfig";
 
@@ -43,5 +43,12 @@ export default function useFirebase() {
     });
   }
 
-  return { getAuthdetails, initFB, writeData, readData };
+  function googleProvider() {
+    const app = initFB();
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+    return signInWithRedirect(auth, provider);
+  }
+
+  return { getAuthdetails, initFB, writeData, readData, googleProvider };
 }

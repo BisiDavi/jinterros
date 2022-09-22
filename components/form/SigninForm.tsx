@@ -8,10 +8,12 @@ import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { signinSchema } from "@/components/form/schema/authformSchema";
 import useAuthMutation from "@/hooks/useAuthMutation";
+import useFirebase from "@/hooks/useFirebase";
 
 export default function SigninForm() {
   const { useSigninMutation } = useAuthMutation();
   const { mutate } = useSigninMutation();
+  const { googleProvider } = useFirebase();
 
   const methods = useForm({
     resolver: yupResolver(signinSchema),
@@ -60,6 +62,7 @@ export default function SigninForm() {
               className="absolute left-5"
             />
           }
+          onClick={googleProvider}
         />
       </div>
     </div>

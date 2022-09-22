@@ -1,6 +1,7 @@
+import { useRouter } from "next/router";
+
 import useRequestMutation from "@/hooks/useRequestMutation";
 import useAuth from "@/hooks/useAuth";
-import { useRouter } from "next/router";
 
 export default function useAuthMutation() {
   const { authSignup, authSignIn, authSignOut } = useAuth();
