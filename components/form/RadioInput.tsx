@@ -12,17 +12,19 @@ export default function RadioInput({ input }: Props) {
     formState: { errors },
   }: any = useFormContext();
 
+  console.log("input", input);
+
   return (
-    <div className="w-full my-2 text-xs font-thin text-gray-400">
-      <label htmlFor={input.name}>
+    <div className="w-full my-2 text-xs font-thin text-red-400">
+      <label className="font-bold text-red-500">
         <input
-          id={input.name}
-          className="accent-orange-400  mr-2"
+          className="accent-orange-400 text-xs  mr-2"
           type={input.type}
           {...register(input.name)}
         />
         {input.label}
       </label>
+      <p>{input?.note}</p>
       <p className="text-red-500 p-0  text-xs">{errors[input.name]?.message}</p>
     </div>
   );
