@@ -14,7 +14,6 @@ export default function Dropdown({
 }: PropsWithChildren<Props>) {
   const [dropdown, setDropdown] = useState(false);
   const { getAuthStatus } = useAuth();
-
   const user = getAuthStatus();
 
   function onClickHandler() {
@@ -37,7 +36,7 @@ export default function Dropdown({
                 {dropdownContent["top-header"].text}
               </Link>
             ) : (
-              <p className="text-sm">Hello, {user}</p>
+              <p className="text-sm">Hello, {user.displayName}</p>
             )}
           </li>
           {options.map((option) => (

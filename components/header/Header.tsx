@@ -49,9 +49,9 @@ export default function Header() {
             />
             <p
               className="user-text font-bold text-light-brown"
-              title={`Hello, ${user}`}
+              title={`Hello, ${user.displayName}`}
             >
-              Hello, {user}
+              Hello, {user.displayName}
             </p>
           </div>
         )}

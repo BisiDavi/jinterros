@@ -22,7 +22,7 @@ export default function useAuth() {
 
   function getAuthStatus() {
     const auth = getAuth(app);
-    const user = auth ? auth?.currentUser?.displayName : null;
+    const user = auth ? auth?.currentUser : null;
     return user;
   }
 

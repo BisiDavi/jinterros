@@ -5,12 +5,18 @@ import checkoutForm from "@/json/checkout-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { shippingformSchema } from "@/components/form/schema/shippingformSchema";
+import useAuth from "@/hooks/useAuth";
 
 export default function ShippingForm() {
   const methods = useForm({
     resolver: yupResolver(shippingformSchema),
     mode: "all",
   });
+
+  const { getAuthStatus } = useAuth();
+  const user = getAuthStatus();
+
+  console.log("user", user);
 
   function onSubmit(data: any) {
     console.log("data", data);
