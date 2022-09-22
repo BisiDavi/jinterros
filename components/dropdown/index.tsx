@@ -1,7 +1,9 @@
-import useAuth from "@/hooks/useAuth";
 import Link from "next/link";
 import { PropsWithChildren, useState } from "react";
+
 import dropdownContent from "@/json/dropdown.json";
+import useAuth from "@/hooks/useAuth";
+
 interface Props {
   options: Array<{ link: string; text: string }>;
 }
