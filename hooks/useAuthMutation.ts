@@ -1,8 +1,10 @@
 import useRequestMutation from "@/hooks/useRequestMutation";
 import useAuth from "@/hooks/useAuth";
+import { useRouter } from "next/router";
 
 export default function useAuthMutation() {
   const { authSignup, authSignIn, authSignOut } = useAuth();
+  const router = useRouter();
 
   function useSignupMutation() {
     return useRequestMutation(
@@ -13,6 +15,7 @@ export default function useAuthMutation() {
         error: "Sign up error",
         onSuccessMethodWithData: (data) => {
           console.log("data-onSuccessMethodWithData", data);
+          router.back();
         },
       }
     );
@@ -27,6 +30,7 @@ export default function useAuthMutation() {
         error: "oops, an error occured",
         onSuccessMethodWithData: (data) => {
           console.log("data", data);
+          router.back();
         },
       }
     );
@@ -38,7 +42,7 @@ export default function useAuthMutation() {
       success: "logout successful",
       error: "oops, an error occured",
       onSuccessMethodWithData: (data) => {
-        console.log("data", data);
+        router.back();
       },
     });
   }
