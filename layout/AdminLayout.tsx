@@ -17,34 +17,49 @@ export default function AdminLayout({
 }: PropsWithChildren<Props>) {
   const router = useRouter();
 
+  console.log("router", router);
+
+  function getActiveLink(link: string) {
+    return router.asPath === link ? "text-brown-old" : "";
+  }
+
   return (
     <>
       <Head>
         <title>{title} | Admin | Jinterros</title>
       </Head>
-      <div className="w-full">
+      <div className="w-full flex">
         <aside className="sidebar h-screen flex flex-col w-1/5 border-r">
-          <div className="logo-view  flex flex-col">
-            <div className="w-2/3 flex mx-auto my-10">
+          <div className="logo-view h-40 border-b flex flex-col">
+            <div className="w-2/5 flex mx-auto my-4">
               <Logo />
             </div>
-            <hr />
           </div>
           <ul className="link-group">
-            {links.admin.map((item) => (
-              <li
-                key={item.link}
-                className="my-4 pl-8 flex items-center hover:bg-gray-300 p-2 text-brown-old-hover"
-              >
-                {displayIcons(item.text)}
-                <Link href={item.link}>
-                  <a className="ml-4 font-light text-xl">{item.text}</a>
-                </Link>
-              </li>
-            ))}
+            {links.admin.map((item) => {
+              const activeLink = getActiveLink(item.link);
+              return (
+                <li
+                  key={item.link}
+                  className={`${activeLink} my-4 pl-8 flex items-center hover:bg-gray-300 p-2 text-brown-old-hover`}
+                >
+                  {displayIcons(item.text)}
+                  <Link href={item.link}>
+                    <a className="ml-4 font-medium text-xl">{item.text}</a>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </aside>
-        <main className="main w-4/5">{children}</main>
+        <main className="main w-4/5 flex flex-col">
+          <div className="top w-full h-40  border-b px-8 flex">
+            <h4 className="text-3xl font-medium text-brown-old flex items-end my-4">
+              {title}
+            </h4>
+          </div>
+          {children}
+        </main>
       </div>
     </>
   );
