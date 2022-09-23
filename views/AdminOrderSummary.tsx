@@ -21,7 +21,7 @@ export default function AdminOrderSummary() {
       </div>
       <div className="content w-full px-8 flex items-start justify-between">
         <div className="cards w-1/2 mr-4">
-          <ul className="flex items-center justify- rounded-xl orange-light mt-2 p-4 w-full hover:opacity-80">
+          <ul className="flex items-center rounded-xl orange-light mt-2 p-4 w-full hover:opacity-80">
             <li className="rounded-xl mr-10 text-white font-bold bg-orange w-20 justify-center text-3xl h-16 flex items-center">
               25
             </li>
