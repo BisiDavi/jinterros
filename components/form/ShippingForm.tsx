@@ -1,12 +1,12 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { AiFillCheckCircle } from "react-icons/ai";
 
 import checkoutForm from "@/json/checkout-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { shippingformSchema } from "@/components/form/schema/shippingformSchema";
 import useAuth from "@/hooks/useAuth";
-import { AiFillCheckCircle } from "react-icons/ai";
 
 export default function ShippingForm() {
   const methods = useForm({

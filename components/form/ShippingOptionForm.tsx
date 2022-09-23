@@ -28,10 +28,16 @@ export default function ShippingOptionForm() {
 
   console.log("shippingOptioValue", shippingOptionValue);
 
+  const activeForm = shippingOptionValue
+    ? "text-orange"
+    : "text-orange opacity-50";
+
+  console.log("activeForm", activeForm);
+
   return (
     <div className="w-full mt-10 shadow-lg pb-8">
       <div className="top flex items-center pl-4">
-        <AiFillCheckCircle className="text-4xl text-orange ml-4 mr-4" />
+        <AiFillCheckCircle className={`text-4xl ml-4 mr-4 ${activeForm}`} />
         <span className="p-4 mx-4 h-4 w-4 flex items-center justify-center text-white font-bold rounded-full bg-orange">
           2
         </span>
