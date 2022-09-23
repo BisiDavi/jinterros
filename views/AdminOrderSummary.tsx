@@ -19,9 +19,9 @@ export default function AdminOrderSummary() {
       <div className="top h-16 justify-between flex items-center border-b w-full mb-4 px-8">
         <h4 className="text-2xl">Order Summary</h4>
       </div>
-      <div className="content w-full px-8">
-        <div className="cards">
-          <ul className="flex items-center justify-between rounded-xl orange-light mt-2 p-4 w-2/5 hover:opacity-80">
+      <div className="content w-full px-8 flex items-start">
+        <div className="cards w-1/2">
+          <ul className="flex items-center justify-between rounded-xl orange-light mt-2 p-4 w-full hover:opacity-80">
             <li className="rounded-xl text-white font-bold bg-orange w-12 justify-center text-xl h-10 flex items-center">
               25
             </li>
@@ -34,7 +34,7 @@ export default function AdminOrderSummary() {
               </Link>
             </li>
           </ul>
-          <ul className="card-group mt-6 grid grid-cols-3 w-2/5 gap-10">
+          <ul className="card-group mt-6 grid grid-cols-3 w-full gap-10">
             {links.orders.map((item) => (
               <li
                 key={item.count}

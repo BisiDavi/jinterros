@@ -7,19 +7,15 @@ export default function DoughnutChart() {
     datasets: [
       {
         label: "My First Dataset",
-        data: [300, 50, 100],
-        backgroundColor: [
-          "rgb(255, 99, 132)",
-          "rgb(54, 162, 235)",
-          "rgb(255, 205, 86)",
-        ],
+        data: [50, 25, 25],
+        backgroundColor: ["#F5AE30", "black", "#BD6A2C"],
         hoverOffset: 4,
       },
     ],
   };
   Chart.register(ArcElement);
   return (
-    <div>
+    <div className="w-1/2 flex mx-auto my-10">
       <Doughnut data={data} />
     </div>
   );
