@@ -24,22 +24,24 @@ export default function Input({ input }: Props) {
       : input.type;
 
   return (
-    <label htmlFor={input.name} className="h-12 w-full my-4 relative">
-      <input
-        id={input.name}
-        className={`${input.className} font-normal w-full h-12 px-5 placeholder-gray-300`}
-        type={inputType}
-        placeholder={input.placeholder}
-        aria-invalid={errors[input.name] ? "true" : "false"}
-        {...register(input.name)}
-      />
-      {input.type === "password" && (
-        <ToggleEye
-          passwordVisiblity={passwordVisiblity}
-          setPasswordVisibility={setPasswordVisibility}
+    <div className="form-control">
+      <label htmlFor={input.name} className="h-12 w-full my-4 relative">
+        <input
+          id={input.name}
+          className={`${input.className} font-normal w-full h-12 px-5 placeholder-gray-300`}
+          type={inputType}
+          placeholder={input.placeholder}
+          aria-invalid={errors[input.name] ? "true" : "false"}
+          {...register(input.name)}
         />
-      )}
+        {input.type === "password" && (
+          <ToggleEye
+            passwordVisiblity={passwordVisiblity}
+            setPasswordVisibility={setPasswordVisibility}
+          />
+        )}
+      </label>
       <p className="text-red-500 p-0  text-xs">{errors[input.name]?.message}</p>
-    </label>
+    </div>
   );
 }

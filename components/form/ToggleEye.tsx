@@ -16,7 +16,7 @@ export default function ToggleEye({
   return (
     <button
       type="button"
-      className="absolute right-3 bottom-3 "
+      className="absolute right-3 bottom-0 "
       onClick={togglePasswordVisibilityHandler}
     >
       {passwordVisiblity ? <AiFillEyeInvisible /> : <AiFillEye />}

@@ -1,0 +1,48 @@
+{
+  "signup": [
+    {
+      "type": "text",
+      "name": "name",
+      "elementType": "input",
+      "placeholder": "Full Name",
+      "className": "input-border-light"
+    },
+    {
+      "type": "text",
+      "name": "email",
+      "placeholder": "Email Address",
+      "elementType": "input",
+      "className": "input-border-light"
+    },
+    {
+      "type": "password",
+      "name": "password",
+      "placeholder": "Password",
+      "elementType": "input",
+      "className": "input-border-light"
+    },
+    {
+      "type": "password",
+      "name": "confirmPassword",
+      "elementType": "input",
+      "placeholder": "Confirm Password",
+      "className": "input-border-light"
+    }
+  ],
+  "login": [
+    {
+      "type": "email",
+      "name": "email",
+      "elementType": "input",
+      "placeholder": "Email Address",
+      "className": "input-border-dark"
+    },
+    {
+      "type": "password",
+      "name": "password",
+      "elementType": "input",
+      "placeholder": "Password",
+      "className": "input-border-dark"
+    }
+  ]
+}
