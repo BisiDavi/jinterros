@@ -58,7 +58,17 @@
   "admin": [
     { "link": "/admin", "text": "Dashboard" },
     { "link": "/admin/orders", "text": "Orders" },
-    { "link": "/admin/products", "text": "Products" }
+    { "link": "/admin/products", "text": "Products" },
+    {
+      "link": "/admin/policies",
+      "text": "Pages",
+      "links": [
+        { "link": "/experience", "text": "Experience" },
+        { "link": "/contact-us", "text": "Contact us" }
+      ]
+    },
+    { "link": "/admin/cocktails", "text": "Cocktails" },
+    { "link": "/admin/policies", "text": "Policies", "links": [""] }
   ],
   "dropdown": [
     { "text": "Track Orders", "link": "/order-progress" },
