@@ -31,5 +31,3 @@ export default function displayIcons(icon: string) {
       return <MdOutlinePages size={40} />;
   }
 }
-
-// MdOutlinePages

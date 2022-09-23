@@ -30,7 +30,7 @@ export default function AdminLayout({
         <aside className="sidebar h-screen flex flex-col w-1/5 border-r">
           <div className="logo-view h-40 border-b flex flex-col">
             <div className="w-2/5 flex mx-auto my-4">
-              <Logo />
+              <Logo link="/admin" />
             </div>
           </div>
           <ul className="link-group">
