@@ -15,7 +15,7 @@ export default function DoughnutChart() {
   };
   Chart.register(ArcElement);
   return (
-    <div className="w-1/2 flex mx-auto my-10">
+    <div className="w-1/3 flex">
       <Doughnut data={data} />
     </div>
   );

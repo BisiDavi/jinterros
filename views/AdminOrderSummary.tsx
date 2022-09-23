@@ -19,13 +19,13 @@ export default function AdminOrderSummary() {
       <div className="top h-16 justify-between flex items-center border-b w-full mb-4 px-8">
         <h4 className="text-2xl">Order Summary</h4>
       </div>
-      <div className="content w-full px-8 flex items-start">
-        <div className="cards w-1/2">
-          <ul className="flex items-center justify-between rounded-xl orange-light mt-2 p-4 w-full hover:opacity-80">
-            <li className="rounded-xl text-white font-bold bg-orange w-12 justify-center text-xl h-10 flex items-center">
+      <div className="content w-full px-8 flex items-start justify-between">
+        <div className="cards w-1/2 mr-4">
+          <ul className="flex items-center justify- rounded-xl orange-light mt-2 p-4 w-full hover:opacity-80">
+            <li className="rounded-xl mr-10 text-white font-bold bg-orange w-20 justify-center text-3xl h-16 flex items-center">
               25
             </li>
-            <li className="text-lg">Lastest Orders</li>
+            <li className="text-lg mr-10">Lastest Orders</li>
             <li>
               <Link href="/admin/orders">
                 <a className="underline text-gray-500 hover:text-blue-500 text-sm">
