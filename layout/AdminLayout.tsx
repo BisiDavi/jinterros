@@ -54,11 +54,11 @@ export default function AdminLayout({
         </aside>
         <main className="main w-4/5 flex flex-col">
           <div className="top w-full h-40  border-b px-8 flex">
-            <h4 className="text-3xl font-medium text-brown-old flex items-end my-4">
+            <h4 className="text-4xl font-medium text-brown-old flex items-end my-4">
               {title}
             </h4>
           </div>
-          {children}
+          <div className="content px-8 py-6">{children}</div>
         </main>
       </div>
     </>

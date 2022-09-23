@@ -65,5 +65,10 @@
     { "text": "My Orders", "link": "/my-orders" },
     { "text": "Account", "link": "/auth" }
   ],
+  "dashboard": [
+    { "text": "TOTAL REVENUE", "title": "12k" },
+    { "text": "TOTAL ORDERS", "title": 20 },
+    { "text": "TOTAL CUSTOMERS", "title": 65 }
+  ],
   "paymentGateway": ["/paypal.webp", "/visa.webp", "/mastercard.webp"]
 }

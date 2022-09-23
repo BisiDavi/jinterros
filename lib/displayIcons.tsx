@@ -1,8 +1,10 @@
 import { GiWineBottle } from "react-icons/gi";
 import { FaClipboardList } from "react-icons/fa";
+import { BsCurrencyDollar } from "react-icons/bs";
 
 import DashboardIcon from "@/public/icons/DashboardIcon";
 import OrdersIcon from "@/public/icons/OrdersIcon";
+import PeopleIcon from "@/public/icons/PeopleIcon";
 
 export default function displayIcons(icon: string) {
   switch (icon) {
@@ -12,7 +14,11 @@ export default function displayIcons(icon: string) {
       return <GiWineBottle size={50} />;
     case "Orders":
       return <FaClipboardList size={47} />;
-    case "Order":
+    case "TOTAL REVENUE":
+      return <BsCurrencyDollar />;
+    case "TOTAL ORDERS":
       return <OrdersIcon />;
+    case "TOTAL CUSTOMERS":
+      return <PeopleIcon />;
   }
 }
