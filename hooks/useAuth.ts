@@ -60,6 +60,7 @@ export default function useAuth() {
               path: "/",
               sameSite: true,
             });
+            router.push("/admin");
           }
         }
       );
@@ -79,6 +80,7 @@ export default function useAuth() {
           path: "/",
           sameSite: true,
         });
+        router.push("/admin");
       }
     });
   }

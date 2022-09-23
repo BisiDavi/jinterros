@@ -49,7 +49,7 @@ export default function AdminForm({ type }: Props) {
           <Button
             text={buttonText}
             type="submit"
-            className="bg-orange w-1/2 mx-auto flex items-center justify-center h-10 mt-10 text-white font-bold text-xl hover:opacity-80"
+            className="bg-orange w-1/2 mx-auto flex items-center justify-center h-10 mt-6 text-white font-bold text-xl hover:opacity-80"
           />
         </form>
       </FormProvider>
