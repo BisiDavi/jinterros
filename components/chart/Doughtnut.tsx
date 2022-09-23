@@ -1,8 +1,9 @@
+import { Chart, ArcElement } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
-export default function DoughtnutChart() {
+export default function DoughnutChart() {
   const data = {
-    labels: ["Red", "Blue", "Yellow"],
+    labels: ["Delivered", "On Delivery", "Cancelled"],
     datasets: [
       {
         label: "My First Dataset",
@@ -16,6 +17,7 @@ export default function DoughtnutChart() {
       },
     ],
   };
+  Chart.register(ArcElement);
   return (
     <div>
       <Doughnut data={data} />
