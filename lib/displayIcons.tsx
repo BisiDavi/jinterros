@@ -11,7 +11,7 @@ export default function displayIcons(icon: string) {
     case "Products":
       return <GiWineBottle size={50} />;
     case "Orders":
-      return <FaClipboardList size={40} />;
+      return <FaClipboardList size={47} />;
     case "Order":
       return <OrdersIcon />;
   }
