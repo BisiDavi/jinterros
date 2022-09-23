@@ -1,5 +1,7 @@
+import AdminLayout from "@/layout/AdminLayout";
+
 export default function Admin() {
-  return (
-    <div>index</div>
-  )
+  return <AdminLayout title="Dashboard">
+    
+  </AdminLayout>;
 }
