@@ -70,5 +70,10 @@
     { "text": "TOTAL ORDERS", "title": 20 },
     { "text": "TOTAL CUSTOMERS", "title": 65 }
   ],
+  "orders": [
+    { "count": 25, "text": "On Delivery" },
+    { "count": 60, "text": "Delivery" },
+    { "count": 7, "text": "Cancelled" }
+  ],
   "paymentGateway": ["/paypal.webp", "/visa.webp", "/mastercard.webp"]
 }
