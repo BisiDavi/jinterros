@@ -23,7 +23,7 @@ export default function AdminLayout({
         <title>{title} | Admin | Jinterros</title>
       </Head>
       <div className="w-full">
-        <aside className="sidebar h-screen flex flex-col w-1/5 pl-6 border-r">
+        <aside className="sidebar h-screen flex flex-col w-1/5 border-r">
           <div className="logo-view  flex flex-col">
             <div className="w-2/3 flex mx-auto my-10">
               <Logo />
@@ -34,7 +34,7 @@ export default function AdminLayout({
             {links.admin.map((item) => (
               <li
                 key={item.link}
-                className="my-4 flex items-center hover:bg-gray-300 p-2 text-brown-old-hover"
+                className="my-4 pl-8 flex items-center hover:bg-gray-300 p-2 text-brown-old-hover"
               >
                 {displayIcons(item.text)}
                 <Link href={item.link}>
