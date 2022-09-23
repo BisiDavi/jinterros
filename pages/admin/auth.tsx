@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 
-import AdminLoginForm from "@/components/form/AdminAuthForm";
+import AdminForm from "@/components/form/AdminForm";
+import Tabs from "@/components/tab";
 
 export default function AdminAuth() {
   return (
@@ -18,7 +19,11 @@ export default function AdminAuth() {
           />
         </div>
         <div className="w-auth w-1/4 bg-white px-4 py-10">
-          <AdminLoginForm />
+          <Tabs
+            tabHead={["Admin Login", "Admin Sign-up"]}
+            tab1={<AdminForm type="login" />}
+            tab2={<AdminForm type="signup" />}
+          />
         </div>
       </div>
     </>
