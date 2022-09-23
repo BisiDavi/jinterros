@@ -2,7 +2,10 @@ import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import adminauthContent from "@/json/admin-auth.json";
-import { signupSchema } from "@/components/form/schema/authformSchema";
+import {
+  signinSchema,
+  adminSignupSchema,
+} from "@/components/form/schema/authformSchema";
 import Button from "@/components/button";
 import displayForm from "@/components/form/displayForm";
 
@@ -11,10 +14,13 @@ interface Props {
 }
 
 export default function AdminForm({ type }: Props) {
+  const formSchema = type === "login" ? signinSchema : adminSignupSchema;
   const methods = useForm({
-    resolver: yupResolver(signupSchema),
+    resolver: yupResolver(formSchema),
     mode: "all",
   });
+
+  const buttonText = type === "login" ? "Login" : "Sign up";
 
   return (
     <div className="content pb-5 rounded shadow  border py-2">
@@ -27,7 +33,7 @@ export default function AdminForm({ type }: Props) {
           ))}
 
           <Button
-            text="login"
+            text={buttonText}
             className="bg-orange w-1/2 mx-auto flex items-center justify-center h-10 mt-10 text-white font-bold text-xl hover:opacity-80"
           />
         </form>

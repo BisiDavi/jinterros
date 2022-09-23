@@ -30,3 +30,21 @@ export const signupSchema = yup.object({
     .oneOf([yup.ref("password"), null], "Passwords must match"),
   policy: yup.boolean().oneOf([true], "Policy is required"),
 });
+
+export const adminSignupSchema = yup.object({
+  name: yup
+    .string()
+    .min(3, "minium of three letters")
+    .matches(/^[a-zA-Z_ ]*$/, "Only letters")
+    .required("your full name is required"),
+  email: yup
+    .string()
+    .email("Enter a vaild email address")
+    .required("E-mail address is required"),
+  password: yup.string().min(6).required("Password is required"),
+  confirmPassword: yup
+    .string()
+    .required("Confirm password is required")
+    .oneOf([yup.ref("password"), null], "Passwords must match"),
+  policy: yup.boolean().oneOf([true], "Policy is required"),
+});
