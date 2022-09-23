@@ -55,10 +55,12 @@ export default function useAuth() {
             newsletter: data.newsletter,
           };
           writeData(JSON.stringify(saveData), `/${dbRoute}/${user.uid}/`);
-          setCookie("admin", true, {
-            path: "/",
-            sameSite: true,
-          });
+          if (router.asPath.includes("/admin")) {
+            setCookie("admin", true, {
+              path: "/",
+              sameSite: true,
+            });
+          }
         }
       );
       return await updateProfile(auth.currentUser, {
@@ -71,7 +73,14 @@ export default function useAuth() {
 
   function authSignIn(email: string, password: string) {
     const auth = getAuth(app);
-    return signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(auth, email, password).then(() => {
+      if (router.asPath.includes("/admin")) {
+        setCookie("admin", true, {
+          path: "/",
+          sameSite: true,
+        });
+      }
+    });
   }
 
   function authSignOut() {

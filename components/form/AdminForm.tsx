@@ -8,12 +8,17 @@ import {
 } from "@/components/form/schema/authformSchema";
 import Button from "@/components/button";
 import displayForm from "@/components/form/displayForm";
+import useAuthMutation from "@/hooks/useAuthMutation";
 
 interface Props {
   type: "login" | "signup";
 }
 
 export default function AdminForm({ type }: Props) {
+  const { useSignupMutation, useSigninMutation } = useAuthMutation();
+  const { mutate } = useSignupMutation();
+  const signinMutate = useSigninMutation();
+
   const formSchema = type === "login" ? signinSchema : adminSignupSchema;
   const methods = useForm({
     resolver: yupResolver(formSchema),
@@ -24,6 +29,11 @@ export default function AdminForm({ type }: Props) {
 
   function onSubmit(data: any) {
     console.log("data", data);
+    if (type === "signup") {
+      mutate({ userData: data, password: data.password });
+    } else {
+      signinMutate.mutate(data);
+    }
   }
 
   return (
