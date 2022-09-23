@@ -55,6 +55,11 @@
       "link": "/policies"
     }
   ],
+  "admin": [
+    { "link": "/admin", "text": "Dashboard" },
+    { "link": "/admin/orders", "text": "Orders" },
+    { "link": "/admin/products", "text": "Products" }
+  ],
   "dropdown": [
     { "text": "Track Orders", "link": "/order-progress" },
     { "text": "My Orders", "link": "/my-orders" },
