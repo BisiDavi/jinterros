@@ -17,8 +17,6 @@ export default function AdminLayout({
 }: PropsWithChildren<Props>) {
   const router = useRouter();
 
-  console.log("router", router);
-
   function getActiveLink(link: string) {
     return router.asPath === link ? "text-brown-old" : "";
   }

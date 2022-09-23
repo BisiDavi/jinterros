@@ -15,9 +15,9 @@ export default function displayIcons(icon: string) {
     case "Orders":
       return <FaClipboardList size={47} />;
     case "TOTAL REVENUE":
-      return <BsCurrencyDollar />;
+      return <BsCurrencyDollar size={40} color="white" />;
     case "TOTAL ORDERS":
-      return <OrdersIcon />;
+      return <OrdersIcon color="white" />;
     case "TOTAL CUSTOMERS":
       return <PeopleIcon />;
   }
