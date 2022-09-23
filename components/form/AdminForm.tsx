@@ -22,10 +22,14 @@ export default function AdminForm({ type }: Props) {
 
   const buttonText = type === "login" ? "Login" : "Sign up";
 
+  function onSubmit(data: any) {
+    console.log("data", data);
+  }
+
   return (
     <div className="content pb-5 rounded shadow  border py-2">
       <FormProvider {...methods}>
-        <form className="mx-4">
+        <form className="mx-4" onSubmit={methods.handleSubmit(onSubmit)}>
           {adminauthContent[type].map((item) => (
             <div key={item.name} className="my-4">
               {displayForm(item)}
@@ -34,6 +38,7 @@ export default function AdminForm({ type }: Props) {
 
           <Button
             text={buttonText}
+            type="submit"
             className="bg-orange w-1/2 mx-auto flex items-center justify-center h-10 mt-10 text-white font-bold text-xl hover:opacity-80"
           />
         </form>

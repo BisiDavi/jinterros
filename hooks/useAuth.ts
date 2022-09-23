@@ -5,13 +5,16 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import { useRouter } from "next/router";
+import { useCookies } from "react-cookie";
 
 import useFirebase from "@/hooks/useFirebase";
 
 type dataType = {
   email: string;
-  firstName: string;
-  lastName: string;
+  firstName?: string;
+  name?: string;
+  lastName?: string;
   newsletter: string;
   policy: string;
 };
@@ -19,6 +22,8 @@ type dataType = {
 export default function useAuth() {
   const { initFB, writeData } = useFirebase();
   const app = initFB();
+  const router = useRouter();
+  const [, setCookie] = useCookies(["admin"]);
 
   function getAuthStatus() {
     const auth = getAuth(app);
@@ -27,9 +32,14 @@ export default function useAuth() {
   }
 
   async function authSignup(data: dataType, password: string) {
-    const { email, firstName, lastName } = data;
-    console.log("data", data);
+    const { email } = data;
     const auth: any = getAuth(app);
+    const displayName = router.asPath.includes("/admin")
+      ? `${data.name}`
+      : `${data.firstName} ${data.lastName}`;
+
+    const dbRoute = router.asPath.includes("/admin") ? "/admin" : "/users";
+
     try {
       await createUserWithEmailAndPassword(auth, email, password).then(
         (userCredential) => {
@@ -40,15 +50,19 @@ export default function useAuth() {
           const user = userCredential.user;
           const saveData = {
             user: user.providerData[0],
-            name: `${firstName} ${lastName}`,
+            name: displayName,
             policy: data.policy,
             newsletter: data.newsletter,
           };
-          writeData(JSON.stringify(saveData), `/users/${user.uid}/`);
+          writeData(JSON.stringify(saveData), `/${dbRoute}/${user.uid}/`);
+          setCookie("admin", true, {
+            path: "/",
+            sameSite: true,
+          });
         }
       );
       return await updateProfile(auth.currentUser, {
-        displayName: `${firstName} ${lastName}`,
+        displayName,
       });
     } catch (err) {
       console.log(err);
@@ -62,6 +76,12 @@ export default function useAuth() {
 
   function authSignOut() {
     const auth = getAuth(app);
+    if (router.asPath.includes("/admin")) {
+      setCookie("admin", false, {
+        path: "/",
+        sameSite: true,
+      });
+    }
     return signOut(auth);
   }
 

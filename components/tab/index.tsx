@@ -22,7 +22,7 @@ export default function Tabs({ tab1, tab2, tabHead }: Props) {
           return (
             <li
               key={item}
-              className={`w-1/2 flex items-center justify-center pb-2 font-bold ${activeTab}`}
+              className={`w-1/2 flex items-center cursor-pointer justify-center pb-2 font-bold ${activeTab}`}
               onClick={() => updateTabHandler(index)}
             >
               {item}
