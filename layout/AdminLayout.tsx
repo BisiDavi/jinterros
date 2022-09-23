@@ -18,7 +18,7 @@ export default function AdminLayout({
   const router = useRouter();
 
   function getActiveLink(link: string) {
-    return router.asPath === link ? "text-brown-old" : "";
+    return router.asPath === link ? "text-brown-old border-brown-left" : "";
   }
 
   return (
@@ -39,7 +39,7 @@ export default function AdminLayout({
               return (
                 <li
                   key={item.link}
-                  className={`${activeLink} my-4 pl-8 flex items-center hover:bg-gray-300 p-2 text-brown-old-hover`}
+                  className={`${activeLink} cursor-pointer my-4 pl-8 flex items-center hover:bg-gray-300 p-2 text-brown-old-hover`}
                 >
                   {displayIcons(item.text)}
                   <Link href={item.link}>

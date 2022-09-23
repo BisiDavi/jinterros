@@ -126,6 +126,10 @@
   border-left-width: 20px;
 }
 
+.border-brown-left {
+  border-left: 8px solid #bd6a2c;
+}
+
 .cocktail img:hover,
 .image-grid img:hover {
   transform: scale(1.1) !important;
