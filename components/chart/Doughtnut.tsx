@@ -1,22 +1,36 @@
-import { Chart, ArcElement } from "chart.js";
+import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+
+Chart.register(ArcElement, Tooltip, Legend);
 
 export default function DoughnutChart() {
   const data = {
     labels: ["Delivered", "On Delivery", "Cancelled"],
     datasets: [
       {
-        label: "My First Dataset",
+        label: "Delivery Data",
         data: [50, 25, 25],
         backgroundColor: ["#F5AE30", "black", "#BD6A2C"],
         hoverOffset: 4,
       },
     ],
   };
-  Chart.register(ArcElement);
   return (
     <div className="w-1/3 flex">
-      <Doughnut data={data} />
+      <Doughnut
+        data={data}
+        options={{
+          plugins: {
+            legend: {
+              display: true,
+              position: "bottom",
+              labels: {
+                color: "black",
+              },
+            },
+          },
+        }}
+      />
     </div>
   );
 }
