@@ -8,3 +8,7 @@ export type UIStateType = {
   policies: policiesStateType;
   mobileMenu: boolean;
 };
+
+export type FormStateType = {
+  resetEditableContent: boolean;
+};

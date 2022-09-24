@@ -5,11 +5,13 @@ import { persistReducer } from "redux-persist";
 import UIReducer from "@/redux/ui-slice";
 import CartReducer from "@/redux/cart-slice";
 import AgeReducer from "@/redux/birth-year-slice";
+import FormReducer from "@/redux/form-slice";
 
 const reducers = combineReducers({
   UI: UIReducer,
   cart: CartReducer,
   birth: AgeReducer,
+  form: FormReducer,
 });
 
 const persistConfig = {

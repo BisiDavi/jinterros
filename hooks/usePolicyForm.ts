@@ -26,7 +26,7 @@ export default function usePolicyForm() {
 
     console.log("policySlug", policySlug);
 
-    writeData(stringifyData, `/policy/${policySlug}`)
+    writeData(stringifyData, `/policy/${policySlug}/${authStatus?.uid}`)
       .then(() => {
         methods.reset();
         updateToast(toastId, "success", "Policy saved");
