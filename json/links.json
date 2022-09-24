@@ -60,7 +60,7 @@
     { "link": "/admin/orders", "text": "Orders" },
     { "link": "/admin/products", "text": "Products" },
     {
-      "link": "/admin/policies",
+      "link": "/admin/pages",
       "text": "Pages",
       "links": [
         { "link": "/experience", "text": "Experience" },
