@@ -16,8 +16,9 @@
       "label": "Policy Type",
       "options": [
         { "text": "Select Policy", "value": "" },
-        { "text": "Policy", "value": "POLICY" },
-        { "text": "Cookie", "value": "COOKIE" }
+        { "text": "Policy Tab", "value": "POLICY" },
+        { "text": "Cookie Tab", "value": "COOKIE" },
+        { "text": "Policy Page", "value": "PAGE" }
       ]
     }
   ],
