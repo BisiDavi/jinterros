@@ -3,10 +3,10 @@
     "left": [
       { "text": "HOME", "link": "/" },
       { "text": "OUR STORY", "link": "/our-story" },
-      { "text": "COCKTAILS ", "link": "/cocktails" }
+      { "text": "COCKTAILS ", "link": "/cocktails" },
+      { "text": "SHOP ", "link": "/shop" }
     ],
     "right": [
-      { "text": "SHOP ", "link": "/shop" },
       { "text": "EXPERIENCE ", "link": "/experience" },
       { "text": "CONTACT US ", "link": "/contact-us" }
     ]
