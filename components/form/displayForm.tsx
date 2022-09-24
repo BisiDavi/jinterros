@@ -4,6 +4,7 @@ import Checkbox from "@/components/form/Checkbox";
 import RadioInput from "@/components/form/RadioInput";
 import Textarea from "@/components/form/Textarea";
 import SelectCountry from "@/components/form/SelectCountry";
+import UploadMedia from "@/components/form/UploadMedia";
 
 export default function displayForm(input: InputType) {
   switch (input.elementType) {
@@ -17,5 +18,7 @@ export default function displayForm(input: InputType) {
       return <Textarea input={input} />;
     case "country":
       return <SelectCountry content={input} />;
+    case "media":
+      return <UploadMedia input={input} />;
   }
 }

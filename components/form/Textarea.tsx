@@ -16,7 +16,7 @@ export default function Textarea({ input }: Props) {
       <label htmlFor={input.name} className="w-full my-4 relative">
         <textarea
           id={input.name}
-          className={`${input.className} font-normal w-full  px-5 placeholder-gray-300`}
+          className={`${input.className} font-normal w-full py-2  px-5 placeholder-gray-300`}
           placeholder={input.placeholder}
           rows={8}
           aria-invalid={errors[input.name] ? "true" : "false"}
