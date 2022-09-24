@@ -55,7 +55,7 @@ export default function OrdersTable() {
           prepareRow(row);
           const rowId = i + 1;
           return (
-            <tr>
+            <tr className="hover:bg-gray-300">
               <td className="p-4 px-6 border-b text-center">
                 <input type="checkbox" value={rowId} />
               </td>
