@@ -4,22 +4,25 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import productFormContent from "@/json/product-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
+import { adminProductSchema } from "@/components/form/schema/adminProductSchema";
 
 export default function AdminProductForm() {
   const methods = useForm({
-    // resolver: yupResolver(legalSchema),
+    resolver: yupResolver(adminProductSchema),
     mode: "all",
   });
-  const {
-    register,
-    watch,
-    formState: { errors },
-  }: any = methods;
+
+  function onSubmit(data: any) {
+    console.log("data", data);
+  }
   return (
     <>
       <h4 className="font-bold text-2xl text-center my-2">Upload Products</h4>
       <FormProvider {...methods}>
-        <form className="border rounded-xl shadow p-4">
+        <form
+          className="border rounded-xl shadow p-4"
+          onClick={methods.handleSubmit(onSubmit)}
+        >
           {productFormContent.map((formItemArray, index) => (
             <div
               className="form-group my-4 flex w-full justify-between"
@@ -43,6 +46,7 @@ export default function AdminProductForm() {
           ))}
           <Button
             text="Submit"
+            type="submit"
             className="bg-green-500 mx-auto flex text-white  px-4 py-1 font-bold text-xl rounded-md hover:opacity-80"
           />
         </form>
