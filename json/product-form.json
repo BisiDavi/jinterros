@@ -1,0 +1,61 @@
+[
+  [
+    {
+      "type": "text",
+      "name": "title",
+      "elementType": "input",
+      "placeholder": "Title",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "name": "price",
+      "elementType": "input",
+      "placeholder": "Price ($)",
+      "className": "input-border-lighter"
+    },
+    {
+      "type": "text",
+      "name": "size",
+      "elementType": "input",
+      "placeholder": "Size (ML)",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "name": "alcoholVolume",
+      "elementType": "input",
+      "placeholder": "Alcohol Volume (%)",
+      "className": "input-border-lighter"
+    },
+    {
+      "type": "text",
+      "name": "country",
+      "elementType": "input",
+      "placeholder": "Country",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "name": "description",
+      "elementType": "textarea",
+      "placeholder": "Product Description",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "name": "productImage",
+      "elementType": "media",
+      "placeholder": "Upload Product Image",
+      "className": "input-border-lighter"
+    }
+  ]
+]

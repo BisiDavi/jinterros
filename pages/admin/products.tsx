@@ -1,8 +1,13 @@
 import type { GetServerSidePropsContext } from "next";
 import AdminLayout from "@/layout/AdminLayout";
+import AdminProductForm from "@/components/form/AdminProductForm";
 
 export default function Products() {
-  return <AdminLayout title="Products"></AdminLayout>;
+  return (
+    <AdminLayout title="Products">
+      <AdminProductForm />
+    </AdminLayout>
+  );
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
