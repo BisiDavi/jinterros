@@ -8,7 +8,7 @@ const initialState: FormStateType = {
 };
 
 const FormSlice = createSlice({
-  name: "UI",
+  name: "FormSlice",
   initialState,
   reducers: {
     resetEditable(
@@ -17,7 +17,6 @@ const FormSlice = createSlice({
     ) {
       state.resetEditableContent = action.payload;
     },
-  
   },
 });
 

@@ -4,6 +4,7 @@ import { memo, useEffect, useState } from "react";
 import ContentEditable from "react-contenteditable";
 
 import type { InputType } from "@/types/form-types";
+import { useAppSelector } from "@/hooks/useRedux";
 
 interface Props {
   content: InputType;
@@ -11,8 +12,14 @@ interface Props {
 
 function EditableContentComponent({ content }: Props) {
   const [html, setHtml] = useState("");
-
   const { setValue } = useFormContext();
+  const { resetEditableContent } = useAppSelector((state) => state.form);
+
+  useEffect(() => {
+    if (resetEditableContent) {
+      setHtml("");
+    }
+  }, [resetEditableContent]);
 
   useEffect(() => {
     if (html) {

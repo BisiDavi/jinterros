@@ -4,6 +4,8 @@ import useAuth from "@/hooks/useAuth";
 import useFirebase from "@/hooks/useFirebase";
 import useToast from "@/hooks/useToast";
 import toSlug from "@/lib/toSlug";
+import { useAppDispatch } from "./useRedux";
+import { resetEditable } from "@/redux/form-slice";
 
 export default function usePolicyForm() {
   const { getAuthStatus } = useAuth();
@@ -11,6 +13,7 @@ export default function usePolicyForm() {
   const { writeData } = useFirebase();
   const { loadingToast, updateToast } = useToast();
   const toastId = useRef();
+  const dispatch = useAppDispatch();
 
   const date = new Date();
 
@@ -28,6 +31,7 @@ export default function usePolicyForm() {
 
     writeData(stringifyData, `/policy/${policySlug}/${authStatus?.uid}`)
       .then(() => {
+        dispatch(resetEditable(true));
         methods.reset();
         updateToast(toastId, "success", "Policy saved");
       })
