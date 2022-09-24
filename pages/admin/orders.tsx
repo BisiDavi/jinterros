@@ -1,8 +1,13 @@
 import type { GetServerSidePropsContext } from "next";
 import AdminLayout from "@/layout/AdminLayout";
+import OrdersTable from "@/components/table/OrdersTable";
 
 export default function Orders() {
-  return <AdminLayout title="Orders"></AdminLayout>;
+  return (
+    <AdminLayout title="Orders">
+      <OrdersTable />
+    </AdminLayout>
+  );
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
