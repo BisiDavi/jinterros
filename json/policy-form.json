@@ -11,6 +11,19 @@
   [
     {
       "type": "text",
+      "name": "type",
+      "elementType": "select",
+      "label": "Policy Type",
+      "options": [
+        { "text": "Select Policy", "value": "" },
+        { "text": "Policy", "value": "POLICY" },
+        { "text": "Cookie", "value": "COOKIE" }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "text",
       "name": "policy",
       "elementType": "markdown",
       "placeholder": "Policy",

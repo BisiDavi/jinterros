@@ -5,7 +5,8 @@ import RadioInput from "@/components/form/RadioInput";
 import Textarea from "@/components/form/Textarea";
 import SelectCountry from "@/components/form/SelectCountry";
 import UploadMedia from "@/components/form/UploadMedia";
-import EditableContent from "./EditableContent";
+import EditableContent from "@/components/form/EditableContent";
+import Select from "@/components/form/Select";
 
 export default function displayForm(input: InputType) {
   switch (input.elementType) {
@@ -23,5 +24,7 @@ export default function displayForm(input: InputType) {
       return <UploadMedia input={input} />;
     case "markdown":
       return <EditableContent content={input} />;
+    case "select":
+      return <Select content={input} />;
   }
 }

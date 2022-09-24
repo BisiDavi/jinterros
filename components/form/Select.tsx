@@ -12,6 +12,9 @@ export default function Select({ content }: Props) {
   }: any = useFormContext();
   return (
     <div className="form-control">
+      <label className="mb-0 font-normal text-gray-600 text-xl">
+        {content.label}
+      </label>
       {content.options && (
         <select
           name={content.name}
