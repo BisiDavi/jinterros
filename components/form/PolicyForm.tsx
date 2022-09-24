@@ -4,11 +4,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import policyFormContent from "@/json/policy-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
-import { adminProductSchema } from "@/components/form/schema/adminProductSchema";
+import { policySchema } from "@/components/form/schema/adminProductSchema";
 
 export default function PolicyForm() {
   const methods = useForm({
-    resolver: yupResolver(adminProductSchema),
+    resolver: yupResolver(policySchema),
     mode: "all",
   });
 

@@ -1,8 +1,13 @@
 import type { GetServerSidePropsContext } from "next";
 import AdminLayout from "@/layout/AdminLayout";
+import PolicyForm from "@/components/form/PolicyForm";
 
 export default function PoliciesPage() {
-  return <AdminLayout title="Policies"></AdminLayout>;
+  return (
+    <AdminLayout title="Policies">
+      <PolicyForm />
+    </AdminLayout>
+  );
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
