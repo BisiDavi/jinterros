@@ -6,6 +6,7 @@ import Head from "next/head";
 import links from "@/json/links.json";
 import displayIcons from "@/lib/displayIcons";
 import Logo from "@/components/Logo";
+import AdminNotificationBar from "@/components/header/AdminNotificationBar";
 
 interface Props {
   title: string;
@@ -53,7 +54,8 @@ export default function AdminLayout({
           </ul>
         </aside>
         <main className="main w-4/5 flex flex-col">
-          <div className="top w-full h-40  border-b px-8 flex">
+          <div className="top w-full h-40  border-b px-8 flex relative">
+            <AdminNotificationBar />
             <h4 className="text-4xl font-medium text-brown-old flex items-end my-4">
               {title}
             </h4>

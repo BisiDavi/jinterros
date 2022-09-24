@@ -16,7 +16,9 @@ export default function useAuthMutation() {
         error: "Sign up error",
         onSuccessMethodWithData: (data) => {
           console.log("data-onSuccessMethodWithData", data);
-          router.back();
+          if (!router.asPath.includes("/admin")) {
+            router.back();
+          }
         },
       }
     );
@@ -31,7 +33,9 @@ export default function useAuthMutation() {
         error: "oops, an error occured",
         onSuccessMethodWithData: (data) => {
           console.log("data", data);
-          router.back();
+          if (!router.asPath.includes("/admin")) {
+            router.back();
+          }
         },
       }
     );
@@ -43,7 +47,9 @@ export default function useAuthMutation() {
       success: "logout successful",
       error: "oops, an error occured",
       onSuccessMethodWithData: (data) => {
-        router.back();
+        if (!router.asPath.includes("/admin")) {
+          router.back();
+        }
       },
     });
   }
