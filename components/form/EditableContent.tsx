@@ -1,4 +1,6 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useFormContext } from "react-hook-form";
+import { memo, useEffect, useState } from "react";
 import ContentEditable from "react-contenteditable";
 
 import type { InputType } from "@/types/form-types";
@@ -7,8 +9,16 @@ interface Props {
   content: InputType;
 }
 
-export default function EditableContent({ content }: Props) {
+function EditableContentComponent({ content }: Props) {
   const [html, setHtml] = useState("");
+
+  const { setValue } = useFormContext();
+
+  useEffect(() => {
+    if (html) {
+      setValue(content.name, html);
+    }
+  }, [html]);
 
   function handleChange(e: any) {
     setHtml(e.target.value);
@@ -20,10 +30,14 @@ export default function EditableContent({ content }: Props) {
         {content.placeholder}
       </div>
       <ContentEditable
-        className="w-full border p-4 border-blue-500 rounded-xl h-96 input-border-lighter"
+        className="w-full border p-4 py-0 border-blue-500 rounded-xl min-h-400 input-border-lighter"
         html={html}
         onChange={handleChange}
       />
     </div>
   );
 }
+
+const EditableContent = memo(EditableContentComponent);
+
+export default EditableContent;

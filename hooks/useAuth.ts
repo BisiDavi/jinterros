@@ -25,8 +25,6 @@ export default function useAuth() {
   const router = useRouter();
   const [, setCookie] = useCookies(["admin"]);
 
-  console.log("router", router.asPath);
-
   function getAuthStatus() {
     const auth = getAuth(app);
     const user = auth ? auth?.currentUser?.providerData[0] : null;

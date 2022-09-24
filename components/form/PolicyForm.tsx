@@ -5,15 +5,18 @@ import policyFormContent from "@/json/policy-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { policySchema } from "@/components/form/schema/adminProductSchema";
+import usePolicyForm from "@/hooks/usePolicyForm";
 
 export default function PolicyForm() {
+  const { savePolicy } = usePolicyForm();
+
   const methods = useForm({
     resolver: yupResolver(policySchema),
     mode: "all",
   });
 
   function onSubmit(data: any) {
-    console.log("data", data);
+    savePolicy(data, methods);
   }
   return (
     <>

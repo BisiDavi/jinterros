@@ -144,6 +144,10 @@
   height: 800px;
 }
 
+.min-h-400 {
+  min-height: 400px;
+}
+
 .shop-background-image {
   background-image: url("/jinterros-rum.webp"), url("/flower-2.webp");
   background-position: bottom, right;
