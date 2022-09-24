@@ -1,0 +1,20 @@
+[
+  [
+    {
+      "type": "text",
+      "name": "title",
+      "elementType": "input",
+      "placeholder": "Title",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "name": "policy",
+      "elementType": "markdown",
+      "placeholder": "Policy",
+      "className": "input-border-lighter"
+    }
+  ]
+]

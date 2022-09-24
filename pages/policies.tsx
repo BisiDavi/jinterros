@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import Button from "@/components/button";
 import FormLayout from "@/layout/FormLayout";
@@ -11,10 +12,15 @@ import type { policiesStateType } from "@/types/redux-types";
 
 export default function Policies() {
   const dispatch = useAppDispatch();
+  const router = useRouter();
   const { policies } = useAppSelector((state) => state.UI);
   const policy = policiesContent.filter(
     (item) => toSlug(item.title) === policies
   )[0];
+
+  function goBack() {
+    return router.back();
+  }
 
   function changePolicyHandler(policyKey: string) {
     const TpolicyKey: policiesStateType | any = toSlug(policyKey);
@@ -72,17 +78,25 @@ export default function Policies() {
               <p className="text-sm text-gray-600">{policy.text}</p>
             </div>
           </div>
-          <div className="buttonGroup pt-4 lg:pt-2 flex justify-between my-4 lg:h-16 lg:pt-12 border-t items-center">
+          {!router.asPath.includes("/policies") ? (
+            <div className="buttonGroup pt-4 lg:pt-2 flex justify-between my-4 lg:h-16 lg:pt-12 border-t items-center">
+              <Button
+                text="Confirm Choices"
+                className="bg-leaf-green lg:px-6 py-1 lg:py-2 text-white font-bold h-10 lg:h-12 w-2/5 text-sm lg:w-1/4 lg:text-base hover:opacity-80 flex items-center justify-center"
+              />
+              <Button
+                text="Allow All"
+                className="bg-leaf-green flex items-center justify-center lg:px-6 py-1 lg:py-2 w-2/5 text-white text-sm lg:text-base font-bold h-10 lg:h-12 lg:w-1/4 hover:opacity-80"
+                href="/"
+              />
+            </div>
+          ) : (
             <Button
-              text="Confirm Choices"
-              className="bg-leaf-green lg:px-6 py-1 lg:py-2 text-white font-bold h-10 lg:h-12 w-2/5 text-sm lg:w-1/4 lg:text-base hover:opacity-80 flex items-center justify-center"
+              text="Back"
+              className="bg-red-500 mx-auto mb-4 flex items-center justify-center lg:px-6 py-1 lg:py-2 w-2/5 text-white text-sm lg:text-base font-bold h-10 lg:h-12 lg:w-1/4 hover:opacity-80"
+              onClick={goBack}
             />
-            <Button
-              text="Allow All"
-              className="bg-leaf-green flex items-center justify-center lg:px-6 py-1 lg:py-2 w-2/5 text-white text-sm lg:text-base font-bold h-10 lg:h-12 lg:w-1/4 hover:opacity-80"
-              href="/"
-            />
-          </div>
+          )}
         </div>
         <div className="footer h-10 bg-gray flex items-center justify-end px-4">
           <Image
