@@ -41,13 +41,11 @@ export function PolicyLinks({ policyLinks, className }: PolicyLinksProps) {
         const showBorder = Number(policyLinks.length - 1) !== index ? "|" : "";
         return (
           <li key={`${linkItem.link}-${index}`} className="flex items-center">
-            <Link href={linkItem.link}>
-              <>
-                <a className="underline hover:text-red-500 text-lg lg:text-xs">
-                  {linkItem.text}
-                </a>{" "}
+            <Link href={linkItem.link} passHref>
+              <a className="underline flex hover:text-red-500 text-lg lg:text-xs">
+                {linkItem.text}
                 <span className="mx-1 hidden lg:flex">{showBorder}</span>
-              </>
+              </a>
             </Link>
           </li>
         );

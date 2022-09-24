@@ -1,14 +1,14 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import productFormContent from "@/json/product-form.json";
+import cocktailFormContent from "@/json/cocktail-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
-import { adminProductSchema } from "@/components/form/schema/adminProductSchema";
+import { cocktailSchema } from "@/components/form/schema/adminProductSchema";
 
-export default function AdminProductForm() {
+export default function CocktailForm() {
   const methods = useForm({
-    resolver: yupResolver(adminProductSchema),
+    resolver: yupResolver(cocktailSchema),
     mode: "all",
   });
 
@@ -17,13 +17,13 @@ export default function AdminProductForm() {
   }
   return (
     <>
-      <h4 className="font-bold text-2xl text-center my-2">Upload Product</h4>
+      <h4 className="font-bold text-2xl text-center my-2">Upload Cocktail</h4>
       <FormProvider {...methods}>
         <form
           className="border rounded-xl shadow p-4"
           onSubmit={methods.handleSubmit(onSubmit)}
         >
-          {productFormContent.map((formItemArray, index) => (
+          {cocktailFormContent.map((formItemArray, index) => (
             <div
               className="form-group my-4 flex w-full justify-between"
               key={index}
