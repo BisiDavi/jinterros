@@ -38,6 +38,10 @@ export default function OrdersTable() {
       <thead className="border-b">
         {headerGroups.map((headerGroup, index) => (
           <tr key={index}>
+            <th className="p-4 px-6">
+              <input type="checkbox" value="all" />
+            </th>
+            <th className="p-4 px-6">S/N</th>
             {headerGroup.headers.map((column) => (
               <th {...column.getHeaderProps()} className="p-4 px-6">
                 {column.render("Header")}
@@ -47,10 +51,15 @@ export default function OrdersTable() {
         ))}
       </thead>
       <tbody {...getTableBodyProps()}>
-        {rows.map((row) => {
+        {rows.map((row, i: number) => {
           prepareRow(row);
+          const rowId = i + 1;
           return (
             <tr>
+              <td className="p-4 px-6 border-b text-center">
+                <input type="checkbox" value={rowId} />
+              </td>
+              <td className="p-4 px-6 border-b text-center">{rowId}</td>
               {row.cells.map((cell, index) => (
                 <td
                   {...cell.getCellProps()}
