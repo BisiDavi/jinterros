@@ -35,7 +35,7 @@
     {
       "type": "text",
       "name": "country",
-      "elementType": "input",
+      "elementType": "country",
       "placeholder": "Country",
       "className": "input-border-lighter"
     }

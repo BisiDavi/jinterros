@@ -21,7 +21,7 @@ export default function AdminProductForm() {
       <FormProvider {...methods}>
         <form
           className="border rounded-xl shadow p-4"
-          onClick={methods.handleSubmit(onSubmit)}
+          onSubmit={methods.handleSubmit(onSubmit)}
         >
           {productFormContent.map((formItemArray, index) => (
             <div
