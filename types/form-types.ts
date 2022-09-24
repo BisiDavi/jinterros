@@ -7,4 +7,5 @@ export type InputType = {
   label?: string;
   note?: string;
   value?: string | number;
+  options?: Array<{ value: string; text: string }>;
 };

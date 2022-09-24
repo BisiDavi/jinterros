@@ -17,4 +17,5 @@ export const cocktailSchema = yup.object({
 
 export const policySchema = yup.object({
   title: yup.string().required("Title is required"),
+  policy: yup.string().required("Policy is required"),
 });

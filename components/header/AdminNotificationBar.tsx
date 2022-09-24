@@ -4,7 +4,6 @@ import getUserInitials from "@/lib/getUserInitials";
 export default function AdminNotificationBar() {
   const { getAuthStatus } = useAuth();
   const authStatus = getAuthStatus();
-  console.log("authStatus", authStatus);
 
   return (
     <>

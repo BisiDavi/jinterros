@@ -12,7 +12,10 @@ interface Props {
 
 function EditableContentComponent({ content }: Props) {
   const [html, setHtml] = useState("");
-  const { setValue } = useFormContext();
+  const {
+    setValue,
+    formState: { errors },
+  }: any = useFormContext();
   const { resetEditableContent } = useAppSelector((state) => state.form);
 
   useEffect(() => {
@@ -37,10 +40,13 @@ function EditableContentComponent({ content }: Props) {
         {content.placeholder}
       </div>
       <ContentEditable
-        className="w-full border p-4 py-0 border-blue-500 rounded-xl min-h-400 input-border-lighter"
+        className="w-full border p-4 border-blue-500 rounded-xl min-h-400 input-border-lighter"
         html={html}
         onChange={handleChange}
       />
+      <p className="text-red-500 p-0  text-xs">
+        {errors[content.name]?.message}
+      </p>
     </div>
   );
 }
