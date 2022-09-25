@@ -5,6 +5,7 @@ import cocktailFormContent from "@/json/cocktail-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { cocktailSchema } from "@/components/form/schema/adminProductSchema";
+import useCocktail from "@/hooks/useCocktail";
 
 export default function CocktailForm() {
   const methods = useForm({
@@ -12,8 +13,11 @@ export default function CocktailForm() {
     mode: "all",
   });
 
+  const { saveCocktail } = useCocktail();
+
   function onSubmit(data: any) {
     console.log("data", data);
+    saveCocktail(data, methods);
   }
   return (
     <>

@@ -6,7 +6,7 @@ import useToast from "@/hooks/useToast";
 import toSlug from "@/lib/toSlug";
 import { useAppDispatch } from "@/hooks/useRedux";
 import { resetEditable } from "@/redux/form-slice";
-import useMediaUpload from "./useMediaUpload";
+import useMediaUpload from "@/hooks/useMediaUpload";
 
 export default function useCocktail() {
   const { getAuthStatus } = useAuth();
@@ -41,7 +41,7 @@ export default function useCocktail() {
         updateToast(toastId, "success", "Cocktail saved");
       });
     } catch (error) {
-      console.log("error");
+      console.log("error", error);
       updateToast(toastId, "error", "Error saving Cocktail");
     }
   }
