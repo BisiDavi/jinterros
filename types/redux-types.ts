@@ -11,5 +11,5 @@ export type UIStateType = {
 
 export type FormStateType = {
   resetEditableContent: boolean;
-  uploadMediaStatus: string | null;
+  media: any | null;
 };

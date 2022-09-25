@@ -13,10 +13,6 @@ export default function CocktailForm() {
     mode: "all",
   });
 
-  const { getValues } = methods;
-  const values = getValues();
-  console.log("values-rrr", values);
-
   const { saveCocktail } = useCocktail();
 
   function onSubmit(data: any) {

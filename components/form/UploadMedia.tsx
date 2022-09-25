@@ -1,40 +1,29 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 
+import { useAppDispatch } from "@/hooks/useRedux";
+import { uploadMedia } from "@/redux/form-slice";
 import type { InputType } from "@/types/form-types";
-import useMediaUpload from "@/hooks/useMediaUpload";
-import { useAppSelector } from "@/hooks/useRedux";
 
 interface Props {
   input: InputType;
 }
 
 export default function UploadMedia({ input }: Props) {
-  const [media, setMedia] = useState(null);
   const [previewMedia, setPreviewMedia] = useState("");
-  const { uploadImage } = useMediaUpload();
-  const { uploadMediaStatus } = useAppSelector((state) => state.form);
+  const dispatch = useAppDispatch();
 
   const {
-    setValue,
     formState: { errors },
   }: any = useFormContext();
-
-  useEffect(() => {
-    if (input.name === uploadMediaStatus && media) {
-      uploadImage(media).then((response) => {
-        setValue(input.name, response.data.secure_url);
-      });
-    }
-  }, [uploadMediaStatus]);
 
   function onClickHandler(e: any) {
     if (e.target.files) {
       const imageData = URL.createObjectURL(e.target.files[0]);
       setPreviewMedia(imageData);
-      setMedia(e.target.files[0]);
+      dispatch(uploadMedia(e.target.files[0]));
     }
   }
 
@@ -48,6 +37,7 @@ export default function UploadMedia({ input }: Props) {
           type="file"
           onChange={onClickHandler}
           placeholder={input.placeholder}
+          required
         />
       </label>
       <p className="text-red-500 p-0  mt-2 text-xs">

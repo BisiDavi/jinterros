@@ -5,7 +5,7 @@ import type { FormStateType } from "@/types/redux-types";
 
 const initialState: FormStateType = {
   resetEditableContent: false,
-  uploadMediaStatus: null,
+  media: null,
 };
 
 const FormSlice = createSlice({
@@ -19,7 +19,7 @@ const FormSlice = createSlice({
       state.resetEditableContent = action.payload;
     },
     uploadMedia(state, action) {
-      state.uploadMediaStatus = action.payload;
+      state.media = action.payload;
     },
   },
 });
