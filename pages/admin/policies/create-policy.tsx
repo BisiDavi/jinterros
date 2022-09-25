@@ -1,9 +1,8 @@
 import type { GetServerSidePropsContext } from "next";
 import AdminLayout from "@/layout/AdminLayout";
 import PolicyForm from "@/components/form/PolicyForm";
-import PolicyTable from "@/components/table/PolicyTable";
 
-export default function PoliciesSlugPage() {
+export default function CreatePolicy() {
   return (
     <AdminLayout title="Policies">
       <PolicyForm />

@@ -58,7 +58,7 @@ export default function PolicyTable() {
       initialState: tableState,
     });
   return (
-    <table {...getTableProps()} className="shadow rounded-xl border">
+    <table {...getTableProps()} className="shadow w-full rounded-xl border">
       <thead className="border-b">
         {headerGroups.map((headerGroup, index) => (
           <tr key={index}>
@@ -88,7 +88,7 @@ export default function PolicyTable() {
               <td className="p-4 px-6 border-b">{rowId}</td>
               {row.cells.map((cell, index) => (
                 <td {...cell.getCellProps()} className="p-4 px-6 border-b">
-                  <Link href={`admin/policies/${title}`} passHref>
+                  <Link href={`/admin/policies/${title}`} passHref>
                     <a>{cell.render("Cell")}</a>
                   </Link>
                 </td>
