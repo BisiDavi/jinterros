@@ -21,6 +21,7 @@ export default function useCocktail() {
 
   async function saveCocktail(data: any, methods: any) {
     try {
+      loadingToast(toastId);
       const responseData = await uploadImage(data.cocktailImage);
       const cocktailData = {
         ...data,
@@ -28,7 +29,6 @@ export default function useCocktail() {
         cocktailImage: responseData.data.secure_url,
         author: { name: authStatus?.displayName, email: authStatus?.email },
       };
-      loadingToast(toastId);
       const cocktailSlug = toSlug(data.title);
       const stringifyData = JSON.stringify(cocktailData);
 

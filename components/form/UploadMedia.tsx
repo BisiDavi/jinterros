@@ -11,6 +11,7 @@ interface Props {
 
 export default function UploadMedia({ input }: Props) {
   const [media, setMedia] = useState("");
+  const [previewMedia, setPreviewMedia] = useState("");
 
   const {
     setValue,
@@ -28,8 +29,8 @@ export default function UploadMedia({ input }: Props) {
   function onClickHandler(e: any) {
     if (e.target.files) {
       const imageData = URL.createObjectURL(e.target.files[0]);
+      setPreviewMedia(imageData)
       setMedia(e.target.files[0]);
-      // return uploadMedia(e.target.files[0]);
     }
   }
 
@@ -48,7 +49,9 @@ export default function UploadMedia({ input }: Props) {
       <p className="text-red-500 p-0  mt-2 text-xs">
         {errors[input.name]?.message}
       </p>
-      {media && <img src={media} alt="preview media" className="mt-5 w-2/3" />}
+      {previewMedia && (
+        <img src={previewMedia} alt="preview media" className="mt-5 w-2/3" />
+      )}
     </div>
   );
 }

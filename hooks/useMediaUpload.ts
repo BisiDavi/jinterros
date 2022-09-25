@@ -25,7 +25,6 @@ export default function useMediaUpload() {
       return uploadImage(mediaItem)
         .then((response) => {
           console.log("upload-response", response.data);
-          //     dispatch(updateMedia(response.data.secure_url));
           updateToast(toastID, "success", "document upload, successful");
         })
         .catch((err) => {
