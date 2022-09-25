@@ -16,7 +16,7 @@ export default function CocktailForm() {
   const { saveCocktail } = useCocktail();
 
   function onSubmit(data: any) {
-    saveCocktail(data, methods, "cocktailImage");
+    saveCocktail(data, methods);
   }
   return (
     <>

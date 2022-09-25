@@ -20,36 +20,30 @@ export default function useCocktail() {
 
   const date = new Date();
 
-  async function saveCocktail(data: any, methods: any, mediaName: string) {
+  async function saveCocktail(data: any, methods: any) {
     try {
       loadingToast(toastId);
-      const responseData = await uploadImage(media);
-      if (data.cocktailImage) {
-        const cocktailData = {
-          ...data,
-          date,
-          cocktailImage: responseData.data.secure_url,
-          author: { name: authStatus?.displayName, email: authStatus?.email },
-        };
-        const cocktailSlug = toSlug(data.title);
-        const stringifyData = JSON.stringify(cocktailData);
+      const responseData = await uploadImage(media[0]);
+      const cocktailData = {
+        ...data,
+        date,
+        cocktailImage: responseData.data.secure_url,
+        author: { name: authStatus?.displayName, email: authStatus?.email },
+      };
+      const cocktailSlug = toSlug(data.title);
+      const stringifyData = JSON.stringify(cocktailData);
 
-        console.log("data", data);
+      console.log("cocktailData", cocktailData);
 
-        writeData(
-          stringifyData,
-          `/cocktail/${cocktailSlug}/${authStatus?.uid}`
-        ).then(() => {
-          dispatch(resetEditable(true));
-          dispatch(uploadMedia(null));
-          methods.reset();
-          updateToast(toastId, "success", "Cocktail saved");
-        });
-      } else {
-        updateToast(toastId, "error", "Error saving Cocktail");
+      writeData(
+        stringifyData,
+        `/cocktail/${cocktailSlug}/${authStatus?.uid}`
+      ).then(() => {
+        dispatch(resetEditable(true));
         dispatch(uploadMedia(null));
-        throw new Error("error uploading image");
-      }
+        methods.reset();
+        updateToast(toastId, "success", "Cocktail saved");
+      });
     } catch (error) {
       console.log("error", error);
       dispatch(uploadMedia(null));

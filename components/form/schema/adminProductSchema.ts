@@ -12,7 +12,8 @@ export const adminProductSchema = yup.object({
 export const cocktailSchema = yup.object({
   title: yup.string().required("Title is required"),
   ingredients: yup.string().required("Ingredients is required"),
-  instructions: yup.string().required("Country is required"),
+  instructions: yup.string().required("Instructions is required"),
+  cocktailImage: yup.string().required("Image is required"),
 });
 
 export const policySchema = yup.object({

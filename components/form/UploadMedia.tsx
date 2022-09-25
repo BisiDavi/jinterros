@@ -16,6 +16,7 @@ export default function UploadMedia({ input }: Props) {
   const dispatch = useAppDispatch();
 
   const {
+    setValue,
     formState: { errors },
   }: any = useFormContext();
 
@@ -23,7 +24,8 @@ export default function UploadMedia({ input }: Props) {
     if (e.target.files) {
       const imageData = URL.createObjectURL(e.target.files[0]);
       setPreviewMedia(imageData);
-      dispatch(uploadMedia(e.target.files[0]));
+      setValue(input.name, true);
+      dispatch(uploadMedia(e.target.files));
     }
   }
 
@@ -37,7 +39,6 @@ export default function UploadMedia({ input }: Props) {
           type="file"
           onChange={onClickHandler}
           placeholder={input.placeholder}
-          required
         />
       </label>
       <p className="text-red-500 p-0  mt-2 text-xs">
