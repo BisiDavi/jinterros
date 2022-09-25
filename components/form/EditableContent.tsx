@@ -18,8 +18,6 @@ function EditableContentComponent({ content }: Props) {
   }: any = useFormContext();
   const { resetEditableContent } = useAppSelector((state) => state.form);
 
-  
-
   useEffect(() => {
     if (resetEditableContent) {
       setHtml("");
@@ -38,7 +36,7 @@ function EditableContentComponent({ content }: Props) {
 
   return (
     <div>
-      <div className="mb-0 font-normal text-gray-600 text-xl">
+      <div className="mb-1 font-normal text-gray-600 text-xl">
         {content.placeholder}
       </div>
       <ContentEditable

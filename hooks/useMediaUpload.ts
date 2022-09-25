@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useRouter } from "next/router";
 import { useRef } from "react";
 
 import useToast from "@/hooks/useToast";
@@ -7,7 +6,6 @@ import useToast from "@/hooks/useToast";
 export default function useMediaUpload() {
   const toastID = useRef(null);
   const { updateToast, loadingToast } = useToast();
-  const router = useRouter();
 
   function uploadImage(image: any) {
     const formData = new FormData();
