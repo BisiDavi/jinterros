@@ -19,7 +19,13 @@ export default function AdminLayout({
   const router = useRouter();
 
   function getActiveLink(link: string) {
-    return router.asPath === link ? "text-brown-old border-brown-left" : "";
+    if (link !== "/admin") {
+      return router.asPath.includes(link)
+        ? "text-brown-old border-brown-left"
+        : "";
+    } else {
+      return router.asPath === link ? "text-brown-old border-brown-left" : "";
+    }
   }
 
   return (
