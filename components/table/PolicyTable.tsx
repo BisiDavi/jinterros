@@ -4,21 +4,49 @@ import { useTable } from "react-table";
 
 import { readData } from "@/lib/firebaseConfig";
 
+function formatPolicies(data: any) {
+  if (data) {
+    const dbDatab = Object.values(data);
+    const dataArray: any[] = [];
+    dbDatab.map((item: any) => {
+      const formattedData: any = Object.values(item);
+      const parsedData = JSON.parse(formattedData);
+      if (parsedData) {
+        const date = new Date(parsedData.date);
+        dataArray.push({
+          ...parsedData,
+          authorName: parsedData.author.name,
+          date: `${date.toDateString()}, ${date.toLocaleTimeString([], {
+            hour12: true,
+            hour: "2-digit",
+            minute: "2-digit",
+          })}`,
+        });
+      }
+    });
+    return dataArray;
+  }
+}
+
 export default function PolicyTable() {
   const [policies, setPolicies] = useState(null);
 
   readData("/policy", policies, setPolicies);
-  console.log("policies", policies);
+  const formattedPolicies = formatPolicies(policies);
 
   const columns: any = useMemo(
     () => [
       { Header: "Title", accessor: "title" },
-      { Header: "Author", accessor: "authorname" },
+      { Header: "Author", accessor: "authorName" },
       { Header: "Created At", accessor: "date" },
     ],
     []
   );
-  const data = useMemo(() => [], []);
+  const policyData = formattedPolicies ? formattedPolicies : [];
+
+  const data = useMemo(() => [...policyData], [policies]);
+
+  console.log("data", data);
 
   const tableState: any = { pageIndex: 0 };
 
@@ -51,15 +79,12 @@ export default function PolicyTable() {
           const rowId = i + 1;
           return (
             <tr className="hover:bg-gray-300">
-              <td className="p-4 px-6 border-b text-center">
+              <td className="p-4 px-6 border-b">
                 <input type="checkbox" value={rowId} />
               </td>
-              <td className="p-4 px-6 border-b text-center">{rowId}</td>
+              <td className="p-4 px-6 border-b">{rowId}</td>
               {row.cells.map((cell, index) => (
-                <td
-                  {...cell.getCellProps()}
-                  className="p-4 px-6 border-b text-center"
-                >
+                <td {...cell.getCellProps()} className="p-4 px-6 border-b">
                   {cell.render("Cell")}
                 </td>
               ))}
