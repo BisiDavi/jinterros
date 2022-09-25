@@ -6,6 +6,7 @@ import type { FormStateType } from "@/types/redux-types";
 const initialState: FormStateType = {
   resetEditableContent: false,
   media: null,
+  previewMedia: "",
 };
 
 const FormSlice = createSlice({
@@ -21,8 +22,12 @@ const FormSlice = createSlice({
     uploadMedia(state, action) {
       state.media = action.payload;
     },
+    uploadPreviewMedia(state, action) {
+      state.previewMedia = action.payload;
+    },
   },
 });
 
-export const { resetEditable, uploadMedia } = FormSlice.actions;
+export const { resetEditable, uploadMedia, uploadPreviewMedia } =
+  FormSlice.actions;
 export default FormSlice.reducer;

@@ -5,7 +5,11 @@ import useFirebase from "@/hooks/useFirebase";
 import useToast from "@/hooks/useToast";
 import toSlug from "@/lib/toSlug";
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
-import { resetEditable, uploadMedia } from "@/redux/form-slice";
+import {
+  resetEditable,
+  uploadMedia,
+  uploadPreviewMedia,
+} from "@/redux/form-slice";
 import useMediaUpload from "@/hooks/useMediaUpload";
 
 export default function useCocktail() {
@@ -39,15 +43,20 @@ export default function useCocktail() {
         .then(() => {
           dispatch(resetEditable(true));
           dispatch(uploadMedia(null));
+          dispatch(uploadPreviewMedia(null));
           methods.reset();
           updateToast(toastId, "success", "Cocktail saved");
         })
-        .catch(() => {
-          throw new Error("Error saving Cocktail");
+        .catch((error) => {
+          console.log("error", error);
+          dispatch(uploadMedia(null));
+          dispatch(uploadPreviewMedia(null));
+          updateToast(toastId, "error", "Error saving Cocktail");
         });
     } catch (error) {
       console.log("error", error);
       dispatch(uploadMedia(null));
+      dispatch(uploadPreviewMedia(null));
       updateToast(toastId, "error", "Error saving Cocktail");
     }
   }

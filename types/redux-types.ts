@@ -12,4 +12,5 @@ export type UIStateType = {
 export type FormStateType = {
   resetEditableContent: boolean;
   media: any | null;
+  previewMedia: string;
 };
