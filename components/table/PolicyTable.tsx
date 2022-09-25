@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-key */
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTable } from "react-table";
 
 import { readData } from "@/lib/firebaseConfig";
@@ -34,7 +34,12 @@ function formatPolicies(data: any) {
 export default function PolicyTable() {
   const [policies, setPolicies] = useState(null);
 
-  readData("/policy", policies, setPolicies);
+  useEffect(() => {
+    if (policies === null) {
+      readData("/policy", policies, setPolicies);
+    }
+  }, [policies]);
+
   const formattedPolicies = formatPolicies(policies);
 
   const columns: any = useMemo(

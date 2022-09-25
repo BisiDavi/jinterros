@@ -3,6 +3,7 @@ import AdminLayout from "@/layout/AdminLayout";
 import { GetServerSidePropsContext } from "next";
 
 export default function AdminCocktailsPage() {
+    
   return (
     <AdminLayout title="Cocktails">
       <CocktailForm />
