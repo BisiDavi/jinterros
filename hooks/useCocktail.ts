@@ -22,7 +22,9 @@ export default function useCocktail() {
   async function saveCocktail(data: any, methods: any) {
     try {
       loadingToast(toastId);
-      const responseData = await uploadImage(data.cocktailImage);
+      const imageData = JSON.parse(data.cocktailImage);
+      console.log("imageData", imageData);
+      const responseData = await uploadImage(imageData);
       const cocktailData = {
         ...data,
         date,

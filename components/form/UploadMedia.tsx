@@ -20,7 +20,7 @@ export default function UploadMedia({ input }: Props) {
 
   useEffect(() => {
     if (media) {
-      setValue(input.name, media);
+      setValue(input.name, JSON.stringify(media));
     }
   }, [media]);
 
@@ -29,7 +29,7 @@ export default function UploadMedia({ input }: Props) {
   function onClickHandler(e: any) {
     if (e.target.files) {
       const imageData = URL.createObjectURL(e.target.files[0]);
-      setPreviewMedia(imageData)
+      setPreviewMedia(imageData);
       setMedia(e.target.files[0]);
     }
   }
