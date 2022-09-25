@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useFormContext } from "react-hook-form";
 
 import type { InputType } from "@/types/form-types";
 
@@ -9,6 +11,17 @@ interface Props {
 
 export default function UploadMedia({ input }: Props) {
   const [media, setMedia] = useState("");
+
+  const {
+    setValue,
+    formState: { errors },
+  }: any = useFormContext();
+
+  useEffect(() => {
+    if (media) {
+      setValue(input.name, media);
+    }
+  }, [media]);
 
   console.log("media", media);
 
@@ -32,6 +45,7 @@ export default function UploadMedia({ input }: Props) {
           placeholder={input.placeholder}
         />
       </label>
+      <p className="text-red-500 p-0  text-xs">{errors[input.name]?.message}</p>
       {media && <img src={media} alt="preview media" className="mt-5 w-2/3" />}
     </div>
   );
