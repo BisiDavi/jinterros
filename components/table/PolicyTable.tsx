@@ -1,8 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-key */
 import { useMemo, useState } from "react";
 import { useTable } from "react-table";
 
 import { readData } from "@/lib/firebaseConfig";
+import Link from "next/link";
+import toSlug from "@/lib/toSlug";
 
 function formatPolicies(data: any) {
   if (data) {
@@ -46,8 +49,6 @@ export default function PolicyTable() {
 
   const data = useMemo(() => [...policyData], [policies]);
 
-  console.log("data", data);
-
   const tableState: any = { pageIndex: 0 };
 
   const { getTableProps, headerGroups, rows, prepareRow, getTableBodyProps } =
@@ -77,15 +78,19 @@ export default function PolicyTable() {
         {rows.map((row, i: number) => {
           prepareRow(row);
           const rowId = i + 1;
+          const title = toSlug(data[i].title);
           return (
             <tr className="hover:bg-gray-300">
               <td className="p-4 px-6 border-b">
                 <input type="checkbox" value={rowId} />
               </td>
+
               <td className="p-4 px-6 border-b">{rowId}</td>
               {row.cells.map((cell, index) => (
                 <td {...cell.getCellProps()} className="p-4 px-6 border-b">
-                  {cell.render("Cell")}
+                  <Link href={`admin/policies/${title}`} passHref>
+                    <a>{cell.render("Cell")}</a>
+                  </Link>
                 </td>
               ))}
             </tr>
