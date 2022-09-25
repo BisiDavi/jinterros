@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 const DoughnutChart = dynamic(
   () =>
     import(
-      /** webpackChunkName:DoughnutChart  */ "@/components/chart/Doughtnut"
+      /* webpackChunkName: 'DoughnutChart'  */ "@/components/chart/Doughtnut"
     ),
   {
     ssr: false,
