@@ -5,8 +5,7 @@ import useFirebase from "@/hooks/useFirebase";
 import useToast from "@/hooks/useToast";
 import toSlug from "@/lib/toSlug";
 import { useAppDispatch } from "@/hooks/useRedux";
-import { resetEditable } from "@/redux/form-slice";
-import useMediaUpload from "@/hooks/useMediaUpload";
+import { resetEditable, uploadMedia } from "@/redux/form-slice";
 
 export default function useCocktail() {
   const { getAuthStatus } = useAuth();
@@ -15,35 +14,41 @@ export default function useCocktail() {
   const toastId = useRef();
   const { writeData } = useFirebase();
   const dispatch = useAppDispatch();
-  const { uploadImage } = useMediaUpload();
 
   const date = new Date();
 
-  async function saveCocktail(data: any, methods: any) {
+  function saveCocktail(data: any, methods: any, mediaName: string) {
     try {
       loadingToast(toastId);
-      const imageData = JSON.parse(data.cocktailImage);
-      console.log("imageData", imageData);
-      const responseData = await uploadImage(imageData);
-      const cocktailData = {
-        ...data,
-        date,
-        cocktailImage: responseData.data.secure_url,
-        author: { name: authStatus?.displayName, email: authStatus?.email },
-      };
-      const cocktailSlug = toSlug(data.title);
-      const stringifyData = JSON.stringify(cocktailData);
+      dispatch(uploadMedia(mediaName));
+      if (data.cocktailImage) {
+        const cocktailData = {
+          ...data,
+          date,
+          author: { name: authStatus?.displayName, email: authStatus?.email },
+        };
+        const cocktailSlug = toSlug(data.title);
+        const stringifyData = JSON.stringify(cocktailData);
 
-      writeData(
-        stringifyData,
-        `/cocktail/${cocktailSlug}/${authStatus?.uid}`
-      ).then(() => {
-        dispatch(resetEditable(true));
-        methods.reset();
-        updateToast(toastId, "success", "Cocktail saved");
-      });
+        console.log("data", data);
+
+        writeData(
+          stringifyData,
+          `/cocktail/${cocktailSlug}/${authStatus?.uid}`
+        ).then(() => {
+          dispatch(resetEditable(true));
+          dispatch(uploadMedia(null));
+          methods.reset();
+          updateToast(toastId, "success", "Cocktail saved");
+        });
+      } else {
+        updateToast(toastId, "error", "Error saving Cocktail");
+        dispatch(uploadMedia(null));
+        throw new Error("error uploading image");
+      }
     } catch (error) {
       console.log("error", error);
+      dispatch(uploadMedia(null));
       updateToast(toastId, "error", "Error saving Cocktail");
     }
   }

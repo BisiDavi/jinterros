@@ -4,14 +4,18 @@ import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 import type { InputType } from "@/types/form-types";
+import useMediaUpload from "@/hooks/useMediaUpload";
+import { useAppSelector } from "@/hooks/useRedux";
 
 interface Props {
   input: InputType;
 }
 
 export default function UploadMedia({ input }: Props) {
-  const [media, setMedia] = useState("");
+  const [media, setMedia] = useState(null);
   const [previewMedia, setPreviewMedia] = useState("");
+  const { uploadImage } = useMediaUpload();
+  const { uploadMediaStatus } = useAppSelector((state) => state.form);
 
   const {
     setValue,
@@ -19,12 +23,12 @@ export default function UploadMedia({ input }: Props) {
   }: any = useFormContext();
 
   useEffect(() => {
-    if (media) {
-      setValue(input.name, JSON.stringify(media));
+    if (input.name === uploadMediaStatus && media) {
+      uploadImage(media).then((response) => {
+        setValue(input.name, response.data.secure_url);
+      });
     }
-  }, [media]);
-
-  console.log("media", media);
+  }, [uploadMediaStatus]);
 
   function onClickHandler(e: any) {
     if (e.target.files) {
