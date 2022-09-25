@@ -35,15 +35,16 @@ export default function useCocktail() {
 
       console.log("cocktailData", cocktailData);
 
-      writeData(
-        stringifyData,
-        `/cocktail/${cocktailSlug}/${authStatus?.uid}`
-      ).then(() => {
-        dispatch(resetEditable(true));
-        dispatch(uploadMedia(null));
-        methods.reset();
-        updateToast(toastId, "success", "Cocktail saved");
-      });
+      writeData(stringifyData, `/cocktail/${cocktailSlug}/${authStatus?.uid}`)
+        .then(() => {
+          dispatch(resetEditable(true));
+          dispatch(uploadMedia(null));
+          methods.reset();
+          updateToast(toastId, "success", "Cocktail saved");
+        })
+        .catch(() => {
+          throw new Error("Error saving Cocktail");
+        });
     } catch (error) {
       console.log("error", error);
       dispatch(uploadMedia(null));
