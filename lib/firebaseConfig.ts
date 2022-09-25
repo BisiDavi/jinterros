@@ -1,5 +1,7 @@
-// Import the functions you need from the SDKs you need
+import { getDatabase, ref, set, onValue } from "firebase/database";
 import { getApp, initializeApp } from "firebase/app";
+
+// Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -29,4 +31,21 @@ export const createFirebaseApp = () => {
 export function initFB() {
   const app = createFirebaseApp();
   return app;
+}
+
+export function initializeDB() {
+  const app = initFB();
+  const db = getDatabase(app);
+  return db;
+}
+
+export function readData(dbNode: string, dataValue: any, setData: any) {
+  const db = initializeDB();
+  const dataRef = ref(db, dbNode);
+  onValue(dataRef, (snapshot) => {
+    const data = snapshot.val();
+    if (dataValue === null) {
+      setData(data);
+    }
+  });
 }

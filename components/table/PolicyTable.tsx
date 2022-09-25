@@ -1,8 +1,15 @@
 /* eslint-disable react/jsx-key */
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useTable } from "react-table";
 
+import { readData } from "@/lib/firebaseConfig";
+
 export default function PolicyTable() {
+  const [policies, setPolicies] = useState(null);
+
+  readData("/policy", policies, setPolicies);
+  console.log("policies", policies);
+
   const columns: any = useMemo(
     () => [
       { Header: "Title", accessor: "title" },
