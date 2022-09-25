@@ -2,24 +2,18 @@
 import { useMemo } from "react";
 import { useTable } from "react-table";
 
-import orderTableData from "@/json/order-table.json";
-
-export default function OrdersTable() {
+export default function PolicyTable() {
   const columns: any = useMemo(
     () => [
-      { Header: "Invoice ID", accessor: "invoiceID" },
-      { Header: "Date", accessor: "date" },
-      { Header: "Customer", accessor: "customer" },
-      { Header: "Total", accessor: "total" },
-      { Header: "Payment Status", accessor: "paymentStatus" },
-      { Header: "Fulfillment Status", accessor: "fulfillmentStatus" },
-      { Header: "Items", accessor: "items" },
+      { Header: "Title", accessor: "title" },
+      { Header: "Author", accessor: "authorname" },
+      { Header: "Created At", accessor: "date" },
     ],
     []
   );
-  const tableState: any = { pageIndex: 0 };
+  const data = useMemo(() => [], []);
 
-  const data = useMemo(() => [...orderTableData], []);
+  const tableState: any = { pageIndex: 0 };
 
   const { getTableProps, headerGroups, rows, prepareRow, getTableBodyProps } =
     useTable({

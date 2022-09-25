@@ -18,6 +18,8 @@ function EditableContentComponent({ content }: Props) {
   }: any = useFormContext();
   const { resetEditableContent } = useAppSelector((state) => state.form);
 
+  
+
   useEffect(() => {
     if (resetEditableContent) {
       setHtml("");
