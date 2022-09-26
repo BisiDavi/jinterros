@@ -2,34 +2,11 @@
 /* eslint-disable react/jsx-key */
 import { useEffect, useMemo, useState } from "react";
 import { useTable } from "react-table";
+import Link from "next/link";
 
 import { readData } from "@/lib/firebaseConfig";
-import Link from "next/link";
 import toSlug from "@/lib/toSlug";
-
-function formatPolicies(data: any) {
-  if (data) {
-    const dbDatab = Object.values(data);
-    const dataArray: any[] = [];
-    dbDatab.map((item: any) => {
-      const formattedData: any = Object.values(item);
-      const parsedData = JSON.parse(formattedData);
-      if (parsedData) {
-        const date = new Date(parsedData.date);
-        dataArray.push({
-          ...parsedData,
-          authorName: parsedData.author.name,
-          date: `${date.toDateString()}, ${date.toLocaleTimeString([], {
-            hour12: true,
-            hour: "2-digit",
-            minute: "2-digit",
-          })}`,
-        });
-      }
-    });
-    return dataArray;
-  }
-}
+import { formatDBData } from "@/lib/formatDBData";
 
 export default function PolicyTable() {
   const [policies, setPolicies] = useState(null);
@@ -40,7 +17,7 @@ export default function PolicyTable() {
     }
   }, [policies]);
 
-  const formattedPolicies = formatPolicies(policies);
+  const formattedPolicies = formatDBData(policies);
 
   const columns: any = useMemo(
     () => [
@@ -62,6 +39,7 @@ export default function PolicyTable() {
       data,
       initialState: tableState,
     });
+
   return (
     <table {...getTableProps()} className="shadow w-full rounded-xl border">
       <thead className="border-b">
