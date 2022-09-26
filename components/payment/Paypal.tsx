@@ -6,6 +6,9 @@ import { useAppSelector } from "@/hooks/useRedux";
 export default function Paypal() {
   const { total } = useCart();
   const {
+    paymentForm: { data: formData },
+  } = useAppSelector((state) => state.form);
+  const {
     paymentForm: { completed },
   } = useAppSelector((state) => state.form);
 
@@ -29,6 +32,26 @@ export default function Paypal() {
                 amount: {
                   value: `${total}`,
                 },
+                payee: {
+                  email_address: formData.email,
+                },
+                description:
+                  "Payment for the purchase of Rum from Jinterros Stores",
+                shipping: {
+                  type: "SHIPPING",
+                  name: {
+                    full_name: `${formData.firstName} ${formData.lastName}`,
+                  },
+                  phone_number: formData.phoneNumber,
+                  email_address: formData.email,
+                  address: {
+                    address_line_1: formData.address1,
+                    admin_area_1: formData.state,
+                    admin_area_2: formData.city,
+                    postal_code: formData.zip,
+                    country_code: formData.country,
+                  },
+                },
               },
             ],
           });
@@ -38,10 +61,6 @@ export default function Paypal() {
             const name = details.payer.name.given_name;
             alert(`Transaction completed by ${name}`);
           });
-        }}
-        onShippingChange={(data, actions) => {
-          console.log("data", data);
-          return actions.resolve();
         }}
       />
     </PayPalScriptProvider>
