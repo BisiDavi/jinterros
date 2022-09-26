@@ -4,7 +4,7 @@ import useCart from "@/hooks/useCart";
 import { useAppSelector } from "@/hooks/useRedux";
 
 export default function Paypal() {
-  const { total, amount } = useCart();
+  const { total, amount, deliveryFee } = useCart();
 
   const {
     paymentForm: { data: formData },
@@ -37,7 +37,7 @@ export default function Paypal() {
                   breakdown: {
                     item_total: { value: `${amount}`, currency_code: "USD" },
                     shipping: {
-                      value: formData.shippingOption,
+                      value: `${deliveryFee}`,
                       currency_code: "USD",
                     },
                   },
