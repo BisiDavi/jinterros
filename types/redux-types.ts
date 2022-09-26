@@ -13,4 +13,8 @@ export type FormStateType = {
   resetEditableContent: boolean;
   media: any | null;
   previewMedia: string;
+  paymentForm: {
+    data: any;
+    completed: boolean;
+  };
 };

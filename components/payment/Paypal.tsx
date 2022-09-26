@@ -15,8 +15,8 @@ export default function Paypal() {
       }}
     >
       <PayPalButtons
-        className="mx-auto flex justify-center mb-8"
-        style={{ layout: "vertical" }}
+        className="mx-auto flex justify-center mb-8 w-2/3"
+        style={{ layout: "vertical", label: "checkout" }}
         createOrder={(data, actions) => {
           return actions.order.create({
             purchase_units: [
@@ -33,6 +33,9 @@ export default function Paypal() {
             const name = details.payer.name.given_name;
             alert(`Transaction completed by ${name}`);
           });
+        }}
+        onShippingChange={(data, actions) => {
+          console.log("data", data);
         }}
       />
     </PayPalScriptProvider>

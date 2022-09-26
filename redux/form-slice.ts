@@ -7,6 +7,10 @@ const initialState: FormStateType = {
   resetEditableContent: false,
   media: null,
   previewMedia: "",
+  paymentForm: {
+    data: null,
+    completed: false,
+  },
 };
 
 const FormSlice = createSlice({
@@ -25,9 +29,19 @@ const FormSlice = createSlice({
     uploadPreviewMedia(state, action) {
       state.previewMedia = action.payload;
     },
+    updatePaymentForm(
+      state,
+      action: PayloadAction<FormStateType["paymentForm"]>
+    ) {
+      state.paymentForm = action.payload;
+    },
   },
 });
 
-export const { resetEditable, uploadMedia, uploadPreviewMedia } =
-  FormSlice.actions;
+export const {
+  resetEditable,
+  uploadMedia,
+  uploadPreviewMedia,
+  updatePaymentForm,
+} = FormSlice.actions;
 export default FormSlice.reducer;
