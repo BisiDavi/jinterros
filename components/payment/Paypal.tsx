@@ -4,7 +4,8 @@ import useCart from "@/hooks/useCart";
 import { useAppSelector } from "@/hooks/useRedux";
 
 export default function Paypal() {
-  const { total } = useCart();
+  const { total, amount } = useCart();
+
   const {
     paymentForm: { data: formData },
   } = useAppSelector((state) => state.form);
@@ -31,6 +32,13 @@ export default function Paypal() {
               {
                 amount: {
                   value: `${total}`,
+                  breakdown: {
+                    item_total: { value: `${amount}`, currency_code: "USD" },
+                    shipping: {
+                      value: `${formData.shippingOption}`,
+                      currency_code: "USD",
+                    },
+                  },
                 },
                 payee: {
                   email_address: formData.email,
@@ -42,7 +50,6 @@ export default function Paypal() {
                   name: {
                     full_name: `${formData.firstName} ${formData.lastName}`,
                   },
-                  phone_number: formData.phoneNumber,
                   email_address: formData.email,
                   address: {
                     address_line_1: formData.address1,
@@ -54,6 +61,31 @@ export default function Paypal() {
                 },
               },
             ],
+            payer: {
+              name: {
+                given_name: formData.firstName,
+                surname: formData.lastName,
+              },
+              phone: {
+                phone_number: formData.phoneNumber,
+                phone_type: "",
+              },
+              birth_date: "",
+              payer_id: formData.email,
+              tax_info: {
+                tax_id: "",
+                tax_id_type: "",
+              },
+              tenant: "",
+              email_address: formData.email,
+              address: {
+                address_line_1: formData.address1,
+                admin_area_1: formData.state,
+                admin_area_2: formData.city,
+                postal_code: formData.zip,
+                country_code: formData.country,
+              },
+            },
           });
         }}
         onApprove={(data, actions: any) => {
