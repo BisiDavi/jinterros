@@ -9,8 +9,11 @@ export default function useCart() {
     dispatch(updateCart(type));
   }
 
+  const amount = 40 * cart;
+
   return {
     cart,
     updateCartHandler,
+    amount,
   };
 }

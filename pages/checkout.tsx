@@ -7,6 +7,7 @@ import OrderSummary from "@/components/checkout/OrderSummary";
 import ShippingForm from "@/components/form/ShippingForm";
 import useAuth from "@/hooks/useAuth";
 import ShippingOptionForm from "@/components/form/ShippingOptionForm";
+import Paypal from "@/components/payment/Paypal";
 
 export default function Checkout() {
   const { getAuthStatus } = useAuth();
@@ -21,14 +22,19 @@ export default function Checkout() {
   }, [user, router]);
 
   return (
-    <DefaultLayout title="Checkout">
-      <section className="chekout mt-32 mb-14 lg:my-52 px-6 flex flex-col lg:flex-row items-start container mx-auto">
-        <div className="forms lg:w-3/5">
-          <ShippingForm />
-          <ShippingOptionForm />
-        </div>
-        <OrderSummary />
-      </section>
-    </DefaultLayout>
+    <>
+      <DefaultLayout title="Checkout">
+        <section className="">
+          <div className="form-group chekout mt-32  lg:mt-52 mb-14 px-6 flex flex-col lg:flex-row items-start container mx-auto">
+            <div className="forms lg:w-3/5">
+              <ShippingForm />
+              <ShippingOptionForm />
+            </div>
+            <OrderSummary />
+          </div>
+          <Paypal />
+        </section>
+      </DefaultLayout>
+    </>
   );
 }
