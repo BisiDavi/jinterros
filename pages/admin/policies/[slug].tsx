@@ -2,8 +2,8 @@ import { useRouter } from "next/router";
 
 import AdminLayout from "@/layout/AdminLayout";
 import PolicyForm from "@/components/form/PolicyForm";
-import type { GetServerSidePropsContext } from "next";
 import AdminFormView from "@/views/AdminFormView";
+import type { GetServerSidePropsContext } from "next";
 
 export default function PoliciesSlugPage() {
   const router = useRouter();
