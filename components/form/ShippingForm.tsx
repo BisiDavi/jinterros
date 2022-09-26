@@ -19,6 +19,11 @@ export default function ShippingForm() {
   const { getAuthStatus } = useAuth();
   const user: any = getAuthStatus();
 
+  const badgeIcon =
+    Object.values(methods.formState.errors).length === 0
+      ? "text-orange"
+      : "text-gray-400";
+
   const {
     formState: { errors },
   }: any = methods;
@@ -42,7 +47,7 @@ export default function ShippingForm() {
   return (
     <div className="w-full order-2 lg:order-1  shadow-lg pb-8">
       <div className="top flex items-center pl-4">
-        <AiFillCheckCircle className="text-4xl text-orange ml-4 mr-4" />
+        <AiFillCheckCircle className={`text-4xl ${badgeIcon} ml-4 mr-4`} />
         <h4 className="text-xl py-1 ml-4 pt-3 h-12">SHIPPING ADDRESS</h4>
       </div>
       <hr />
