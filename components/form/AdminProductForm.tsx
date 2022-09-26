@@ -9,7 +9,7 @@ import useProductUpload from "@/hooks/useProductUpload";
 import { adminProductFormType } from "@/types/form-types";
 
 interface Props {
-  data: adminProductFormType;
+  data?: adminProductFormType;
 }
 
 export default function AdminProductForm({ data }: Props) {

@@ -9,7 +9,7 @@ import usePolicyForm from "@/hooks/usePolicyForm";
 import type { policyFormType } from "@/types/form-types";
 
 interface Props {
-  data: policyFormType;
+  data?: policyFormType;
 }
 
 export default function PolicyForm({ data }: Props) {
