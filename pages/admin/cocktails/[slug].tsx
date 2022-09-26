@@ -1,12 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
-
 import CocktailForm from "@/components/form/CocktailForm";
 import AdminLayout from "@/layout/AdminLayout";
 import AdminFormView from "@/views/AdminFormView";
-import { readData } from "@/lib/firebaseConfig";
-import formatAdminDBData from "@/lib/formatAdminDBData";
 import { SpinnerLoader } from "@/components/loader/SpinnerRipple";
+import useAdminData from "@/hooks/useAdminData";
 import type { GetServerSidePropsContext } from "next";
 
 interface Props {
@@ -14,22 +10,12 @@ interface Props {
 }
 
 export default function AdminCocktailsPage({ slug }: Props) {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    if (data === null) {
-      readData(`/cocktail/${slug}`, data, setData);
-    }
-  }, [data]);
-
-  const parsedCocktail = data ? formatAdminDBData(JSON.stringify(data)) : null;
-
-  console.log("data", data);
+  const parsedCocktail = useAdminData(`/cocktail/${slug}`);
 
   return (
     <AdminLayout title="Cocktails">
       <AdminFormView>
-        {data ? (
+        {parsedCocktail ? (
           <CocktailForm data={parsedCocktail} />
         ) : (
           <SpinnerLoader loadingText="Fetching Cocktail..." />
