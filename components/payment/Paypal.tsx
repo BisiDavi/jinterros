@@ -13,6 +13,8 @@ export default function Paypal() {
     paymentForm: { completed },
   } = useAppSelector((state) => state.form);
 
+  console.log("formData", formData);
+
   return (
     <PayPalScriptProvider
       options={{
@@ -35,7 +37,7 @@ export default function Paypal() {
                   breakdown: {
                     item_total: { value: `${amount}`, currency_code: "USD" },
                     shipping: {
-                      value: `${formData.shippingOption}`,
+                      value: formData.shippingOption,
                       currency_code: "USD",
                     },
                   },
@@ -61,31 +63,6 @@ export default function Paypal() {
                 },
               },
             ],
-            payer: {
-              name: {
-                given_name: formData.firstName,
-                surname: formData.lastName,
-              },
-              phone: {
-                phone_number: formData.phoneNumber,
-                phone_type: "",
-              },
-              birth_date: "",
-              payer_id: formData.email,
-              tax_info: {
-                tax_id: "",
-                tax_id_type: "",
-              },
-              tenant: "",
-              email_address: formData.email,
-              address: {
-                address_line_1: formData.address1,
-                admin_area_1: formData.state,
-                admin_area_2: formData.city,
-                postal_code: formData.zip,
-                country_code: formData.country,
-              },
-            },
           });
         }}
         onApprove={(data, actions: any) => {

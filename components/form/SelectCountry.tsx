@@ -5,6 +5,7 @@ import type { InputType } from "@/types/form-types";
 
 interface Props {
   content: InputType;
+  data?: any;
 }
 
 export default function SelectCountry({ content }: Props) {

@@ -6,6 +6,7 @@ import type { InputType } from "@/types/form-types";
 
 interface Props {
   input: InputType;
+  data?: any;
 }
 
 export default function Input({ input }: Props) {

@@ -8,6 +8,7 @@ import { useAppSelector } from "@/hooks/useRedux";
 
 interface Props {
   content: InputType;
+  data?: any;
 }
 
 function EditableContentComponent({ content }: Props) {
