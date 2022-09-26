@@ -9,7 +9,7 @@ import useCocktail from "@/hooks/useCocktail";
 import type { cocktailFormType } from "@/types/form-types";
 
 interface Props {
-  data: cocktailFormType;
+  data?: cocktailFormType;
 }
 
 export default function CocktailForm({ data }: Props) {

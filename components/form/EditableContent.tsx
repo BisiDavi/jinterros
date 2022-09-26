@@ -11,13 +11,19 @@ interface Props {
   data?: any;
 }
 
-function EditableContentComponent({ content }: Props) {
+function EditableContentComponent({ content, data }: Props) {
   const [html, setHtml] = useState("");
   const {
     setValue,
     formState: { errors },
   }: any = useFormContext();
   const { resetEditableContent } = useAppSelector((state) => state.form);
+
+  useEffect(() => {
+    if (data) {
+      setHtml(data[content.name]);
+    }
+  }, [data]);
 
   useEffect(() => {
     if (resetEditableContent) {

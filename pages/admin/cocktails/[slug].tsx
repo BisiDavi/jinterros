@@ -1,23 +1,39 @@
-import { ref, onValue } from "firebase/database";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from "react";
 
 import CocktailForm from "@/components/form/CocktailForm";
 import AdminLayout from "@/layout/AdminLayout";
 import AdminFormView from "@/views/AdminFormView";
-import { initializeDB } from "@/lib/firebaseConfig";
+import { readData } from "@/lib/firebaseConfig";
 import formatAdminDBData from "@/lib/formatAdminDBData";
+import { SpinnerLoader } from "@/components/loader/SpinnerRipple";
 import type { GetServerSidePropsContext } from "next";
 
 interface Props {
-  cocktail: string;
+  slug: string;
 }
 
-export default function AdminCocktailsPage({ cocktail }: Props) {
-  const parsedCocktail = formatAdminDBData(cocktail);
+export default function AdminCocktailsPage({ slug }: Props) {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    if (data === null) {
+      readData(`/cocktail/${slug}`, data, setData);
+    }
+  }, [data]);
+
+  const parsedCocktail = data ? formatAdminDBData(JSON.stringify(data)) : null;
+
+  console.log("data", data);
 
   return (
     <AdminLayout title="Cocktails">
       <AdminFormView>
-        <CocktailForm data={parsedCocktail} />
+        {data ? (
+          <CocktailForm data={parsedCocktail} />
+        ) : (
+          <SpinnerLoader loadingText="Fetching Cocktail..." />
+        )}
       </AdminFormView>
     </AdminLayout>
   );
@@ -26,8 +42,6 @@ export default function AdminCocktailsPage({ cocktail }: Props) {
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { req } = context;
   const { slug } = context.query;
-
-  let dataValue;
 
   if (!req.cookies?.admin) {
     return {
@@ -38,18 +52,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     };
   }
 
-  const db = initializeDB();
-  const dataRef = ref(db, `/cocktail/${slug}`);
-  onValue(dataRef, (snapshot) => {
-    const data = snapshot.val();
-    dataValue = data ? JSON.stringify(data) : null;
-  });
-
-  console.log("dataValue", dataValue);
-
   return {
     props: {
-      cocktail: dataValue,
+      slug,
     },
   };
 }
