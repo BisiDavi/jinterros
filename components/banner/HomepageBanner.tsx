@@ -5,7 +5,7 @@ import Button from "@/components/button";
 export default function HomepageBanner() {
   return (
     <>
-      <section className="homepageBanner w-full flex mx-auto my-0">
+      <section className="homepageBanner 2xl:px-20  w-full flex mx-auto my-0">
         <div className="container lg:my-10 lg:mx-auto flex lg:flex-row flex-col px-5 lg:px-0 lg:justify-between items-center">
           <div className="order-2 lg:order-1 lg:w-1/2 mx-auto flex justify-center">
             <div className="text-content text-white">
@@ -25,12 +25,7 @@ export default function HomepageBanner() {
               />
             </div>
           </div>
-          <div
-            className="lg:w-2/3 w-full order-1 flex mx-auto lg:mt-40 block"
-            // data-aos="fade-left"
-            // data-aos-easing="linear"
-            // data-aos-duration="500"
-          >
+          <div className="lg:w-2/3 w-full order-1 flex mx-auto lg:mt-40 block">
             <img src="/rum-bottles.webp" alt="rum-bottles" />
           </div>
         </div>

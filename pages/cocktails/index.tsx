@@ -20,7 +20,7 @@ export default function Cocktails() {
             <h4>COCKTAILS</h4>
           </div>
         </div>
-        <div className="cocktail-images container px-4 mx-auto">
+        <div className="cocktail-images 2xl:px-10 container px-4 mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 my-10">
             {allCocktailContent.map((item) => (
               <CocktailItemView key={item.img} item={item} />
