@@ -39,7 +39,7 @@ export default function Header() {
             <span className="text-rum-dark-brown font-bold ml-1">{cart}</span>
           )}
         </div>
-        {user && (
+        {user?.displayName && (
           <div className="userview flex absolute items-center -bottom-5 right-0">
             <Button
               icon={<BiLogOut className="text-2xl text-white" />}
