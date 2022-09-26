@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import cocktailFormContent from "@/json/cocktail-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
-import { cocktailSchema } from "@/components/form/schema/adminProductSchema";
+import { cocktailSchema } from "@/components/form/schema/adminSchema";
 import useCocktail from "@/hooks/useCocktail";
 import type { cocktailFormType } from "@/types/form-types";
 

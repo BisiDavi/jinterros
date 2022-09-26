@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import productFormContent from "@/json/product-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
-import { adminProductSchema } from "@/components/form/schema/adminProductSchema";
+import { adminProductSchema } from "@/components/form/schema/adminSchema";
 import useProductUpload from "@/hooks/useProductUpload";
 import { adminProductFormType } from "@/types/form-types";
 

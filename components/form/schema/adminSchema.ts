@@ -25,3 +25,10 @@ export const policySchema = yup.object({
   title: yup.string().required("Title is required"),
   policy: yup.string().required("Policy is required"),
 });
+
+
+export const pageSchema = yup.object({
+  title: yup.string().required("Title is required"),
+  content: yup.string().required("Content is required"),
+  type: yup.string().required("Page type is required"),
+});

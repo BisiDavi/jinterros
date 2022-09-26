@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import pageFormContent from "@/json/page-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
-import { cocktailSchema } from "@/components/form/schema/adminProductSchema";
+import { pageSchema } from "@/components/form/schema/adminSchema";
 import useCocktail from "@/hooks/useCocktail";
 import type { cocktailFormType } from "@/types/form-types";
 
@@ -14,7 +14,7 @@ interface Props {
 
 export default function PageForm({ data }: Props) {
   const methods = useForm({
-    resolver: yupResolver(cocktailSchema),
+    resolver: yupResolver(pageSchema),
     mode: "all",
   });
 
