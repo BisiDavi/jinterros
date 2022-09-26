@@ -5,7 +5,7 @@ import CocktailSlider from "@/components/slider/CocktailSlider";
 
 export default function CocktailView() {
   return (
-    <section className="w-full my-10 2xl:px-8  px-5 lg:mt-40 mb-20">
+    <section className="w-full my-10 2xl:px-10  px-5 lg:mt-40 mb-20">
       <div className="cocktail-group grid grid-cols-1 lg:grid-cols-3 gap-7">
         {cocktailcontent.map((item) => (
           <CocktailItemView key={item.img} item={item} />
