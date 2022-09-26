@@ -4,7 +4,7 @@ import instagramPictures from "@/json/instagramfollow.json";
 
 export default function InstagramFollow() {
   return (
-    <section className="container mx-auto my-20 px-5 lg:px-0">
+    <section className="2xl:px-10 container mx-auto my-20 px-5 lg:px-0">
       <h1 className="text-center text-xl lg:text-4xl font-bold lg:my-4">
         FOLLOW JINTERROS ON INSTAGRAM
       </h1>

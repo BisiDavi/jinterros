@@ -10,7 +10,7 @@ import {
 export default function Footer() {
   return (
     <>
-      <footer className="bg-carton-brown footer w-full">
+      <footer className="2xl:px-20 bg-carton-brown footer w-full">
         <div className="layer-1 w-full py-16">
           <div className="container px-8 lg:px-0  mx-auto flex lg:flex-row flex-col justify-between">
             <div className="w-full lg:w-1/2 left-pane">

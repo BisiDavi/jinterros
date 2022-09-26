@@ -24,7 +24,7 @@ export default function Header() {
     <header
       className={`bg-white w-full shadow-2xl fixed top-0 z-50 ${headerClassName}`}
     >
-      <nav className="container mx-auto flex h-20 items-center justify-between relative">
+      <nav className="container 2xl:px-20  mx-auto flex h-20 items-center justify-between relative">
         <HeaderLinks section="left" />
         <div className="w-40 mt-24 z-50">
           <Logo />
@@ -40,7 +40,7 @@ export default function Header() {
           )}
         </div>
         {user?.displayName && (
-          <div className="userview flex absolute items-center -bottom-5 right-0">
+          <div className="userview 2xl:mr-10 flex absolute items-center -bottom-5 right-0">
             <Button
               icon={<BiLogOut className="text-2xl text-white" />}
               className="mr-3 rounded-full border px-4 bg-dark-brown bg-orange-hover"
