@@ -6,9 +6,16 @@ import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { policySchema } from "@/components/form/schema/adminProductSchema";
 import usePolicyForm from "@/hooks/usePolicyForm";
+import type { policyFormType } from "@/types/form-types";
 
-export default function PolicyForm() {
+interface Props {
+  data: policyFormType;
+}
+
+export default function PolicyForm({ data }: Props) {
   const { savePolicy } = usePolicyForm();
+
+  console.log("data-data", data);
 
   const methods = useForm({
     resolver: yupResolver(policySchema),
@@ -43,7 +50,7 @@ export default function PolicyForm() {
                     className={`${formStyle} form-element ${firstElementStyle}`}
                     key={index}
                   >
-                    {displayForm(item)}
+                    {displayForm(item, data)}
                   </div>
                 );
               })}

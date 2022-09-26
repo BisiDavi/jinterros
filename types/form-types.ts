@@ -37,3 +37,13 @@ export type cocktailFormType = {
     email: string;
   };
 };
+
+export type policyFormType = {
+  date: string;
+  policy: string;
+  title: string;
+  author: {
+    name: string;
+    email: string;
+  };
+};
