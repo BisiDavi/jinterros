@@ -6,8 +6,13 @@ import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { cocktailSchema } from "@/components/form/schema/adminProductSchema";
 import useCocktail from "@/hooks/useCocktail";
+import type { cocktailFormType } from "@/types/form-types";
 
-export default function CocktailForm() {
+interface Props {
+  data: cocktailFormType;
+}
+
+export default function CocktailForm({ data }: Props) {
   const methods = useForm({
     resolver: yupResolver(cocktailSchema),
     mode: "all",
@@ -41,7 +46,7 @@ export default function CocktailForm() {
                     className={`${formStyle} form-element ${firstElementStyle}`}
                     key={index}
                   >
-                    {displayForm(item)}
+                    {displayForm(item, data)}
                   </div>
                 );
               })}

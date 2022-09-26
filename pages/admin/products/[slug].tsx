@@ -3,19 +3,16 @@ import { ref, onValue } from "firebase/database";
 import AdminLayout from "@/layout/AdminLayout";
 import AdminProductForm from "@/components/form/AdminProductForm";
 import AdminFormView from "@/views/AdminFormView";
-import type { GetServerSidePropsContext } from "next";
 import { initializeDB } from "@/lib/firebaseConfig";
+import formatAdminDBData from "@/lib/formatAdminDBData";
+import type { GetServerSidePropsContext } from "next";
 
 interface Props {
-  products: string;
+  product: string;
 }
 
-export default function Products({ products }: Props) {
-  const parsedProduct = JSON.parse(products);
-  const productArray: any = Object.values(parsedProduct);
-  const productData = JSON.parse(productArray[0]);
-
-  console.log("productData", productData);
+export default function Products({ product }: Props) {
+  const productData = formatAdminDBData(product);
 
   return (
     <AdminLayout title="Products">
@@ -29,8 +26,6 @@ export default function Products({ products }: Props) {
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { req } = context;
   const { slug } = context.query;
-
-  console.log("slug", slug);
 
   let dataValue;
 
@@ -50,11 +45,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     dataValue = data ? JSON.stringify(data) : null;
   });
 
-  console.log("dataValue", dataValue);
-
   return {
     props: {
-      products: dataValue,
+      product: dataValue,
     },
   };
 }

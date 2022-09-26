@@ -25,3 +25,15 @@ export type adminProductFormType = {
     email: string;
   };
 };
+
+export type cocktailFormType = {
+  cocktailImage: string;
+  instructions: string;
+  ingredients: string;
+  title: string;
+  date: string;
+  author: {
+    name: string;
+    email: string;
+  };
+};
