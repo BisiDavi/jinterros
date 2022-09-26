@@ -24,16 +24,16 @@ export default function PageForm({ data }: Props) {
     saveCocktail(data, methods);
   }
   return (
-    <>
+    <div className="pageForm w-full">
       <h4 className="font-bold text-2xl text-center my-2">Upload Page</h4>
       <FormProvider {...methods}>
         <form
-          className="border rounded-xl shadow p-4"
+          className="border rounded-xl shadow p-4 px-6 w-full"
           onSubmit={methods.handleSubmit(onSubmit)}
         >
           {pageFormContent.map((formItemArray, index) => (
             <div
-              className="form-group my-4 flex w-full justify-between"
+              className="form-group mb-4 flex w-full justify-between"
               key={index}
             >
               {formItemArray.map((item, index) => {
@@ -59,6 +59,6 @@ export default function PageForm({ data }: Props) {
           />
         </form>
       </FormProvider>
-    </>
+    </div>
   );
 }

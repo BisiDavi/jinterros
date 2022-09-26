@@ -2,6 +2,15 @@
   [
     {
       "type": "text",
+      "name": "banner",
+      "elementType": "media",
+      "placeholder": "Upload Page Banner",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
       "name": "title",
       "elementType": "input",
       "placeholder": "Title",
@@ -11,27 +20,33 @@
   [
     {
       "type": "text",
-      "name": "ingredients",
+      "name": "content",
       "elementType": "markdown",
-      "placeholder": "Ingredients",
+      "placeholder": "Content",
       "className": "input-border-lighter"
     }
   ],
   [
     {
       "type": "text",
-      "name": "instructions",
-      "elementType": "markdown",
-      "placeholder": "Instructions",
-      "className": "input-border-lighter"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "name": "cocktailImage",
+      "name": "pageImage",
       "elementType": "media",
-      "placeholder": "Upload Cocktail Image",
+      "placeholder": "Upload Page Image",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "name": "type",
+      "elementType": "select",
+      "label": "Page Type",
+      "options": [
+        { "text": "Select Page Type", "value": "" },
+        { "text": "SHOP", "value": "SHOP" },
+        { "text": "EXPERIENCE", "value": "EXPERIENCE" },
+        { "text": "OUR STORY", "value": "OUR STORY" }
+      ],
       "className": "input-border-lighter"
     }
   ]

@@ -1,8 +1,13 @@
-import type { GetServerSidePropsContext } from "next";
+import PageForm from "@/components/form/PageForm";
 import AdminLayout from "@/layout/AdminLayout";
+import type { GetServerSidePropsContext } from "next";
 
 export default function Pages() {
-  return <AdminLayout title="Pages"></AdminLayout>;
+  return (
+    <AdminLayout title="Pages">
+      <PageForm />
+    </AdminLayout>
+  );
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {

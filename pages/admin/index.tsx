@@ -1,7 +1,7 @@
-import type { GetServerSidePropsContext } from "next";
 import AdminLayout from "@/layout/AdminLayout";
 import AdminOrderSummary from "@/views/AdminOrderSummary";
 import InfoCardGroupView from "@/views/InfoCardGroupView";
+import type { GetServerSidePropsContext } from "next";
 
 export default function Admin() {
   return (
