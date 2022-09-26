@@ -11,7 +11,7 @@ interface Props {
   data?: any;
 }
 
-export default function UploadMedia({ input }: Props) {
+export default function UploadMedia({ input, data }: Props) {
   const { previewMedia } = useAppSelector((state) => state.form);
   const dispatch = useAppDispatch();
 
@@ -46,6 +46,13 @@ export default function UploadMedia({ input }: Props) {
       </p>
       {previewMedia && (
         <img src={previewMedia} alt="preview media" className="mt-5 w-2/3" />
+      )}
+      {data && data[input.name] && !previewMedia && (
+        <img
+          src={data[input.name]}
+          alt="preview media"
+          className="mt-5 w-2/3"
+        />
       )}
     </div>
   );

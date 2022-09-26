@@ -12,7 +12,7 @@ export default function useAdminData(dbNode: string) {
     }
   }, [data]);
 
-  const parsedCocktail = data ? formatAdminDBData(JSON.stringify(data)) : null;
+  const parsedCocktail = data ? formatAdminDBData(data) : null;
 
   return parsedCocktail;
 }
