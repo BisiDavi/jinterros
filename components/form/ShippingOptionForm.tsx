@@ -7,6 +7,7 @@ import displayForm from "@/components/form/displayForm";
 import shippingOption from "@/json/shipping-option.json";
 import { useAppDispatch } from "@/hooks/useRedux";
 import { updateDeliveryFee } from "@/redux/cart-slice";
+import Button from "../button";
 
 export default function ShippingOptionForm() {
   const dispatch = useAppDispatch();
@@ -46,12 +47,19 @@ export default function ShippingOptionForm() {
       <hr />
       <FormProvider {...methods}>
         <form
-          className="flex items-start pt-2 px-10"
+          className="flex items-start pt-2  flex-col px-10"
           onSubmit={methods.handleSubmit(onSubmit)}
         >
-          {shippingOption.map((item, index) => (
-            <Fragment key={index}>{displayForm(item)}</Fragment>
-          ))}
+          <div className="radio-group flex w-full">
+            {shippingOption.map((item, index) => (
+              <Fragment key={index}>{displayForm(item)}</Fragment>
+            ))}
+          </div>
+          <Button
+            text="Save Shipping Option"
+            type="submit"
+            className="bg-rum-brown w-full w-1/3 mx-auto hover:opacity-80 flex items-center py-2 justify-center text-white font-bold mt-4"
+          />
         </form>
       </FormProvider>
     </div>

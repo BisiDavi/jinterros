@@ -1,84 +1,114 @@
-[
-  [
-    {
-      "type": "text",
-      "name": "firstName",
-      "elementType": "input",
-      "placeholder": "First Name",
-      "className": "input-border-lighter"
-    },
-    {
-      "type": "text",
-      "name": "lastName",
-      "placeholder": "Last Name",
-      "elementType": "input",
-      "className": "input-border-lighter"
-    }
+{
+  "main": [
+    [
+      {
+        "type": "text",
+        "name": "firstName",
+        "elementType": "input",
+        "placeholder": "First Name",
+        "className": "input-border-lighter"
+      },
+      {
+        "type": "text",
+        "name": "lastName",
+        "placeholder": "Last Name",
+        "elementType": "input",
+        "className": "input-border-lighter"
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "name": "address1",
+        "placeholder": "Address Line 1",
+        "elementType": "input",
+        "className": "input-border-lighter"
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "name": "address2",
+        "placeholder": "Address Line 2 (Optional)",
+        "elementType": "input",
+        "className": "input-border-lighter"
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "name": "phoneNumber",
+        "elementType": "input",
+        "placeholder": "Phone Number",
+        "className": "input-border-lighter"
+      },
+      {
+        "type": "email",
+        "name": "email",
+        "placeholder": "Email Address",
+        "elementType": "input",
+        "className": "input-border-lighter"
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "name": "city",
+        "elementType": "input",
+        "placeholder": "City",
+        "className": "input-border-lighter"
+      },
+      {
+        "type": "text",
+        "name": "state",
+        "placeholder": "State",
+        "elementType": "input",
+        "className": "input-border-lighter"
+      }
+    ],
+    [
+      {
+        "type": "text",
+        "name": "zip",
+        "placeholder": "Zip",
+        "elementType": "input",
+        "className": "input-border-lighter"
+      },
+      {
+        "type": "text",
+        "name": "country",
+        "placeholder": "Country",
+        "elementType": "country",
+        "className": "input-border-lighter"
+      }
+    ]
   ],
-  [
-    {
-      "type": "text",
-      "name": "address1",
-      "placeholder": "Address Line 1",
-      "elementType": "input",
-      "className": "input-border-lighter"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "name": "address2",
-      "placeholder": "Address Line 2 (Optional)",
-      "elementType": "input",
-      "className": "input-border-lighter"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "name": "phoneNumber",
-      "elementType": "input",
-      "placeholder": "Phone Number",
-      "className": "input-border-lighter"
-    },
-    {
-      "type": "email",
-      "name": "email",
-      "placeholder": "Email Address",
-      "elementType": "input",
-      "className": "input-border-lighter"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "name": "city",
-      "elementType": "input",
-      "placeholder": "City",
-      "className": "input-border-lighter"
-    },
-    {
-      "type": "text",
-      "name": "state",
-      "placeholder": "State",
-      "elementType": "input",
-      "className": "input-border-lighter"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "name": "zip",
-      "placeholder": "Zip",
-      "elementType": "input",
-      "className": "input-border-lighter"
-    },
-    {
-      "type": "text",
-      "name": "country",
-      "placeholder": "Country",
-      "elementType": "input",
-      "className": "input-border-lighter"
-    }
+  "shippingOption": [
+    [
+      {
+        "type": "radio",
+        "name": "shippingOption",
+        "elementType": "radio",
+        "label": "Standard Delivery",
+        "note": "3-7 business days",
+        "value": 10
+      },
+      {
+        "type": "radio",
+        "name": "shippingOption",
+        "elementType": "radio",
+        "label": "Express Delivery",
+        "note": "2-4 business days",
+        "value": 20
+      },
+      {
+        "type": "radio",
+        "name": "shippingOption",
+        "elementType": "radio",
+        "label": "Next Business Day",
+        "note": "Fast and Reliable",
+        "value": 30
+      }
+    ]
   ]
-]
+}

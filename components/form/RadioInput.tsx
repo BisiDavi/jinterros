@@ -7,23 +7,29 @@ interface Props {
 }
 
 export default function RadioInput({ input }: Props) {
-  const { register }: any = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  }: any = useFormContext();
 
   return (
-    <div className="w-full my-2 font-thin">
-      <label className="font-bold">
-        <input
-          className="accent-orange-400 text-xs  mr-2"
-          type={input.type}
-          value={input.value}
-          {...register(input.name)}
-        />
-        {input.label}
-      </label>
-      <p>{input?.note}</p>
-      {input.name === "shippingOption" && (
-        <span className="text-xl">${input?.value}</span>
-      )}
-    </div>
+    <>
+      <div className="w-full my-2 font-thin">
+        <label className="font-bold">
+          <input
+            className="accent-orange-400 text-xs  mr-2"
+            type={input.type}
+            value={input.value}
+            {...register(input.name)}
+          />
+          {input.label}
+        </label>
+        <p>{input?.note}</p>
+        {input.name === "shippingOption" && (
+          <span className="text-xl">${input?.value}</span>
+        )}
+      </div>
+      <p className="text-red-500 p-0 text-xs">{errors[input.name]?.message}</p>
+    </>
   );
 }

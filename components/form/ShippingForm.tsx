@@ -7,18 +7,38 @@ import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { shippingformSchema } from "@/components/form/schema/shippingformSchema";
 import useAuth from "@/hooks/useAuth";
+import { useAppDispatch } from "@/hooks/useRedux";
+import { updatePaymentForm } from "@/redux/form-slice";
+
+function displayShippingElement(type: "main" | "shippingOption") {
+  return checkoutForm[type].map((formItem, index) => (
+    <div key={index} className="flex justify-between items-center">
+      {formItem.map((item, idx) => {
+        const firstClassName = idx === 0 && formItem.length === 2 ? "mr-4" : "";
+        const width =
+          formItem.length === 2 ? `lg:w-80 ${firstClassName}` : "w-full";
+        return (
+          <div key={item.name} className={`form-control my-2 ${width}`}>
+            {displayForm(item)}
+          </div>
+        );
+      })}
+    </div>
+  ));
+}
 
 export default function ShippingForm() {
   const methods = useForm({
     resolver: yupResolver(shippingformSchema),
     mode: "all",
   });
-
+  const dispatch = useAppDispatch();
   const { getAuthStatus } = useAuth();
   const user: any = getAuthStatus();
 
   function onSubmit(data: any) {
     console.log("data", data);
+    dispatch(updatePaymentForm({ data, completed: false }));
   }
 
   function splitName(name: string) {
@@ -43,39 +63,21 @@ export default function ShippingForm() {
       <hr />
       <FormProvider {...methods}>
         <form
-          className="px-6 lg:px-10"
+          className="px-6 lg:px-10 pt-4"
           onSubmit={methods.handleSubmit(onSubmit)}
         >
-          {checkoutForm.map((formItem, index) => {
-            return (
-              <div
-                key={index}
-                className="flex mt-4 justify-between items-center"
-              >
-                {formItem.map((item, idx) => {
-                  const firstClassName =
-                    idx === 0 && formItem.length === 2 ? "mr-4" : "";
-                  const width =
-                    formItem.length === 2
-                      ? `lg:w-80 ${firstClassName}`
-                      : "w-full";
-                  return (
-                    <div
-                      key={item.name}
-                      className={`form-control my-2 ${width}`}
-                    >
-                      {displayForm(item)}
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })}
-          <Button
-            className="bg-rum-brown w-full hover:opacity-80 flex items-center py-2 justify-center text-white font-bold mt-4"
-            text="SAVE ADDRESS"
-            type="submit"
-          />
+          <>
+            {displayShippingElement("main")}
+            <h4 className="text-xl py-1 pt-3">
+              SELECT SHIPPING OPTION
+            </h4>
+            {displayShippingElement("shippingOption")}
+            <Button
+              className="bg-rum-brown w-full hover:opacity-80 flex items-center py-2 justify-center text-white font-bold mt-4"
+              text="SAVE ADDRESS"
+              type="submit"
+            />
+          </>
         </form>
       </FormProvider>
     </div>

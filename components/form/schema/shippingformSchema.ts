@@ -21,4 +21,8 @@ export const shippingformSchema = yup.object({
   state: yup.string().required("State is required"),
   zip: yup.string().required("Zip is required"),
   country: yup.string().required("Country is required"),
+  shippingOption: yup
+    .string()
+    .typeError("Shipping Option is required")
+    .required("Shipping Option is required"),
 });
