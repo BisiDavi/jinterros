@@ -21,7 +21,10 @@ export default function ProductTable() {
 
   const columns: any = useMemo(
     () => [
-      { Header: "Title", accessor: "title" },
+      { Header: "Rum", accessor: "title" },
+      { Header: "Price ($)", accessor: "price" },
+      { Header: "Size (ML)", accessor: "size" },
+      { Header: "Alcohol Volume (%)", accessor: "alcoholVolume" },
       { Header: "Author", accessor: "authorName" },
       { Header: "Created At", accessor: "date" },
     ],
