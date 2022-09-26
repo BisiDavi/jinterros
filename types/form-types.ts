@@ -9,3 +9,19 @@ export type InputType = {
   value?: string | number;
   options?: Array<{ value: string; text: string }>;
 };
+
+export type adminProductFormType = {
+  productImage: string;
+  description: string;
+  country: string;
+  alcoholVolume: string;
+  size: string;
+  price: number;
+  title: string;
+  type: string;
+  date: string;
+  author: {
+    name: string;
+    email: string;
+  };
+};

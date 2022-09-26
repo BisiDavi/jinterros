@@ -18,7 +18,12 @@ export default function SelectCountry({ content, data }: Props) {
   const countries: { name: string; Iso2: string | any }[] = countriesData;
 
   if (data) {
-    setValue(content.name, data[content.name]);
+    const countryCode =
+      data[content.name].length > 4
+        ? countriesData.filter((item) => item.name === data[content.name])[0]
+            .Iso2
+        : data[content.name];
+    setValue(content.name, countryCode);
   }
 
   return (

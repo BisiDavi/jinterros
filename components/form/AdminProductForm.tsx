@@ -6,8 +6,13 @@ import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { adminProductSchema } from "@/components/form/schema/adminProductSchema";
 import useProductUpload from "@/hooks/useProductUpload";
+import { adminProductFormType } from "@/types/form-types";
 
-export default function AdminProductForm() {
+interface Props {
+  data: adminProductFormType;
+}
+
+export default function AdminProductForm({ data }: Props) {
   const methods = useForm({
     resolver: yupResolver(adminProductSchema),
     mode: "all",
@@ -41,7 +46,7 @@ export default function AdminProductForm() {
                     className={`${formStyle} form-element ${firstElementStyle}`}
                     key={index}
                   >
-                    {displayForm(item)}
+                    {displayForm(item, data)}
                   </div>
                 );
               })}

@@ -1,4 +1,4 @@
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 import { getApp, initializeApp } from "firebase/app";
 
 // Import the functions you need from the SDKs you need
