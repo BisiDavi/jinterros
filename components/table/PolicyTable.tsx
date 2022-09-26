@@ -1,5 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-key */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useMemo, useState } from "react";
 import { useTable } from "react-table";
 import Link from "next/link";
@@ -49,8 +49,8 @@ export default function PolicyTable() {
               <input type="checkbox" value="all" />
             </th>
             <th className="p-4 px-6">S/N</th>
-            {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()} className="p-4 px-6">
+            {headerGroup.headers.map((column, index) => (
+              <th {...column.getHeaderProps()} key={index} className="p-4 px-6">
                 {column.render("Header")}
               </th>
             ))}
@@ -63,14 +63,17 @@ export default function PolicyTable() {
           const rowId = i + 1;
           const title = toSlug(data[i].title);
           return (
-            <tr className="hover:bg-gray-300">
+            <tr key={i} className="hover:bg-gray-300">
               <td className="p-4 px-6 border-b">
                 <input type="checkbox" value={rowId} />
               </td>
 
               <td className="p-4 px-6 border-b">{rowId}</td>
               {row.cells.map((cell, index) => (
-                <td {...cell.getCellProps()} className="p-4 px-6 border-b">
+                <td
+                  {...cell.getCellProps()}
+                  className="p-4 px-6 border-b"
+                >
                   <Link href={`/admin/policies/${title}`} passHref>
                     <a>{cell.render("Cell")}</a>
                   </Link>

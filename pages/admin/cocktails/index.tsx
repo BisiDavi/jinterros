@@ -1,12 +1,12 @@
-import CocktailForm from "@/components/form/CocktailForm";
+import CocktailTable from "@/components/table/CocktailTable";
 import AdminLayout from "@/layout/AdminLayout";
 import { GetServerSidePropsContext } from "next";
 
 export default function AdminCocktailsPage() {
-    
   return (
     <AdminLayout title="Cocktails">
-      <CocktailForm />
+      <CocktailTable />
+      {/* <CocktailForm /> */}
     </AdminLayout>
   );
 }
