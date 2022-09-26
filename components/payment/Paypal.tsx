@@ -1,9 +1,13 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 import useCart from "@/hooks/useCart";
+import { useAppSelector } from "@/hooks/useRedux";
 
 export default function Paypal() {
-  const { amount } = useCart();
+  const { total } = useCart();
+  const {
+    paymentForm: { completed },
+  } = useAppSelector((state) => state.form);
 
   return (
     <PayPalScriptProvider
@@ -16,13 +20,14 @@ export default function Paypal() {
     >
       <PayPalButtons
         className="mx-auto flex justify-center mb-8 w-1/3"
+        disabled={!completed}
         style={{ layout: "vertical", label: "checkout" }}
         createOrder={(data, actions) => {
           return actions.order.create({
             purchase_units: [
               {
                 amount: {
-                  value: `${amount}`,
+                  value: `${total}`,
                 },
               },
             ],

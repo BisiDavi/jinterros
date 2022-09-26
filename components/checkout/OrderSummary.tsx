@@ -4,9 +4,7 @@ import Link from "next/link";
 import useCart from "@/hooks/useCart";
 
 export default function OrderSummary() {
-  const { cart } = useCart();
-  const amount = 40 * cart;
-  const total = amount + 10;
+  const { cart, deliveryFee, total, amount } = useCart();
 
   const cartText = cart > 1 ? "Bottles" : "Bottle";
 
@@ -41,7 +39,7 @@ export default function OrderSummary() {
             </li>
             <li className="my-1 lg:w-1/3 justify-between flex font-bold">
               Delivery Fee:
-              <span>$10.00</span>
+              <span>${deliveryFee.toFixed(2)}</span>
             </li>
           </ul>
         </div>
