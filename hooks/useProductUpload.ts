@@ -11,8 +11,13 @@ import {
   uploadPreviewMedia,
 } from "@/redux/form-slice";
 import useMediaUpload from "@/hooks/useMediaUpload";
+import countries from "@/json/countries.json";
 
-export default function useCocktail() {
+function filterCountries(countryCode: string) {
+  return countries.filter((item) => item.Iso2 === countryCode)[0].name;
+}
+
+export default function useProductUpload() {
   const { getAuthStatus } = useAuth();
   const authStatus = getAuthStatus();
   const { loadingToast, updateToast } = useToast();
@@ -24,41 +29,45 @@ export default function useCocktail() {
 
   const date = new Date();
 
-  async function saveCocktail(data: any, methods: any) {
+  async function saveProduct(data: any, methods: any) {
     try {
       loadingToast(toastId);
       const responseData = await uploadImage(media[0]);
-      const cocktailData = {
+      const country = filterCountries(data.country);
+      const productData = {
         ...data,
         date,
-        cocktailImage: responseData.data.secure_url,
+        country,
+        productImage: responseData.data.secure_url,
         author: { name: authStatus?.displayName, email: authStatus?.email },
       };
-      const cocktailSlug = toSlug(data.title);
-      const stringifyData = JSON.stringify(cocktailData);
+      const productSlug = toSlug(data.title);
+      const stringifyData = JSON.stringify(productData);
 
-      writeData(stringifyData, `/cocktail/${cocktailSlug}/${authStatus?.uid}`)
+      console.log("productData", productData);
+
+      writeData(stringifyData, `/product/${productSlug}/${authStatus?.uid}`)
         .then(() => {
           dispatch(resetEditable(true));
           dispatch(uploadMedia(null));
           dispatch(uploadPreviewMedia(null));
           methods.reset();
-          updateToast(toastId, "success", "Cocktail saved");
+          updateToast(toastId, "success", "Product saved");
         })
         .catch((error) => {
           console.log("error", error);
           dispatch(uploadMedia(null));
           dispatch(uploadPreviewMedia(null));
-          updateToast(toastId, "error", "Error saving Cocktail");
+          updateToast(toastId, "error", "Error saving Product");
         });
     } catch (error) {
       console.log("error", error);
       dispatch(uploadMedia(null));
       dispatch(uploadPreviewMedia(null));
-      updateToast(toastId, "error", "Error saving Cocktail");
+      updateToast(toastId, "error", "Error saving Product");
     }
   }
   return {
-    saveCocktail,
+    saveProduct,
   };
 }
