@@ -2,32 +2,13 @@ import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AiFillCheckCircle } from "react-icons/ai";
 
-import checkoutForm from "@/json/checkout-form.json";
-import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { shippingformSchema } from "@/components/form/schema/shippingformSchema";
 import useAuth from "@/hooks/useAuth";
 import { useAppDispatch } from "@/hooks/useRedux";
 import { updatePaymentForm } from "@/redux/form-slice";
 import { updateDeliveryFee } from "@/redux/cart-slice";
-
-function displayShippingElement(type: "main" | "shippingOption") {
-  return checkoutForm[type].map((formItem, index) => (
-    <div key={index} className="flex justify-between items-center">
-      {formItem.map((item, idx) => {
-        const firstClassName = idx === 0 && formItem.length === 2 ? "mr-4" : "";
-        const width =
-          formItem.length === 2 ? `lg:w-80 ${firstClassName}` : "w-full";
-        const elementKey = `${item.name}-${idx}`;
-        return (
-          <div key={elementKey} className={`form-control my-2 ${width}`}>
-            {displayForm(item)}
-          </div>
-        );
-      })}
-    </div>
-  ));
-}
+import displayShippingElement from "@/lib/displayShippingElement";
 
 export default function ShippingForm() {
   const methods = useForm({
