@@ -24,20 +24,20 @@ export default function usePage() {
 
   const date = new Date();
 
-  async function saveCocktail(data: any, methods: any) {
+  async function savePage(data: any, methods: any) {
     try {
       loadingToast(toastId);
       const responseData = await uploadImage(media[0]);
-      const cocktailData = {
+      const pageData = {
         ...data,
         date,
         cocktailImage: responseData.data.secure_url,
         author: { name: authStatus?.displayName, email: authStatus?.email },
       };
-      const cocktailSlug = toSlug(data.title);
-      const stringifyData = JSON.stringify(cocktailData);
+      const pageSlug = toSlug(data.title);
+      const stringifyData = JSON.stringify(pageData);
 
-      writeData(stringifyData, `/cocktail/${cocktailSlug}/${authStatus?.uid}`)
+      writeData(stringifyData, `/pages/${pageSlug}/${authStatus?.uid}`)
         .then(() => {
           dispatch(resetEditable(true));
           dispatch(uploadMedia(null));
@@ -59,6 +59,6 @@ export default function usePage() {
     }
   }
   return {
-    saveCocktail,
+    savePage,
   };
 }

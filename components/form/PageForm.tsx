@@ -5,7 +5,7 @@ import pageFormContent from "@/json/page-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { pageSchema } from "@/components/form/schema/adminSchema";
-import useCocktail from "@/hooks/useCocktail";
+import usePage from "@/hooks/usePage";
 import type { cocktailFormType } from "@/types/form-types";
 
 interface Props {
@@ -18,10 +18,10 @@ export default function PageForm({ data }: Props) {
     mode: "all",
   });
 
-  const { saveCocktail } = useCocktail();
+  const { savePage } = usePage();
 
   function onSubmit(data: any) {
-    saveCocktail(data, methods);
+    savePage(data, methods);
   }
   return (
     <div className="pageForm w-full">
