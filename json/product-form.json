@@ -43,6 +43,15 @@
   [
     {
       "type": "text",
+      "name": "type",
+      "elementType": "input",
+      "placeholder": "Product Type",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
       "name": "description",
       "elementType": "textarea",
       "placeholder": "Product Description",

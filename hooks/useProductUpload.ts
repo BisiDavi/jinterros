@@ -46,7 +46,7 @@ export default function useProductUpload() {
 
       console.log("productData", productData);
 
-      writeData(stringifyData, `/product/${productSlug}/${authStatus?.uid}`)
+      writeData(stringifyData, `/products/${productSlug}/${authStatus?.uid}`)
         .then(() => {
           dispatch(resetEditable(true));
           dispatch(uploadMedia(null));

@@ -1,5 +1,5 @@
-/* eslint-disable react/jsx-key */
 /* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/jsx-key */
 import { useEffect, useMemo, useState } from "react";
 import { useTable } from "react-table";
 import Link from "next/link";
@@ -8,16 +8,16 @@ import { readData } from "@/lib/firebaseConfig";
 import toSlug from "@/lib/toSlug";
 import { formatDBData } from "@/lib/formatDBData";
 
-export default function PolicyTable() {
-  const [policies, setPolicies] = useState(null);
+export default function ProductTable() {
+  const [products, setProducts] = useState(null);
 
   useEffect(() => {
-    if (policies === null) {
-      readData("/policy", policies, setPolicies);
+    if (products === null) {
+      readData("/products", products, setProducts);
     }
-  }, [policies]); 
+  }, [products]);
 
-  const formattedPolicies = formatDBData(policies);
+  const formattedPolicies = formatDBData(products);
 
   const columns: any = useMemo(
     () => [
@@ -29,7 +29,7 @@ export default function PolicyTable() {
   );
   const policyData = formattedPolicies ? formattedPolicies : [];
 
-  const data = useMemo(() => [...policyData], [policies]);
+  const data = useMemo(() => [...policyData], [products]);
 
   const tableState: any = { pageIndex: 0 };
 
@@ -70,11 +70,8 @@ export default function PolicyTable() {
 
               <td className="p-4 px-6 border-b">{rowId}</td>
               {row.cells.map((cell, index) => (
-                <td
-                  {...cell.getCellProps()}
-                  className="p-4 px-6 border-b"
-                >
-                  <Link href={`/admin/policies/${title}`} passHref>
+                <td {...cell.getCellProps()} className="p-4 px-6 border-b">
+                  <Link href={`/admin/products/${title}`} passHref>
                     <a>{cell.render("Cell")}</a>
                   </Link>
                 </td>

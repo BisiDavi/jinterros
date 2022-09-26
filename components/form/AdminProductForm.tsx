@@ -5,6 +5,7 @@ import productFormContent from "@/json/product-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { adminProductSchema } from "@/components/form/schema/adminProductSchema";
+import useProductUpload from "@/hooks/useProductUpload";
 
 export default function AdminProductForm() {
   const methods = useForm({
@@ -12,8 +13,10 @@ export default function AdminProductForm() {
     mode: "all",
   });
 
+  const { saveProduct } = useProductUpload();
+
   function onSubmit(data: any) {
-    console.log("data", data);
+    saveProduct(data, methods);
   }
   return (
     <>
