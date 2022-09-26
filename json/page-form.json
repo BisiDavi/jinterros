@@ -1,0 +1,38 @@
+[
+  [
+    {
+      "type": "text",
+      "name": "title",
+      "elementType": "input",
+      "placeholder": "Title",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "name": "ingredients",
+      "elementType": "markdown",
+      "placeholder": "Ingredients",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "name": "instructions",
+      "elementType": "markdown",
+      "placeholder": "Instructions",
+      "className": "input-border-lighter"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "name": "cocktailImage",
+      "elementType": "media",
+      "placeholder": "Upload Cocktail Image",
+      "className": "input-border-lighter"
+    }
+  ]
+]

@@ -1,8 +1,8 @@
 
 import AdminLayout from "@/layout/AdminLayout";
 import PolicyTable from "@/components/table/PolicyTable";
-import type { GetServerSidePropsContext } from "next";
 import AdminTableView from "@/views/AdminTableView";
+import type { GetServerSidePropsContext } from "next";
 
 export default function PoliciesPage() {
   return (

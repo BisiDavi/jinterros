@@ -1,7 +1,7 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import cocktailFormContent from "@/json/cocktail-form.json";
+import pageFormContent from "@/json/page-form.json";
 import displayForm from "@/components/form/displayForm";
 import Button from "@/components/button";
 import { cocktailSchema } from "@/components/form/schema/adminProductSchema";
@@ -31,7 +31,7 @@ export default function PageForm({ data }: Props) {
           className="border rounded-xl shadow p-4"
           onSubmit={methods.handleSubmit(onSubmit)}
         >
-          {cocktailFormContent.map((formItemArray, index) => (
+          {pageFormContent.map((formItemArray, index) => (
             <div
               className="form-group my-4 flex w-full justify-between"
               key={index}
