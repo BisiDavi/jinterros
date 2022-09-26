@@ -15,7 +15,7 @@ export default function Paypal() {
       }}
     >
       <PayPalButtons
-        className="mx-auto flex justify-center mb-8 w-2/3"
+        className="mx-auto flex justify-center mb-8 w-1/3"
         style={{ layout: "vertical", label: "checkout" }}
         createOrder={(data, actions) => {
           return actions.order.create({
@@ -36,6 +36,7 @@ export default function Paypal() {
         }}
         onShippingChange={(data, actions) => {
           console.log("data", data);
+          return actions.resolve();
         }}
       />
     </PayPalScriptProvider>

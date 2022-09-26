@@ -25,7 +25,7 @@ export default function ShippingForm() {
     return name?.split(" ");
   }
 
-  if (user) {
+  if (user?.displayName) {
     methods.setValue("email", user?.email);
     methods.setValue("firstName", splitName(user?.displayName)[0]);
     methods.setValue("lastName", splitName(user?.displayName)[1]);
