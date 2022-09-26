@@ -29,21 +29,11 @@
   [
     {
       "type": "text",
-      "name": "pageImage",
-      "elementType": "media",
-      "placeholder": "Upload Page Image",
-      "className": "input-border-lighter"
-    }
-  ],
-  [
-    {
-      "type": "text",
       "name": "type",
       "elementType": "select",
       "label": "Page Type",
       "options": [
         { "text": "Select Page Type", "value": "" },
-        { "text": "SHOP", "value": "SHOP" },
         { "text": "EXPERIENCE", "value": "EXPERIENCE" },
         { "text": "OUR STORY", "value": "OUR STORY" }
       ],
