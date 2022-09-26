@@ -8,13 +8,18 @@ interface Props {
   data?: any;
 }
 
-export default function SelectCountry({ content }: Props) {
+export default function SelectCountry({ content, data }: Props) {
   const {
     register,
+    setValue,
     formState: { errors },
   }: any = useFormContext();
 
   const countries: { name: string; Iso2: string | any }[] = countriesData;
+
+  if (data) {
+    setValue(content.name, data[content.name]);
+  }
 
   return (
     <div className={`form flex flex-col relative w-full`}>

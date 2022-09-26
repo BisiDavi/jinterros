@@ -5,7 +5,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 import Button from "@/components/button";
 import { shippingformSchema } from "@/components/form/schema/shippingformSchema";
 import useAuth from "@/hooks/useAuth";
-import { useAppDispatch } from "@/hooks/useRedux";
+import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { updatePaymentForm } from "@/redux/form-slice";
 import { updateDeliveryFee } from "@/redux/cart-slice";
 import displayShippingElement from "@/lib/displayShippingElement";
@@ -15,6 +15,7 @@ export default function ShippingForm() {
     resolver: yupResolver(shippingformSchema),
     mode: "all",
   });
+  const {paymentForm:{data:formData}} = useAppSelector(state => state.form)
   const dispatch = useAppDispatch();
   const { getAuthStatus } = useAuth();
   const user: any = getAuthStatus();
@@ -57,9 +58,9 @@ export default function ShippingForm() {
           onSubmit={methods.handleSubmit(onSubmit)}
         >
           <>
-            {displayShippingElement("main")}
+            {displayShippingElement("main", formData)}
             <h4 className="text-xl py-1 pt-3">SELECT SHIPPING OPTION</h4>
-            {displayShippingElement("shippingOption")}
+            {displayShippingElement("shippingOption", formData)}
             {errors.shippingOption?.message && (
               <p className="text-red-500 -pt-20 text-xs">
                 {errors["shippingOption"]?.message}

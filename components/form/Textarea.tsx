@@ -6,11 +6,16 @@ interface Props {
   input: InputType;
   data?: any;
 }
-export default function Textarea({ input }: Props) {
+export default function Textarea({ input, data }: Props) {
   const {
     register,
+    setValue,
     formState: { errors },
   }: any = useFormContext();
+
+  if (data) {
+    setValue(input.name, data[input.name]);
+  }
 
   return (
     <div className="form-control">

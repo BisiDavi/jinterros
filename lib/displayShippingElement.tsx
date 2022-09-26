@@ -2,7 +2,8 @@ import checkoutForm from "@/json/checkout-form.json";
 import displayForm from "@/components/form/displayForm";
 
 export default function displayShippingElement(
-  type: "main" | "shippingOption"
+  type: "main" | "shippingOption",
+  data?: any
 ) {
   return checkoutForm[type].map((formItem, index) => (
     <div key={index} className="flex justify-between items-center">
@@ -13,7 +14,7 @@ export default function displayShippingElement(
         const elementKey = `${item.name}-${idx}`;
         return (
           <div key={elementKey} className={`form-control my-2 ${width}`}>
-            {displayForm(item)}
+            {displayForm(item, data)}
           </div>
         );
       })}

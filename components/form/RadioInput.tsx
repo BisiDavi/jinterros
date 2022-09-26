@@ -4,11 +4,15 @@ import type { InputType } from "@/types/form-types";
 
 interface Props {
   input: InputType;
-  data?:any
+  data?: any;
 }
 
-export default function RadioInput({ input }: Props) {
-  const { register }: any = useFormContext();
+export default function RadioInput({ input, data }: Props) {
+  const { register, setValue }: any = useFormContext();
+
+  if (data) {
+    setValue(input.name, data[input.name]);
+  }
 
   return (
     <>

@@ -9,13 +9,18 @@ interface Props {
   data?: any;
 }
 
-export default function Input({ input }: Props) {
+export default function Input({ input, data }: Props) {
   const [passwordVisiblity, setPasswordVisibility] = useState(false);
 
   const {
     register,
+    setValue,
     formState: { errors },
   }: any = useFormContext();
+
+  if (data) {
+    setValue(input.name, data[input.name]);
+  }
 
   const inputType =
     input.type === "password"

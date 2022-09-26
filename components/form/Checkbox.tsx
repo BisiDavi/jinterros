@@ -7,11 +7,16 @@ interface Props {
   data?: any;
 }
 
-export default function Checkbox({ input }: Props) {
+export default function Checkbox({ input, data }: Props) {
   const {
     register,
+    setValue,
     formState: { errors },
   }: any = useFormContext();
+
+  if (data) {
+    setValue(input.name, data[input.name]);
+  }
 
   return (
     <div className="w-full my-2 text-xs font-thin text-gray-400">

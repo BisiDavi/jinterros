@@ -6,11 +6,17 @@ interface Props {
   data?: any;
 }
 
-export default function Select({ content }: Props) {
+export default function Select({ content, data }: Props) {
   const {
     register,
+    setValue,
     formState: { errors },
   }: any = useFormContext();
+
+  if (data) {
+    setValue(content.name, data[content.name]);
+  }
+
   return (
     <div className="form-control">
       <label className="mb-0 font-normal text-gray-600 text-xl">
