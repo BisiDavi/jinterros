@@ -46,8 +46,8 @@ export default function CocktailTable() {
       <thead className="border-b">
         {headerGroups.map((headerGroup, index) => (
           <tr key={index}>
-            <th className="p-4 px-6">
-              <input type="checkbox" value="all" />
+            <th className="">
+              <input type="checkbox" className="-ml-6" value="all" />
             </th>
             <th className="p-4 px-6 text-left">S/N</th>
             {headerGroup.headers.map((column) => (
@@ -73,7 +73,7 @@ export default function CocktailTable() {
               {row.cells.map((cell, index) => (
                 <td {...cell.getCellProps()} className="p-4 px-6 border-b">
                   <Link href={`/admin/cocktails/${title}`} passHref>
-                    <a>{cell.render("Cell")}</a>
+                    <a className="h-full w-full">{cell.render("Cell")}</a>
                   </Link>
                 </td>
               ))}
