@@ -36,9 +36,13 @@ export default function ShippingForm() {
   const { getAuthStatus } = useAuth();
   const user: any = getAuthStatus();
 
+  const {
+    formState: { errors },
+  }: any = methods;
+
   function onSubmit(data: any) {
     console.log("data", data);
-    dispatch(updatePaymentForm({ data, completed: false }));
+    dispatch(updatePaymentForm({ data, completed: true }));
   }
 
   function splitName(name: string) {
@@ -55,9 +59,6 @@ export default function ShippingForm() {
     <div className="w-full order-2 lg:order-1  shadow-lg pb-8">
       <div className="top flex items-center pl-4">
         <AiFillCheckCircle className="text-4xl text-orange ml-4 mr-4" />
-        <span className="p-4 mx-4 h-4 w-4 flex items-center justify-center text-white font-bold rounded-full bg-orange">
-          1
-        </span>
         <h4 className="text-xl py-1 ml-4 pt-3 h-12">SHIPPING ADDRESS</h4>
       </div>
       <hr />
@@ -68,10 +69,14 @@ export default function ShippingForm() {
         >
           <>
             {displayShippingElement("main")}
-            <h4 className="text-xl py-1 pt-3">
-              SELECT SHIPPING OPTION
-            </h4>
+            <h4 className="text-xl py-1 pt-3">SELECT SHIPPING OPTION</h4>
             {displayShippingElement("shippingOption")}
+            {errors.shippingOption?.message && (
+              <p className="text-red-500 -pt-20 text-xs">
+                {errors["shippingOption"]?.message}
+              </p>
+            )}
+
             <Button
               className="bg-rum-brown w-full hover:opacity-80 flex items-center py-2 justify-center text-white font-bold mt-4"
               text="SAVE ADDRESS"
