@@ -1,12 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
+import { ref, get, child } from "firebase/database";
 import { useRouter } from "next/router";
 
 import DefaultLayout from "@/layout/DefaultLayout";
-import shop from "@/json/shop.json";
+import { initializeDB } from "@/lib/firebaseConfig";
 import Button from "@/components/button";
 import useCart from "@/hooks/useCart";
+import shop from "@/json/shop.json";
+import { formatDBData } from "@/lib/formatDBData";
 
-export default function ShopPage() {
+interface Props {
+  products: string;
+}
+
+export default function ShopPage({ products }: Props) {
+  const parsedProduct = JSON.parse(products);
+  const productsArray: any = formatDBData(parsedProduct);
+
+  console.log("productsArray", productsArray);
+
   const { updateCartHandler } = useCart();
 
   const router = useRouter();
@@ -62,4 +74,17 @@ export default function ShopPage() {
       </div>
     </DefaultLayout>
   );
+}
+
+export async function getStaticProps() {
+  const db = initializeDB();
+  const dataRef = ref(db);
+
+  const dbResponse = await get(child(dataRef, `/products`));
+  return {
+    props: {
+      experience: JSON.stringify(dbResponse.val()),
+    },
+    revalidate: 10,
+  };
 }
