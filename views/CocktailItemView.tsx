@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import toSlug from "@/lib/toSlug";
-import type { cocktailItemView } from "@/types";
+import type { cocktailItemType } from "@/types";
 interface Props {
-  item: cocktailItemView;
+  item: cocktailItemType;
 }
 
 export default function CocktailItemView({ item }: Props) {

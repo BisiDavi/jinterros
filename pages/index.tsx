@@ -1,17 +1,24 @@
+import { ref, get, child } from "firebase/database";
 import type { GetServerSidePropsContext } from "next";
 import type { NextPage } from "next";
 
 import HomepageBanner from "@/components/banner/HomepageBanner";
 import DefaultLayout from "@/layout/DefaultLayout";
+import { initializeDB } from "@/lib/firebaseConfig";
 import CocktailView from "@/views/CocktailView";
 import LearnmoreView from "@/views/LearnmoreView";
 import InstagramFollow from "@/views/InstagramFollow";
+import { cocktailFormType } from "@/types/form-types";
 
-const Home: NextPage = () => {
+interface Props {
+  cocktails: cocktailFormType[];
+}
+
+const Home: NextPage<Props> = ({ cocktails }) => {
   return (
     <DefaultLayout>
       <HomepageBanner />
-      <CocktailView />
+      <CocktailView cocktails={cocktails} />
       <LearnmoreView />
       <InstagramFollow />
     </DefaultLayout>
@@ -20,6 +27,11 @@ const Home: NextPage = () => {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { req } = context;
+
+  const db = initializeDB();
+  const dataRef = ref(db);
+
+  const dbResponse = await get(child(dataRef, "/cocktail"));
 
   if (!req.cookies?.birthYear) {
     return {
@@ -31,7 +43,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   }
 
   return {
-    props: {},
+    props: {
+      cocktails: JSON.stringify(dbResponse.val()),
+    },
   };
 }
 

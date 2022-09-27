@@ -1,14 +1,18 @@
-import cocktailcontent from "@/json/cocktail.json";
 import Button from "@/components/button";
 import CocktailItemView from "@/views/CocktailItemView";
 import CocktailSlider from "@/components/slider/CocktailSlider";
+import type { cocktailFormType } from "@/types/form-types";
 
-export default function CocktailView() {
+interface Props {
+  cocktails: cocktailFormType[];
+}
+
+export default function CocktailView({ cocktails }: Props) {
   return (
     <section className="w-full my-6 2xl:px-10  px-5 lg:mt-20 mb-20">
       <div className="cocktail-group grid grid-cols-1 lg:grid-cols-3 gap-7">
-        {cocktailcontent.map((item) => (
-          <CocktailItemView key={item.img} item={item} />
+        {cocktails.map((item: cocktailFormType) => (
+          <CocktailItemView key={item.title} item={item} />
         ))}
       </div>
       <Button
