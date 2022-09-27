@@ -13,9 +13,11 @@ interface Props {
 
 export default function ExperiencePage({ experience }: Props) {
   const parsedExperience = formatDBDataSlug(experience);
+
+  console.log("parsedExperience", parsedExperience);
   return (
     <DefaultLayout title="Our Experience">
-      <ExperienceBanner />
+      <ExperienceBanner content={parsedExperience} />
       <ExperienceSlider />
     </DefaultLayout>
   );

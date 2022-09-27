@@ -7,9 +7,14 @@ interface Props {
 
 export default function CocktailList({ html, title }: Props) {
   return (
-    <div className="my-5 w-full text-center">
+    <div className="my-5 w-2/3  mx-auto flex flex-col">
       <h6 className="text-2xl text-tan">{title}:</h6>
-      <ContentEditable disabled html={html} onChange={() => null} />
+      <ContentEditable
+        disabled
+        html={html}
+        onChange={() => null}
+        className="w-full mx-auto text-left"
+      />
     </div>
   );
 }
