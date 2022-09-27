@@ -5,7 +5,7 @@ export default function ExperienceBanner() {
   return (
     <section className="experience-banner">
       <img src="/bottles-rum-flower.webp" alt="experience" />
-      <ul className="text-content my-6 lg:my-16 w-5/6 lg:w-2/3 flex flex-col justify-center mx-auto">
+      <ul className="text-content my-6 lg:my-16 w-5/6 2xl:w-full lg:w-2/3 flex flex-col justify-center mx-auto">
         {experienceContent.map((item) => (
           <li key={item.title} className="my-4">
             <h4 className="font-bold text-xl text-tan">{item.title}</h4>

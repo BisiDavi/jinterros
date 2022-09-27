@@ -4,7 +4,13 @@ export function formatDBData(data: any) {
     const dataArray: any[] = [];
     dbDatab.map((item: any) => {
       const formattedData: any = Object.values(item);
-      const parsedData = JSON.parse(formattedData);
+      let parsedData;
+      if (formattedData.length === 1) {
+        parsedData = JSON.parse(formattedData);
+      } else if (formattedData.length > 1) {
+        const tempData = formattedData[formattedData.length - 1];
+        parsedData = JSON.parse(tempData);
+      }
       if (parsedData) {
         const date = new Date(parsedData.date);
         dataArray.push({
