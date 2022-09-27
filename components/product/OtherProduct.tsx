@@ -9,9 +9,9 @@ interface Props {
 
 export default function OtherProduct({ otherProducts }: Props) {
   return (
-    <div>
+    <>
       {otherProducts.length > 0 && (
-        <section className="container mx-auto">
+        <section className="container mx-auto mb-12">
           <h4 className="text-center text-xl font-bold my-4">
             Other Available Products
             <ul className="grid grid-cols-4 gap-4 product-grid">
@@ -33,6 +33,6 @@ export default function OtherProduct({ otherProducts }: Props) {
           </h4>
         </section>
       )}
-    </div>
+    </>
   );
 }
