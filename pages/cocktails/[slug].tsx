@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { ref, get, child } from "firebase/database";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -38,11 +37,6 @@ export default function CocktailPage({ cocktails }: Props) {
         {cocktail && (
           <div className="w-full">
             {cocktail.cocktailImage && (
-              // <img
-              //   src={cocktail.cocktailImage}
-              //   alt={cocktail.title}
-              //   className="w-full"
-              // />
               <Image
                 src={cocktail.cocktailImage}
                 alt="Our Story"
