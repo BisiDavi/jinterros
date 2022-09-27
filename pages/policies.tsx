@@ -1,17 +1,17 @@
 import { ref, get, child } from "firebase/database";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { initializeDB } from "@/lib/firebaseConfig";
+import ContentEditable from "react-contenteditable";
 
+import { initializeDB } from "@/lib/firebaseConfig";
 import Button from "@/components/button";
 import FormLayout from "@/layout/FormLayout";
 import policiesContent from "@/json/policies.json";
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { updatePolicies } from "@/redux/ui-slice";
 import toSlug from "@/lib/toSlug";
-
-import type { policiesStateType } from "@/types/redux-types";
 import { formatDBData } from "@/lib/formatDBData";
+import type { policiesStateType } from "@/types/redux-types";
 
 interface Props {
   policiesData: string;
@@ -19,14 +19,14 @@ interface Props {
 
 export default function Policies({ policiesData }: Props) {
   const parsedPolicy = JSON.parse(policiesData);
-  const policiesArray = formatDBData(parsedPolicy);
+  const policiesArray: any = formatDBData(parsedPolicy);
   console.log("policiesArray", policiesArray);
 
   const dispatch = useAppDispatch();
   const router = useRouter();
   const { policies } = useAppSelector((state) => state.UI);
-  const policyItem = policiesContent.filter(
-    (item) => toSlug(item.title) === policies
+  const policyItem = policiesArray.filter(
+    (item: { title: string }) => toSlug(item.title) === policies
   )[0];
 
   function goBack() {
@@ -65,18 +65,18 @@ export default function Policies({ policiesData }: Props) {
             <ul className="lg:w-1/3 order-2 lg:order-1 w-full">
               {policiesContent.map((listItem) => {
                 const activePolicy =
-                  toSlug(listItem.title) === policies
+                  toSlug(listItem) === policies
                     ? "border-width-medium border-leaf-green bg-white"
                     : "border-b bg-gray-100";
                 return (
                   <li
-                    key={listItem.title}
+                    key={listItem}
                     className={`h-8 lg:h-12 flex items-center px-4 justify-center lg:hover:bg-gray-200 ${activePolicy}`}
                   >
                     <Button
-                      text={listItem.title}
+                      text={listItem}
                       className="h-full w-full"
-                      onClick={() => changePolicyHandler(listItem.title)}
+                      onClick={() => changePolicyHandler(listItem)}
                     />
                   </li>
                 );
@@ -86,7 +86,11 @@ export default function Policies({ policiesData }: Props) {
               <h4 className="font-medium my-2 text-md lg:text-xl text-gray-600">
                 {policyItem.title}
               </h4>
-              <p className="text-sm text-gray-600">{policyItem.text}</p>
+              <ContentEditable
+                html={policyItem.policy}
+                onChange={() => null}
+                disabled
+              />
             </div>
           </div>
           {!router.asPath.includes("/policies") ? (
