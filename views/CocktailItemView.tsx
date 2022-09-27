@@ -2,12 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import toSlug from "@/lib/toSlug";
+import type { cocktailItemView } from "@/types";
 interface Props {
-  item: {
-    img: string;
-    title: string;
-    link?: string;
-  };
+  item: cocktailItemView;
 }
 
 export default function CocktailItemView({ item }: Props) {
@@ -15,21 +12,25 @@ export default function CocktailItemView({ item }: Props) {
   return (
     <Link href={`/cocktails/${itemLink}`} passHref>
       <a
-        key={item.img}
+        key={item.cocktailImage}
         className="cocktail"
         data-aos="zoom-in-up"
         data-aos-easing="linear"
         data-aos-duration="500"
       >
         <Image
-          src={item.img}
+          src={item.cocktailImage}
           alt={item.title}
-          height={850}
-          width={870}
+          height={650}
+          width={800}
           layout="responsive"
+          placeholder="blur"
+          blurDataURL={item.cocktailImage}
         />
         <div className="text-view h-10 lg:h-16 bg-dark-brown w-full flex items-center justify-center hover:opacity-80">
-          <p className="text-white text-center text-base  lg:text-xl">{item.title}</p>
+          <p className="text-white text-center text-base  lg:text-xl">
+            {item.title}
+          </p>
         </div>
       </a>
     </Link>

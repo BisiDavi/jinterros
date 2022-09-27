@@ -1,10 +1,21 @@
+import { ref, get, child } from "firebase/database";
 import Image from "next/image";
 
 import DefaultLayout from "@/layout/DefaultLayout";
-import allCocktailContent from "@/json/all-cocktails.json";
 import CocktailItemView from "@/views/CocktailItemView";
+import { initializeDB } from "@/lib/firebaseConfig";
+import { formatDBData } from "@/lib/formatDBData";
+import type { cocktailItemType } from "@/types";
 
-export default function Cocktails() {
+interface Props {
+  cocktails: string;
+}
+
+export default function Cocktails({ cocktails }: Props) {
+  const parsedCocktail = JSON.parse(cocktails);
+  const cocktailArray: cocktailItemType[] | undefined =
+    formatDBData(parsedCocktail);
+
   return (
     <DefaultLayout title="Our Cocktails">
       <div className="view mb-24">
@@ -22,12 +33,25 @@ export default function Cocktails() {
         </div>
         <div className="cocktail-images 2xl:px-10 container px-4 mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 my-10">
-            {allCocktailContent.map((item) => (
-              <CocktailItemView key={item.img} item={item} />
-            ))}
+            {cocktailArray &&
+              cocktailArray.map((item: cocktailItemType) => (
+                <CocktailItemView key={item.title} item={item} />
+              ))}
           </div>
         </div>
       </div>
     </DefaultLayout>
   );
+}
+
+export async function getServerSideProps() {
+  const db = initializeDB();
+  const dataRef = ref(db);
+
+  const dbResponse = await get(child(dataRef, "/cocktail"));
+  return {
+    props: {
+      cocktails: JSON.stringify(dbResponse.val()),
+    },
+  };
 }
