@@ -1,22 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
 import { ref, get, child } from "firebase/database";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 import DefaultLayout from "@/layout/DefaultLayout";
 import CocktailItemView from "@/views/CocktailItemView";
 import { initializeDB } from "@/lib/firebaseConfig";
 import toSlug from "@/lib/toSlug";
 import CocktailList from "@/components/cocktail/CocktailList";
-import { GetServerSidePropsContext } from "next";
 import { formatDBData } from "@/lib/formatDBData";
 import type { cocktailItemType } from "@/types";
 
 interface Props {
   cocktails: string;
-  slug: string;
 }
 
-export default function CocktailPage({ cocktails, slug }: Props) {
+export default function CocktailPage({ cocktails }: Props) {
   const parsedCocktail = JSON.parse(cocktails);
+  const router = useRouter();
+  const { slug } = router.query;
+
   const cocktailArray: cocktailItemType[] | undefined =
     formatDBData(parsedCocktail);
 
@@ -35,10 +38,20 @@ export default function CocktailPage({ cocktails, slug }: Props) {
         {cocktail && (
           <div className="w-full">
             {cocktail.cocktailImage && (
-              <img
+              // <img
+              //   src={cocktail.cocktailImage}
+              //   alt={cocktail.title}
+              //   className="w-full"
+              // />
+              <Image
                 src={cocktail.cocktailImage}
-                alt={cocktail.title}
-                className="w-full"
+                alt="Our Story"
+                height={1000}
+                width={1500}
+                layout="responsive"
+                className="mt-20"
+                placeholder="blur"
+                blurDataURL={cocktail.cocktailImage}
               />
             )}
             <div className="mx-auto w-5/6 lg:w-3/4 shadow-xl lg:-mt-60 -mt-24 py-6 mb-14 relative rounded">
@@ -71,17 +84,30 @@ export default function CocktailPage({ cocktails, slug }: Props) {
   );
 }
 
-export async function getStaticProps(context: GetServerSidePropsContext) {
+export async function getStaticProps() {
   const db = initializeDB();
   const dataRef = ref(db);
-  const { slug } = context.query;
 
   const dbResponse = await get(child(dataRef, `/cocktail`));
   return {
     props: {
       cocktails: JSON.stringify(dbResponse.val()),
-      slug,
     },
     revalidate: 10,
   };
+}
+
+export async function getStaticPaths() {
+  const db = initializeDB();
+  const dataRef = ref(db);
+  const dbResponse = await get(child(dataRef, `/cocktail`));
+
+  const dbArray = dbResponse.val();
+  const dbkeys = Object.keys(dbArray);
+  const paths = dbkeys.map((item) => ({ params: { slug: item } }));
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: blocking } will server-render pages
+  // on-demand if the path doesn't exist.
+  return { paths, fallback: "blocking" };
 }
