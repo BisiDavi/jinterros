@@ -1,14 +1,13 @@
 import AdminLayout from "@/layout/AdminLayout";
 import AdminTableView from "@/views/AdminTableView";
-import PageForm from "@/components/form/PageForm";
+import PageTable from "@/components/table/PageTable";
 import type { GetServerSidePropsContext } from "next";
 
 export default function Pages() {
   return (
     <AdminLayout title="Pages">
       <AdminTableView text="Create Page" href="/admin/pages/create-page">
-        {/* <PolicyTable /> */}
-        <PageForm />
+        <PageTable />
       </AdminTableView>
     </AdminLayout>
   );

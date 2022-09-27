@@ -54,7 +54,7 @@ export default function OrdersTable() {
                 <input type="checkbox" value={rowId} />
               </td>
               <td className="p-4 px-6 border-b text-center">{rowId}</td>
-              {row.cells.map((cell, index) => (
+              {row.cells.map((cell) => (
                 <td
                   {...cell.getCellProps()}
                   className="p-4 px-6 border-b text-center"

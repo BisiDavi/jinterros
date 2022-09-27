@@ -8,16 +8,16 @@ import { readData } from "@/lib/firebaseConfig";
 import toSlug from "@/lib/toSlug";
 import { formatDBData } from "@/lib/formatDBData";
 
-export default function PolicyTable() {
-  const [policies, setPolicies] = useState(null);
+export default function PageTable() {
+  const [pages, setPages] = useState(null);
 
   useEffect(() => {
-    if (policies === null) {
-      readData("/policy", policies, setPolicies);
+    if (pages === null) {
+      readData("/pages", pages, setPages);
     }
-  }, [policies]); 
+  }, [pages]);
 
-  const formattedPolicies = formatDBData(policies);
+  const formattedPages = formatDBData(pages);
 
   const columns: any = useMemo(
     () => [
@@ -27,9 +27,9 @@ export default function PolicyTable() {
     ],
     []
   );
-  const policyData = formattedPolicies ? formattedPolicies : [];
+  const pageData = formattedPages ? formattedPages : [];
 
-  const data = useMemo(() => [...policyData], [policies]);
+  const data = useMemo(() => [...pageData], [pages]);
 
   const tableState: any = { pageIndex: 0 };
 
@@ -70,11 +70,8 @@ export default function PolicyTable() {
 
               <td className="p-4 px-6 border-b">{rowId}</td>
               {row.cells.map((cell) => (
-                <td
-                  {...cell.getCellProps()}
-                  className="p-4 px-6 border-b"
-                >
-                  <Link href={`/admin/policies/${title}`} passHref>
+                <td {...cell.getCellProps()} className="p-4 px-6 border-b">
+                  <Link href={`/admin/pages/${title}`} passHref>
                     <a>{cell.render("Cell")}</a>
                   </Link>
                 </td>

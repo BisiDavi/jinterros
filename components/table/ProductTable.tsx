@@ -17,7 +17,7 @@ export default function ProductTable() {
     }
   }, [products]);
 
-  const formattedPolicies = formatDBData(products);
+  const formattedProducts = formatDBData(products);
 
   const columns: any = useMemo(
     () => [
@@ -29,9 +29,9 @@ export default function ProductTable() {
     ],
     []
   );
-  const policyData = formattedPolicies ? formattedPolicies : [];
+  const productData = formattedProducts ? formattedProducts : [];
 
-  const data = useMemo(() => [...policyData], [products]);
+  const data = useMemo(() => [...productData], [products]);
 
   const tableState: any = { pageIndex: 0 };
 
@@ -71,7 +71,7 @@ export default function ProductTable() {
               </td>
 
               <td className="p-4 px-6 border-b">{rowId}</td>
-              {row.cells.map((cell, index) => (
+              {row.cells.map((cell) => (
                 <td {...cell.getCellProps()} className="p-4 px-6 border-b">
                   <Link href={`/admin/products/${title}`} passHref>
                     <a>{cell.render("Cell")}</a>
