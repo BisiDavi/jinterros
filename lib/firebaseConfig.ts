@@ -1,6 +1,6 @@
 import { getDatabase, ref, onValue } from "firebase/database";
 import { getApp, initializeApp } from "firebase/app";
-
+import { getMessaging } from "firebase/messaging";
 // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -38,6 +38,9 @@ export function initializeDB() {
   const db = getDatabase(app);
   return db;
 }
+
+const messaging =
+  process.env.NODE_ENV === "production" ? getMessaging(app) : null;
 
 export function readData(dbNode: string, dataValue: any, setData: any) {
   const db = initializeDB();
