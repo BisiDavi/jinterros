@@ -30,6 +30,7 @@ export function formatDBData(data: any) {
 
 export function formatDBDataSlug(data: string) {
   const formatData = JSON.parse(data);
-  const values: string | any = Object.values(formatData)[0];
-  return JSON.parse(values);
+  const values: string | any = Object.values(formatData);
+  const valuesData: string | any = values[values.length - 1];
+  return JSON.parse(valuesData);
 }

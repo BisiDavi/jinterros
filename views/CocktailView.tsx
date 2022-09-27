@@ -1,19 +1,24 @@
 import Button from "@/components/button";
 import CocktailItemView from "@/views/CocktailItemView";
 import CocktailSlider from "@/components/slider/CocktailSlider";
-import type { cocktailFormType } from "@/types/form-types";
+import { cocktailItemType } from "@/types";
+import { formatDBData } from "@/lib/formatDBData";
 
 interface Props {
-  cocktails: cocktailFormType[];
+  cocktails: string;
 }
 
 export default function CocktailView({ cocktails }: Props) {
+  const parsedCocktail = JSON.parse(cocktails);
+  const cocktailArray: cocktailItemType[] | undefined =
+    formatDBData(parsedCocktail);
   return (
     <section className="w-full my-6 2xl:px-10  px-5 lg:mt-20 mb-20">
       <div className="cocktail-group grid grid-cols-1 lg:grid-cols-3 gap-7">
-        {cocktails.map((item: cocktailFormType) => (
-          <CocktailItemView key={item.title} item={item} />
-        ))}
+        {cocktailArray &&
+          cocktailArray.map((item) => (
+            <CocktailItemView key={item.title} item={item} />
+          ))}
       </div>
       <Button
         className="border border-brown-light px-20 py-4 flex mx-auto mt-12 -mb-10 bg-dark-brown-hover hover:text-white"

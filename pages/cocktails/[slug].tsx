@@ -2,7 +2,6 @@
 import { ref, get, child } from "firebase/database";
 
 import DefaultLayout from "@/layout/DefaultLayout";
-import allCocktailContent from "@/json/all-cocktails.json";
 import CocktailItemView from "@/views/CocktailItemView";
 import { initializeDB } from "@/lib/firebaseConfig";
 import toSlug from "@/lib/toSlug";
@@ -24,11 +23,6 @@ export default function CocktailPage({ cocktails, slug }: Props) {
   const cocktail: cocktailItemType | undefined = cocktailArray?.filter(
     (item) => toSlug(item.title) === slug
   )[0];
-
-  const mainContent = allCocktailContent.filter((item) => {
-    const id = toSlug(item.title);
-    return id === slug;
-  })[0];
 
   const otherCocktails = cocktailArray?.filter((item) => {
     const id = toSlug(item.title);

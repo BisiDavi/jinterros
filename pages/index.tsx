@@ -8,10 +8,9 @@ import { initializeDB } from "@/lib/firebaseConfig";
 import CocktailView from "@/views/CocktailView";
 import LearnmoreView from "@/views/LearnmoreView";
 import InstagramFollow from "@/views/InstagramFollow";
-import { cocktailFormType } from "@/types/form-types";
 
 interface Props {
-  cocktails: cocktailFormType[];
+  cocktails: string;
 }
 
 const Home: NextPage<Props> = ({ cocktails }) => {
