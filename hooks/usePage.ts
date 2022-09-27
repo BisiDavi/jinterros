@@ -31,7 +31,7 @@ export default function usePage() {
       const pageData = {
         ...data,
         date,
-        cocktailImage: responseData.data.secure_url,
+        banner: responseData.data.secure_url,
         author: { name: authStatus?.displayName, email: authStatus?.email },
       };
       const pageSlug = toSlug(data.title);

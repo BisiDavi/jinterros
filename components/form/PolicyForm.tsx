@@ -15,8 +15,6 @@ interface Props {
 export default function PolicyForm({ data }: Props) {
   const { savePolicy } = usePolicyForm();
 
-  console.log("data-data", data);
-
   const methods = useForm({
     resolver: yupResolver(policySchema),
     mode: "all",
