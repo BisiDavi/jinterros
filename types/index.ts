@@ -9,3 +9,20 @@ export type cocktailItemType = {
     email: string;
   };
 };
+
+export type productType = {
+  productImage: string;
+  description: string;
+  country: string;
+  alcoholVolume: string;
+  size: string;
+  price: number;
+  title: string;
+  type: string;
+  date: string;
+  author: {
+    name: string;
+    email: string;
+  };
+  authorName: string;
+};

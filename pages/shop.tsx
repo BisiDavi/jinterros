@@ -6,8 +6,8 @@ import DefaultLayout from "@/layout/DefaultLayout";
 import { initializeDB } from "@/lib/firebaseConfig";
 import Button from "@/components/button";
 import useCart from "@/hooks/useCart";
-import shop from "@/json/shop.json";
 import { formatDBData } from "@/lib/formatDBData";
+import { productType } from "@/types";
 
 interface Props {
   products: string;
@@ -16,12 +16,25 @@ interface Props {
 export default function ShopPage({ products }: Props) {
   const parsedProduct = JSON.parse(products);
   const productsArray: any = formatDBData(parsedProduct);
-
-  console.log("productsArray", productsArray);
+  const router = useRouter();
 
   const { updateCartHandler } = useCart();
 
-  const router = useRouter();
+  const mainProduct: productType = productsArray.filter(
+    (item: { title: string }) => item.title === "Jinterros Rum"
+  )[0];
+
+  const otherProducts = productsArray.filter(
+    (item: { title: string }) => item.title !== "Jinterros Rum"
+  );
+
+  const productDescriptonList = [
+    { text: "Price ($):", value: mainProduct.price },
+    { text: "Size (ML):", value: mainProduct.size },
+    { text: "Alcohol (%):", value: mainProduct.alcoholVolume },
+    { text: "Country:", value: mainProduct.country },
+    { text: "Type:", value: mainProduct.type },
+  ];
 
   function addToCart() {
     updateCartHandler("inc");
@@ -43,18 +56,18 @@ export default function ShopPage({ products }: Props) {
         <div className="shop-view bg-orange flex flex-col lg:flex-row px-8 py-32  lg:p-20 lg-h-800  mb-40 shop-background-image w-screen">
           <div className="w-full hidden h-full lg:flex lg:w-1/2 relative">
             <img
-              src="/rum-bottle.webp"
-              alt="jinterros"
-              title="jinterros"
-              className="image-wrapper mx-auto w-1/2 h-full flex justify-center mt-40"
+              src={mainProduct.productImage}
+              alt={mainProduct.title}
+              title={mainProduct.title}
+              className="image-wrapper mx-auto w-1/3 h-full flex justify-center mt-40"
             />
           </div>
           <div className="w-full lg:w-1/2 lg:text-xl font-bold">
             <h6 className="text-white lg:mb-10 lg:w-3/4 lg:mt-20 ">
-              {shop.description}
+              {mainProduct.description}
             </h6>
             <ul>
-              {shop.others.map((other) => (
+              {productDescriptonList.map((other) => (
                 <li key={other.value} className="text-white my-2">
                   <span className="mr-1">{other.text}</span>
                   {other.value}
@@ -65,7 +78,7 @@ export default function ShopPage({ products }: Props) {
               icon={
                 <img src="/cartIcon.webp" alt="cart-icon" className="mr-6" />
               }
-              text="$40.00"
+              text={`$${mainProduct.price.toFixed(2)}`}
               onClick={addToCart}
               className="flex items-center bg-rum-brown w-4/5 mx-auto lg:mx-0 lg:w-2/5 font-bold hover:opacity-80 justify-center py-1 text-white text-3xl mt-20"
             />
@@ -83,7 +96,7 @@ export async function getStaticProps() {
   const dbResponse = await get(child(dataRef, `/products`));
   return {
     props: {
-      experience: JSON.stringify(dbResponse.val()),
+      products: JSON.stringify(dbResponse.val()),
     },
     revalidate: 10,
   };
