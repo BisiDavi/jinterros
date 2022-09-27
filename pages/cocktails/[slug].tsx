@@ -52,13 +52,10 @@ export default function CocktailPage({ cocktails, slug }: Props) {
                 <h4>{cocktail.title}</h4>
               </div>
               <div className="ingredients mx-auto w-full p-4 lg:p-10 bg-white">
+                <CocktailList html={cocktail.ingredients} title="Ingredients" />
                 <CocktailList
-                  type="ingredient"
-                  listArray={mainContent.ingredients}
-                />
-                <CocktailList
-                  type="instruction"
-                  listArray={mainContent.instructions}
+                  html={cocktail.instructions}
+                  title="Instructions"
                 />
               </div>
             </div>
