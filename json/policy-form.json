@@ -5,7 +5,9 @@
       "name": "title",
       "elementType": "input",
       "placeholder": "Title",
-      "className": "input-border-lighter"
+      "className": "input-border-lighter",
+      "disabled": true,
+      "note": "(input disabled)"
     }
   ],
   [
@@ -13,11 +15,13 @@
       "type": "text",
       "name": "type",
       "elementType": "select",
-      "label": "Policy Type",
+      "label": "Policy Type ",
+      "note": "(policy type disabled)",
+      "disabled": true,
       "options": [
         { "text": "Select Policy", "value": "" },
         { "text": "Policy Tab", "value": "POLICY" },
-        { "text": "Cookie Tab", "value": "COOKIE" },
+        { "text": "Cookie", "value": "COOKIE" },
         { "text": "Policy Page", "value": "PAGE" }
       ]
     }

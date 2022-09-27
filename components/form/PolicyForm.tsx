@@ -28,6 +28,7 @@ export default function PolicyForm({ data }: Props) {
       <h4 className="font-bold text-2xl text-center my-2">
         Upload Site Policy
       </h4>
+      <p className="text-center text-red-500 mb-2 text-sm">You can only update the Policy</p>
       <FormProvider {...methods}>
         <form
           className="border rounded-xl shadow p-4"

@@ -1,31 +1,41 @@
+import { ref, get, child } from "firebase/database";
+import ContentEditable from "react-contenteditable";
+
+import { initializeDB } from "@/lib/firebaseConfig";
 import DefaultLayout from "@/layout/DefaultLayout";
+import { formatDBDataSlug } from "@/lib/formatDBData";
 
-import privacyContent from "@/json/privacy-and-condition.json";
+interface Props {
+  policy: string;
+}
 
-export default function PrivacyAndConditionsPage() {
+export default function PrivacyAndConditionsPage({ policy }: Props) {
+  const parsedPolicy = formatDBDataSlug(policy);
+
+  console.log("parsedPolicy", parsedPolicy);
+
   return (
     <DefaultLayout title="privacy-and-conditions">
-      <section className="mt-52 mb-32 container mx-auto">
-        {privacyContent.map((item, index) => (
-          <div className="policies my-10" key={index}>
-            <h1 className="mb-20 text-3xl font-semibold text-center">
-              {item.title}
-            </h1>
-            <ul>
-              {item.section.map((itemText, idx) => (
-                <li className="my-4" key={idx}>
-                  <p className="mt-4 text-xl font-semibold">{itemText.title}</p>
-                  <p className="mt-4">{itemText?.text1}</p>
-                  <p className="mt-1">{itemText.text}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-        <p className="copyright mt-20">
-          © 2022 All rights reserved. Version 8 dated June 2022.
-        </p>
-      </section>
+      <ContentEditable
+        html={parsedPolicy.policy}
+        onChange={() => null}
+        disabled
+        className="mt-52 mb-32 container mx-auto"
+      />
     </DefaultLayout>
   );
+}
+
+export async function getServerSideProps() {
+  const db = initializeDB();
+  const dataRef = ref(db);
+
+  const dbResponse = await get(
+    child(dataRef, `/policy/us-jinterros-privacy-and-cookie-notice-overview`)
+  );
+  return {
+    props: {
+      policy: JSON.stringify(dbResponse.val()),
+    },
+  };
 }

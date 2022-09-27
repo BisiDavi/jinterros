@@ -21,6 +21,7 @@ export default function Input({ input, data }: Props) {
   if (data) {
     setValue(input.name, data[input.name]);
   }
+  const disableInput = input?.disabled ? true : false;
 
   const inputType =
     input.type === "password"
@@ -38,6 +39,7 @@ export default function Input({ input, data }: Props) {
           type={inputType}
           placeholder={input.placeholder}
           aria-invalid={errors[input.name] ? "true" : "false"}
+          disabled={disableInput}
           {...register(input.name)}
         />
         {input.type === "password" && (
@@ -47,6 +49,7 @@ export default function Input({ input, data }: Props) {
           />
         )}
       </label>
+      {input?.note && <p className="text-red text-blue-500 text-xs">{input.note}</p>}
       <p className="text-red-500 p-0  text-xs">{errors[input.name]?.message}</p>
     </div>
   );

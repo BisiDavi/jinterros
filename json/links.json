@@ -16,8 +16,7 @@
       "title": "COMPANY INFO",
       "group": [
         { "text": "About Jinterros", "link": "/our-story" },
-        { "text": "Experience", "link": "/experience" },
-        { "text": "History", "link": "/history" }
+        { "text": "Experience", "link": "/experience" }
       ]
     },
     {
@@ -29,10 +28,7 @@
     },
     {
       "title": "CUSTOMER CARE",
-      "group": [
-        { "text": "Contact Us", "link": "/contact-us" },
-        { "text": "Payment", "link": "/contact-us" }
-      ]
+      "group": [{ "text": "Contact Us", "link": "/contact-us" }]
     }
   ],
   "socials": [

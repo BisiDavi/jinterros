@@ -13,6 +13,8 @@ export default function Select({ content, data }: Props) {
     formState: { errors },
   }: any = useFormContext();
 
+  const disableInput = content?.disabled ? true : false;
+
   if (data) {
     setValue(content.name, data[content.name]);
   }
@@ -27,6 +29,7 @@ export default function Select({ content, data }: Props) {
           name={content.name}
           id={content.name}
           className="input-border-lighter font-normal w-full h-12 px-5 placeholder-gray-300"
+          disabled={disableInput}
           {...register(content.name)}
         >
           {content?.options.map((item) => (
@@ -35,6 +38,9 @@ export default function Select({ content, data }: Props) {
             </option>
           ))}
         </select>
+      )}
+      {content?.note && (
+        <p className="text-red text-blue-500 text-xs">{content.note}</p>
       )}
       <p className="text-red-500 p-0  text-xs">
         {errors[content.name]?.message}

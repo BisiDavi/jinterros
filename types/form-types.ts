@@ -7,6 +7,7 @@ export type InputType = {
   label?: string;
   note?: string;
   value?: string | number;
+  disabled?: boolean;
   options?: Array<{ value: string; text: string }>;
 };
 
