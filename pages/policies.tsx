@@ -1,5 +1,7 @@
+import { ref, get, child } from "firebase/database";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { initializeDB } from "@/lib/firebaseConfig";
 
 import Button from "@/components/button";
 import FormLayout from "@/layout/FormLayout";
@@ -9,12 +11,21 @@ import { updatePolicies } from "@/redux/ui-slice";
 import toSlug from "@/lib/toSlug";
 
 import type { policiesStateType } from "@/types/redux-types";
+import { formatDBData } from "@/lib/formatDBData";
 
-export default function Policies() {
+interface Props {
+  policiesData: string;
+}
+
+export default function Policies({ policiesData }: Props) {
+  const parsedPolicy = JSON.parse(policiesData);
+  const policiesArray = formatDBData(parsedPolicy);
+  console.log("policiesArray", policiesArray);
+
   const dispatch = useAppDispatch();
   const router = useRouter();
   const { policies } = useAppSelector((state) => state.UI);
-  const policy = policiesContent.filter(
+  const policyItem = policiesContent.filter(
     (item) => toSlug(item.title) === policies
   )[0];
 
@@ -73,9 +84,9 @@ export default function Policies() {
             </ul>
             <div className="w-full h-60 lg:order-2 lg:h-auto overflow-y-scroll lg:w-2/3 lg:px-6 py-2">
               <h4 className="font-medium my-2 text-md lg:text-xl text-gray-600">
-                {policy.title}
+                {policyItem.title}
               </h4>
-              <p className="text-sm text-gray-600">{policy.text}</p>
+              <p className="text-sm text-gray-600">{policyItem.text}</p>
             </div>
           </div>
           {!router.asPath.includes("/policies") ? (
@@ -109,4 +120,18 @@ export default function Policies() {
       </div>
     </FormLayout>
   );
+}
+
+export async function getStaticProps() {
+  const db = initializeDB();
+  const dataRef = ref(db);
+
+  const dbResponse = await get(child(dataRef, `/policy`));
+
+  return {
+    props: {
+      policiesData: JSON.stringify(dbResponse.val()),
+    },
+    revalidate: 10,
+  };
 }

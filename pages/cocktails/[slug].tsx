@@ -71,7 +71,7 @@ export default function CocktailPage({ cocktails, slug }: Props) {
   );
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getStaticProps(context: GetServerSidePropsContext) {
   const db = initializeDB();
   const dataRef = ref(db);
   const { slug } = context.query;
@@ -82,5 +82,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       cocktails: JSON.stringify(dbResponse.val()),
       slug,
     },
+    revalidate: 10,
   };
 }

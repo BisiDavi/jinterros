@@ -52,7 +52,7 @@ export default function OurStory({ story }: Props) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const db = initializeDB();
   const dataRef = ref(db);
 
@@ -61,5 +61,6 @@ export async function getServerSideProps() {
     props: {
       story: JSON.stringify(dbResponse.val()),
     },
+    revalidate: 10,
   };
 }
