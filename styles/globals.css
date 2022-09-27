@@ -135,7 +135,8 @@
 }
 
 .cocktail img:hover,
-.image-grid img:hover {
+.image-grid img:hover ,
+.product-grid img:hover {
   transform: scale(1.1) !important;
   transition: 0.5s;
 }
@@ -146,6 +147,10 @@
 
 .min-h-400 {
   min-height: 400px;
+}
+
+.h-90 {
+  height: 90%;
 }
 
 .shop-background-image {

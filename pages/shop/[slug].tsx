@@ -42,7 +42,7 @@ export default function ShopPage({ products }: Props) {
   }
   return (
     <DefaultLayout title="Shop">
-      <div className="content mt-36 lg:mt-60">
+      <section className="content mt-36 lg:mt-60">
         <h4 className="text-center text-xl font-bold my-4">
           “A party is best enjoyed with a circle of friends and a bottle of
           rum.”
@@ -84,7 +84,26 @@ export default function ShopPage({ products }: Props) {
             />
           </div>
         </div>
-      </div>
+      </section>
+      {otherProducts.length > 0 && (
+        <section className="container mx-auto">
+          <h4 className="text-center text-xl font-bold my-4">
+            Other Available Products
+            <ul className="grid grid-cols-4 gap-4 product-grid">
+              {otherProducts.map((item: productType) => (
+                <li key={item.title} className="border p-4 rounded shadow h-96">
+                  <img
+                    src={item.productImage}
+                    alt={item.title}
+                    className="h-90 mx-auto"
+                  />
+                  <h6>{item.title}</h6>
+                </li>
+              ))}
+            </ul>
+          </h4>
+        </section>
+      )}
     </DefaultLayout>
   );
 }
