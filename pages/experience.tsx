@@ -1,5 +1,4 @@
 import { ref, get, child } from "firebase/database";
-import { GetServerSidePropsContext } from "next";
 
 import ExperienceBanner from "@/components/banner/ExperienceBanner";
 import ExperienceSlider from "@/components/slider/ExperienceSlider";
@@ -14,7 +13,6 @@ interface Props {
 export default function ExperiencePage({ experience }: Props) {
   const parsedExperience = formatDBDataSlug(experience);
 
-  console.log("parsedExperience", parsedExperience);
   return (
     <DefaultLayout title="Our Experience">
       <ExperienceBanner content={parsedExperience} />
@@ -23,7 +21,7 @@ export default function ExperiencePage({ experience }: Props) {
   );
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getServerSideProps() {
   const db = initializeDB();
   const dataRef = ref(db);
 

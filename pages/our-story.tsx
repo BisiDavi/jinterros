@@ -1,37 +1,38 @@
+import { ref, get, child } from "firebase/database";
 import Image from "next/image";
+import ContentEditable from "react-contenteditable";
 
+import { initializeDB } from "@/lib/firebaseConfig";
 import DefaultLayout from "@/layout/DefaultLayout";
-import storyContent from "@/json/our-story.json";
 import Button from "@/components/button";
+import { formatDBDataSlug } from "@/lib/formatDBData";
 
-export default function OurStory() {
+interface Props {
+  story: string;
+}
+
+export default function OurStory({ story }: Props) {
+  const parsedStory = formatDBDataSlug(story);
+
   return (
     <DefaultLayout title="Our Story">
-      <div className="content mb-24">
+      <section className="content mb-24">
         <Image
-          src="/our-story-banner.webp"
+          src={parsedStory.banner}
           alt="Our Story"
           height={1000}
           width={1500}
           layout="responsive"
           className="mt-20"
+          placeholder="blur"
+          blurDataURL={parsedStory.banner}
         />
-        <section className="content w-full lg:mt-32">
-          <div className="layer w-full">
-            <div className="text-content w-5/6 lg:w-2/3 mx-auto lg:my-26">
-              {storyContent.map((item) => (
-                <div key={item.title} className="text my-10">
-                  <h4 className="text-tan font-semibold text-xl">
-                    {item.title}
-                  </h4>
-                  <p className="text-light-tan font-light text-lg">
-                    {item.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ContentEditable
+          disabled
+          html={parsedStory.content}
+          onChange={() => null}
+          className="text-content w-5/6 lg:w-2/3 mx-auto lg:my-24"
+        />
         <div className="image-wrapper w-5/6 lg:w-2/5 mx-auto my-20 lg:my-40">
           <Image
             src="/rum-bottles-2.webp"
@@ -46,7 +47,19 @@ export default function OurStory() {
           className="bg-dark-brown hover:opacity-80 mx-auto py-3 px-16 flex my-10 text-white font-bold text-xl w-3/5 lg:w-1/5 justify-center"
           href="/shop"
         />
-      </div>
+      </section>
     </DefaultLayout>
   );
+}
+
+export async function getServerSideProps() {
+  const db = initializeDB();
+  const dataRef = ref(db);
+
+  const dbResponse = await get(child(dataRef, `/pages/our-story`));
+  return {
+    props: {
+      story: JSON.stringify(dbResponse.val()),
+    },
+  };
 }
