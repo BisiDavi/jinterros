@@ -7,7 +7,7 @@ export type policiesStateType =
 export type UIStateType = {
   policies: policiesStateType;
   mobileMenu: boolean;
-  slideCart: boolean
+  slideCart: boolean;
 };
 
 export type FormStateType = {
@@ -25,4 +25,8 @@ export type productCartType = {
   price: number;
   quantity: number;
   img: string;
+};
+
+export type cartType = productCartType & {
+  amount: number;
 };

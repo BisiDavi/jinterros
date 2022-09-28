@@ -5,12 +5,12 @@ import DefaultLayout from "@/layout/DefaultLayout";
 
 export default function Cart() {
   const { cart, updateCartHandler } = useCart();
-  const amount = 40 * cart;
+  const cartItem = cart ? cart.length : 0;
   return (
     <DefaultLayout title="Cart">
       <section className="cart container px-8 lg:w-4/5 mx-auto flex flex-col lg:flex-row mt-40 mb-14 lg:my-52">
         <div className="lg:w-4/5 order-2 mt-4 shadow-lg">
-          <h4 className="text-sm lg:text-xl py-1 ml-4">Cart({cart})</h4>
+          <h4 className="text-sm lg:text-xl py-1 ml-4">Cart({cartItem})</h4>
           <hr />
           <div className="view px-4 lg:px-0 lg:w-4/5 flex lg:flex-row flex-col mx-auto my-6 items-center justify-center ">
             <div className="group-m flex items-center justify-between">
