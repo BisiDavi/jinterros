@@ -37,7 +37,7 @@ export default function AdminForm({ type }: Props) {
   }
 
   return (
-    <div className="content pb-5 rounded shadow  border py-2">
+    <div className="content pb-5 w-full rounded shadow border py-2">
       {type === "login" && (
         <h4 className="text-center font-bold text-2xl mb-2">Login</h4>
       )}

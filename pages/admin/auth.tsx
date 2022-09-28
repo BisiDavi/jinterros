@@ -2,7 +2,6 @@
 import Head from "next/head";
 
 import AdminForm from "@/components/form/AdminForm";
-import Tabs from "@/components/tab";
 
 export default function AdminAuth() {
   return (
@@ -13,12 +12,12 @@ export default function AdminAuth() {
       <div className="w-full flex items-start h-screen">
         <div className="image-view w-3/4 h-screen">
           <img
-            src="/our-story-banner.webp"
+            src="/3-bottles.webp"
+            className="h-full w-full"
             alt="Our Story"
-            className="h-full"
           />
         </div>
-        <div className="w-auth w-1/4 bg-white px-4 py-10">
+        <div className="w-1/4 h-screen bg-white px-4 py-10">
           <AdminForm type="login" />
         </div>
       </div>
