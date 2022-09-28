@@ -9,9 +9,7 @@ export default function HomepageBanner() {
         <div className="container lg:my-10 lg:mx-auto flex lg:flex-row flex-col px-5 lg:px-0 lg:justify-between items-center">
           <div className="order-2 lg:order-1 lg:w-1/2 mx-auto flex justify-center">
             <div className="text-content text-white">
-              <h1 className="text-2xl text-center lg:text-left lg:text-8xl font-bold lg:my-4">
-                JINTERROS
-              </h1>
+              <img src="/jinterros-white.webp" alt="Jinterros" />
               <p className="text-xl text-center lg:text-left lg:text-3xl my-2">
                 Rum with Natural Flavours
               </p>

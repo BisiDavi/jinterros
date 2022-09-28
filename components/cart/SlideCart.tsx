@@ -5,13 +5,15 @@ import Button from "@/components/button";
 import SlideCartItem from "@/components/cart/SlideCartItem";
 
 export default function SlideCart() {
-  const { slideCartHandler, cart } = useCart();
+  const { slideCartHandler, cart, getSubtotal } = useCart();
   const router = useRouter();
 
   function onClickHandler(route: string) {
     slideCartHandler(false);
     router.push(route);
   }
+
+  const subtotal = getSubtotal();
 
   return (
     <div className="slidecart flex fixed top-0 z-50 items-center h-screen w-full">
@@ -27,17 +29,23 @@ export default function SlideCart() {
                 <SlideCartItem key={item.title} item={item} />
               ))}
             </div>
-            <div className="button-group flex h-1/6 items-center justify-between">
-              <Button
-                text="View Cart"
-                className="bg-orange font-bold text-white px-3 py-1 hover:opacity-70"
-                onClick={() => onClickHandler("/cart")}
-              />
-              <Button
-                text="Checkout"
-                className="bg-rum-brown font-bold text-white px-3 py-1 hover:opacity-70"
-                onClick={() => onClickHandler("/checkout")}
-              />
+            <div className="button-group flex-col flex items-center justify-between">
+              <div className="amount bg-gray-100 p-2  flex mb-2 font-bold text-xl items-center justify-between w-full">
+                <p>Subtotal</p>
+                <p>${subtotal.toFixed(2)}</p>
+              </div>
+              <div className="group flex items-center h-1/6 justify-between w-full">
+                <Button
+                  text="View Cart"
+                  className="bg-orange font-bold text-white px-3 py-1 hover:opacity-70"
+                  onClick={() => onClickHandler("/cart")}
+                />
+                <Button
+                  text="Checkout"
+                  className="bg-rum-brown font-bold text-white px-3 py-1 hover:opacity-70"
+                  onClick={() => onClickHandler("/checkout")}
+                />
+              </div>
             </div>
           </div>
         ) : (
