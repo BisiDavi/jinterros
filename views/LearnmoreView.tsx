@@ -17,6 +17,7 @@ export default function LearnmoreView() {
       </p>
       <Button
         text="LEARN MORE"
+        href="/our-story"
         className="border border-brown-light w-3/4 lg:w-1/3 lg:h-20 items-center justify-center text-xl bg-dark-brown-hover hover:text-white lg:px-20 py-4 flex mx-auto my-10 lg:my-24"
       />
     </section>
