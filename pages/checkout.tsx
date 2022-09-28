@@ -14,7 +14,7 @@ export default function Checkout() {
   const user = getAuthStatus();
 
   useEffect(() => {
-    if (!user) {
+    if (!user?.displayName) {
       toast.error("redirecting you to login/signup page");
       router.push("/auth");
     }
