@@ -1,5 +1,5 @@
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set, onValue, remove } from "firebase/database";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 
@@ -47,6 +47,12 @@ export default function useFirebase() {
     });
   }
 
+  function deleteData(dbNode: string) {
+    const db = initializeDB();
+    const dataRef = ref(db, dbNode);
+    return remove(dataRef);
+  }
+
   function googleProvider() {
     const app = initFB();
     const auth = getAuth(app);
@@ -65,6 +71,7 @@ export default function useFirebase() {
     initFB,
     writeData,
     readData,
+    deleteData,
     googleProvider,
   };
 }
