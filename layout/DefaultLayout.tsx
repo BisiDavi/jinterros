@@ -1,12 +1,31 @@
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import type { PropsWithChildren } from "react";
 
 import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import MobileHeader from "@/components/header/MobileHeader";
 import { useAppSelector } from "@/hooks/useRedux";
-import MobileMenu from "@/components/menu/MobileMenu";
+
+const DynamicMobleMenu = dynamic(
+  () =>
+    import(/* webpackChunkName: 'MobileMenu' */ "@/components/menu/MobileMenu")
+);
+
+const DynamicMobileHeader = dynamic(
+  () =>
+    import(
+      /* webpackChunkName: 'MobileHeader' */ "@/components/header/MobileHeader"
+    )
+);
+
+const DynamicHeader = dynamic(
+  () => import(/* webpackChunkName: 'Header' */ "@/components/header/Header")
+);
+
+const DynamicSlideCart = dynamic(
+  () =>
+    import(/* webpackChunkName: 'SlideCart' */ "@/components/cart/SlideCart")
+);
 
 interface Props {
   title?: string;
@@ -17,7 +36,7 @@ export default function DefaultLayout({
   children,
 }: PropsWithChildren<Props>) {
   const mobileWidth = useMediaQuery("(max-width:768px)");
-  const { mobileMenu } = useAppSelector((state) => state.UI);
+  const { mobileMenu, slideCart } = useAppSelector((state) => state.UI);
 
   return (
     <>
@@ -28,8 +47,9 @@ export default function DefaultLayout({
           <title>Welcome to Jinterros | Rum with Natural Flavours</title>
         )}
       </Head>
-      {mobileWidth ? <MobileHeader /> : <Header />}
-      {mobileMenu && mobileWidth && <MobileMenu />}
+      {mobileWidth ? <DynamicMobileHeader /> : <DynamicHeader />}
+      {slideCart && <DynamicSlideCart />}
+      {mobileMenu && mobileWidth && <DynamicMobleMenu />}
       <main className="mt-20 main">{children}</main>
       <Footer />
     </>
