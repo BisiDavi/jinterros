@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import Logo from "@/components/Logo";
-import { useAppSelector } from "@/hooks/useRedux";
 import CartIcon from "@/public/icons/CartIcon";
 import Button from "@/components/button";
 import MenuIcon from "@/public/icons/MenuIcon";
 import MenuCloseIcon from "@/public/icons/MenuCloseIcon";
 import useHeader from "@/hooks/useHeader";
+import useCart from "@/hooks/useCart";
 
 export default function MobileHeader() {
-  const { cart } = useAppSelector((state) => state.cart);
+  const { cartItem } = useCart();
   const { onClickHandler, mobileMenu } = useHeader();
 
   const buttonIcon = !mobileMenu ? <MenuIcon /> : <MenuCloseIcon />;
@@ -21,7 +21,7 @@ export default function MobileHeader() {
       </div>
       <div className="cart-icon flex items-start">
         <Button href="/cart" icon={<CartIcon />} />
-        <span className="text-rum-dark-brown font-bold ml-1">{cart}</span>
+        <span className="text-rum-dark-brown font-bold ml-1">{cartItem}</span>
       </div>
     </header>
   );

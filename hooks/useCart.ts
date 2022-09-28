@@ -38,6 +38,8 @@ export default function useCart() {
     return total;
   }
 
+  const cartItem = cart ? cart.length : 0;
+
   return {
     cart,
     addCartItemHandler,
@@ -46,5 +48,6 @@ export default function useCart() {
     updateCartHandler,
     deliveryFee,
     getSubtotal,
+    cartItem,
   };
 }
