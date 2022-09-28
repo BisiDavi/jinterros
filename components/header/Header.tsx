@@ -35,7 +35,7 @@ export default function Header() {
         </Dropdown>
         <div className="cart-icon flex items-start">
           <Button icon={<CartIcon />} onClick={() => slideCartHandler(true)} />
-          {cart && (
+          {cart && cart.length > 0 && (
             <span className="text-rum-dark-brown font-bold ml-1">
               {cart.length}
             </span>

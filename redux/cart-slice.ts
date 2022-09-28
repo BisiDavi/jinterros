@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { productCartType } from "@/types/redux-types";
 
-
 type cartType = productCartType & {
   amount: number;
 };
@@ -37,7 +36,7 @@ const CartSlice = createSlice({
           state.cart[cartItemIndex].amount =
             state.cart[cartItemIndex].price *
             state.cart[cartItemIndex].quantity;
-        } else if (type === "dec" && state.cart[cartItemIndex].quantity > 0) {
+        } else if (type === "dec" && state.cart[cartItemIndex].quantity > 1) {
           state.cart[cartItemIndex].quantity -= 1;
           state.cart[cartItemIndex].amount =
             state.cart[cartItemIndex].price *
@@ -46,14 +45,24 @@ const CartSlice = createSlice({
       }
     },
     addToCart(state, action: PayloadAction<productCartType>) {
+      const { quantity, price, title } = action.payload;
       const cartData = {
         ...action.payload,
-        amount: action.payload.quantity * action.payload.price,
+        amount: quantity * price,
       };
       if (state.cart === null) {
         state.cart = [cartData];
       } else if (state.cart !== null) {
-        state.cart = [...state.cart, cartData];
+        const productIndex = state.cart.findIndex(
+          (item) => item.title === title
+        );
+        if (productIndex === -1) {
+          state.cart = [...state.cart, cartData];
+        } else {
+          state.cart[productIndex].quantity += 1;
+          state.cart[productIndex].amount =
+            state.cart[productIndex].price * state.cart[productIndex].quantity;
+        }
       }
     },
     removeCartItem(state, action: PayloadAction<{ title: string }>) {
