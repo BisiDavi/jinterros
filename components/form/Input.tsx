@@ -30,11 +30,13 @@ export default function Input({ input, data }: Props) {
         : "password"
       : input.type;
 
+  const inputId = input.id ? input.id : input.name;
+
   return (
     <div className="form-control">
       <label htmlFor={input.name} className="h-12 w-full my-4 relative">
         <input
-          id={input.name}
+          id={inputId}
           className={`${input.className} font-normal w-full h-12 px-5 placeholder-gray-300`}
           type={inputType}
           placeholder={input.placeholder}
@@ -49,7 +51,9 @@ export default function Input({ input, data }: Props) {
           />
         )}
       </label>
-      {input?.note && <p className="text-red text-blue-500 text-xs">{input.note}</p>}
+      {input?.note && (
+        <p className="text-red text-blue-500 text-xs">{input.note}</p>
+      )}
       <p className="text-red-500 p-0  text-xs">{errors[input.name]?.message}</p>
     </div>
   );

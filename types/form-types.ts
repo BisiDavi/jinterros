@@ -1,5 +1,6 @@
 export type InputType = {
   type: string;
+  id?: string;
   placeholder?: string;
   className?: string;
   elementType: string;

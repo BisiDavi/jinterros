@@ -50,12 +50,11 @@ export default function useFirebase() {
     const app = initFB();
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
-    return signInWithRedirect(auth, provider).then((result:any) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result)
-      const token = credential?.accessToken
-      const user = result.user
-      console.log("result", result);
-      return router.back();
+    return signInWithRedirect(auth, provider).then((result: any) => {
+      const user = result.user;
+      writeData(JSON.stringify(user), `/users/${user.uid}/`).then(() =>
+        router.back()
+      );
     });
   }
 
