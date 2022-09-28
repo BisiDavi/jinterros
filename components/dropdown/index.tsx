@@ -31,7 +31,7 @@ export default function Dropdown({
             className="font-bold bottom-border-orange text py-1 px-4 hover:bg-gray-400 text-lg"
             onClick={() => setDropdown(false)}
           >
-            {!user ? (
+            {!user?.displayName ? (
               <Link href={dropdownContent["top-header"].link}>
                 {dropdownContent["top-header"].text}
               </Link>
