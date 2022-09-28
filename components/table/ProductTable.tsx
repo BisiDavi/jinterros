@@ -8,10 +8,13 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { readData } from "@/lib/firebaseConfig";
 import toSlug from "@/lib/toSlug";
 import { formatDBData } from "@/lib/formatDBData";
-import Button from "../button";
+import Button from "@/components/button";
+import useDBMutation from "@/hooks/useDBMutation";
 
 export default function ProductTable() {
   const [products, setProducts] = useState(null);
+  const { useDeleteDataMutation } = useDBMutation();
+  const { mutate } = useDeleteDataMutation();
 
   useEffect(() => {
     if (products === null) {
@@ -54,7 +57,7 @@ export default function ProductTable() {
               <th {...column.getHeaderProps()} key={index} className="p-4 px-6">
                 {column.render("Header")}
               </th>
-            ))}{" "}
+            ))}
             <th className="p-4 px-6">Delete</th>
           </tr>
         ))}
@@ -78,6 +81,7 @@ export default function ProductTable() {
                 <Button
                   className="hover:text-red-500 flex items-center mx-auto"
                   icon={<RiDeleteBinLine size={20} />}
+                  onClick={() => mutate(`/products/${title}`)}
                 />
               </td>
             </tr>

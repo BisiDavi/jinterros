@@ -1,11 +1,14 @@
-import type { GetServerSidePropsContext } from "next";
 import AdminLayout from "@/layout/AdminLayout";
 import AdminProductForm from "@/components/form/AdminProductForm";
+import AdminFormView from "@/views/AdminFormView";
+import type { GetServerSidePropsContext } from "next";
 
 export default function Products() {
   return (
     <AdminLayout title="Products">
-      <AdminProductForm />
+      <AdminFormView>
+        <AdminProductForm />
+      </AdminFormView>
     </AdminLayout>
   );
 }

@@ -1,11 +1,14 @@
 import PageForm from "@/components/form/PageForm";
 import AdminLayout from "@/layout/AdminLayout";
+import AdminFormView from "@/views/AdminFormView";
 import type { GetServerSidePropsContext } from "next";
 
 export default function Pages() {
   return (
     <AdminLayout title="Pages">
-      <PageForm />
+      <AdminFormView>
+        <PageForm />
+      </AdminFormView>
     </AdminLayout>
   );
 }

@@ -1,3 +1,4 @@
+import AdminFormView from "@/views/AdminFormView";
 import CocktailForm from "@/components/form/CocktailForm";
 import AdminLayout from "@/layout/AdminLayout";
 import { GetServerSidePropsContext } from "next";
@@ -5,7 +6,9 @@ import { GetServerSidePropsContext } from "next";
 export default function AdminCocktailsPage() {
   return (
     <AdminLayout title="Cocktails">
+      <AdminFormView>
       <CocktailForm />
+      </AdminFormView>
     </AdminLayout>
   );
 }
