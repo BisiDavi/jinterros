@@ -1,10 +1,9 @@
-/* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { productCartType } from "@/types/redux-types";
 
-type cartType = {
-  title: string;
-  price: number;
-  quantity: number;
+
+type cartType = productCartType & {
+  amount: number;
 };
 
 type initialStateType = {
@@ -35,16 +34,26 @@ const CartSlice = createSlice({
             (item) => item.title === title
           );
           state.cart[cartItemIndex].quantity += 1;
+          state.cart[cartItemIndex].amount =
+            state.cart[cartItemIndex].price *
+            state.cart[cartItemIndex].quantity;
         } else if (type === "dec" && state.cart[cartItemIndex].quantity > 0) {
           state.cart[cartItemIndex].quantity -= 1;
+          state.cart[cartItemIndex].amount =
+            state.cart[cartItemIndex].price *
+            state.cart[cartItemIndex].quantity;
         }
       }
     },
-    addToCart(state, action: PayloadAction<cartType>) {
+    addToCart(state, action: PayloadAction<productCartType>) {
+      const cartData = {
+        ...action.payload,
+        amount: action.payload.quantity * action.payload.price,
+      };
       if (state.cart === null) {
-        state.cart = [action.payload];
+        state.cart = [cartData];
       } else if (state.cart !== null) {
-        state.cart = [...state.cart, action.payload];
+        state.cart = [...state.cart, cartData];
       }
     },
     removeCartItem(state, action: PayloadAction<{ title: string }>) {

@@ -1,23 +1,34 @@
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
-import { updateCart } from "@/redux/cart-slice";
+import {
+  addToCart,
+  removeCartItem,
+  updateCartQuantity,
+} from "@/redux/cart-slice";
+import type { productCartType } from "@/types/redux-types";
+
+
 
 export default function useCart() {
   const { cart, deliveryFee } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
 
-  function updateCartHandler(type: "inc" | "dec") {
-    dispatch(updateCart(type));
+  function updateCartHandler(title: string, type: "inc" | "dec") {
+    dispatch(updateCartQuantity({ title, type }));
   }
 
-  const amount = 40 * cart;
+  function addCartItemHandler(product: productCartType) {
+    dispatch(addToCart(product));
+  }
 
-  const total = amount + deliveryFee;
+  function removeCartItemHandler(productTitle: string) {
+    dispatch(removeCartItem({ title: productTitle }));
+  }
 
   return {
     cart,
+    addCartItemHandler,
+    removeCartItemHandler,
     updateCartHandler,
-    amount,
     deliveryFee,
-    total,
   };
 }

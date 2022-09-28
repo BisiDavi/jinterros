@@ -18,3 +18,9 @@ export type FormStateType = {
     completed: boolean;
   };
 };
+
+export type productCartType = {
+  title: string;
+  price: number;
+  quantity: number;
+};
