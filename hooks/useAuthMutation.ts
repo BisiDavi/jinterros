@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useCookies } from "react-cookie";
 
 import useRequestMutation from "@/hooks/useRequestMutation";
 import useAuth from "@/hooks/useAuth";
@@ -6,6 +7,7 @@ import useAuth from "@/hooks/useAuth";
 export default function useAuthMutation() {
   const { authSignup, authSignIn, authSignOut } = useAuth();
   const router = useRouter();
+  const [, setCookie] = useCookies(["admin"]);
 
   function useSignupMutation() {
     return useRequestMutation(
@@ -47,6 +49,12 @@ export default function useAuthMutation() {
       success: "logout successful",
       error: "oops, an error occured",
       onSuccessMethodWithData: (data) => {
+        if (router.asPath.includes("/admin")) {
+          setCookie("admin", false, {
+            path: "/",
+            sameSite: true,
+          });
+        }
         if (!router.asPath.includes("/admin")) {
           router.push("/");
         }
