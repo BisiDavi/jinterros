@@ -12,7 +12,7 @@ import useAuth from "@/hooks/useAuth";
 import useCart from "@/hooks/useCart";
 
 export default function Header() {
-  const { slideCartHandler, cart } = useCart();
+  const { slideCartHandler, cartItem } = useCart();
   const { getAuthStatus } = useAuth();
   const { useSignoutMutation } = useAuthMutation();
   const { mutate } = useSignoutMutation();
@@ -35,9 +35,9 @@ export default function Header() {
         </Dropdown>
         <div className="cart-icon flex items-start">
           <Button icon={<CartIcon />} onClick={() => slideCartHandler(true)} />
-          {cart && cart.length > 0 && (
+          {cartItem > 0 && (
             <span className="text-rum-dark-brown font-bold ml-1">
-              {cart.length}
+              {cartItem}
             </span>
           )}
         </div>
