@@ -24,15 +24,17 @@ export default function useCart() {
     dispatch(removeCartItem({ title: productTitle }));
   }
 
-  function closeSlideCart() {
-    dispatch(updateSlideCart(false));
+  function slideCartHandler(status:boolean) {
+    dispatch(updateSlideCart(status));
   }
+
+
 
   return {
     cart,
     addCartItemHandler,
     removeCartItemHandler,
-    closeSlideCart,
+    slideCartHandler,
     updateCartHandler,
     deliveryFee,
   };

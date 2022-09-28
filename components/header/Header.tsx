@@ -7,12 +7,12 @@ import UserIcon from "@/public/icons/UserIcon";
 import Dropdown from "@/components/dropdown";
 import dropdown from "@/json/dropdown.json";
 import Button from "@/components/button";
-import { useAppSelector } from "@/hooks/useRedux";
 import useAuthMutation from "@/hooks/useAuthMutation";
 import useAuth from "@/hooks/useAuth";
+import useCart from "@/hooks/useCart";
 
 export default function Header() {
-  const { cart } = useAppSelector((state) => state.cart);
+  const { slideCartHandler, cart } = useCart();
   const { getAuthStatus } = useAuth();
   const { useSignoutMutation } = useAuthMutation();
   const { mutate } = useSignoutMutation();
@@ -34,9 +34,11 @@ export default function Header() {
           <UserIcon />
         </Dropdown>
         <div className="cart-icon flex items-start">
-          <Button href="/cart" icon={<CartIcon />} />
-          {cart > 0 && (
-            <span className="text-rum-dark-brown font-bold ml-1">{cart}</span>
+          <Button icon={<CartIcon />} onClick={() => slideCartHandler(true)} />
+          {cart && (
+            <span className="text-rum-dark-brown font-bold ml-1">
+              {cart.length}
+            </span>
           )}
         </div>
         {user?.displayName && (

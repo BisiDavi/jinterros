@@ -1,6 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { useRouter } from "next/router";
-
 import useCart from "@/hooks/useCart";
 import { productType } from "@/types";
 import Button from "@/components/button";
@@ -10,7 +8,6 @@ interface Props {
 }
 
 export default function ProductBanner({ product }: Props) {
-  const router = useRouter();
   const { addCartItemHandler } = useCart();
 
   const productDescriptonList = [
@@ -28,7 +25,6 @@ export default function ProductBanner({ product }: Props) {
       price: product.price,
       quantity: 1,
     });
-    router.push("/cart");
   }
 
   return (
