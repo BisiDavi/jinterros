@@ -19,11 +19,7 @@ export default function AdminAuth() {
           />
         </div>
         <div className="w-auth w-1/4 bg-white px-4 py-10">
-          <Tabs
-            tabHead={["Admin Login", "Admin Sign-up"]}
-            tab1={<AdminForm type="login" />}
-            tab2={<AdminForm type="signup" />}
-          />
+          <AdminForm type="login" />
         </div>
       </div>
     </>
