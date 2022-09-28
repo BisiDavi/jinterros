@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
+
 import toSlug from "@/lib/toSlug";
 import { productType } from "@/types";
-import Link from "next/link";
 
 interface Props {
   otherProducts: productType[];
