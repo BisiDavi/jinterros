@@ -38,7 +38,7 @@ export default function SignupForm() {
           <Button
             text="Register"
             type="submit"
-            className="bg-orange w-full h-12 mt-10 text-white font-bold text-xl hover:opacity-80"
+            className="bg-orange w-full h-12 mt-4 text-white font-bold text-xl hover:opacity-80"
           />
         </form>
       </FormProvider>
