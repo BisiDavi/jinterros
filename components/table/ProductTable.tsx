@@ -66,6 +66,7 @@ export default function ProductTable() {
         {rows.map((row, i: number) => {
           prepareRow(row);
           const rowId = i + 1;
+          const rowTitle = data[i].title;
           const title = toSlug(data[i].title);
           return (
             <tr key={i} className="hover:bg-gray-300">
@@ -82,6 +83,7 @@ export default function ProductTable() {
                   className="hover:text-red-500 flex items-center mx-auto"
                   icon={<RiDeleteBinLine size={20} />}
                   onClick={() => mutate(`/products/${title}`)}
+                  title={`Delete ${rowTitle}`}
                 />
               </td>
             </tr>
