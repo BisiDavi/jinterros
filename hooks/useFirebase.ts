@@ -8,6 +8,7 @@ import { getDatabase, ref, set, onValue } from "firebase/database";
 import { useRouter } from "next/router";
 
 import { createFirebaseApp } from "@/lib/firebaseConfig";
+import { toast } from "react-toastify";
 
 export default function useFirebase() {
   const router = useRouter();
@@ -57,9 +58,8 @@ export default function useFirebase() {
     const provider = new GoogleAuthProvider();
     return signInWithPopup(auth, provider).then((result) => {
       const user = result.user;
-      console.log("user", user);
       writeData(JSON.stringify(user), `/users/${user.uid}/`).then(() =>
-        router.back()
+        toast.success(`Welcome, ${user?.displayName}`)
       );
     });
   }
