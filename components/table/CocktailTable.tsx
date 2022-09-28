@@ -70,7 +70,7 @@ export default function CocktailTable() {
           return (
             <tr key={i} className="hover:bg-gray-300">
               <td className="p-4 px-6 border-b">{rowId}</td>
-              {row.cells.map((cell, index) => (
+              {row.cells.map((cell) => (
                 <td {...cell.getCellProps()} className="p-4 px-6 border-b">
                   <Link href={`/admin/cocktails/${title}`} passHref>
                     <a className="h-full w-full">{cell.render("Cell")}</a>
