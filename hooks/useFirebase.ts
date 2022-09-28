@@ -1,8 +1,8 @@
 import {
   GoogleAuthProvider,
   getRedirectResult,
-  signInWithRedirect,
   getAuth,
+  signInWithPopup,
 } from "firebase/auth";
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import { useRouter } from "next/router";
@@ -55,16 +55,20 @@ export default function useFirebase() {
     const app = initFB();
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
-    return signInWithRedirect(auth, provider).then(() => {
-      getRedirectResult(auth).then((response: any) => {
-        const user = response.user;
-        console.log("user", user);
-        writeData(JSON.stringify(user), `/users/${user.uid}/`).then(() =>
-          router.back()
-        );
-      });
+    return signInWithPopup(auth, provider).then((result) => {
+      const user = result.user;
+      console.log("user", user);
+      writeData(JSON.stringify(user), `/users/${user.uid}/`).then(() =>
+        router.back()
+      );
     });
   }
 
-  return { getAuthdetails, initFB, writeData, readData, googleProvider };
+  return {
+    getAuthdetails,
+    initFB,
+    writeData,
+    readData,
+    googleProvider,
+  };
 }
