@@ -7,6 +7,11 @@ import DefaultLayout from "@/layout/DefaultLayout";
 export default function Cart() {
   const { cart } = useCart();
   const cartItem = cart ? cart.length : 0;
+  let total = 0;
+  cart &&
+    cart?.map((item) => {
+      total += item.amount;
+    });
   return (
     <DefaultLayout title="Cart">
       <section className="cart container px-8 lg:w-4/5 mx-auto flex flex-col lg:flex-row mt-40 mb-14 lg:my-52">
@@ -27,9 +32,19 @@ export default function Cart() {
                 Delivery fees not included yet.
               </p>
             </div>
-            {/* <p className="lg:text-lg lg:order-2 font-bold">
-              $40 * {cart} = ${amount.toFixed(2)}
-            </p> */}
+            <div className="right lg:order-2">
+              <ul className="lg:text-lg font-bold">
+                {cart?.map((item) => (
+                  <li key={item.title}>${item.amount.toFixed(2)}</li>
+                ))}
+              </ul>
+              {cart && cart.length > 1 && (
+                <>
+                  <hr />
+                  <span className="font-bold text-lg">${total.toFixed(2)}</span>
+                </>
+              )}
+            </div>
           </div>
           <hr />
 
