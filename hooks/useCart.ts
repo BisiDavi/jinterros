@@ -24,11 +24,19 @@ export default function useCart() {
     dispatch(removeCartItem({ title: productTitle }));
   }
 
-  function slideCartHandler(status:boolean) {
+  function slideCartHandler(status: boolean) {
     dispatch(updateSlideCart(status));
   }
 
-
+  function getSubtotal() {
+    let total = 0;
+    cart &&
+      cart.map((item) => {
+        total += item.amount;
+      });
+    total;
+    return total;
+  }
 
   return {
     cart,
@@ -37,5 +45,6 @@ export default function useCart() {
     slideCartHandler,
     updateCartHandler,
     deliveryFee,
+    getSubtotal,
   };
 }

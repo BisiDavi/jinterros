@@ -4,9 +4,11 @@ import Link from "next/link";
 import useCart from "@/hooks/useCart";
 
 export default function OrderSummary() {
-  const { cart, deliveryFee, total, amount } = useCart();
+  const { cart, deliveryFee, getSubtotal } = useCart();
 
-  const cartText = cart > 1 ? "Bottles" : "Bottle";
+  const subtotal = getSubtotal()
+
+  const total = subtotal + deliveryFee
 
   return (
     <div className="w-full order-1 lg:order-2 lg:w-2/5 shadow-lg mb-10 lg:mb-0 lg:ml-10">
@@ -14,28 +16,35 @@ export default function OrderSummary() {
       <hr />
       <div className="content py-4">
         <div className="group flex lg:flex-col items-start">
-          <div className="row flex lg:items-center w-1/2 lg:w-3/4 justify-between mx-auto">
-            <img
-              src="/rum-bottle-2.webp"
-              alt="jinterros"
-              title="jinterros"
-              className="w-1/3 lg:w-auto"
-            />
-            <div className="text flex flex-col text-xl">
-              <h6 className="text-md lg:text-2xl font-thin">
-                {cart} {cartText} of Rum
-              </h6>
-              <h4 className="text-rum-brown font-bold">$40</h4>
-              <p className="text-base">
-                Qty:
-                <span className="font-bold ml-1">{cart}</span>
-              </p>
-            </div>
-          </div>
+          {cart &&
+            cart.map((item) => (
+              <div
+                key={item.title}
+                className="row flex lg:items-center w-1/2 lg:w-3/4 justify-between mx-auto"
+              >
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  title={item.title}
+                  className="w-1/3 lg:w-auto"
+                />
+                <div className="text flex flex-col text-xl">
+                  <h6 className="text-md lg:text-2xl font-thin">
+                    {item.quantity} {item.quantity > 1 ? "Bottles" : "Bottle"}{" "}
+                    of Rum
+                  </h6>
+                  <h4 className="text-rum-brown font-bold">${item.price}</h4>
+                  <p className="text-base">
+                    Qty:
+                    <span className="font-bold ml-1">{item.quantity}</span>
+                  </p>
+                </div>
+              </div>
+            ))}
           <ul className="row mx-auto  lg:w-full justify-center flex flex-col lg:items-center">
             <li className="my-1 lg:w-1/3 justify-between flex font-bold">
               Subtotal:
-              <span>${amount.toFixed(2)}</span>
+              <span>${subtotal.toFixed(2)}</span>
             </li>
             <li className="my-1 lg:w-1/3 justify-between flex font-bold">
               Delivery Fee:

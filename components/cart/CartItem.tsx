@@ -11,7 +11,7 @@ export default function CartItem({ item }: Props) {
   const { updateCartHandler } = useCart();
 
   return (
-    <div className="view px-2 border-b pb-2 lg:px-0 lg:w-11/12 flex lg:flex-row flex-col mx-auto my-6 items-center justify-center ">
+    <div className="view px-2 border-b pb-2 lg:px-0 lg:w-11/12 flex hover:bg-gray-100 lg:flex-row flex-col mx-auto items-center justify-center ">
       <div className="group-m flex items-center justify-between">
         <img
           src={item.img}
