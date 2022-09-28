@@ -1,6 +1,5 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Fragment } from "react";
 
 import formElements from "@/json/auth.json";
 import displayForm from "@/components/form/displayForm";
@@ -32,9 +31,9 @@ export default function SignupForm() {
           onSubmit={methods.handleSubmit(onSubmit)}
         >
           {formElements.signup.map((formElement, index) => (
-            <Fragment key={`${formElement.name}-${index}`}>
+            <div key={`${formElement.name}-${index}`} className="my-2 w-full">
               {displayForm(formElement)}
-            </Fragment>
+            </div>
           ))}
           <Button
             text="Register"

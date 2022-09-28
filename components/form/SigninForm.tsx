@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Fragment } from "react";
 
 import formElements from "@/json/auth.json";
 import displayForm from "@/components/form/displayForm";
@@ -36,9 +35,9 @@ export default function SigninForm() {
           onSubmit={methods.handleSubmit(onSubmit)}
         >
           {formElements.signin.map((formElement, index) => (
-            <Fragment key={`${formElement.name}-${index}`}>
+            <div key={`${formElement.name}-${index}`} className="my-2 w-full">
               {displayForm(formElement)}
-            </Fragment>
+            </div>
           ))}
           <Button
             text="Sign In"
