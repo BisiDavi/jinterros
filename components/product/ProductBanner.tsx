@@ -11,7 +11,7 @@ interface Props {
 
 export default function ProductBanner({ product }: Props) {
   const router = useRouter();
-  const { updateCartHandler } = useCart();
+  const { addCartItemHandler } = useCart();
 
   const productDescriptonList = [
     { text: "Price ($):", value: product.price.toFixed(2) },
@@ -22,7 +22,12 @@ export default function ProductBanner({ product }: Props) {
   ];
 
   function addToCart() {
-    updateCartHandler("inc");
+    addCartItemHandler({
+      title: product.title,
+      img: product.productImage,
+      price: product.price,
+      quantity: 1,
+    });
     router.push("/cart");
   }
 

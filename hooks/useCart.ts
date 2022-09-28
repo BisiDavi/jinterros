@@ -4,9 +4,8 @@ import {
   removeCartItem,
   updateCartQuantity,
 } from "@/redux/cart-slice";
+import { updateSlideCart } from "@/redux/ui-slice";
 import type { productCartType } from "@/types/redux-types";
-
-
 
 export default function useCart() {
   const { cart, deliveryFee } = useAppSelector((state) => state.cart);
@@ -17,6 +16,7 @@ export default function useCart() {
   }
 
   function addCartItemHandler(product: productCartType) {
+    dispatch(updateSlideCart(true));
     dispatch(addToCart(product));
   }
 
@@ -24,10 +24,15 @@ export default function useCart() {
     dispatch(removeCartItem({ title: productTitle }));
   }
 
+  function closeSlideCart() {
+    dispatch(updateSlideCart(false));
+  }
+
   return {
     cart,
     addCartItemHandler,
     removeCartItemHandler,
+    closeSlideCart,
     updateCartHandler,
     deliveryFee,
   };
