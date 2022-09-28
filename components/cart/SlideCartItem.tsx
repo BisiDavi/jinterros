@@ -12,7 +12,7 @@ interface Props {
 export default function SlideCartItem({ item }: Props) {
   const { updateCartHandler, removeCartItemHandler } = useCart();
   return (
-    <div className="cart-list my-4 border-b flex flex-col py-4 relative">
+    <div className="cart-list border-b flex flex-col py-4 relative hover:bg-gray-100">
       <div className="top flex items-center w-full justify-between">
         <img src={item.img} alt={item.title} className="w-1/3 mr-6 h-52" />
         <div className="text w-3/4">
@@ -36,7 +36,7 @@ export default function SlideCartItem({ item }: Props) {
         </div>
       </div>
       <Button
-        className="rounded-full bg-dark absolute hover:text-red-500 right-0 top-0"
+        className="rounded-full bg-dark absolute hover:text-red-500 right-2 top-4"
         icon={<GiCancel size={30} />}
         onClick={() => removeCartItemHandler(item.title)}
       />
