@@ -7,6 +7,8 @@ import links from "@/json/links.json";
 import displayIcons from "@/lib/displayIcons";
 import Logo from "@/components/Logo";
 import AdminNotificationBar from "@/components/header/AdminNotificationBar";
+import Button from "@/components/button";
+import useAuthMutation from "@/hooks/useAuthMutation";
 
 interface Props {
   title: string;
@@ -17,6 +19,19 @@ export default function AdminLayout({
   title,
 }: PropsWithChildren<Props>) {
   const router = useRouter();
+  const { useSignoutMutation } = useAuthMutation();
+  const { mutate } = useSignoutMutation();
+
+  function logout() {
+    mutate(
+      {},
+      {
+        onSuccess: () => {
+          router.push("/");
+        },
+      }
+    );
+  }
 
   function getActiveLink(link: string) {
     if (link !== "/admin") {
@@ -34,7 +49,7 @@ export default function AdminLayout({
         <title>{title} | Admin | Jinterros</title>
       </Head>
       <div className="w-full flex">
-        <aside className="sidebar h-screen flex flex-col w-1/5 border-r">
+        <aside className="sidebar h-screen flex flex-col relative w-1/5 border-r">
           <div className="logo-view h-40 border-b flex flex-col">
             <div className="w-2/5 flex mx-auto my-4">
               <Logo link="/admin" />
@@ -58,6 +73,13 @@ export default function AdminLayout({
               );
             })}
           </ul>
+          <div className="wrapper absolute w-full bottom-14 flex items-center">
+            <Button
+              text="Logout"
+              className="bg-red-500 px-4 hover:opacity-70 rounded-lg bottom-0 text-white font-bold mx-auto justify-center py-1"
+              onClick={logout}
+            />
+          </div>
         </aside>
         <main className="main w-4/5 flex flex-col">
           <div className="top w-full h-40  border-b px-8 flex relative">

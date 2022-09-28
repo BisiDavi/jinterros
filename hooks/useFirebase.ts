@@ -1,14 +1,9 @@
-import {
-  GoogleAuthProvider,
-  getRedirectResult,
-  getAuth,
-  signInWithPopup,
-} from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { getDatabase, ref, set, onValue } from "firebase/database";
+import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 
 import { createFirebaseApp } from "@/lib/firebaseConfig";
-import { toast } from "react-toastify";
 
 export default function useFirebase() {
   const router = useRouter();
@@ -58,9 +53,10 @@ export default function useFirebase() {
     const provider = new GoogleAuthProvider();
     return signInWithPopup(auth, provider).then((result) => {
       const user = result.user;
-      writeData(JSON.stringify(user), `/users/${user.uid}/`).then(() =>
-        toast.success(`Welcome, ${user?.displayName}`)
-      );
+      writeData(JSON.stringify(user), `/users/${user.uid}/`).then(() => {
+        toast.success(`Welcome, ${user?.displayName}`);
+        router.push("/");
+      });
     });
   }
 
