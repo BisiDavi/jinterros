@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import useCart from "@/hooks/useCart";
-import SlideCartItem from "./SlideCartItem";
+import Button from "@/components/button";
+import SlideCartItem from "@/components/cart/SlideCartItem";
 
 export default function SlideCart() {
   const { slideCartHandler, cart } = useCart();
@@ -12,7 +13,25 @@ export default function SlideCart() {
       />
       <aside className="bg-white w-1/4 z-50 h-full px-4">
         {cart && cart.length > 0 ? (
-          cart.map((item) => <SlideCartItem key={item.title} item={item} />)
+          <div className="cart-view flex flex-col h-full">
+            <div className="cart-list overflow-y-scroll h-5/6">
+              {cart.map((item) => (
+                <SlideCartItem key={item.title} item={item} />
+              ))}
+            </div>
+            <div className="button-group flex h-1/6 items-center justify-between">
+              <Button
+                text="View Cart"
+                className="bg-orange font-bold text-white px-3 py-1"
+                href="/cart"
+              />
+              <Button
+                text="Checkout"
+                className="bg-rum-brown font-bold text-white px-3 py-1"
+                href="/checkout"
+              />
+            </div>
+          </div>
         ) : (
           <div className="no-item flex mx-auto flex-col  justify-center">
             <img src="/error-img.gif" alt="error" />
