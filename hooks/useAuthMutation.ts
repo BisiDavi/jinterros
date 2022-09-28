@@ -7,7 +7,7 @@ import useAuth from "@/hooks/useAuth";
 export default function useAuthMutation() {
   const { authSignup, authSignIn, authSignOut } = useAuth();
   const router = useRouter();
-  const [, setCookie] = useCookies(["admin"]);
+  const [, , removeCookie] = useCookies();
 
   function useSignupMutation() {
     return useRequestMutation(
@@ -50,7 +50,7 @@ export default function useAuthMutation() {
       error: "oops, an error occured",
       onSuccessMethodWithData: (data) => {
         if (router.asPath.includes("/admin")) {
-          setCookie("admin", false, {
+          removeCookie("admin", {
             path: "/",
             sameSite: true,
           });

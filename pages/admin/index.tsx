@@ -15,6 +15,8 @@ export default function Admin() {
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { req } = context;
 
+  console.log("req.cookies", req.cookies);
+
   if (!req.cookies?.admin) {
     return {
       redirect: {
