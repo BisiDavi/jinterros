@@ -132,7 +132,7 @@ export default function Paypal() {
                     `/orders/${authStatus.email}-${details.id}/${authStatus.uid}`,
                     JSON.stringify(details)
                   ).then(() => {
-                    router.push("/payment/successful");
+                    router.push("/thanks-for-order");
                   });
                 }
               });
