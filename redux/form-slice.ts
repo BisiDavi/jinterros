@@ -35,6 +35,12 @@ const FormSlice = createSlice({
     ) {
       state.paymentForm = action.payload;
     },
+    resetPaymentForm(state) {
+      state.paymentForm = {
+        data: null,
+        completed: false,
+      };
+    },
   },
 });
 
@@ -43,5 +49,6 @@ export const {
   uploadMedia,
   uploadPreviewMedia,
   updatePaymentForm,
+  resetPaymentForm,
 } = FormSlice.actions;
 export default FormSlice.reducer;

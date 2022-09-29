@@ -1,16 +1,21 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { useRouter } from "next/router";
 
 import useCart from "@/hooks/useCart";
 import useAuth from "@/hooks/useAuth";
-import { useAppSelector } from "@/hooks/useRedux";
+import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import useFirebase from "@/hooks/useFirebase";
+import { resetCart } from "@/redux/cart-slice";
+import { resetPaymentForm } from "@/redux/form-slice";
 
 export default function Paypal() {
   const { getSubtotal, deliveryFee, cart } = useCart();
+  const router = useRouter();
 
   const { writeData } = useFirebase();
   const subtotal = getSubtotal();
   const { getAuthStatus } = useAuth();
+  const dispatch = useAppDispatch();
 
   const authStatus: any = getAuthStatus();
 
@@ -26,7 +31,7 @@ export default function Paypal() {
         name: item.title,
         unit_amount: {
           currency_code: "USD",
-          value: item.amount,
+          value: item.price,
         },
         category: "PHYSICAL_GOODS",
         quantity: item.quantity,
@@ -68,6 +73,16 @@ export default function Paypal() {
                 {
                   amount: {
                     value: `${total}`,
+                    breakdown: {
+                      item_total: {
+                        value: `${subtotal}`,
+                        currency_code: "USD",
+                      },
+                      shipping: {
+                        value: `${deliveryFee}`,
+                        currency_code: "USD",
+                      },
+                    },
                   },
                   items: getItems(),
                   description: "Payment for Jinterros Rum",
@@ -91,7 +106,6 @@ export default function Paypal() {
           }}
           onApprove={(data, actions: any) => {
             return actions.order.capture().then((details: any) => {
-              const name = details.payer.name.given_name;
               console.log("details", details);
               console.log(
                 "Capture result",
@@ -99,7 +113,16 @@ export default function Paypal() {
                 JSON.stringify(details, null, 2)
               );
               const data = {};
-              writeData(`/orders/${authStatus.email}/${authStatus.uid}`, "");
+              if (details.status === "COMPLETED") {
+                dispatch(resetCart());
+                dispatch(resetPaymentForm());
+                writeData(
+                  `/orders/${authStatus.email}-${details.id}/${authStatus.uid}`,
+                  JSON.stringify(details)
+                ).then(() => {
+                  router.push("/payment/successful");
+                });
+              }
             });
           }}
         />
