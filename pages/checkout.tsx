@@ -7,9 +7,13 @@ import OrderSummary from "@/components/checkout/OrderSummary";
 import ShippingForm from "@/components/form/ShippingForm";
 import useAuth from "@/hooks/useAuth";
 import Paypal from "@/components/payment/Paypal";
+import { useAppSelector } from "@/hooks/useRedux";
 
 export default function Checkout() {
   const { getAuthStatus } = useAuth();
+  const {
+    paymentForm: { completed },
+  } = useAppSelector((state) => state.form);
   const router = useRouter();
   const user = getAuthStatus();
 
@@ -30,7 +34,7 @@ export default function Checkout() {
             </div>
             <OrderSummary />
           </div>
-          <Paypal />
+          {completed && <Paypal />}
         </section>
       </DefaultLayout>
     </>
