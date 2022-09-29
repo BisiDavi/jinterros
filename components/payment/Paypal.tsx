@@ -2,9 +2,11 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 import useCart from "@/hooks/useCart";
 import { useAppSelector } from "@/hooks/useRedux";
+import useFirebase from "@/hooks/useFirebase";
 
 export default function Paypal() {
   const { getSubtotal, deliveryFee } = useCart();
+  const { writeData } = useFirebase();
   const subtotal = getSubtotal();
 
   const total = subtotal + deliveryFee;
@@ -15,8 +17,6 @@ export default function Paypal() {
   const {
     paymentForm: { completed },
   } = useAppSelector((state) => state.form);
-
-  console.log("formData", formData);
 
   return (
     <PayPalScriptProvider
@@ -45,7 +45,7 @@ export default function Paypal() {
         onApprove={(data, actions: any) => {
           return actions.order.capture().then((details: any) => {
             const name = details.payer.name.given_name;
-            alert(`Transaction completed by ${name}`);
+            console.log("details", details);
           });
         }}
       />
