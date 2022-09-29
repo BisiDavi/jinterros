@@ -37,32 +37,6 @@ export default function Paypal() {
               {
                 amount: {
                   value: `${total}`,
-                  breakdown: {
-                    item_total: { value: `${subtotal}`, currency_code: "USD" },
-                    shipping: {
-                      value: `${deliveryFee}`,
-                      currency_code: "USD",
-                    },
-                  },
-                },
-                payee: {
-                  email_address: formData.email,
-                },
-                description:
-                  "Payment for the purchase of Rum from Jinterros Stores",
-                shipping: {
-                  type: "SHIPPING",
-                  name: {
-                    full_name: `${formData.firstName} ${formData.lastName}`,
-                  },
-                  email_address: formData.email,
-                  address: {
-                    address_line_1: formData.address1,
-                    admin_area_1: formData.state,
-                    admin_area_2: formData.city,
-                    postal_code: formData.zip,
-                    country_code: formData.country,
-                  },
                 },
               },
             ],
