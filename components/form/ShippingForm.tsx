@@ -9,13 +9,16 @@ import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { updatePaymentForm } from "@/redux/form-slice";
 import { updateDeliveryFee } from "@/redux/cart-slice";
 import displayShippingElement from "@/lib/displayShippingElement";
+import RadioGroup from "./RadioGroup";
 
 export default function ShippingForm() {
   const methods = useForm({
     resolver: yupResolver(shippingformSchema),
     mode: "all",
   });
-  const {paymentForm:{data:formData}} = useAppSelector(state => state.form)
+  const {
+    paymentForm: { data: formData },
+  } = useAppSelector((state) => state.form);
   const dispatch = useAppDispatch();
   const { getAuthStatus } = useAuth();
   const user: any = getAuthStatus();
@@ -59,14 +62,7 @@ export default function ShippingForm() {
         >
           <>
             {displayShippingElement("main", formData)}
-            <h4 className="text-xl py-1 pt-3">SELECT SHIPPING OPTION</h4>
-            {displayShippingElement("shippingOption", formData)}
-            {errors.shippingOption?.message && (
-              <p className="text-red-500 -pt-20 text-xs">
-                {errors["shippingOption"]?.message}
-              </p>
-            )}
-
+            <RadioGroup methods={methods} />
             <Button
               className="bg-rum-brown w-full hover:opacity-80 flex items-center py-2 justify-center text-white font-bold mt-4"
               text="SAVE ADDRESS"

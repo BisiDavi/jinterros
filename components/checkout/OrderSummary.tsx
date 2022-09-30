@@ -15,19 +15,19 @@ export default function OrderSummary() {
       <h4 className="text-xl py-1 ml-4 pt-3 h-12">ORDER SUMMARY</h4>
       <hr />
       <div className="content py-4">
-        <div className="group flex lg:flex-col items-start">
+        <div className="group flex flex-col items-start">
           {cart &&
             cart.map((item) => (
               <div
                 key={item.title}
-                className="row flex lg:items-center border-b  w-1/2 lg:w-full px-4 justify-between mx-auto"
+                className="row flex lg:items-center border-b w-full px-4 justify-between mx-auto"
               >
-                <div className="content w-2/3 mb-2 flex items-center justify-center mx-auto">
+                <div className="content w-full lg:w-2/3 mb-2 flex items-center justify-center mx-auto">
                   <img
                     src={item.img}
                     alt={item.title}
                     title={item.title}
-                    className="w-1/3 lg:w-1/5"
+                    className="w-1/4 lg:w-1/5"
                   />
                   <div className="text lg:w-3/4 ml-4 flex flex-col text-xl">
                     <h6 className="text-md lg:text-2xl font-thin">

@@ -30,7 +30,7 @@ export default function Checkout() {
       <DefaultLayout title="Checkout">
         <section className="">
           <div className="form-group chekout mt-32  lg:mt-52 mb-14 px-6 flex flex-col lg:flex-row items-start container mx-auto">
-            <div className="forms lg:w-3/5">
+            <div className="forms w-full lg:w-3/5">
               <ShippingForm />
             </div>
             <OrderSummary />
