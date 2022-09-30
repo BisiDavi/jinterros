@@ -11,16 +11,22 @@ export function formatDBData(data: any) {
         const tempData = formattedData[formattedData.length - 1];
         parsedData = JSON.parse(tempData);
       }
+      const date = new Date(parsedData.date);
+
+      const cData = parsedData.date
+        ? {
+            date: `${date.toDateString()}, ${date.toLocaleTimeString([], {
+              hour12: true,
+              hour: "2-digit",
+              minute: "2-digit",
+            })}`,
+            authorName: parsedData?.author?.name,
+          }
+        : "";
       if (parsedData) {
-        const date = new Date(parsedData.date);
         dataArray.push({
           ...parsedData,
-          authorName: parsedData.author.name,
-          date: `${date.toDateString()}, ${date.toLocaleTimeString([], {
-            hour12: true,
-            hour: "2-digit",
-            minute: "2-digit",
-          })}`,
+          ...cData,
         });
       }
     });
