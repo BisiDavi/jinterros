@@ -37,12 +37,15 @@ export default function AdminForm({ type }: Props) {
   }
 
   return (
-    <div className="content pb-5 w-full rounded shadow border py-2">
+    <div className="content pb-5 w-full rounded shadow border lg:py-2 py-10">
       {type === "login" && (
-        <h4 className="text-center font-bold text-2xl mb-2">Login</h4>
+        <h4 className="text-center font-bold text-2xl mb-2">Login to Admin</h4>
       )}
       <FormProvider {...methods}>
-        <form className="mx-4" onSubmit={methods.handleSubmit(onSubmit)}>
+        <form
+          className="mx-4 lg:pb-0 pb-10"
+          onSubmit={methods.handleSubmit(onSubmit)}
+        >
           {adminauthContent[type].map((item) => (
             <div key={item.name} className="my-4">
               {displayForm(item)}

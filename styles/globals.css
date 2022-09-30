@@ -135,7 +135,7 @@
 }
 
 .cocktail img:hover,
-.image-grid img:hover ,
+.image-grid img:hover,
 .product-grid img:hover {
   transform: scale(1.1) !important;
   transition: 0.5s;
@@ -181,5 +181,14 @@
 @media (min-width: 768px) {
   .lg-h-800 {
     height: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-auth-form {
+    background-image: url("/3-bottles.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
