@@ -10,7 +10,7 @@ import useHeader from "@/hooks/useHeader";
 import useCart from "@/hooks/useCart";
 
 export default function MobileHeader() {
-  const { cartItem } = useCart();
+  const { cartItem, slideCartHandler } = useCart();
   const { onClickHandler, mobileMenu } = useHeader();
   const router = useRouter();
 
@@ -24,8 +24,12 @@ export default function MobileHeader() {
       </div>
       {!router.asPath.includes("/admin") && (
         <div className="cart-icon flex items-start">
-          <Button href="/cart" icon={<CartIcon />} />
-          <span className="text-rum-dark-brown font-bold ml-1">{cartItem}</span>
+          <Button icon={<CartIcon />} onClick={() => slideCartHandler(true)} />
+          {cartItem > 0 && (
+            <span className="text-rum-dark-brown font-bold ml-1">
+              {cartItem}
+            </span>
+          )}
         </div>
       )}
     </header>

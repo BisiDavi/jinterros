@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { BiLogOut, BiLogIn } from "react-icons/bi";
+import { useRouter } from "next/router";
 
 import links from "@/json/links.json";
 import useHeader from "@/hooks/useHeader";
 import useAuth from "@/hooks/useAuth";
-import { BiLogOut } from "react-icons/bi";
 import useAuthMutation from "@/hooks/useAuthMutation";
-import Button from "../button";
+import Button from "@/components/button";
 
 interface LinkItemProps {
   links: {
@@ -39,18 +40,20 @@ export default function MobileMenu() {
   const user = getAuthStatus();
   const { useSignoutMutation } = useAuthMutation();
   const { mutate } = useSignoutMutation();
+  const { onCloseHandler } = useHeader();
+  const router = useRouter();
 
-  console.log("user", user);
-
-  if (user) {
-    links.dropdown[2] = { text: "", link: "" };
+  function authHandler() {
+    router.push("/auth").then(() => {
+      onCloseHandler();
+    });
   }
 
   return (
     <div className="w-full h-screen fixed top-10 py-20 bg-white px-5 z-40">
-      {user && (
+      {user?.displayName ? (
         <div className="auth flex items-center justify-between">
-          <h4 className="text-xl font-bold">👋 Hello {user?.displayName}</h4>
+          <h4 className="text-xl font-bold">👋 Hello, {user?.displayName}</h4>
           <Button
             icon={<BiLogOut className="text-2xl text-white" />}
             className="mr-3 rounded-full border px-4 bg-dark-brown bg-orange-hover"
@@ -58,6 +61,13 @@ export default function MobileMenu() {
             onClick={() => mutate({})}
           />
         </div>
+      ) : (
+        <Button
+          text="Login / Signup"
+          className="rounded-full text-white mx-auto w-1/2 py-1 text-lg font-bold flex items-center justify-center bg-orange bg-dark-brown-hover"
+          icon={<BiLogIn className="mr-2" size={24} />}
+          onClick={authHandler}
+        />
       )}
       <ul>
         <LinkItem border links={links.header.left} />
@@ -65,7 +75,6 @@ export default function MobileMenu() {
       </ul>
 
       <ul className="mt-10">
-        <li></li>
         <LinkItem links={links.dropdown} />
       </ul>
     </div>

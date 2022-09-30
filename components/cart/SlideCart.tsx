@@ -18,10 +18,10 @@ export default function SlideCart() {
   return (
     <div className="slidecart flex fixed top-0 z-50 items-center h-screen w-full">
       <div
-        className="wrapper bg-gray-800 opacity-40  cursor-pointer z-50 w-3/4 h-full"
+        className="wrapper bg-gray-800 opacity-40  cursor-pointer z-50 w-1/5 lg:w-3/4 h-full"
         onClick={() => slideCartHandler(false)}
       />
-      <aside className="bg-white w-1/4 z-50 h-full px-4">
+      <aside className="bg-white w-4/5 lg:w-1/4 z-50 h-full px-4">
         {cart && cart.length > 0 ? (
           <div className="cart-view flex flex-col h-full">
             <div className="cart-list overflow-y-scroll h-5/6">
