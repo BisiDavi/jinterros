@@ -18,19 +18,33 @@ interface LinkItemProps {
 
 function LinkItem({ links, border }: LinkItemProps) {
   const { onCloseHandler } = useHeader();
+  const router = useRouter();
+
+  function getActiveLink(link: string) {
+    return router.asPath === link
+      ? "font-bold text-brown-old"
+      : "text-light-brown";
+  }
 
   const linkClassName = border
     ? "text-xl border-b h-12 items-end flex pb-1 my-2 text-light-brown"
     : "text-xl my-4 text-light-brown";
   return (
     <>
-      {links.map((item) => (
-        <li key={item.link} className={linkClassName} onClick={onCloseHandler}>
-          <Link href={item.link}>
-            <a className="w-full">{item.text}</a>
-          </Link>
-        </li>
-      ))}
+      {links.map((item) => {
+        const activeLink = getActiveLink(item.link);
+        return (
+          <li
+            key={item.link}
+            className={linkClassName}
+            onClick={onCloseHandler}
+          >
+            <Link href={item.link}>
+              <a className={`w-full ${activeLink}`}>{item.text}</a>
+            </Link>
+          </li>
+        );
+      })}
     </>
   );
 }
