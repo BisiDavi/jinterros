@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import AdminLayout from "@/layout/AdminLayout";
 import AdminOrderSummary from "@/views/AdminOrderSummary";
 import InfoCardGroupView from "@/views/InfoCardGroupView";
-import type { GetServerSidePropsContext } from "next";
 import { readData } from "@/lib/firebaseConfig";
 import { formatDBData } from "@/lib/formatDBData";
+import type { GetServerSidePropsContext } from "next";
 
 export default function Admin() {
   const [orders, setOrders] = useState(null);
@@ -30,8 +30,6 @@ export default function Admin() {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { req } = context;
-
-  console.log("req.cookies", req.cookies);
 
   if (!req.cookies?.admin) {
     return {

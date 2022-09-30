@@ -1,4 +1,5 @@
 import displayIcons from "@/lib/displayIcons";
+import { getTotalRevenue } from "@/lib/formatPrice";
 
 interface Props {
   title: string | number;
@@ -6,12 +7,13 @@ interface Props {
   orders: any[];
 }
 
+
 export default function InfoCard({ title, text, orders }: Props) {
   const orderValue = orders?.length;
   const customersValue = orders?.length;
   const textValue =
     text.includes("TOTAL ORDER") && orders?.length === 1 ? "TOTAL ORDER" : text;
-  const revenue = orders ? orders[0].purchase_units[0].amount.value : 0;
+  const revenue = orders ? getTotalRevenue(orders) : 0;
   const titleText = text.includes("REVENUE")
     ? revenue
     : text.includes("ORDER")

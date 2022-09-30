@@ -1,15 +1,27 @@
-/* eslint-disable react/jsx-key */
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useTable } from "react-table";
 import { RiDeleteBinLine } from "react-icons/ri";
 
 import orderTableData from "@/json/order-table.json";
 import Button from "@/components/button";
 import useDBMutation from "@/hooks/useDBMutation";
+import { readData } from "@/lib/firebaseConfig";
+import { formatDBData } from "@/lib/formatDBData";
 
 export default function OrdersTable() {
+  const [orders, setOrders] = useState(null);
   const { useDeleteDataMutation } = useDBMutation();
   const { mutate } = useDeleteDataMutation();
+
+  const formattedOrders = orders ? formatDBData(orders) : null;
+
+  console.log("formattedOrders", formattedOrders);
+
+  useEffect(() => {
+    if (orders === null) {
+      readData("/orders", orders, setOrders);
+    }
+  }, [orders]);
 
   const columns: any = useMemo(
     () => [
@@ -42,8 +54,8 @@ export default function OrdersTable() {
         {headerGroups.map((headerGroup, index) => (
           <tr key={index}>
             <th className="p-4 px-6">S/N</th>
-            {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()} className="p-4 px-6">
+            {headerGroup.headers.map((column, ind) => (
+              <th {...column.getHeaderProps()} key={ind} className="p-4 px-6">
                 {column.render("Header")}
               </th>
             ))}
@@ -58,12 +70,13 @@ export default function OrdersTable() {
           // const rowTitle = data[i].title;
 
           return (
-            <tr className="hover:bg-gray-300">
+            <tr key={i} className="hover:bg-gray-300">
               <td className="p-4 px-6 border-b lg:text-center">{rowId}</td>
-              {row.cells.map((cell) => (
+              {row.cells.map((cell, index) => (
                 <td
                   {...cell.getCellProps()}
                   className="p-4 px-6 border-b lg:text-center"
+                  key={index}
                 >
                   {cell.render("Cell")}
                 </td>
