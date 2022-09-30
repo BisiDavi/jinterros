@@ -57,7 +57,7 @@ export default function ShippingForm() {
       <hr />
       <FormProvider {...methods}>
         <form
-          className="px-6 lg:px-10 pt-4"
+          className="px-3 lg:px-6 lg:px-10 pt-4"
           onSubmit={methods.handleSubmit(onSubmit)}
         >
           <>
@@ -74,3 +74,4 @@ export default function ShippingForm() {
     </div>
   );
 }
+ 
