@@ -9,8 +9,8 @@ export default function OrderProgress() {
   ];
   return (
     <DefaultLayout title="Thanks for your order">
-      <section className="my-52 mx-auto w-4/5">
-        <ul className="images flex items-center justify-center mx-auto w-full">
+      <section className="mt-24 mb:10 lg:my-52 mx-auto w-4/5">
+        <ul className="images flex lg:flex-row flex-col items-center justify-center mx-auto w-full">
           {images.map((item, index) => {
             const borderImage =
               index === 0 ? (
@@ -20,11 +20,13 @@ export default function OrderProgress() {
               );
             return (
               <li key={item.img} className="mx-4 w-full flex items-center">
-                <div className="group w-2/3">
+                <div className="group w-2/3 mx-auto lg:mx-0 my-4">
                   <img src={item.img} alt={item.img} className="mx-auto" />
                   <p className="mt-4 font-bold text-center">{item.text}</p>
                 </div>
-                {index < 2 && borderImage}
+                <div className="border-image hidden lg:flex">
+                  {index < 2 && borderImage}
+                </div>
               </li>
             );
           })}

@@ -6,7 +6,7 @@ export default function Thanks4OrderPage() {
   return (
     <DefaultLayout title="Thanks for your order">
       <section className="my-52">
-        <div className="w-1/4 mx-auto">
+        <div className="w-1/2 lg:w-1/4 mx-auto">
           <img
             src="/successIcon.webp"
             alt="successfull"

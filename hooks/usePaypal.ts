@@ -83,7 +83,7 @@ export default function usePaypal() {
         ],
       });
     },
-    [completed]
+    [completed, formData]
   );
 
   function onApprove(data: any, actions: any) {
