@@ -52,7 +52,7 @@ export default function CocktailPage({ cocktails }: Props) {
               <div className="Cocktails w-1/2 lg:w-1/3 text-center lg:px-16 bg-dark-brown h-10 lg:h-16 flex items-center justify-center lg:text-xl text-white font-bold">
                 <h4>{cocktail.title}</h4>
               </div>
-              <div className="ingredients mx-auto w-full p-4 lg:p-10 bg-white">
+              <div className="ingredients mx-auto w-full py-4 lg:p-10 bg-white">
                 <CocktailList html={cocktail.ingredients} title="Ingredients" />
                 <CocktailList
                   html={cocktail.instructions}

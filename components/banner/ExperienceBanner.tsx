@@ -22,13 +22,13 @@ export default function ExperienceBanner({ content }: Props) {
         placeholder="blur"
         blurDataURL={content.banner}
       />
-      <ul className="text-content my-6 w-5/6 lg:-my-4 2xl:w-full lg:w-2/3 flex flex-col justify-center mx-auto">
+      <div className="text-content px-6 lg:px-0 lg:my-6 w-full lg:-my-4 2xl:w-full lg:w-2/3 flex flex-col justify-center mx-auto">
         <ContentEditable
           html={content.content}
           onChange={() => null}
           disabled
         />
-      </ul>
+      </div>
     </section>
   );
 }

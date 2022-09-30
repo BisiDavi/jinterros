@@ -19,7 +19,7 @@ export default function CocktailSlider() {
     >
       {cocktailImages.map((item) => (
         <SplideSlide key={item}>
-          <img src={item} alt={item} />
+          <img src={item} alt={item} className="-ml-14" />
         </SplideSlide>
       ))}
     </Splide>
