@@ -1,27 +1,14 @@
-import { useMemo, useState, useEffect } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useMemo, useState } from "react";
 import { useTable } from "react-table";
 import { RiDeleteBinLine } from "react-icons/ri";
 
-import orderTableData from "@/json/order-table.json";
 import Button from "@/components/button";
 import useDBMutation from "@/hooks/useDBMutation";
-import { readData } from "@/lib/firebaseConfig";
-import { formatDBData } from "@/lib/formatDBData";
 
-export default function OrdersTable() {
-  const [orders, setOrders] = useState(null);
+export default function OrdersTable({ data }: any) {
   const { useDeleteDataMutation } = useDBMutation();
   const { mutate } = useDeleteDataMutation();
-
-  const formattedOrders = orders ? formatDBData(orders) : null;
-
-  console.log("formattedOrders", formattedOrders);
-
-  useEffect(() => {
-    if (orders === null) {
-      readData("/orders", orders, setOrders);
-    }
-  }, [orders]);
 
   const columns: any = useMemo(
     () => [
@@ -36,8 +23,6 @@ export default function OrdersTable() {
     []
   );
   const tableState: any = { pageIndex: 0 };
-
-  const data = useMemo(() => [...orderTableData], []);
 
   const { getTableProps, headerGroups, rows, prepareRow, getTableBodyProps } =
     useTable({
