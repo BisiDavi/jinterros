@@ -67,7 +67,7 @@ export default function PolicyTable() {
               ))}
               <th className="">Delete</th>
             </tr>
-          ))}
+          ))}   
         </thead>
         <tbody {...getTableBodyProps()}>
           {rows.map((row, i: number) => {

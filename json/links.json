@@ -57,14 +57,11 @@
     { "link": "/admin/products", "text": "Products" },
     {
       "link": "/admin/pages",
-      "text": "Pages",
-      "links": [
-        { "link": "/experience", "text": "Experience" },
-        { "link": "/contact-us", "text": "Contact us" }
-      ]
+      "text": "Pages"
     },
     { "link": "/admin/cocktails", "text": "Cocktails" },
-    { "link": "/admin/policies", "text": "Policies", "links": [""] }
+    { "link": "/admin/policies", "text": "Policies" },
+    { "link": "/admin/settings", "text": "Settings" }
   ],
   "dropdown": [
     { "text": "Track Orders", "link": "/order-progress" },

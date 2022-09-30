@@ -4,6 +4,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { MdOutlinePolicy } from "react-icons/md";
 import { FaCocktail } from "react-icons/fa";
 import { MdOutlinePages } from "react-icons/md";
+import { FiSettings } from "react-icons/fi";
 
 import DashboardIcon from "@/public/icons/DashboardIcon";
 import OrdersIcon from "@/public/icons/OrdersIcon";
@@ -29,5 +30,7 @@ export default function displayIcons(icon: string) {
       return <FaCocktail size={40} />;
     case "Pages":
       return <MdOutlinePages size={40} />;
+    case "Settings":
+      return <FiSettings size={40} />;
   }
 }
