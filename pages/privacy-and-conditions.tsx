@@ -16,12 +16,13 @@ export default function PrivacyAndConditionsPage({ policy }: Props) {
 
   return (
     <DefaultLayout title="privacy-and-conditions">
-      <ContentEditable
-        html={parsedPolicy.policy}
-        onChange={() => null}
-        disabled
-        className="mt-52 mb-32 container mx-auto"
-      />
+      <div className="privacy-and-conditions w-full mt-20 w-full lg:mt-52 mb-32 container px-8 lg:px-0 mx-auto">
+        <ContentEditable
+          html={parsedPolicy.policy}
+          onChange={() => null}
+          disabled
+        />
+      </div>
     </DefaultLayout>
   );
 }

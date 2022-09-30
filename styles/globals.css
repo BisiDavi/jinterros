@@ -196,4 +196,8 @@
     .ul.text-content.my-6.lg\:my-16.w-5\/6.lg\:w-2\/3.flex.flex-col.justify-center.mx-auto {
     width: 100% !important;
   }
+
+  .privacy-and-conditions {
+    overflow-x: scroll;
+  }
 }
