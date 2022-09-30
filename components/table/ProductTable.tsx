@@ -83,7 +83,7 @@ export default function ProductTable() {
               ))}
               <td className="p-4 px-6 border-b">
                 <Button
-                  className="hover:text-red-500 flex items-center mx-auto"
+                  className="hover:text-red-500 flex items-center lg:mx-auto"
                   icon={<RiDeleteBinLine size={20} />}
                   onClick={() => mutate(`/products/${title}`)}
                   title={`Delete ${rowTitle}`}

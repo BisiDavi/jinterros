@@ -1,17 +1,18 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-import Logo from "@/components/logo";
 import links from "@/json/links.json";
 import displayIcons from "@/lib/displayIcons";
 import Button from "@/components/button";
 import useAuthMutation from "@/hooks/useAuthMutation";
-import AdminNotificationBar from "../header/AdminNotificationBar";
+import AdminNotificationBar from "@/components/header/AdminNotificationBar";
+import useHeader from "@/hooks/useHeader";
 
 export default function MobileAdminSidebar() {
   const router = useRouter();
   const { useSignoutMutation } = useAuthMutation();
   const { mutate } = useSignoutMutation();
+  const { onCloseHandler } = useHeader();
 
   function getActiveLink(link: string) {
     if (link !== "/admin") {
@@ -45,7 +46,10 @@ export default function MobileAdminSidebar() {
             >
               {displayIcons(item.text)}
               <Link href={item.link} passHref>
-                <a className="ml-4 font-medium text-xl w-full h-full">
+                <a
+                  className="ml-4 font-medium text-xl w-full h-full"
+                  onClick={onCloseHandler}
+                >
                   {item.text}
                 </a>
               </Link>

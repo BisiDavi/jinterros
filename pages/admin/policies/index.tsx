@@ -1,4 +1,3 @@
-
 import AdminLayout from "@/layout/AdminLayout";
 import PolicyTable from "@/components/table/PolicyTable";
 import AdminTableView from "@/views/AdminTableView";
@@ -7,9 +6,7 @@ import type { GetServerSidePropsContext } from "next";
 export default function PoliciesPage() {
   return (
     <AdminLayout title="Policies">
-      <AdminTableView text="Create Policy" href="/admin/policies/create-policy">
-        <PolicyTable />
-      </AdminTableView>
+      <PolicyTable />
     </AdminLayout>
   );
 }

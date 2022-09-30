@@ -46,55 +46,58 @@ export default function PolicyTable() {
     });
 
   return (
-    <table
-      {...getTableProps()}
-      className="shadow policy-table w-full rounded-xl border"
-    >
-      <thead className="border-b">
-        {headerGroups.map((headerGroup, index) => (
-          <tr key={index}>
-            <th className="p-4 px-6 text-left">S/N</th>
-            {headerGroup.headers.map((column, index) => (
-              <th
-                {...column.getHeaderProps()}
-                key={index}
-                className="p-4 px-6 text-left"
-              >
-                {column.render("Header")}
-              </th>
-            ))}
-            <th className="">Delete</th>
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row, i: number) => {
-          prepareRow(row);
-          const rowId = i + 1;
-          const rowTitle = data[i].title;
-          const title = toSlug(data[i].title);
-          return (
-            <tr key={i} className="hover:bg-gray-300">
-              <td className="p-4 px-6 border-b">{rowId}</td>
-              {row.cells.map((cell) => (
-                <td {...cell.getCellProps()} className="p-4 px-6 border-b">
-                  <Link href={`/admin/policies/${title}`} passHref>
-                    <a>{cell.render("Cell")}</a>
-                  </Link>
-                </td>
+    <>
+      <h4 className="text-center font-bold text-xl my-2">Policies</h4>
+      <table
+        {...getTableProps()}
+        className="shadow policy-table w-full rounded-xl border"
+      >
+        <thead className="border-b">
+          {headerGroups.map((headerGroup, index) => (
+            <tr key={index}>
+              <th className="p-4 px-6 text-left">S/N</th>
+              {headerGroup.headers.map((column, index) => (
+                <th
+                  {...column.getHeaderProps()}
+                  key={index}
+                  className="p-4 px-6 text-left"
+                >
+                  {column.render("Header")}
+                </th>
               ))}
-              <td className="p-4 px-6 border-b">
-                <Button
-                  className="hover:text-red-500 flex items-center lg:mx-auto"
-                  icon={<RiDeleteBinLine size={20} />}
-                  onClick={() => mutate(`/policy/${title}`)}
-                  title={`Delete ${rowTitle}`}
-                />
-              </td>
+              <th className="">Delete</th>
             </tr>
-          );
-        })}
-      </tbody>
-    </table>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row, i: number) => {
+            prepareRow(row);
+            const rowId = i + 1;
+            const rowTitle = data[i].title;
+            const title = toSlug(data[i].title);
+            return (
+              <tr key={i} className="hover:bg-gray-300">
+                <td className="p-4 px-6 border-b">{rowId}</td>
+                {row.cells.map((cell) => (
+                  <td {...cell.getCellProps()} className="p-4 px-6 border-b">
+                    <Link href={`/admin/policies/${title}`} passHref>
+                      <a>{cell.render("Cell")}</a>
+                    </Link>
+                  </td>
+                ))}
+                <td className="p-4 px-6 border-b">
+                  <Button
+                    className="hover:text-red-500 flex items-center lg:mx-auto"
+                    icon={<RiDeleteBinLine size={20} />}
+                    onClick={() => mutate(`/policy/${title}`)}
+                    title={`Delete ${rowTitle}`}
+                  />
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
   );
 }
