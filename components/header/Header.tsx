@@ -1,7 +1,7 @@
 import { BiLogOut } from "react-icons/bi";
 
 import HeaderLinks from "@/components/header/HeaderLinks";
-import Logo from "@/components/Logo";
+import Logo from "@/components/logo";
 import CartIcon from "@/public/icons/CartIcon";
 import UserIcon from "@/public/icons/UserIcon";
 import Dropdown from "@/components/dropdown";

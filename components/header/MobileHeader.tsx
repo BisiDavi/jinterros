@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import Logo from "@/components/Logo";
+import { useRouter } from "next/router";
+
+import Logo from "@/components/logo";
 import CartIcon from "@/public/icons/CartIcon";
 import Button from "@/components/button";
 import MenuIcon from "@/public/icons/MenuIcon";
@@ -10,6 +12,7 @@ import useCart from "@/hooks/useCart";
 export default function MobileHeader() {
   const { cartItem } = useCart();
   const { onClickHandler, mobileMenu } = useHeader();
+  const router = useRouter();
 
   const buttonIcon = !mobileMenu ? <MenuIcon /> : <MenuCloseIcon />;
 
@@ -19,10 +22,12 @@ export default function MobileHeader() {
       <div className="logo-wrapper-mobile w-1/5 mt-12 fixed">
         <Logo />
       </div>
-      <div className="cart-icon flex items-start">
-        <Button href="/cart" icon={<CartIcon />} />
-        <span className="text-rum-dark-brown font-bold ml-1">{cartItem}</span>
-      </div>
+      {!router.asPath.includes("/admin") && (
+        <div className="cart-icon flex items-start">
+          <Button href="/cart" icon={<CartIcon />} />
+          <span className="text-rum-dark-brown font-bold ml-1">{cartItem}</span>
+        </div>
+      )}
     </header>
   );
 }
