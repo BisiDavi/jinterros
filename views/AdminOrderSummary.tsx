@@ -15,7 +15,7 @@ const DoughnutChart = dynamic(
 
 export default function AdminOrderSummary() {
   return (
-    <div className="shadow rounded-xl flex flex-col items-start bg-white py-6 mt-10 pb-16">
+    <div className="shadow rounded-xl border flex flex-col items-start bg-white py-6 mt-10 pb-16">
       <div className="top h-16 justify-between flex items-center border-b w-full mb-4 px-8">
         <h4 className="text-2xl">Order Summary</h4>
       </div>
