@@ -16,7 +16,7 @@ export default function DoughnutChart() {
     ],
   };
   return (
-    <div className="w-1/3 flex">
+    <div className="w-full my-4 lg:my-0 lg:w-1/3 flex">
       <Doughnut
         data={data}
         options={{

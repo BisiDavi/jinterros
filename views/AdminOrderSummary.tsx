@@ -19,13 +19,13 @@ export default function AdminOrderSummary() {
       <div className="top h-16 justify-between flex items-center border-b w-full mb-4 px-8">
         <h4 className="text-2xl">Order Summary</h4>
       </div>
-      <div className="content w-full px-8 flex items-start justify-between">
-        <div className="cards w-1/2 mr-4">
-          <ul className="flex items-center rounded-xl orange-light mt-2 p-4 w-full hover:opacity-80">
-            <li className="rounded-xl mr-10 text-white font-bold bg-orange w-20 justify-center text-3xl h-16 flex items-center">
+      <div className="content flex-col lg:flex-row w-full lg:px-8 px-4 flex items-start justify-between">
+        <div className="cards lg:w-1/2 w-full lg:mr-4">
+          <ul className="flex items-center rounded-xl orange-light mt-2 p-2 lg:p-4 w-full hover:opacity-80 justify-between">
+            <li className="rounded-xl lg:mr-10 text-white font-bold bg-orange w-14 h-14 lg:w-20 justify-center text-2xl lg:text-3xl lg:h-16 flex items-center">
               25
             </li>
-            <li className="text-lg mr-10">Lastest Orders</li>
+            <li className="text-sm lg:text-lg font-medium lg:mr-10">Latest Orders</li>
             <li>
               <Link href="/admin/orders">
                 <a className="underline text-gray-500 hover:text-blue-500 text-sm">
@@ -34,7 +34,7 @@ export default function AdminOrderSummary() {
               </Link>
             </li>
           </ul>
-          <ul className="card-group mt-6 grid grid-cols-3 w-full gap-10">
+          <ul className="card-group mt-6 grid lg:grid-cols-3 grid-cols-2 w-full gap-6 lg:gap-10">
             {links.orders.map((item) => (
               <li
                 key={item.count}

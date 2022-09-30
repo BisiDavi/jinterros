@@ -49,7 +49,7 @@ export default function AdminLayout({
         <title>{title} | Admin | Jinterros</title>
       </Head>
       <div className="w-full flex">
-        <aside className="sidebar h-screen flex flex-col relative w-1/5 border-r">
+        <aside className="sidebar hidden lg:flex h-screen flex flex-col relative w-1/5 border-r">
           <div className="logo-view h-40 border-b flex flex-col">
             <div className="w-2/5 flex mx-auto my-4">
               <Logo link="/admin" />
@@ -81,14 +81,14 @@ export default function AdminLayout({
             />
           </div>
         </aside>
-        <main className="main w-4/5 flex flex-col">
-          <div className="top w-full h-40  border-b px-8 flex relative">
+        <main className="main w-full lg:w-4/5 flex flex-col">
+          <div className="top w-full h-40  hidden lg:flex border-b px-8 flex relative">
             <AdminNotificationBar />
             <h4 className="text-4xl font-medium text-brown-old flex items-end my-4">
               {title}
             </h4>
           </div>
-          <div className="content px-8 py-6">{children}</div>
+          <div className="content px-6 lg:px-8 py-6">{children}</div>
         </main>
       </div>
     </>

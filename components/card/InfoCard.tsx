@@ -7,7 +7,7 @@ interface Props {
 
 export default function InfoCard({ title, text }: Props) {
   return (
-    <div className="shadow rounded-lg h-28 flex items-center bg-white hover:bg-gray-100">
+    <div className="shadow border rounded-lg h-28 flex my-2 lg:my-0 items-center bg-white hover:bg-gray-100">
       <div className="icon bg-orange h-16 w-16 p-2 rounded-full flex items-center justify-center mx-4">
         {displayIcons(text)}
       </div>
