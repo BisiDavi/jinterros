@@ -6,7 +6,7 @@ export default function HomepageBanner() {
   return (
     <>
       <section className="homepageBanner 2xl:px-20  w-full flex mx-auto my-0">
-        <div className="container lg:my-10 lg:mx-auto flex lg:flex-row flex-col px-5 lg:px-0 lg:justify-between items-center">
+        <div className="container pb-14 lg:pb-0 lg:my-10 lg:mx-auto flex lg:flex-row flex-col px-5 lg:px-0 lg:justify-between items-center">
           <div className="order-2 lg:order-1 lg:w-1/2 mx-auto flex justify-center">
             <div className="text-content text-white">
               <img src="/jinterros-white.webp" alt="Jinterros" />
@@ -24,7 +24,7 @@ export default function HomepageBanner() {
             </div>
           </div>
           <div className="lg:w-2/3 w-full order-1 flex mx-auto lg:mt-40 block">
-            <img src="/rum-bottles.webp" alt="rum-bottles" />
+            <img src="/rum-bottles.webp" alt="rum-bottles" className="-ml-4 lg:ml-0" />
           </div>
         </div>
       </section>

@@ -21,7 +21,7 @@ export default function CocktailView({ cocktails }: Props) {
           ))}
       </div>
       <Button
-        className="border border-brown-light px-10 py-4 flex mx-auto w-1/5 justify-center items-center mt-12 -mb-10 bg-dark-brown-hover hover:text-white"
+        className="border border-brown-light lg:px-10 py-4 flex mx-auto lg:w-1/5 w-1/2 justify-center items-center mt-12 -mb-10 bg-dark-brown-hover hover:text-white"
         text="MORE COCKTAILS"
         href="/cocktails"
       />

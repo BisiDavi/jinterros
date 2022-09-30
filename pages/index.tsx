@@ -32,6 +32,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   const dbResponse = await get(child(dataRef, "/cocktail"));
 
+  console.log("req.cookies.birthYear", req.cookies.birthYear);
+
   if (!req.cookies?.birthYear) {
     return {
       redirect: {
