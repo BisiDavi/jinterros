@@ -11,7 +11,7 @@ export default function OrderSummary() {
   const total = subtotal + deliveryFee;
 
   return (
-    <div className="w-full order-1 lg:order-2 lg:w-2/5 shadow-lg mb-10 lg:mb-0 lg:ml-10">
+    <div className="w-full order-1 lg:order-2 lg:w-2/5 shadow-lg lg:ml-10">
       <h4 className="text-xl py-1 ml-4 pt-3 h-12">ORDER SUMMARY</h4>
       <hr />
       <div className="content py-4">

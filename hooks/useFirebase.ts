@@ -33,7 +33,7 @@ export default function useFirebase() {
     return db;
   }
 
-  function writeData(data: any, dbNode: string) {
+function writeData(data: any, dbNode: string) {
     const db = initializeDB();
     return set(ref(db, dbNode), data);
   }

@@ -1,15 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 
-import { useAppSelector } from "@/hooks/useRedux";
 import { SpinnerLoader } from "@/components/loader/SpinnerRipple";
 import usePaypal from "@/hooks/usePaypal";
 
 export default function Paypal() {
   const { createOrder, onApprove, completed } = usePaypal();
   const [{ isPending }] = usePayPalScriptReducer();
-
-
 
   return (
     <div className="wrapper bg-white relative z-10">

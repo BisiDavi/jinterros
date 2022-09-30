@@ -94,8 +94,8 @@ export default function usePaypal() {
         dispatch(resetCart());
         dispatch(resetPaymentForm());
         writeData(
-          `/orders/${authStatus.email}-${details.id}/${authStatus.uid}`,
-          JSON.stringify(details)
+          JSON.stringify(details),
+          `/orders/${authStatus.email}-${details.id}/${authStatus.uid}`
         ).then(() => {
           router.push("/thanks-for-order");
         });
