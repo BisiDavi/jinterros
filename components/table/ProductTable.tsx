@@ -48,7 +48,10 @@ export default function ProductTable() {
     });
 
   return (
-    <table {...getTableProps()} className="shadow w-full rounded-xl border">
+    <table
+      {...getTableProps()}
+      className="shadow product-table w-full rounded-xl border"
+    >
       <thead className="border-b">
         {headerGroups.map((headerGroup, index) => (
           <tr key={index}>

@@ -34,7 +34,10 @@ export default function OrdersTable() {
       initialState: tableState,
     });
   return (
-    <table {...getTableProps()} className="shadow rounded-xl border">
+    <table
+      {...getTableProps()}
+      className="shadow orders-table rounded-xl border"
+    >
       <thead className="border-b">
         {headerGroups.map((headerGroup, index) => (
           <tr key={index}>
@@ -44,9 +47,7 @@ export default function OrdersTable() {
                 {column.render("Header")}
               </th>
             ))}
-            <th className="">
-            Delete
-            </th>
+            <th className="">Delete</th>
           </tr>
         ))}
       </thead>
@@ -58,18 +59,18 @@ export default function OrdersTable() {
 
           return (
             <tr className="hover:bg-gray-300">
-              <td className="p-4 px-6 border-b text-center">{rowId}</td>
+              <td className="p-4 px-6 border-b lg:text-center">{rowId}</td>
               {row.cells.map((cell) => (
                 <td
                   {...cell.getCellProps()}
-                  className="p-4 px-6 border-b text-center"
+                  className="p-4 px-6 border-b lg:text-center"
                 >
                   {cell.render("Cell")}
                 </td>
               ))}
-              <td className="p-4 px-6 border-b">
+              <td className="p-4 px-6 border-b lg:text-center">
                 <Button
-                  className="hover:text-red-500 flex items-center mx-auto"
+                  className="hover:text-red-500 flex items-center"
                   icon={<RiDeleteBinLine size={20} />}
                   // onClick={() => mutate(`/cocktail/${title}`)}
                   // title={`Delete ${rowTitle}`}

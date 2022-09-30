@@ -46,7 +46,10 @@ export default function PolicyTable() {
     });
 
   return (
-    <table {...getTableProps()} className="shadow w-full rounded-xl border">
+    <table
+      {...getTableProps()}
+      className="shadow policy-table w-full rounded-xl border"
+    >
       <thead className="border-b">
         {headerGroups.map((headerGroup, index) => (
           <tr key={index}>
@@ -82,7 +85,7 @@ export default function PolicyTable() {
               ))}
               <td className="p-4 px-6 border-b">
                 <Button
-                  className="hover:text-red-500 flex items-center mx-auto"
+                  className="hover:text-red-500 flex items-center lg:mx-auto"
                   icon={<RiDeleteBinLine size={20} />}
                   onClick={() => mutate(`/policy/${title}`)}
                   title={`Delete ${rowTitle}`}
