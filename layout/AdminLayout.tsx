@@ -5,6 +5,8 @@ import type { PropsWithChildren } from "react";
 import AdminNotificationBar from "@/components/header/AdminNotificationBar";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import AdminSidebar from "@/components/sidebar/AdminSidebar";
+import { useAppSelector } from "@/hooks/useRedux";
+import MobileAdminSidebar from "@/components/sidebar/MobileAdminSidebar";
 
 interface Props {
   title: string;
@@ -15,6 +17,7 @@ export default function AdminLayout({
   title,
 }: PropsWithChildren<Props>) {
   const mobileWidth = useMediaQuery("(max-width:768px)");
+  const { mobileMenu } = useAppSelector((state) => state.UI);
 
   const DynamicMobileHeader = dynamic(
     () =>
@@ -29,7 +32,13 @@ export default function AdminLayout({
         <title>{title} | Admin | Jinterros</title>
       </Head>
       <div className="w-full flex">
-        <AdminSidebar />
+        {mobileWidth ? (
+          mobileMenu ? (
+            <MobileAdminSidebar />
+          ) : null
+        ) : (
+          <AdminSidebar />
+        )}
         {mobileWidth && <DynamicMobileHeader />}
         <main className="main w-full lg:w-4/5 mt-20 lg:mt-0 flex flex-col">
           <div className="top w-full h-40  hidden lg:flex border-b px-8 flex relative">
