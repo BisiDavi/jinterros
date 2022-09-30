@@ -46,43 +46,41 @@ export default function usePaypal() {
 
   const createOrder: any = useCallback(
     (data: any, actions: any) => {
-      if (completed) {
-        return actions.order.create({
-          purchase_units: [
-            {
-              amount: {
-                value: `${total}`,
-                breakdown: {
-                  item_total: {
-                    value: `${subtotal}`,
-                    currency_code: "USD",
-                  },
-                  shipping: {
-                    value: `${deliveryFee}`,
-                    currency_code: "USD",
-                  },
+      return actions.order.create({
+        purchase_units: [
+          {
+            amount: {
+              value: `${total}`,
+              breakdown: {
+                item_total: {
+                  value: `${subtotal}`,
+                  currency_code: "USD",
                 },
-              },
-              items: getItems(),
-              description: "Payment for Jinterros Rum",
-              shipping: {
-                type: "SHIPPING",
-                name: {
-                  full_name: `${formData.firstName} ${formData.lastName}`,
-                },
-                email_address: formData.email,
-                address: {
-                  address_line_1: formData.address1,
-                  admin_area_1: formData.state,
-                  admin_area_2: formData.city,
-                  postal_code: formData.zip,
-                  country_code: formData.country,
+                shipping: {
+                  value: `${deliveryFee}`,
+                  currency_code: "USD",
                 },
               },
             },
-          ],
-        });
-      }
+            items: getItems(),
+            description: "Payment for Jinterros Rum",
+            shipping: {
+              type: "SHIPPING",
+              name: {
+                full_name: `${formData.firstName} ${formData.lastName}`,
+              },
+              email_address: formData.email,
+              address: {
+                address_line_1: formData.address1,
+                admin_area_1: formData.state,
+                admin_area_2: formData.city,
+                postal_code: formData.zip,
+                country_code: formData.country,
+              },
+            },
+          },
+        ],
+      });
     },
     [completed]
   );
