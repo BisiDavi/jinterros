@@ -9,6 +9,7 @@ import { useAppDispatch } from "@/redux/store";
 import { resetCart } from "@/redux/cart-slice";
 import useFirebase from "@/hooks/useFirebase";
 import useAuth from "@/hooks/useAuth";
+import toSlug from "@/lib/toSlug";
 
 export default function usePaypal() {
   const { getSubtotal, deliveryFee, cart } = useCart();
@@ -87,13 +88,14 @@ export default function usePaypal() {
 
   function onApprove(data: any, actions: any) {
     return actions.order.capture().then((details: any) => {
-      console.log("details", details);
+      const slugId = `${authStatus.email}-${details.id}`;
+      const slug = toSlug(slugId);
       if (details.status === "COMPLETED") {
         dispatch(resetCart());
         dispatch(resetPaymentForm());
         writeData(
           JSON.stringify(details),
-          `/orders/${authStatus.email}-${details.id}/${authStatus.uid}`
+          `/orders/${slug}/${authStatus.uid}`
         ).then(() => {
           router.push("/thanks-for-order");
         });
