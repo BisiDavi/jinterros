@@ -8,6 +8,7 @@ import ShippingForm from "@/components/form/ShippingForm";
 import useAuth from "@/hooks/useAuth";
 import Paypal from "@/components/payment/Paypal";
 import { useAppSelector } from "@/hooks/useRedux";
+import PaypalWrapper from "@/components/payment/PaypalWrapper";
 
 export default function Checkout() {
   const { getAuthStatus } = useAuth();
@@ -34,7 +35,11 @@ export default function Checkout() {
             </div>
             <OrderSummary />
           </div>
-          {completed && <Paypal />}
+          {completed && (
+            <PaypalWrapper>
+              <Paypal />
+            </PaypalWrapper>
+          )}
         </section>
       </DefaultLayout>
     </>

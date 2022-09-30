@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {
-  PayPalScriptProvider,
   PayPalButtons,
   usePayPalScriptReducer,
 } from "@paypal/react-paypal-js";
@@ -67,79 +66,70 @@ export default function Paypal() {
 
   return (
     <div className="wrapper bg-white relative z-10">
-      <PayPalScriptProvider
-        options={{
-          "client-id": `${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}`,
-          currency: "USD",
-          components: "buttons",
-          intent: "capture",
-        }}
-      >
-        {isPending ? (
-          <SpinnerLoader loadingText="Loading Paypal..." />
-        ) : (
-          <PayPalButtons
-            className="mx-auto flex justify-center mb-8 w-1/3"
-            disabled={!completed}
-            style={{
-              layout: "vertical",
-              label: "checkout",
-            }}
-            createOrder={(data, actions) => {
-              return actions.order.create({
-                purchase_units: [
-                  {
-                    amount: {
-                      value: `${total}`,
-                      breakdown: {
-                        item_total: {
-                          value: `${subtotal}`,
-                          currency_code: "USD",
-                        },
-                        shipping: {
-                          value: `${deliveryFee}`,
-                          currency_code: "USD",
-                        },
+      {isPending ? (
+        <SpinnerLoader loadingText="Loading Paypal..." />
+      ) : (
+        <PayPalButtons
+          className="mx-auto flex justify-center mb-8 w-1/3"
+          disabled={!completed}
+          style={{
+            layout: "vertical",
+            label: "checkout",
+          }}
+          createOrder={(data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: `${total}`,
+                    breakdown: {
+                      item_total: {
+                        value: `${subtotal}`,
+                        currency_code: "USD",
                       },
-                    },
-                    items: getItems(),
-                    description: "Payment for Jinterros Rum",
-                    shipping: {
-                      type: "SHIPPING",
-                      name: {
-                        full_name: `${formData.firstName} ${formData.lastName}`,
-                      },
-                      email_address: formData.email,
-                      address: {
-                        address_line_1: formData.address1,
-                        admin_area_1: formData.state,
-                        admin_area_2: formData.city,
-                        postal_code: formData.zip,
-                        country_code: formData.country,
+                      shipping: {
+                        value: `${deliveryFee}`,
+                        currency_code: "USD",
                       },
                     },
                   },
-                ],
-              });
-            }}
-            onApprove={(data, actions: any) => {
-              return actions.order.capture().then((details: any) => {
-                console.log("details", details);
-                if (details.status === "COMPLETED") {
-                  appDispatch(resetCart());
-                  appDispatch(resetPaymentForm());
-                  writeData(
-                    `/orders/${authStatus.email}-${details.id}/${authStatus.uid}`,
-                    JSON.stringify(details)
-                  ).then(() => {
-                    router.push("/thanks-for-order");
-                  });
-                }
-              });
-            }}
-          />
-        )}
-      </PayPalScriptProvider>
+                  items: getItems(),
+                  description: "Payment for Jinterros Rum",
+                  shipping: {
+                    type: "SHIPPING",
+                    name: {
+                      full_name: `${formData.firstName} ${formData.lastName}`,
+                    },
+                    email_address: formData.email,
+                    address: {
+                      address_line_1: formData.address1,
+                      admin_area_1: formData.state,
+                      admin_area_2: formData.city,
+                      postal_code: formData.zip,
+                      country_code: formData.country,
+                    },
+                  },
+                },
+              ],
+            });
+          }}
+          onApprove={(data, actions: any) => {
+            return actions.order.capture().then((details: any) => {
+              console.log("details", details);
+              if (details.status === "COMPLETED") {
+                appDispatch(resetCart());
+                appDispatch(resetPaymentForm());
+                writeData(
+                  `/orders/${authStatus.email}-${details.id}/${authStatus.uid}`,
+                  JSON.stringify(details)
+                ).then(() => {
+                  router.push("/thanks-for-order");
+                });
+              }
+            });
+          }}
+        />
+      )}
     </div>
   );
 }

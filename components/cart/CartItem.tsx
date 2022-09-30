@@ -19,7 +19,7 @@ export default function CartItem({ item }: Props) {
           title={item.title}
           className="h-40"
         />
-        <div className="text-content w-3/6 lg:w-4/6">
+        <div className="text-content w-2/3 lg:w-2/3">
           <h2 className="font-bold text-xl lg:text-xl text-orange my-2">
             {item.title}
           </h2>
@@ -27,7 +27,7 @@ export default function CartItem({ item }: Props) {
           <p className="text-xs">(Within Texas, excluding large items)</p>
         </div>
       </div>
-      <div className="controls w-2/6">
+      <div className="controls lg:w-2/6">
         <h6 className="price text-xl font-bold text-center">
           ${item.price} X {item.quantity} = ${item.amount.toFixed(2)}
         </h6>
