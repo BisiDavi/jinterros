@@ -19,10 +19,13 @@ export default function CreateaSuperAdmin() {
         </div>
         <div className="w-full lg:w-1/4 h-screen px-4 py-10 flex justify-center items-center admin-auth-form">
           <div className="content bg-white w-full">
+            <h4 className="text-center font-bold text-xl mb-2">
+              Create Super Admin
+            </h4>
             <AdminForm type="signup" />
           </div>
         </div>
       </div>
     </>
   );
-} 
+}
