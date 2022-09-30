@@ -13,7 +13,7 @@ const DoughnutChart = dynamic(
   }
 );
 
-export default function AdminOrderSummary() {
+export default function AdminOrderSummary({ orders }: any) {
   return (
     <div className="shadow rounded-xl border flex flex-col items-start bg-white py-6 mt-10 pb-16">
       <div className="top h-16 justify-between flex items-center border-b w-full mb-4 px-8">
@@ -25,7 +25,9 @@ export default function AdminOrderSummary() {
             <li className="rounded-xl lg:mr-10 text-white font-bold bg-orange w-14 h-14 lg:w-20 justify-center text-2xl lg:text-3xl lg:h-16 flex items-center">
               25
             </li>
-            <li className="text-sm lg:text-lg font-medium lg:mr-10">Latest Orders</li>
+            <li className="text-sm lg:text-lg font-medium lg:mr-10">
+              Latest Orders
+            </li>
             <li>
               <Link href="/admin/orders">
                 <a className="underline text-gray-500 hover:text-blue-500 text-sm">

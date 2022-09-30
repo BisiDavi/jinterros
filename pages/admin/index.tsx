@@ -22,8 +22,8 @@ export default function Admin() {
 
   return (
     <AdminLayout title="Dashboard">
-      <InfoCardGroupView />
-      <AdminOrderSummary />
+      <InfoCardGroupView orders={formattedOrders} />
+      <AdminOrderSummary orders={formattedOrders} />
     </AdminLayout>
   );
 }
