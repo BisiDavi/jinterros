@@ -30,7 +30,7 @@ export default function useUser() {
         userData.push({
           name: item.displayName,
           email: item.email,
-          date: getDate(item.createdAt),
+          date: getDate(Number(item.createdAt), true),
         })
       );
     }
