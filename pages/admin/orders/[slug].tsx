@@ -1,8 +1,7 @@
 import AdminLayout from "@/layout/AdminLayout";
-import useOrders from "@/hooks/useOrders";
 import AdminOrderView from "@/views/AdminOrderView";
-import type { GetServerSidePropsContext } from "next";
 import AdminFormView from "@/views/AdminFormView";
+import type { GetServerSidePropsContext } from "next";
 
 interface Props {
   slug: string;

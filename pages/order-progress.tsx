@@ -1,7 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import DefaultLayout from "@/layout/DefaultLayout";
+import useMyOrders from "@/hooks/useMyOrders";
 
 export default function OrderProgress() {
+  const { orderData } = useMyOrders();
+
+  console.log("orderData", orderData);
+
   const images = [
     { img: "/note.webp", text: "Order Confirmed" },
     { img: "/order.webp", text: "Packaging Order" },
