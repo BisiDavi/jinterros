@@ -1,7 +1,7 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 import links from "@/json/links.json";
-import dynamic from "next/dynamic";
 
 const DoughnutChart = dynamic(
   () =>
@@ -14,6 +14,7 @@ const DoughnutChart = dynamic(
 );
 
 export default function AdminOrderSummary({ orders }: any) {
+  const totalOrders = orders?.length;
   return (
     <div className="shadow rounded-xl border flex flex-col items-start bg-white py-6 mt-10 pb-16">
       <div className="top h-16 justify-between flex items-center border-b w-full mb-4 px-8">
@@ -23,7 +24,7 @@ export default function AdminOrderSummary({ orders }: any) {
         <div className="cards lg:w-1/2 w-full lg:mr-4">
           <ul className="flex items-center rounded-xl orange-light mt-2 p-2 lg:p-4 w-full hover:opacity-80 justify-between">
             <li className="rounded-xl lg:mr-10 text-white font-bold bg-orange w-14 h-14 lg:w-20 justify-center text-2xl lg:text-3xl lg:h-16 flex items-center">
-              25
+              {totalOrders}
             </li>
             <li className="text-sm lg:text-lg font-medium lg:mr-10">
               Latest Orders

@@ -45,7 +45,7 @@ export default function OrdersTable({ data }: any) {
                 {column.render("Header")}
               </th>
             ))}
-            <th className="">Delete</th>
+            {/* <th className="">Delete</th> */}
           </tr>
         ))}
       </thead>
@@ -69,14 +69,14 @@ export default function OrdersTable({ data }: any) {
                   </Link>
                 </td>
               ))}
-              <td className="p-4 px-6 border-b lg:text-center">
+              {/* <td className="p-4 px-6 border-b lg:text-center">
                 <Button
                   className="hover:text-red-500 flex items-center"
                   icon={<RiDeleteBinLine size={20} />}
                   // onClick={() => mutate(`/cocktail/${title}`)}
                   // title={`Delete ${rowTitle}`}
                 />
-              </td>
+              </td> */}
             </tr>
           );
         })}
