@@ -1,26 +1,12 @@
 import Button from "@/components/button";
 import { SpinnerLoader } from "@/components/loader/SpinnerRipple";
 import OrdersTable from "@/components/table/OrdersTable";
-import useAuth from "@/hooks/useAuth";
-import useOrders from "@/hooks/useOrders";
+import useMyOrders from "@/hooks/useMyOrders";
 import DefaultLayout from "@/layout/DefaultLayout";
 
 export default function MyOrders() {
-  const { authDetails } = useAuth();
-  const user = authDetails();
-  const { formattedOrders, useMemoizedOrderData } = useOrders();
+  const { orderData } = useMyOrders();
 
-  const userOrder =
-    formattedOrders && user
-      ? formattedOrders.filter(
-          (item: any) =>
-            item.purchase_units[0].shipping.name.full_name === user?.displayName
-        )
-      : null;
-
-  const orderData = useMemoizedOrderData(userOrder);
-
-  console.log("orderData", orderData);
   return (
     <DefaultLayout>
       <section className="my-orders container  mx-auto my-20 mt-52">
