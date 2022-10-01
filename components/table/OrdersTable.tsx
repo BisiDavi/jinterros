@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useMemo, useState } from "react";
+import Link from "next/link";
+import { useMemo } from "react";
 import { useTable } from "react-table";
 import { RiDeleteBinLine } from "react-icons/ri";
 
@@ -52,7 +53,7 @@ export default function OrdersTable({ data }: any) {
         {rows.map((row, i: number) => {
           prepareRow(row);
           const rowId = i + 1;
-          // const rowTitle = data[i].title;
+          const rowPaymentId = data[i].invoiceID;
 
           return (
             <tr key={i} className="hover:bg-gray-300">
@@ -63,7 +64,9 @@ export default function OrdersTable({ data }: any) {
                   className="p-4 px-6 border-b lg:text-center"
                   key={index}
                 >
-                  {cell.render("Cell")}
+                  <Link href={`/admin/orders/${rowPaymentId}`} passHref>
+                    <a>{cell.render("Cell")}</a>
+                  </Link>
                 </td>
               ))}
               <td className="p-4 px-6 border-b lg:text-center">

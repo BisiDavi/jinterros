@@ -35,10 +35,9 @@ export default function useOrders() {
           items: item.purchase_units[0].items[0].quantity,
         });
       });
-      console.log("orderDataArray", orderDataArray);
       return orderDataArray;
     }
   }, [orders]);
 
-  return { data, orders };
+  return { data, orders, formattedOrders };
 }
