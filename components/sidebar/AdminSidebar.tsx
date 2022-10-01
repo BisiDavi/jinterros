@@ -7,7 +7,6 @@ import displayIcons from "@/lib/displayIcons";
 import Button from "@/components/button";
 import useAuthMutation from "@/hooks/useAuthMutation";
 
-
 export default function AdminSidebar() {
   const router = useRouter();
   const { useSignoutMutation } = useAuthMutation();

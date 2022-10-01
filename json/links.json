@@ -55,6 +55,7 @@
     { "link": "/admin", "text": "Dashboard" },
     { "link": "/admin/orders", "text": "Orders" },
     { "link": "/admin/products", "text": "Products" },
+    { "link": "/admin/users", "text": "Users" },
     {
       "link": "/admin/pages",
       "text": "Pages"
