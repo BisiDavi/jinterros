@@ -1,7 +1,15 @@
-import React from 'react'
+import useUser from "@/hooks/useUser";
+import AdminLayout from "@/layout/AdminLayout";
 
-export default function index() {
+export default function UsersPage() {
+  const { formattedAdmin, formattedUsers } = useUser();
+
+  console.log("formattedAdmin", formattedAdmin);
+  console.log("formattedUsers", formattedUsers);
+
   return (
-    <div>index</div>
-  )
+    <AdminLayout title="Users">
+      <section className="users"></section>
+    </AdminLayout>
+  );
 }

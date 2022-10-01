@@ -40,3 +40,12 @@ export function formatDBDataSlug(data: string) {
   const valuesData: string | any = values[values.length - 1];
   return JSON.parse(valuesData);
 }
+
+export function formatDBUsers(data: any) {
+  const values: string | any = Object.values(data);
+  const formattedArray: any[] = [];
+  values.map((item: string) => {
+    formattedArray.push(JSON.parse(item));
+  });
+  return formattedArray;
+}
