@@ -2,22 +2,18 @@ import AdminLayout from "@/layout/AdminLayout";
 import useOrders from "@/hooks/useOrders";
 import AdminOrderView from "@/views/AdminOrderView";
 import type { GetServerSidePropsContext } from "next";
+import AdminFormView from "@/views/AdminFormView";
 
 interface Props {
   slug: string;
 }
 
 export default function OrdersSlugPage({ slug }: Props) {
-  const { formattedOrders } = useOrders();
-  const order = formattedOrders
-    ? formattedOrders.filter((item: { id: string }) => item.id === slug)[0]
-    : null;
-
-  console.log("order", order);
-
   return (
     <AdminLayout title="Orders Details">
-      <AdminOrderView slug={slug} />
+      <AdminFormView>
+        <AdminOrderView slug={slug} />
+      </AdminFormView>
     </AdminLayout>
   );
 }
