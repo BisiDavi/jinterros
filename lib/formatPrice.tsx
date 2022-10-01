@@ -14,3 +14,15 @@ export function getTotalRevenue(orders: any[]) {
   });
   return formatPrice(totalRevenue);
 }
+
+export const getDate = (dateValue: any, showTime?: boolean) => {
+  const date = new Date(dateValue);
+  if (showTime) {
+    return date.toLocaleDateString([], {
+      hour12: true,
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+  return date.toLocaleDateString();
+};

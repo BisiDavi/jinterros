@@ -3,7 +3,7 @@ import { useMemo, useState, useEffect } from "react";
 
 import { readData } from "@/lib/firebaseConfig";
 import { formatDBData } from "@/lib/formatDBData";
-import { formatPrice } from "@/lib/formatPrice";
+import { formatPrice, getDate } from "@/lib/formatPrice";
 
 export default function useOrders() {
   const [orders, setOrders] = useState(null);
@@ -16,10 +16,7 @@ export default function useOrders() {
 
   const formattedOrders: any = orders ? formatDBData(orders) : null;
 
-  const getDate = (dateValue: any) => {
-    const date = new Date(dateValue);
-    return date.toLocaleDateString();
-  };
+
 
   const data: any = useMemo(() => {
     if (orders) {

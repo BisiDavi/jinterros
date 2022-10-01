@@ -1,7 +1,7 @@
 import useOrders from "@/hooks/useOrders";
 import { SpinnerLoader } from "@/components/loader/SpinnerRipple";
 import { filterCountries } from "@/lib/formatAdminDBData";
-import { formatPrice } from "@/lib/formatPrice";
+import { formatPrice, getDate } from "@/lib/formatPrice";
 
 interface Props {
   slug: string;
@@ -38,10 +38,6 @@ export default function AdminOrderView({ slug }: Props) {
                 Number(order.purchase_units[0].items[0].unit_amount.value)
               )}
             </h6>
-            <h6>
-              Amount: $
-              {formatPrice(Number(order.purchase_units[0].amount.value))}
-            </h6>
             <h6>Description : {order.purchase_units[0].description} </h6>
           </div>
           <div className="payer-details border p-4">
@@ -62,27 +58,28 @@ export default function AdminOrderView({ slug }: Props) {
                 order.purchase_units[0].shipping.address.country_code
               )}
             </h6>
+            <h6>
+              Shipping Price: $
+              {formatPrice(
+                Number(order.purchase_units[0].amount.breakdown.shipping.value)
+              )}
+            </h6>
           </div>
           <div className="payer-details border p-4">
             <h4 className="font-bold text-lg">Payment Details</h4>
+            <h6>Transaction ID: {order.id}</h6>
             <h6>
-              Transaction ID: {order.purchase_units[0].shipping.name.full_name}
+              Payment Status:{" "}
+              {order.status === "COMPLETED" ? "PAID" : "NOT PAID"}
             </h6>
             <h6>
-              Address: {order.purchase_units[0].shipping.address.address_line_1}
+              Amount Paid: $
+              {formatPrice(Number(order.purchase_units[0].amount.value))}
             </h6>
             <h6>
-              City: {order.purchase_units[0].shipping.address.admin_area_2}
+              Paid By: {order.payer.name.surname} {order.payer.name.given_name}
             </h6>
-            <h6>
-              State: {order.purchase_units[0].shipping.address.admin_area_1}
-            </h6>
-            <h6>
-              Country:{" "}
-              {filterCountries(
-                order.purchase_units[0].shipping.address.country_code
-              )}
-            </h6>
+            <h6>Paid at: {getDate(order.create_time, true)}</h6>
           </div>
         </div>
       )}
