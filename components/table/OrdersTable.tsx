@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useMemo } from "react";
 import { useTable } from "react-table";
 
 export default function OrdersTable({ data }: any) {
+  const router = useRouter();
   const columns: any = useMemo(
     () => [
       { Header: "Invoice ID", accessor: "invoiceID" },
@@ -16,6 +18,9 @@ export default function OrdersTable({ data }: any) {
     []
   );
   const tableState: any = { pageIndex: 0 };
+  const tableRoute = router.asPath.includes("/admin/")
+    ? "/admin/orders"
+    : "/my-orders";
 
   const { getTableProps, headerGroups, rows, prepareRow, getTableBodyProps } =
     useTable({
@@ -55,7 +60,7 @@ export default function OrdersTable({ data }: any) {
                   className="p-4 px-6 border-b lg:text-center"
                   key={index}
                 >
-                  <Link href={`/admin/orders/${rowPaymentId}`} passHref>
+                  <Link href={`/${tableRoute}/${rowPaymentId}`} passHref>
                     <a>{cell.render("Cell")}</a>
                   </Link>
                 </td>

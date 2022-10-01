@@ -50,7 +50,7 @@ export default function useOrders() {
       });
       return orderDataArray;
     }
-    return null;
+    return [];
   };
 
   const useMemoizedOrderData = (orderArray: any) =>
