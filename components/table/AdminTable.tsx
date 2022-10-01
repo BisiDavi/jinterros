@@ -1,25 +1,11 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import Link from "next/link";
 import { useMemo } from "react";
 import { useTable } from "react-table";
-// import { RiDeleteBinLine } from "react-icons/ri";
 
-// import Button from "@/components/button";
-import useDBMutation from "@/hooks/useDBMutation";
-
-export default function OrdersTable({ data }: any) {
-  const { useDeleteDataMutation } = useDBMutation();
-  const { mutate } = useDeleteDataMutation();
-
+export default function AdminTable({ data }: any) {
   const columns: any = useMemo(
     () => [
-      { Header: "Invoice ID", accessor: "invoiceID" },
-      { Header: "Date", accessor: "date" },
-      { Header: "Customer", accessor: "customer" },
-      { Header: "Total", accessor: "total" },
-      { Header: "Payment Status", accessor: "paymentStatus" },
-      { Header: "Fulfillment Status", accessor: "fulfillmentStatus" },
-      { Header: "Items", accessor: "items" },
+      { Header: "Name", accessor: "name" },
+      { Header: "Email", accessor: "email" },
     ],
     []
   );
@@ -45,7 +31,6 @@ export default function OrdersTable({ data }: any) {
                 {column.render("Header")}
               </th>
             ))}
-            {/* <th className="">Delete</th> */}
           </tr>
         ))}
       </thead>
@@ -53,7 +38,6 @@ export default function OrdersTable({ data }: any) {
         {rows.map((row, i: number) => {
           prepareRow(row);
           const rowId = i + 1;
-          const rowPaymentId = data[i].invoiceID;
 
           return (
             <tr key={i} className="hover:bg-gray-300">
@@ -64,19 +48,9 @@ export default function OrdersTable({ data }: any) {
                   className="p-4 px-6 border-b lg:text-center"
                   key={index}
                 >
-                  <Link href={`/admin/orders/${rowPaymentId}`} passHref>
-                    <a>{cell.render("Cell")}</a>
-                  </Link>
+                  <a>{cell.render("Cell")}</a>
                 </td>
               ))}
-              {/* <td className="p-4 px-6 border-b lg:text-center">
-                <Button
-                  className="hover:text-red-500 flex items-center"
-                  icon={<RiDeleteBinLine size={20} />}
-                  // onClick={() => mutate(`/cocktail/${title}`)}
-                  // title={`Delete ${rowTitle}`}
-                />
-              </td> */}
             </tr>
           );
         })}
