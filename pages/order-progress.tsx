@@ -2,7 +2,7 @@
 import DefaultLayout from "@/layout/DefaultLayout";
 import useMyOrders from "@/hooks/useMyOrders";
 
-export default function OrderProgress() {
+export default function OrderProgressPage() {
   const { orderData } = useMyOrders();
 
   console.log("orderData", orderData);
