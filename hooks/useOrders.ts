@@ -16,8 +16,6 @@ export default function useOrders() {
 
   const formattedOrders: any = orders ? formatDBData(orders) : null;
 
-
-
   const data: any = useMemo(() => {
     if (orders) {
       let orderDataArray: any[] = [];
@@ -36,5 +34,27 @@ export default function useOrders() {
     }
   }, [orders]);
 
-  return { data, orders, formattedOrders };
+  const getOrderData = (orderArray: any) => {
+    if (orderArray) {
+      let orderDataArray: any[] = [];
+      orderArray.map((item: any) => {
+        orderDataArray.push({
+          invoiceID: item.id,
+          date: getDate(item.create_time),
+          customer: `${item.payer.name.given_name} ${item.payer.name.surname}`,
+          total: `$${formatPrice(Number(item.purchase_units[0].amount.value))}`,
+          paymentStatus: item.status === "COMPLETED" ? "PAID" : "NOT PAID",
+          fulfillmentStatus: "Unfulfilled",
+          items: item.purchase_units[0].items[0].quantity,
+        });
+      });
+      return orderDataArray;
+    }
+    return null;
+  };
+
+  const useMemoizedOrderData = (orderArray: any) =>
+    useMemo(() => getOrderData(orderArray), [orderArray]);
+
+  return { data, orders, formattedOrders, useMemoizedOrderData };
 }

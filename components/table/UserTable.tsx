@@ -10,7 +10,7 @@ export default function UserTable({ data }: any) {
     () => [
       { Header: "Name", accessor: "name" },
       { Header: "Email", accessor: "email" },
-      { Header: "Date", accessor: "date" },
+      { Header: "Created At", accessor: "date" },
     ],
     []
   );

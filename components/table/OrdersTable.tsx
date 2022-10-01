@@ -1,16 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import Link from "next/link";
 import { useMemo } from "react";
 import { useTable } from "react-table";
-// import { RiDeleteBinLine } from "react-icons/ri";
-
-// import Button from "@/components/button";
-import useDBMutation from "@/hooks/useDBMutation";
 
 export default function OrdersTable({ data }: any) {
-  const { useDeleteDataMutation } = useDBMutation();
-  const { mutate } = useDeleteDataMutation();
-
   const columns: any = useMemo(
     () => [
       { Header: "Invoice ID", accessor: "invoiceID" },
@@ -45,7 +37,6 @@ export default function OrdersTable({ data }: any) {
                 {column.render("Header")}
               </th>
             ))}
-            {/* <th className="">Delete</th> */}
           </tr>
         ))}
       </thead>
@@ -69,14 +60,6 @@ export default function OrdersTable({ data }: any) {
                   </Link>
                 </td>
               ))}
-              {/* <td className="p-4 px-6 border-b lg:text-center">
-                <Button
-                  className="hover:text-red-500 flex items-center"
-                  icon={<RiDeleteBinLine size={20} />}
-                  // onClick={() => mutate(`/cocktail/${title}`)}
-                  // title={`Delete ${rowTitle}`}
-                />
-              </td> */}
             </tr>
           );
         })}
