@@ -21,6 +21,7 @@
     "cookie": "^0.5.0",
     "firebase": "^9.9.4",
     "next": "12.2.5",
+    "node-mailjet": "^5.1.1",
     "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-chartjs-2": "^4.3.1",

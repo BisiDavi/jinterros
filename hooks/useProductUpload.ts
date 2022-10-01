@@ -31,7 +31,7 @@ export default function useProductUpload() {
       const responseData = await uploadImage(media[0]);
       const country = filterCountries(data.country);
       const productData = {
-        ...data,
+        ...data,      
         date,
         country,
         productImage: responseData.data.secure_url,
