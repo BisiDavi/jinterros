@@ -32,7 +32,7 @@ export default function Providerlayout({ children }: PropsWithChildren<{}>) {
     <>
       <Provider store={store}>
         <PersistGate loading={<BeerLoader />} persistor={persistor}>
-          <NextNProgress color="#4e44c4" />
+          <NextNProgress color="#bd6a2c" />
           <QueryClientProvider client={queryClient} contextSharing={true}>
             <ToastContainer />
             {children}
