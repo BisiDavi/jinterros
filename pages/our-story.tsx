@@ -33,7 +33,7 @@ export default function OurStory({ story }: Props) {
           onChange={() => null}
           className="text-content w-5/6 lg:w-2/3 mx-auto lg:my-24"
         />
-        <div className="image-wrapper w-5/6 lg:w-2/5 mx-auto my-20 lg:my-40">
+        <div className="image-wrapper w-5/6 lg:w-2/5 mx-auto my-20 lg:mt-20 lg:mb-10">
           <Image
             src="/rum-bottles-2.webp"
             alt="Rum bottles"
@@ -44,7 +44,7 @@ export default function OurStory({ story }: Props) {
         </div>
         <Button
           text="SHOP NOW"
-          className="bg-dark-brown hover:opacity-80 mx-auto py-3 px-16 flex my-10 text-white font-bold text-xl w-3/5 lg:w-1/5 justify-center"
+          className="bg-dark-brown hover:opacity-80 mx-auto py-3 px-16 flex my-0 text-white font-bold text-xl w-3/5 lg:w-1/5 justify-center"
           href="/shop"
         />
       </section>
