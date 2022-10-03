@@ -79,5 +79,5 @@
     { "count": 60, "text": "Delivered" },
     { "count": 7, "text": "Cancelled" }
   ],
-  "paymentGateway": ["/paypal.png", "/visa.webp", "/mastercard.webp"]
+  "paymentGateway": ["/paypal.png", "/mastercard.png", "/visa.png"]
 }
