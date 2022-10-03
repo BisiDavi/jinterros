@@ -26,3 +26,14 @@ export const getDate = (dateValue: any, showTime?: boolean) => {
   }
   return date.toLocaleDateString();
 };
+
+export function addToDate(date: string) {
+  const numberOfDaysToAdd = 14;
+  const someDate = new Date(date);
+  someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
+  return someDate.toLocaleDateString([], {
+    hour12: true,
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
