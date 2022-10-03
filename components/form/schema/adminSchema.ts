@@ -30,3 +30,10 @@ export const pageSchema = yup.object({
   content: yup.string().required("Content is required"),
   type: yup.string().required("Page type is required"),
 });
+
+export const newsletterSchema = yup.object({
+  email: yup
+    .string()
+    .email("Enter a vaild email address")
+    .required("E-mail address is required"),
+});
