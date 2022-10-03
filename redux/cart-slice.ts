@@ -82,6 +82,9 @@ const CartSlice = createSlice({
     updateDeliveryFee(state, action) {
       state.deliveryFee = action.payload;
     },
+    resetDeliveryFee(state) {
+      state.deliveryFee = 0;
+    },
   },
 });
 
@@ -91,5 +94,6 @@ export const {
   addToCart,
   resetCart,
   updateDeliveryFee,
+  resetDeliveryFee,
 } = CartSlice.actions;
 export default CartSlice.reducer;

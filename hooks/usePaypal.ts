@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import useCart from "@/hooks/useCart";
 import { resetPaymentForm } from "@/redux/form-slice";
 import { useAppDispatch } from "@/redux/store";
-import { resetCart } from "@/redux/cart-slice";
+import { resetCart, resetDeliveryFee } from "@/redux/cart-slice";
 import useFirebase from "@/hooks/useFirebase";
 import useAuth from "@/hooks/useAuth";
 import toSlug from "@/lib/toSlug";
@@ -93,6 +93,7 @@ export default function usePaypal() {
       if (details.status === "COMPLETED") {
         dispatch(resetCart());
         dispatch(resetPaymentForm());
+        dispatch(resetDeliveryFee());
         writeData(
           JSON.stringify(details),
           `/orders/${slug}/${authStatus.uid}`
