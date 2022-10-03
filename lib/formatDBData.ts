@@ -43,9 +43,32 @@ export function formatDBDataSlug(data: string) {
 
 export function formatDBUsers(data: any) {
   const values: string | any = Object.values(data);
+
+  console.log("values", values);
   const formattedArray: any[] = [];
   values.map((item: string) => {
     formattedArray.push(JSON.parse(item));
+  });
+  return formattedArray;
+}
+
+export function formatNewsletter(data: any) {
+  const values: string | any = Object.values(data);
+
+  const formattedArray: any[] = [];
+  values.map((item: string) => {
+    const parsedItem = JSON.parse(item);
+    const date = new Date(parsedItem.date);
+    const formattedDate = date.toLocaleDateString([], {
+      hour12: true,
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    formattedArray.push({
+      date: formattedDate,
+      email: parsedItem.email,
+    });
   });
   return formattedArray;
 }

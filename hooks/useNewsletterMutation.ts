@@ -7,7 +7,12 @@ export default function useNewsletterMutation() {
   const { writeData } = useFirebase();
 
   function newsletterSubscription(email: string) {
-    return writeData(JSON.stringify(email), `/newsletter/${uuidv4()}/`);
+    const date = new Date();
+    const data = {
+      email,
+      date,
+    };
+    return writeData(JSON.stringify(data), `/newsletter/${uuidv4()}/`);
   }
 
   return useRequestMutation((email) => newsletterSubscription(email), {
