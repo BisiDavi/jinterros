@@ -60,7 +60,7 @@ export default function OrdersTable({ data }: any) {
                   className="p-4 px-6 border-b lg:text-center"
                   key={index}
                 >
-                  <Link href={`/${tableRoute}/${rowPaymentId}`} passHref>
+                  <Link href={`${tableRoute}/${rowPaymentId}`} passHref>
                     <a>{cell.render("Cell")}</a>
                   </Link>
                 </td>
