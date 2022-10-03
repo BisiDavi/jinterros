@@ -28,6 +28,7 @@ export default function useOrders() {
           paymentStatus: item.status === "COMPLETED" ? "PAID" : "NOT PAID",
           fulfillmentStatus: "Unfulfilled",
           items: item.purchase_units[0].items[0].quantity,
+          createdAt: item.create_time,
         });
       });
       return orderDataArray;

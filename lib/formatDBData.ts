@@ -77,9 +77,9 @@ export function sortDataByDate(dataArray: any) {
     return dataArray.sort(function (a: any, b: any) {
       // Turn your strings into dates, and then subtract them
       // to get a value that is either negative, positive, or zero.
-      const bDate: any = new Date(b.date);
-      const aDate: any = new Date(a.date);
-      return aDate - bDate;
+      const bDate: any = new Date(b.createdAt);
+      const aDate: any = new Date(a.createdAt);
+      return bDate - aDate;
     });
   }
 }

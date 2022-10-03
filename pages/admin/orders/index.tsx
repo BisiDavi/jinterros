@@ -2,19 +2,19 @@ import AdminLayout from "@/layout/AdminLayout";
 import OrdersTable from "@/components/table/OrdersTable";
 import { SpinnerLoader } from "@/components/loader/SpinnerRipple";
 import useOrders from "@/hooks/useOrders";
-import type { GetServerSidePropsContext } from "next";
 import { sortDataByDate } from "@/lib/formatDBData";
+import type { GetServerSidePropsContext } from "next";
 
 export default function Orders() {
   const { data, orders } = useOrders();
-  const tempData = data ? sortDataByDate(data) : null;
+  const sortedData = data ? sortDataByDate(data) : null;
 
-  console.log("tempData", tempData);
+  console.log("sortedData", sortedData);
 
   return (
     <AdminLayout title="Orders">
       {orders !== null ? (
-        <OrdersTable data={data} />
+        <OrdersTable data={sortedData} />
       ) : (
         <SpinnerLoader loadingText="fetching orders..." />
       )}
