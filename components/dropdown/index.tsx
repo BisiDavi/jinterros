@@ -10,7 +10,7 @@ export default function Dropdown({ children }: PropsWithChildren) {
   const [dropdown, setDropdown] = useState(false);
   const { getAuthStatus } = useAuth();
   const user = getAuthStatus();
-  const { dropdowndata } = useMyOrders();
+  const { orderData } = useMyOrders();
 
   function onClickHandler() {
     return setDropdown(!dropdown);
@@ -35,7 +35,8 @@ export default function Dropdown({ children }: PropsWithChildren) {
               <p className="text-sm">Hello, {user.displayName}</p>
             )}
           </li>
-          {dropdowndata.map((option: any) => (
+
+          {dropdownContent.header.map((option: any) => (
             <>
               {option && (
                 <li
@@ -48,6 +49,16 @@ export default function Dropdown({ children }: PropsWithChildren) {
               )}
             </>
           ))}
+          {orderData.length > 0 && (
+            <li>
+              <li
+                className="text-gray-600 text py-1 px-4 hover:bg-gray-400 text-lg"
+                onClick={() => setDropdown(false)}
+              >
+                <Link href="/order-progress">Track Orders</Link>
+              </li>
+            </li>
+          )}
         </ul>
       )}
     </div>

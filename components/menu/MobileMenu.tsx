@@ -4,6 +4,7 @@ import { BiLogOut, BiLogIn } from "react-icons/bi";
 import { useRouter } from "next/router";
 
 import links from "@/json/links.json";
+import dropdown from "@/json/dropdown.json";
 import useHeader from "@/hooks/useHeader";
 import useAuth from "@/hooks/useAuth";
 import useAuthMutation from "@/hooks/useAuthMutation";
@@ -61,7 +62,7 @@ export default function MobileMenu() {
   const { useSignoutMutation } = useAuthMutation();
   const { mutate } = useSignoutMutation();
   const { onCloseHandler } = useHeader();
-  const { dropdowndata } = useMyOrders();
+  const {  orderData } = useMyOrders();
   const router = useRouter();
 
   function authHandler() {
@@ -96,7 +97,12 @@ export default function MobileMenu() {
       </ul>
 
       <ul className="mt-10">
-        <LinkItem links={dropdowndata} />
+        <LinkItem links={dropdown.header} />
+        {orderData.length > 0 && (
+          <LinkItem
+            links={[{ link: "/order-progress", text: "Track Orders" }]}
+          />
+        )}
       </ul>
     </div>
   );
