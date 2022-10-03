@@ -1,34 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Link from "next/link";
-import { PropsWithChildren, useEffect, useState } from "react";
+import { PropsWithChildren, useState } from "react";
 
 import dropdownContent from "@/json/dropdown.json";
 import useAuth from "@/hooks/useAuth";
 import useMyOrders from "@/hooks/useMyOrders";
 
-interface Props {
-  options: Array<{ link: string; text: string } | null>;
-}
-
-export default function Dropdown({
-  children,
-  options,
-}: PropsWithChildren<Props>) {
+export default function Dropdown({ children }: PropsWithChildren) {
   const [dropdown, setDropdown] = useState(false);
   const { getAuthStatus } = useAuth();
   const user = getAuthStatus();
-  const { orderData } = useMyOrders();
-
-  console.log("orderData", orderData);
-  console.log("options", options);
-
-  useEffect(() => {
-    if (orderData !== null && orderData.length === 0) {
-      options[1] = null;
-    } else if (orderData !== null && orderData.length > 0) {
-      options[1] = { link: "/order-progress", text: "Track Order" };
-    }
-  }, [orderData]);
+  const { dropdowndata } = useMyOrders();
 
   function onClickHandler() {
     return setDropdown(!dropdown);
@@ -53,7 +35,7 @@ export default function Dropdown({
               <p className="text-sm">Hello, {user.displayName}</p>
             )}
           </li>
-          {options.map((option) => (
+          {dropdowndata.map((option: any) => (
             <>
               {option && (
                 <li

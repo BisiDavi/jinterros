@@ -5,7 +5,6 @@ import Logo from "@/components/logo";
 import CartIcon from "@/public/icons/CartIcon";
 import UserIcon from "@/public/icons/UserIcon";
 import Dropdown from "@/components/dropdown";
-import dropdown from "@/json/dropdown.json";
 import Button from "@/components/button";
 import useAuthMutation from "@/hooks/useAuthMutation";
 import useAuth from "@/hooks/useAuth";
@@ -30,7 +29,7 @@ export default function Header() {
           <Logo />
         </div>
         <HeaderLinks section="right" />
-        <Dropdown options={dropdown.header}>
+        <Dropdown>
           <UserIcon />
         </Dropdown>
         <div className="cart-icon flex items-start">

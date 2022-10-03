@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Link from "next/link";
 import { BiLogOut, BiLogIn } from "react-icons/bi";
 import { useRouter } from "next/router";
@@ -7,6 +8,7 @@ import useHeader from "@/hooks/useHeader";
 import useAuth from "@/hooks/useAuth";
 import useAuthMutation from "@/hooks/useAuthMutation";
 import Button from "@/components/button";
+import useMyOrders from "@/hooks/useMyOrders";
 
 interface LinkItemProps {
   links: {
@@ -32,17 +34,21 @@ function LinkItem({ links, border }: LinkItemProps) {
   return (
     <>
       {links.map((item) => {
-        const activeLink = getActiveLink(item.link);
+        const activeLink = item !== null ? getActiveLink(item.link) : null;
         return (
-          <li
-            key={item.link}
-            className={linkClassName}
-            onClick={onCloseHandler}
-          >
-            <Link href={item.link}>
-              <a className={`w-full ${activeLink}`}>{item.text}</a>
-            </Link>
-          </li>
+          <>
+            {item !== null && (
+              <li
+                key={item.link}
+                className={linkClassName}
+                onClick={onCloseHandler}
+              >
+                <Link href={item.link}>
+                  <a className={`w-full ${activeLink}`}>{item.text}</a>
+                </Link>
+              </li>
+            )}
+          </>
         );
       })}
     </>
@@ -55,6 +61,7 @@ export default function MobileMenu() {
   const { useSignoutMutation } = useAuthMutation();
   const { mutate } = useSignoutMutation();
   const { onCloseHandler } = useHeader();
+  const { dropdowndata } = useMyOrders();
   const router = useRouter();
 
   function authHandler() {
@@ -89,7 +96,7 @@ export default function MobileMenu() {
       </ul>
 
       <ul className="mt-10">
-        <LinkItem links={links.dropdown} />
+        <LinkItem links={dropdowndata} />
       </ul>
     </div>
   );

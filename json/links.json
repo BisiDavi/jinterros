@@ -66,9 +66,8 @@
     { "link": "/admin/settings", "text": "Settings" }
   ],
   "dropdown": [
-    { "text": "Track Orders", "link": "/order-progress" },
     { "text": "My Orders", "link": "/my-orders" },
-    { "text": "Account", "link": "/auth" }
+    { "text": "Track Orders", "link": "/order-progress" }
   ],
   "dashboard": [
     { "text": "TOTAL REVENUE", "title": "12k" },

@@ -16,7 +16,6 @@ export function getTotalRevenue(orders: any[]) {
 }
 
 export const getDate = (dateValue: any, showTime?: boolean) => {
-console.log("dateValue", dateValue);
   const date = new Date(dateValue);
   if (showTime) {
     return date.toLocaleDateString([], {
