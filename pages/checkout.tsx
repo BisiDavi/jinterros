@@ -4,10 +4,8 @@ import { useEffect } from "react";
 
 import DefaultLayout from "@/layout/DefaultLayout";
 import OrderSummary from "@/components/checkout/OrderSummary";
-import ShippingForm from "@/components/form/ShippingForm";
 import useAuth from "@/hooks/useAuth";
-import Paypal from "@/components/payment/Paypal";
-import PaypalWrapper from "@/components/payment/PaypalWrapper";
+import CheckoutView from "@/views/CheckoutView";
 
 export default function Checkout() {
   const { getAuthStatus } = useAuth();
@@ -26,14 +24,9 @@ export default function Checkout() {
       <DefaultLayout title="Checkout">
         <section className="">
           <div className="form-group chekout mt-32 lg:mt-52 mb-14 px-6 flex flex-col lg:flex-row items-start container mx-auto">
-            <div className="forms w-full lg:w-3/5">
-              <ShippingForm />
-            </div>
+            <CheckoutView />
             <OrderSummary />
           </div>
-          <PaypalWrapper>
-            <Paypal />
-          </PaypalWrapper>
         </section>
       </DefaultLayout>
     </>

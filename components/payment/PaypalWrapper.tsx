@@ -1,11 +1,7 @@
-import {
-  PayPalScriptProvider,
-  PayPalButtons,
-  usePayPalScriptReducer,
-} from "@paypal/react-paypal-js";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import type { PropsWithChildren } from "react";
 
-export default function PaypalWrapper({ children }:PropsWithChildren) {
+export default function PaypalWrapper({ children }: PropsWithChildren) {
   return (
     <PayPalScriptProvider
       options={{
