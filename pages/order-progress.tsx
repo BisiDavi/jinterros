@@ -1,12 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
-import  { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 import DefaultLayout from "@/layout/DefaultLayout";
 import useMyOrders from "@/hooks/useMyOrders";
 import { addToDate, getDate } from "@/lib/formatPrice";
 import useAuth from "@/hooks/useAuth";
+import { sortDataByDate } from "@/lib/formatDBData";
 
 export default function OrderProgressPage() {
   const { orderData } = useMyOrders();
@@ -20,7 +21,9 @@ export default function OrderProgressPage() {
     }
   }, [authStatus]);
 
-  const latestOrder = orderData[orderData.length - 1];
+  const sortedData = orderData ? sortDataByDate(orderData) : null;
+
+  const latestOrder = sortedData[0];
 
   const images = [
     { img: "/note.webp", text: "Order Confirmed" },
