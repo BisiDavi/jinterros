@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { updatePaymentForm } from "@/redux/form-slice";
 import { updateDeliveryFee } from "@/redux/cart-slice";
 import displayShippingElement from "@/lib/displayShippingElement";
-import RadioGroup from "./RadioGroup";
+import RadioGroup from "@/components/form/RadioGroup";
 
 export default function ShippingForm() {
   const methods = useForm({
@@ -74,4 +74,3 @@ export default function ShippingForm() {
     </div>
   );
 }
- 

@@ -91,7 +91,7 @@
         "elementType": "radio",
         "label": "Standard Delivery",
         "note": "3-7 business days",
-        "value": 10
+        "value": 1
       },
       {
         "type": "radio",
