@@ -4,20 +4,25 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import Button from "@/components/button";
 import { newsletterSchema } from "@/components/form/schema/adminSchema";
+import useNewsletterMutation from "@/hooks/useNewsletterMutation";
 
 export default function FooterForm() {
   const methods = useForm({
     mode: "all",
     resolver: yupResolver(newsletterSchema),
   });
-
+  const { mutate } = useNewsletterMutation();
   const {
     formState: { errors },
     register,
-  }:any = methods;
+  }: any = methods;
 
   function onSubmit(data: any) {
-    console.log("data", data);
+    mutate(data.email, {
+      onSuccess: () => {
+        methods.reset();
+      },
+    });
   }
 
   return (
