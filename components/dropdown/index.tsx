@@ -1,11 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Link from "next/link";
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 
 import dropdownContent from "@/json/dropdown.json";
 import useAuth from "@/hooks/useAuth";
+import useMyOrders from "@/hooks/useMyOrders";
 
 interface Props {
-  options: Array<{ link: string; text: string }>;
+  options: Array<{ link: string; text: string } | null>;
 }
 
 export default function Dropdown({
@@ -15,6 +17,18 @@ export default function Dropdown({
   const [dropdown, setDropdown] = useState(false);
   const { getAuthStatus } = useAuth();
   const user = getAuthStatus();
+  const { orderData } = useMyOrders();
+
+  console.log("orderData", orderData);
+  console.log("options", options);
+
+  useEffect(() => {
+    if (orderData !== null && orderData.length === 0) {
+      options[1] = null;
+    } else if (orderData !== null && orderData.length > 0) {
+      options[1] = { link: "/order-progress", text: "Track Order" };
+    }
+  }, [orderData]);
 
   function onClickHandler() {
     return setDropdown(!dropdown);
@@ -40,13 +54,17 @@ export default function Dropdown({
             )}
           </li>
           {options.map((option) => (
-            <li
-              key={option.link}
-              className="text-gray-600 text py-1 px-4 hover:bg-gray-400 text-lg"
-              onClick={() => setDropdown(false)}
-            >
-              <Link href={option.link}>{option.text}</Link>
-            </li>
+            <>
+              {option && (
+                <li
+                  key={option.link}
+                  className="text-gray-600 text py-1 px-4 hover:bg-gray-400 text-lg"
+                  onClick={() => setDropdown(false)}
+                >
+                  <Link href={option.link}>{option.text}</Link>
+                </li>
+              )}
+            </>
           ))}
         </ul>
       )}
