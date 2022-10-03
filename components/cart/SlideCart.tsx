@@ -29,7 +29,7 @@ export default function SlideCart() {
                 <SlideCartItem key={item.title} item={item} />
               ))}
             </div>
-            <div className="button-group flex-col flex items-center justify-between">
+            <div className="button-group flex-col flex items-center justify-between lg:mb-16 mb-24">
               <div className="amount bg-gray-100 p-2  flex mb-2 font-bold text-xl items-center justify-between w-full">
                 <p>Subtotal</p>
                 <p>${subtotal.toFixed(2)}</p>
