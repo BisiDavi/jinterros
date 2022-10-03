@@ -1,10 +1,24 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
+import  { useRouter } from "next/router";
+import { useEffect } from "react";
+
 import DefaultLayout from "@/layout/DefaultLayout";
 import useMyOrders from "@/hooks/useMyOrders";
 import { addToDate, getDate } from "@/lib/formatPrice";
+import useAuth from "@/hooks/useAuth";
 
 export default function OrderProgressPage() {
   const { orderData } = useMyOrders();
+  const { getAuthStatus } = useAuth();
+  const authStatus = getAuthStatus();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (authStatus === null) {
+      router.push("/");
+    }
+  }, [authStatus]);
 
   const latestOrder = orderData[orderData.length - 1];
 
@@ -30,7 +44,7 @@ export default function OrderProgressPage() {
                   `Order received on : ${getDate(latestOrder?.createdAt, true)}`
                 : item.text === "Delivery on the Way"
                 ? latestOrder &&
-                  `Package to be delivered on: ${addToDate(
+                  `Package to be delivered latest on: ${addToDate(
                     latestOrder?.createdAt
                   )}`
                 : "";

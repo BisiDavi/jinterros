@@ -17,5 +17,5 @@ export default function useMyOrders() {
 
   const orderData = useMemoizedOrderData(userOrder);
 
-  return { orderData };
+  return { orderData, userOrder };
 }
