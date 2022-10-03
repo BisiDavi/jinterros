@@ -51,7 +51,7 @@ export default function NewsletterTable() {
           <thead className="border-b">
             {headerGroups.map((headerGroup, index) => (
               <tr key={index}>
-                <th className="p-4 px-6">S/N</th>
+                <th className="p-4 px-6 text-left">S/N</th>
                 {headerGroup.headers.map((column, index) => (
                   <th
                     {...column.getHeaderProps()}
