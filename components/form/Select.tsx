@@ -28,7 +28,7 @@ export default function Select({ content, data }: Props) {
         <select
           name={content.name}
           id={content.name}
-          className="input-border-lighter font-normal w-full h-12 px-5 placeholder-gray-300"
+          className="input-border-lighter font-normal w-full h-12 px-4 placeholder-gray-300"
           disabled={disableInput}
           {...register(content.name)}
         >

@@ -1,56 +1,14 @@
 [
   {
-    "invoiceID": "#AHGA68",
-    "date": "23/09/2022",
-    "customer": "Jacob Marcus",
-    "total": 100,
-    "paymentStatus": "Paid",
-    "fulfillmentStatus": "Unfulfilled",
-    "items": 3
-  },
-  {
-    "invoiceID": "#AHGA67",
-    "date": "22/09/2022",
-    "customer": "Jacob Marcus",
-    "total": 90,
-    "paymentStatus": "Paid",
-    "fulfillmentStatus": "fulfilled",
-    "items": 1
-  },
-  {
-    "invoiceID": "#AHGA66",
-    "date": "21/09/2022",
-    "customer": "Jacob Marcus",
-    "total": 80,
-    "paymentStatus": "Paid",
-    "fulfillmentStatus": "Unfulfilled",
-    "items": 1
-  },
-  {
-    "invoiceID": "#AHGA65",
-    "date": "20/09/2022",
-    "customer": "Jacob Marcus",
-    "total": 70,
-    "paymentStatus": "Paid",
-    "fulfillmentStatus": "fulfilled",
-    "items": 2
-  },
-  {
-    "invoiceID": "#AHGA64",
-    "date": "19/09/2022",
-    "customer": "Jacob Marcus",
-    "total": 60,
-    "paymentStatus": "Paid",
-    "fulfillmentStatus": "Unfulfilled",
-    "items": 1
-  },
-  {
-    "invoiceID": "#AHGA63",
-    "date": "18/09/2022",
-    "customer": "Jacob Marcus",
-    "total": 50,
-    "paymentStatus": "Paid",
-    "fulfillmentStatus": "Unfulfilled",
-    "items": 1
+    "type": "text",
+    "name": "deliveryStatus",
+    "elementType": "select",
+    "label": "Delivery Status",
+    "options": [
+      { "text": "Select Delivery Status", "value": "" },
+      { "text": "Delivered", "value": "DELIVERED" },
+      { "text": "Cancelled", "value": "CANCELLED" }
+    ],
+    "className": "input-border-lighter"
   }
 ]

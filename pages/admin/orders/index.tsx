@@ -9,8 +9,6 @@ export default function Orders() {
   const { data, orders } = useOrders();
   const sortedData = data ? sortDataByDate(data) : null;
 
-  console.log("sortedData", sortedData);
-
   return (
     <AdminLayout title="Orders">
       {orders !== null ? (

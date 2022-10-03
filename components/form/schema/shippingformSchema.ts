@@ -26,3 +26,7 @@ export const shippingformSchema = yup.object({
     .typeError("Shipping Option is required")
     .required("Shipping Option is required"),
 });
+
+export const adminOrderFormSchema = yup.object({
+  deliveryStatus: yup.string().required("Delivery Status  is required"),
+});

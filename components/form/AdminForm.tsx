@@ -12,7 +12,7 @@ import useAuthMutation from "@/hooks/useAuthMutation";
 
 interface Props {
   type: "login" | "signup";
-}
+} 
 
 export default function AdminForm({ type }: Props) {
   const { useSignupMutation, useSigninMutation } = useAuthMutation();
