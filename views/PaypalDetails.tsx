@@ -3,8 +3,9 @@ import { filterCountries } from "@/lib/formatAdminDBData";
 export default function PaypalDetails({ details }: any) {
   return (
     <div className="w-full mb-8 order-1 lg:order-2  shadow-lg w-full p-8 border">
+      <h3 className="font-bold text-xl">Delivery Details</h3>
       <h4>
-        Name: {details.firstName} ${details.lastName}
+        Name: {details.firstName} {details.lastName}
       </h4>
       <h4>Email: {details.email}</h4>
       <h4>Address: {details.address1}</h4>
