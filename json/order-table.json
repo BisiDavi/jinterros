@@ -3,7 +3,7 @@
     "type": "text",
     "name": "deliveryStatus",
     "elementType": "select",
-    "label": "Delivery Status",
+    "label": "Update Delivery Status",
     "options": [
       { "text": "Select Delivery Status", "value": "" },
       { "text": "Delivered", "value": "DELIVERED" },

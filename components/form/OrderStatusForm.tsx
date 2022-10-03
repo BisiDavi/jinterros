@@ -22,7 +22,8 @@ export default function OrderStatusForm() {
         {displayForm(orderStatus[0])}
         <Button
           text="Submit"
-          className="mt-4 bg-green-500 h-10 text-white font-bold px-4 hover:opacity-80"
+          className="mt-4 bg-green-500 py-1 text-white font-bold px-5 hover:opacity-80"
+          type="submit"
         />
       </form>
     </FormProvider>
