@@ -2,6 +2,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 
 import links from "@/json/links.json";
+import useOrders from "@/hooks/useOrders";
 
 const DoughnutChart = dynamic(
   () =>
@@ -13,8 +14,10 @@ const DoughnutChart = dynamic(
   }
 );
 
-export default function AdminOrderSummary({ orders }: any) {
-  const totalOrders = orders?.length;
+export default function AdminOrderSummary() {
+  const { formattedOrders } = useOrders();
+
+  const totalOrders = formattedOrders?.length;
   return (
     <div className="shadow rounded-xl border flex flex-col items-start bg-white py-6 mt-10 pb-16">
       <div className="top h-16 justify-between flex items-center border-b w-full mb-4 px-8">
