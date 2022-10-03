@@ -4,6 +4,7 @@ import type { PropsWithChildren } from "react";
 
 import Footer from "@/components/footer/Footer";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import Metatag from "@/components/metatag";
 import { useAppSelector } from "@/hooks/useRedux";
 
 const DynamicMobleMenu = dynamic(
@@ -46,6 +47,7 @@ export default function DefaultLayout({
         ) : (
           <title>Welcome to Jinterros | Rum with Natural Flavours</title>
         )}
+        <Metatag />
       </Head>
       {mobileWidth ? <DynamicMobileHeader /> : <DynamicHeader />}
       {slideCart && <DynamicSlideCart />}

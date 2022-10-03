@@ -28,7 +28,7 @@ export default function CocktailItemView({ item }: Props) {
           blurDataURL={item.cocktailImage}
         />
         <div className="text-view h-10 lg:h-16 bg-dark-brown w-full flex items-center justify-center hover:opacity-80">
-          <p className="text-white text-center text-base  lg:text-xl">
+          <p className="text-white text-center text-md lg:text-xl">
             {item.title}
           </p>
         </div>

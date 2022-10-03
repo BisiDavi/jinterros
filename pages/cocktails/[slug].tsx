@@ -49,7 +49,7 @@ export default function CocktailPage({ cocktails }: Props) {
               />
             )}
             <div className="mx-auto w-5/6 lg:w-3/4 shadow-xl lg:-mt-60 -mt-24 py-6 mb-14 relative rounded">
-              <div className="Cocktails w-1/2 lg:w-1/3 text-center lg:px-16 bg-dark-brown h-10 lg:h-16 flex items-center justify-center lg:text-xl text-white font-bold">
+              <div className="Cocktails w-1/2 text-md lg:w-1/3 text-center lg:px-16 bg-dark-brown h-10 lg:h-16 flex items-center justify-center lg:text-xl text-white font-bold">
                 <h4>{cocktail.title}</h4>
               </div>
               <div className="ingredients mx-auto w-full py-4 lg:p-10 bg-white">

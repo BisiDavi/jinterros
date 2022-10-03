@@ -16,7 +16,7 @@ export default function InstagramFollow() {
           <Image
             key={item}
             src={item}
-            alt={item}
+            alt="instagram"
             height={400}
             width={400}
             data-aos="zoom-in-down"
