@@ -8,8 +8,6 @@ export default function OrderProgressPage() {
 
   const latestOrder = orderData[orderData.length - 1];
 
-  console.log("latestOrder", latestOrder);
-
   const images = [
     { img: "/note.webp", text: "Order Confirmed" },
     { img: "/order.webp", text: "Packaging Order" },
@@ -29,7 +27,7 @@ export default function OrderProgressPage() {
             const textValue =
               item.text === "Order Confirmed"
                 ? latestOrder &&
-                  `Order received on : ${getDate(latestOrder.createdAt, true)}`
+                  `Order received on : ${getDate(latestOrder?.createdAt, true)}`
                 : item.text === "Delivery on the Way"
                 ? latestOrder &&
                   `Package to be delivered on: ${addToDate(
@@ -39,7 +37,7 @@ export default function OrderProgressPage() {
             return (
               <li key={item.img} className="mx-4 w-full flex items-center">
                 <div className="group w-2/3 mx-auto lg:mx-0 my-4">
-                  <img src={item.img} alt={item.img} className="mx-auto" />
+                  <img src={item.img} alt={item.text} className="mx-auto" />
                   <p className="mt-4 font-bold text-center">{item.text}</p>
                   <p className="mt-4 font-bold text-center text-sm">
                     {textValue}
