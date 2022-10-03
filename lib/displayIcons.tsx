@@ -4,6 +4,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { MdOutlinePolicy } from "react-icons/md";
 import { FaCocktail } from "react-icons/fa";
 import { MdOutlinePages } from "react-icons/md";
+import { IoNewspaperOutline } from "react-icons/io5";
 import { FiSettings, FiUsers } from "react-icons/fi";
 
 import DashboardIcon from "@/public/icons/DashboardIcon";
@@ -34,5 +35,7 @@ export default function displayIcons(icon: string) {
       return <FiSettings size={40} />;
     case "Users":
       return <FiUsers size={40} />;
+    case "Newsletter":
+      return <IoNewspaperOutline size={40} />;
   }
 }

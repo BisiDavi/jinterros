@@ -62,6 +62,7 @@
     },
     { "link": "/admin/cocktails", "text": "Cocktails" },
     { "link": "/admin/policies", "text": "Policies" },
+    { "link": "/admin/newsletter-subscribers", "text": "Newsletter" },
     { "link": "/admin/settings", "text": "Settings" }
   ],
   "dropdown": [
