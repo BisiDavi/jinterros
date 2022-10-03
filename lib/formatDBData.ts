@@ -44,7 +44,6 @@ export function formatDBDataSlug(data: string) {
 export function formatDBUsers(data: any) {
   const values: string | any = Object.values(data);
 
-  console.log("values", values);
   const formattedArray: any[] = [];
   values.map((item: string) => {
     formattedArray.push(JSON.parse(item));
