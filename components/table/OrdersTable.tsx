@@ -22,7 +22,7 @@ export default function OrdersTable({ data }: any) {
     ],
     []
   );
-  const tableState: any = { pageIndex: 0 };
+  const tableState: any = { pageIndex: 0, pageSize: data.length };
   const tableRoute = router.asPath.includes("/admin/")
     ? "/admin/orders"
     : "/my-orders";

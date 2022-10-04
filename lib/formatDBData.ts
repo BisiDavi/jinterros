@@ -21,6 +21,7 @@ export function formatDBData(data: any) {
               minute: "2-digit",
             })}`,
             authorName: parsedData?.author?.name,
+            createdAt: parsedData.date,
           }
         : "";
       if (parsedData) {

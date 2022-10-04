@@ -57,7 +57,7 @@ export default function AdminTable({ data }: any) {
             const rowId = i + 1;
 
             return (
-              <tr key={i} className="hover:bg-gray-300">
+              <tr className="hover:bg-gray-300" {...row.getRowProps()}>
                 <td className="p-4 px-6 border-b lg:text-center">{rowId}</td>
                 {row.cells.map((cell: any) => (
                   <td
