@@ -240,7 +240,7 @@
     /* Now like a table header */
     position: absolute;
     /* Top/left values mimic padding */
-    top: 10px;
+    top: 15px;
     left: 20px;
     width: 45%;
     padding-right: 10px;
@@ -251,6 +251,13 @@
 		Label the data
     You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
 		*/
+  .orders-table,
+  .product-table,
+  .page-table,
+  .cocktail-table,
+  .policy-table {
+    font-size: 12px;
+  }
   .orders-table td:nth-of-type(1):before {
     content: "Invoice ID";
   }

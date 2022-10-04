@@ -47,7 +47,7 @@ export default function MobileAdminSidebar() {
               {displayIcons(item.text)}
               <Link href={item.link} passHref>
                 <a
-                  className="ml-4 font-medium text-xl w-full h-full"
+                  className="ml-4 font-medium text-base w-full h-full"
                   onClick={onCloseHandler}
                 >
                   {item.text}
