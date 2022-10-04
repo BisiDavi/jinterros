@@ -1,9 +1,11 @@
 export function formatDBData(data: any) {
   if (data) {
     const dbDatab = Object.values(data);
+    console.log("dbDatab", dbDatab);
     const dataArray: any[] = [];
     dbDatab.map((item: any) => {
       const formattedData: any = Object.values(item);
+      console.log("formattedData", formattedData);
       let parsedData;
       if (formattedData.length === 1) {
         parsedData = JSON.parse(formattedData);

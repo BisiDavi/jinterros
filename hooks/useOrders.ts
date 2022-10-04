@@ -2,8 +2,8 @@
 import { useMemo, useState, useEffect } from "react";
 
 import { readData } from "@/lib/firebaseConfig";
-import { formatDBData } from "@/lib/formatDBData";
 import { formatPrice, getDate } from "@/lib/formatPrice";
+import { formatDBOrders } from "@/lib/formatOrders";
 
 export default function useOrders() {
   const [orders, setOrders] = useState(null);
@@ -14,10 +14,10 @@ export default function useOrders() {
     }
   }, [orders]);
 
-  const formattedOrders: any = orders ? formatDBData(orders) : null;
+  const formattedOrders: any = orders ? formatDBOrders(orders) : null;
 
   const data: any = useMemo(() => {
-    if (orders) {
+    if (formattedOrders) {
       let orderDataArray: any[] = [];
       formattedOrders.map((item: any) => {
         orderDataArray.push({
@@ -34,21 +34,6 @@ export default function useOrders() {
       return orderDataArray;
     }
   }, [orders]);
-
-  function formatOrderObject() {
-    if (orders) {
-      const orderEntries = Object.entries(orders);
-      let orderGroup: any[] = [];
-      orderEntries.map((item: any) => {
-        const orderValue: any = Object.values(item[1])[0];
-        const formattedOrder = JSON.parse(orderValue);
-        orderGroup.push({ route: item[0], ...formattedOrder });
-      });
-      return orderGroup;
-    }
-  }
-
-  const orderGroup = formatOrderObject();
 
   const getOrderData = (orderArray: any) => {
     if (orderArray) {
@@ -78,6 +63,5 @@ export default function useOrders() {
     orders,
     formattedOrders,
     useMemoizedOrderData,
-    orderGroup,
   };
 }

@@ -12,3 +12,48 @@ export function getCustomers(orders: any) {
   }
   return [];
 }
+
+export function formatOrderObject(orders: any) {
+  if (orders) {
+    const orderEntries = Object.entries(orders);
+    let orderGroup: any[] = [];
+    orderEntries.map((item: any) => {
+      const orderValue: any = Object.values(item[1])[0];
+      const formattedOrder = JSON.parse(orderValue);
+      orderGroup.push({ route: item[0], ...formattedOrder });
+    });
+    return orderGroup;
+  }
+}
+
+export function formatDBOrders(data: any) {
+  if (data) {
+    const dbDatab = Object.values(data);
+    const dataArray: any[] = [];
+    dbDatab.map((item: any) => {
+      const formattedData: any = Object.values(item);
+      let parsedData;
+      parsedData = JSON.parse(formattedData[0]);
+      const date = new Date(parsedData.date);
+
+      const cData = parsedData.date
+        ? {
+            date: `${date.toDateString()}, ${date.toLocaleTimeString([], {
+              hour12: true,
+              hour: "2-digit",
+              minute: "2-digit",
+            })}`,
+            authorName: parsedData?.author?.name,
+            createdAt: parsedData.date,
+          }
+        : "";
+      if (parsedData) {
+        dataArray.push({
+          ...parsedData,
+          ...cData,
+        });
+      }
+    });
+    return dataArray;
+  }
+}
