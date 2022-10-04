@@ -38,13 +38,13 @@ export default function MobileAdminSidebar() {
     <aside className="w-full h-screen fixed top-10 py-20 bg-white z-40">
       <ul className="link-group">
         {links.admin.map((item) => {
-          const activeLink = getActiveLink(item.link);  
+          const activeLink = getActiveLink(item.link);
           return (
             <li
               key={item.link}
               className={`${activeLink} pl-8 flex items-center hover:bg-gray-300 py-1 px-2 text-brown-old-hover`}
             >
-              {displayIcons(item.text)}
+              {displayIcons(item.text, 30)}
               <Link href={item.link} passHref>
                 <a
                   className="ml-4 font-medium text-base w-full h-full"

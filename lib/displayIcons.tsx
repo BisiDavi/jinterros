@@ -11,31 +11,33 @@ import DashboardIcon from "@/public/icons/DashboardIcon";
 import OrdersIcon from "@/public/icons/OrdersIcon";
 import PeopleIcon from "@/public/icons/PeopleIcon";
 
-export default function displayIcons(icon: string) {
+export default function displayIcons(icon: string, size?: number) {
+  const iconSize = size ? size : 40;
+  const wineSize = size ? 40 : 50;
   switch (icon) {
     case "Dashboard":
-      return <DashboardIcon />;
+      return <DashboardIcon size={iconSize} />;
     case "Products":
-      return <GiWineBottle size={50} />;
+      return <GiWineBottle size={wineSize} />;
     case "Orders":
-      return <FaClipboardList size={40} />;
+      return <FaClipboardList size={iconSize} />;
     case "TOTAL REVENUE":
-      return <BsCurrencyDollar size={40} color="white" />;
+      return <BsCurrencyDollar size={iconSize} color="white" />;
     case "TOTAL ORDERS":
       return <OrdersIcon color="white" />;
     case "TOTAL CUSTOMERS":
       return <PeopleIcon />;
     case "Policies":
-      return <MdOutlinePolicy size={40} />;
+      return <MdOutlinePolicy size={iconSize} />;
     case "Cocktails":
-      return <FaCocktail size={40} />;
+      return <FaCocktail size={iconSize} />;
     case "Pages":
-      return <MdOutlinePages size={40} />;
+      return <MdOutlinePages size={iconSize} />;
     case "Settings":
-      return <FiSettings size={40} />;
+      return <FiSettings size={iconSize} />;
     case "Users":
-      return <FiUsers size={40} />;
+      return <FiUsers size={iconSize} />;
     case "Newsletter":
-      return <IoNewspaperOutline size={40} />;
+      return <IoNewspaperOutline size={iconSize} />;
   }
 }

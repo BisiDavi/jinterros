@@ -1,13 +1,17 @@
 import { useRouter } from "next/router";
 
-export default function DashboardIcon() {
+interface Props {
+  size: number;
+}
+
+export default function DashboardIcon({ size }: Props) {
   const router = useRouter();
   const iconClassname = router.asPath === "/admin" ? "#BD6A2C" : "black";
   return (
     <svg
-      width="47"
-      height="47"
-      viewBox="0 0 47 47"
+      width={size}
+      height={size}
+      viewBox="0 0 45 45"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
