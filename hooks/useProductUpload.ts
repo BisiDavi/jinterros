@@ -31,7 +31,7 @@ export default function useProductUpload() {
       const responseData = await uploadImage(media[0]);
       const country = filterCountries(data.country);
       const productData = {
-        ...data,      
+        ...data,
         date,
         country,
         productImage: responseData.data.secure_url,
@@ -40,24 +40,17 @@ export default function useProductUpload() {
       const productSlug = toSlug(data.title);
       const stringifyData = JSON.stringify(productData);
 
-      console.log("productData", productData);
-
-      writeData(stringifyData, `/products/${productSlug}/${authStatus?.uid}`)
-        .then(() => {
-          dispatch(resetEditable(true));
-          dispatch(uploadMedia(null));
-          dispatch(uploadPreviewMedia(null));
-          methods.reset();
-          updateToast(toastId, "success", "Product saved");
-        })
-        .catch((error) => {
-          console.log("error", error);
-          dispatch(uploadMedia(null));
-          dispatch(uploadPreviewMedia(null));
-          updateToast(toastId, "error", "Error saving Product");
-        });
+      writeData(
+        stringifyData,
+        `/products/${productSlug}/${authStatus?.uid}`
+      ).then(() => {
+        dispatch(resetEditable(true));
+        dispatch(uploadMedia(null));
+        dispatch(uploadPreviewMedia(null));
+        methods.reset();
+        updateToast(toastId, "success", "Product saved");
+      });
     } catch (error) {
-      console.log("error", error);
       dispatch(uploadMedia(null));
       dispatch(uploadPreviewMedia(null));
       updateToast(toastId, "error", "Error saving Product");

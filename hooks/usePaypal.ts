@@ -22,8 +22,6 @@ export default function usePaypal() {
   const router = useRouter();
   const { getAuthStatus } = useAuth();
 
-  console.log("formData", formData);
-
   const authStatus: any = getAuthStatus();
 
   function getItems() {
