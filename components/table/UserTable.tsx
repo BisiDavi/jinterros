@@ -1,10 +1,12 @@
+/* eslint-disable react/jsx-key */
 import { useMemo } from "react";
-import { useTable } from "react-table";
-import useDBMutation from "@/hooks/useDBMutation";
+import { useTable, usePagination } from "react-table";
+
+import useMediaQuery from "@/hooks/useMediaQuery";
+import TablePagination from "@/components/table/TablePagination";
 
 export default function UserTable({ data }: any) {
-  const { useDeleteDataMutation } = useDBMutation();
-  const { mutate } = useDeleteDataMutation();
+  const mobileDevice = useMediaQuery("(max-width:768px)");
 
   const columns: any = useMemo(
     () => [
@@ -14,14 +16,24 @@ export default function UserTable({ data }: any) {
     ],
     []
   );
-  const tableState: any = { pageIndex: 0 };
+  const tableState: any = { pageIndex: 0, pageSize: data.length };
 
-  const { getTableProps, headerGroups, rows, prepareRow, getTableBodyProps } =
-    useTable({
+  const tableInstance = useTable(
+    {
       columns,
       data,
       initialState: tableState,
-    });
+    },
+    usePagination
+  );
+  const {
+    getTableProps,
+    headerGroups,
+    page,
+    prepareRow,
+    getTableBodyProps,
+  }: any = tableInstance;
+
   return (
     <section className="mt-4">
       <h4 className="font-bold mb-1 text-xl">User List</h4>
@@ -30,11 +42,11 @@ export default function UserTable({ data }: any) {
         className="shadow orders-table rounded-xl border"
       >
         <thead className="border-b">
-          {headerGroups.map((headerGroup, index) => (
-            <tr key={index}>
+          {headerGroups.map((headerGroup: any) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
               <th className="p-4 px-6">S/N</th>
-              {headerGroup.headers.map((column, ind) => (
-                <th {...column.getHeaderProps()} key={ind} className="p-4 px-6">
+              {headerGroup.headers.map((column: any) => (
+                <th className="p-4 px-6" {...column.getHeaderProps()}>
                   {column.render("Header")}
                 </th>
               ))}
@@ -42,17 +54,16 @@ export default function UserTable({ data }: any) {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row, i: number) => {
+          {page.map((row: any, i: number) => {
             prepareRow(row);
             const rowId = i + 1;
             return (
               <tr key={i} className="hover:bg-gray-300">
                 <td className="p-4 px-6 border-b lg:text-center">{rowId}</td>
-                {row.cells.map((cell, index) => (
+                {row.cells.map((cell: any) => (
                   <td
                     {...cell.getCellProps()}
                     className="p-4 px-6 border-b lg:text-center"
-                    key={index}
                   >
                     <a>{cell.render("Cell")}</a>
                   </td>
@@ -62,6 +73,9 @@ export default function UserTable({ data }: any) {
           })}
         </tbody>
       </table>
+      <div className="pagination flex">
+        {!mobileDevice && <TablePagination tableInstance={tableInstance} />}
+      </div>
     </section>
   );
 }

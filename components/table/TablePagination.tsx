@@ -34,7 +34,6 @@ function disablePagination(indexCount: number, tableInstance: any): boolean {
 
 export default function TablePagination({ tableInstance }: any): JSX.Element {
   const {
-    gotoPage,
     pageOptions,
     setPageSize,
     state: { pageIndex, pageSize },
@@ -65,7 +64,7 @@ export default function TablePagination({ tableInstance }: any): JSX.Element {
           onChange={(e) => setPageSize(Number(e.target.value))}
           className="border-2 p-1"
         >
-          {[5, 10, 15, 20].map((pageSizeVal) => (
+          {[3, 5, 10, 15, 20].map((pageSizeVal) => (
             <option key={pageSizeVal} value={pageSizeVal}>
               Show {pageSizeVal}
             </option>

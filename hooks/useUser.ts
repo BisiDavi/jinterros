@@ -31,6 +31,7 @@ export default function useUser() {
           name: item.displayName,
           email: item.email,
           date: getDate(Number(item.createdAt), true),
+          createdAt: Number(item.createdAt),
         })
       );
     }
