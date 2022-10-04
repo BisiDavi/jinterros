@@ -12,7 +12,6 @@ export default function OrdersSlugPage({ slug }: Props) {
     <AdminLayout title="Orders Details">
       <AdminFormView>
         <AdminOrderView slug={slug} />
-        
       </AdminFormView>
     </AdminLayout>
   );

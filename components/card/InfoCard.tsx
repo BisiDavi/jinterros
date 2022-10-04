@@ -23,7 +23,6 @@ export default function InfoCard({ title, text, orders, orderArray }: Props) {
     ? customer?.length
     : title;
 
-  console.log("customer", customer);
   return (
     <div className="shadow border rounded-lg h-28 flex my-2 lg:my-0 items-center bg-white hover:bg-gray-100">
       <div className="icon bg-orange h-16 w-16 p-2 rounded-full flex items-center justify-center mx-4">

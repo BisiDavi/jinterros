@@ -12,6 +12,7 @@ export default function AdminOrderView({ slug }: Props) {
   const order = formattedOrders
     ? formattedOrders.filter((item: { id: string }) => item.id === slug)[0]
     : null;
+  console.log("order", order);
   return (
     <section className="container">
       {order === null ? (
