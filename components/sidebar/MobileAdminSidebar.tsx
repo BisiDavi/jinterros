@@ -42,14 +42,14 @@ export default function MobileAdminSidebar() {
           return (
             <li
               key={item.link}
-              className={`${activeLink} pl-8 flex items-center hover:bg-gray-300 py-1 px-2 text-brown-old-hover`}
+              className={`${activeLink} flex items-center hover:bg-gray-300 py-1 px-2 text-brown-old-hover`}
             >
-              {displayIcons(item.text, 30)}
               <Link href={item.link} passHref>
                 <a
-                  className="ml-4 font-medium text-base w-full h-full"
+                  className="pl-6 flex  items-center font-medium text-base w-full h-full"
                   onClick={onCloseHandler}
                 >
+                  <span className="mr-3">{displayIcons(item.text, 30)}</span>
                   {item.text}
                 </a>
               </Link>
