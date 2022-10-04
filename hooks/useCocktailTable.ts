@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { readData } from "@/lib/firebaseConfig";
 import { formatDBData } from "@/lib/formatDBData";
 import useDBMutation from "@/hooks/useDBMutation";
-import useMediaQuery from "./useMediaQuery";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 export default function useCocktailTable() {
   const [cocktail, setCocktail] = useState(null);

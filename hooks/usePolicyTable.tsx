@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useMemo, useState } from "react";
 

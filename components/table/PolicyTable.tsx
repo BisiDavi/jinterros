@@ -6,7 +6,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import toSlug from "@/lib/toSlug";
 import Button from "@/components/button";
 import usePolicyTable from "@/hooks/usePolicyTable";
-import TablePagination from "./TablePagination";
+import TablePagination from "@/components/table/TablePagination";
 
 export default function PolicyTable() {
   const { data, columns, mutate, mobileDevice } = usePolicyTable();
