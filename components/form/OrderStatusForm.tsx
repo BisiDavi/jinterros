@@ -1,19 +1,35 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useRef } from "react";
 
 import orderStatus from "@/json/order-table.json";
 import displayForm from "@/components/form/displayForm";
 import { adminOrderFormSchema } from "@/components/form/schema/shippingformSchema";
 import Button from "@/components/button";
+import useFirebase from "@/hooks/useFirebase";
+import useToast from "@/hooks/useToast";
 
-export default function OrderStatusForm() {
+export default function OrderStatusForm({ orderData }: any) {
+  const { writeData } = useFirebase();
   const methods = useForm({
     resolver: yupResolver(adminOrderFormSchema),
     mode: "all",
   });
+  const toastId = useRef(null);
+  const { loadingToast, updateToast } = useToast();
 
   function onSubmit(data: any) {
-    console.log("data", data);
+    loadingToast(toastId);
+    writeData(
+      JSON.stringify(data.deliveryStatus),
+      `/orders/${orderData.route}/status/`
+    )
+      .then(() => {
+        updateToast(toastId, "success", "status updated");
+      })
+      .catch(() => {
+        updateToast(toastId, "error", "error updating status");
+      });
   }
 
   return (
