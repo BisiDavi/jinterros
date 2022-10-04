@@ -1,9 +1,14 @@
+/* eslint-disable react/jsx-key */
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
-import { useTable } from "react-table";
+import { useTable, usePagination } from "react-table";
+
+import TablePagination from "@/components/table/TablePagination";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 export default function OrdersTable({ data }: any) {
+  const mobileDevice = useMediaQuery("(max-width:768px)");
   const router = useRouter();
   const columns: any = useMemo(
     () => [
@@ -22,53 +27,64 @@ export default function OrdersTable({ data }: any) {
     ? "/admin/orders"
     : "/my-orders";
 
-  const { getTableProps, headerGroups, rows, prepareRow, getTableBodyProps } =
-    useTable({
+  const tableInstance: any = useTable(
+    {
       columns,
       data,
       initialState: tableState,
-    });
+    },
+    usePagination
+  );
+  const {
+    getTableProps,
+    headerGroups,
+    page,
+    prepareRow,
+    getTableBodyProps,
+  }: any = tableInstance;
   return (
-    <table
-      {...getTableProps()}
-      className="shadow orders-table rounded-xl border"
-    >
-      <thead className="border-b">
-        {headerGroups.map((headerGroup, index) => (
-          <tr key={index}>
-            <th className="p-4 px-6">S/N</th>
-            {headerGroup.headers.map((column, ind) => (
-              <th {...column.getHeaderProps()} key={ind} className="p-4 px-6">
-                {column.render("Header")}
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row, i: number) => {
-          prepareRow(row);
-          const rowId = i + 1;
-          const rowPaymentId = data[i].invoiceID;
-
-          return (
-            <tr key={i} className="hover:bg-gray-300">
-              <td className="p-4 px-6 border-b lg:text-center">{rowId}</td>
-              {row.cells.map((cell, index) => (
-                <td
-                  {...cell.getCellProps()}
-                  className="p-4 px-6 border-b lg:text-center"
-                  key={index}
-                >
-                  <Link href={`${tableRoute}/${rowPaymentId}`} passHref>
-                    <a>{cell.render("Cell")}</a>
-                  </Link>
-                </td>
+    <>
+      <table
+        {...getTableProps()}
+        className="shadow orders-table rounded-xl border"
+      >
+        <thead className="border-b">
+          {headerGroups.map((headerGroup: any) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              <th className="p-4 px-6">S/N</th>
+              {headerGroup.headers.map((column: any) => (
+                <th {...column.getHeaderProps()} className="p-4 px-6">
+                  {column.render("Header")}
+                </th>
               ))}
             </tr>
-          );
-        })}
-      </tbody>
-    </table>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {page.map((row: any, i: number) => {
+            prepareRow(row);
+            const rowId = i + 1;
+            const rowPaymentId = data[i].invoiceID;
+
+            return (
+              <tr className="hover:bg-gray-300" {...row.getRowProps()}>
+                <td className="p-4 px-6 border-b lg:text-center">{rowId}</td>
+                {row.cells.map((cell: any) => (
+                  <td
+                    {...cell.getCellProps()}
+                    className="p-4 px-6 border-b lg:text-center"
+                  >
+                    <Link href={`${tableRoute}/${rowPaymentId}`} passHref>
+                      <a>{cell.render("Cell")}</a>
+                    </Link>
+                  </td>
+                ))}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      {!mobileDevice && <TablePagination tableInstance={tableInstance} />}
+    </>
   );
 }
