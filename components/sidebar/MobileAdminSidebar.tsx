@@ -38,7 +38,7 @@ export default function MobileAdminSidebar() {
     <aside className="w-full h-screen fixed top-10 py-20 bg-white z-40">
       <ul className="link-group">
         {links.admin.map((item) => {
-          const activeLink = getActiveLink(item.link);
+          const activeLink = getActiveLink(item.link);  
           return (
             <li
               key={item.link}

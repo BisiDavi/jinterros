@@ -14,13 +14,15 @@ export default function MobileHeader() {
   const { onClickHandler, mobileMenu } = useHeader();
   const router = useRouter();
 
+  const logoRoute = router.asPath.includes("/admin") ? "/admin" : "/";
+
   const buttonIcon = !mobileMenu ? <MenuIcon /> : <MenuCloseIcon />;
 
   return (
     <header className="bg-white mx-auto py-4  px-8 w-full items-center shadow-xl h-20 justify-between flex fixed top-0 z-50">
       <Button icon={buttonIcon} onClick={onClickHandler} />
       <div className="logo-wrapper-mobile w-1/5 mt-12 fixed">
-        <Logo />
+        <Logo link={logoRoute} />
       </div>
       {!router.asPath.includes("/admin") && (
         <div className="cart-icon flex items-start">
