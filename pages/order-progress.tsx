@@ -25,6 +25,8 @@ export default function OrderProgressPage() {
 
   const latestOrder = sortedData[0];
 
+  console.log("latestOrder", latestOrder);
+
   const images = [
     { img: "/note.webp", text: "Order Confirmed" },
     { img: "/order.webp", text: "Packaging Order" },
@@ -46,11 +48,15 @@ export default function OrderProgressPage() {
                 ? latestOrder &&
                   `Order received on : ${getDate(latestOrder?.createdAt, true)}`
                 : item.text === "Delivery on the Way"
-                ? latestOrder &&
-                  `Package to be delivered latest on: ${addToDate(
-                    latestOrder?.createdAt
-                  )}`
+                ? latestOrder.fulfillmentStatus === "Unfulfilled"
+                  ? `Package to be delivered latest on: ${addToDate(
+                      latestOrder?.createdAt
+                    )}`
+                  : latestOrder.fulfillmentStatus === "Fulfilled"
+                  ? "Package Delivered"
+                  : latestOrder.fulfillmentStatus === "Cancelled" && "Cancelled"
                 : "";
+
             return (
               <li key={item.img} className="mx-4 w-full flex items-center">
                 <div className="group w-2/3 mx-auto lg:mx-0 my-4">

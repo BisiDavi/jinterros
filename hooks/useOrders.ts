@@ -56,7 +56,7 @@ export default function useOrders() {
           customer: `${item.payer.name.given_name} ${item.payer.name.surname}`,
           total: `$${formatPrice(Number(item.purchase_units[0].amount.value))}`,
           paymentStatus: item.status === "COMPLETED" ? "PAID" : "NOT PAID",
-          fulfillmentStatus: "Unfulfilled",
+          fulfillmentStatus: userDeliveryStatus(item.id),
           items: item.purchase_units[0].items[0].quantity,
           createdAt: item.create_time,
         });
