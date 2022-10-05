@@ -46,7 +46,7 @@ export default function OrdersTable({ data }: any) {
     <>
       <table
         {...getTableProps()}
-        className="shadow orders-table rounded-xl border"
+        className="shadow orders-table rounded-xl border w-full"
       >
         <thead className="border-b">
           {headerGroups.map((headerGroup: any) => (

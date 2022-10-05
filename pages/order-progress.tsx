@@ -48,13 +48,13 @@ export default function OrderProgressPage() {
                 ? latestOrder &&
                   `Order received on : ${getDate(latestOrder?.createdAt, true)}`
                 : item.text === "Delivery on the Way"
-                ? latestOrder.fulfillmentStatus === "Unfulfilled"
+                ? latestOrder?.fulfillmentStatus === "Unfulfilled"
                   ? `Package to be delivered latest on: ${addToDate(
                       latestOrder?.createdAt
                     )}`
-                  : latestOrder.fulfillmentStatus === "Fulfilled"
+                  : latestOrder?.fulfillmentStatus === "Fulfilled"
                   ? "Package Delivered"
-                  : latestOrder.fulfillmentStatus === "Cancelled" && "Cancelled"
+                  : latestOrder?.fulfillmentStatus === "Cancelled" && "Cancelled"
                 : "";
 
             return (

@@ -9,7 +9,7 @@ export default function MyOrders() {
 
   return (
     <DefaultLayout>
-      <section className="my-orders container  mx-auto my-20 mt-52">
+      <section className="my-orders container  mx-auto mt-28 my-20 lg:mt-52">
         {orderData === null ? (
           <SpinnerLoader loadingText="fetching orders" />
         ) : orderData.length === 0 ? (
@@ -24,7 +24,7 @@ export default function MyOrders() {
             />
           </div>
         ) : (
-          <div className="order-view justify-center items-center flex flex-col">
+          <div className="order-view lg:w-full w-11/12 ml-4 lg:ml-4 justify-center items-center flex flex-col">
             <h4 className="text-center font-bold text-2xl my-2">Orders</h4>
             <OrdersTable data={orderData} />
           </div>
