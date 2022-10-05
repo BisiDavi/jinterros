@@ -29,6 +29,14 @@ export function formatOrderObject(orders: any) {
   }
 }
 
+export function formatDeliveryStatus(status: string) {
+  return status === "IN-PROGRESS"
+    ? "Unfulfilled"
+    : status === "DELIVERED"
+    ? "Fulfilled"
+    : "Cancelled";
+}
+
 export function formatDBOrders(data: any) {
   if (data) {
     const dbDatab = Object.values(data);

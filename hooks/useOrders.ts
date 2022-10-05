@@ -3,7 +3,11 @@ import { useMemo, useState, useEffect } from "react";
 
 import { readData } from "@/lib/firebaseConfig";
 import { formatPrice, getDate } from "@/lib/formatPrice";
-import { formatDBOrders, formatOrderObject } from "@/lib/formatOrders";
+import {
+  formatDBOrders,
+  formatDeliveryStatus,
+  formatOrderObject,
+} from "@/lib/formatOrders";
 
 export default function useOrders() {
   const [orders, setOrders] = useState(null);
@@ -19,12 +23,7 @@ export default function useOrders() {
   const orderGroup = formatOrderObject(orders);
   const userDeliveryStatus = (id: string) => {
     const filterOrder = orderGroup?.filter((item) => item.id === id)[0];
-    const fulfillmentStatus =
-      filterOrder.deliveryStatus === "IN-PROGRESS"
-        ? "Unfulfilled"
-        : filterOrder.deliveryStatus === "DELIVERED"
-        ? "Fulfilled"
-        : "Cancelled";
+    const fulfillmentStatus = formatDeliveryStatus(filterOrder.deliveryStatus);
     return fulfillmentStatus;
   };
 
