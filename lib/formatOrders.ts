@@ -19,8 +19,11 @@ export function formatOrderObject(orders: any) {
     let orderGroup: any[] = [];
     orderEntries.map((item: any) => {
       const orderValue: any = Object.values(item[1])[0];
+      const status: string | any = Object.values(item[1])[1];
+      const parsedStatus = status ? JSON.parse(status) : null;
+      const deliveryStatus = parsedStatus ? parsedStatus : "IN-PROGRESS";
       const formattedOrder = JSON.parse(orderValue);
-      orderGroup.push({ route: item[0], ...formattedOrder });
+      orderGroup.push({ route: item[0], deliveryStatus, ...formattedOrder });
     });
     return orderGroup;
   }

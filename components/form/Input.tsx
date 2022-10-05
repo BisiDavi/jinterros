@@ -14,13 +14,9 @@ export default function Input({ input, data }: Props) {
 
   const {
     register,
-    setValue,
     formState: { errors },
-  }: any = useFormContext();
+  }:any = useFormContext();
 
-  if (data) {
-    setValue(input.name, data[input.name]);
-  }
   const disableInput = input?.disabled ? true : false;
 
   const inputType =
@@ -42,6 +38,7 @@ export default function Input({ input, data }: Props) {
           placeholder={input.placeholder}
           aria-invalid={errors[input.name] ? "true" : "false"}
           disabled={disableInput}
+          defaultValue={data[input.name]}
           {...register(input.name)}
         />
         {input.type === "password" && (

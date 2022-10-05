@@ -3,7 +3,7 @@ import { useMemo, useState, useEffect } from "react";
 
 import { readData } from "@/lib/firebaseConfig";
 import { formatPrice, getDate } from "@/lib/formatPrice";
-import { formatDBOrders } from "@/lib/formatOrders";
+import { formatDBOrders, formatOrderObject } from "@/lib/formatOrders";
 
 export default function useOrders() {
   const [orders, setOrders] = useState(null);
@@ -16,6 +16,18 @@ export default function useOrders() {
 
   const formattedOrders: any = orders ? formatDBOrders(orders) : null;
 
+  const orderGroup = formatOrderObject(orders);
+  const userDeliveryStatus = (id: string) => {
+    const filterOrder = orderGroup?.filter((item) => item.id === id)[0];
+    const fulfillmentStatus =
+      filterOrder.deliveryStatus === "IN-PROGRESS"
+        ? "Unfulfilled"
+        : filterOrder.deliveryStatus === "DELIVERED"
+        ? "Fulfilled"
+        : "Cancelled";
+    return fulfillmentStatus;
+  };
+
   const data: any = useMemo(() => {
     if (formattedOrders) {
       let orderDataArray: any[] = [];
@@ -26,7 +38,7 @@ export default function useOrders() {
           customer: `${item.payer.name.given_name} ${item.payer.name.surname}`,
           total: `$${formatPrice(Number(item.purchase_units[0].amount.value))}`,
           paymentStatus: item.status === "COMPLETED" ? "PAID" : "NOT PAID",
-          fulfillmentStatus: "Unfulfilled",
+          fulfillmentStatus: userDeliveryStatus(item.id),
           items: item.purchase_units[0].items[0].quantity,
           createdAt: item.create_time,
         });
