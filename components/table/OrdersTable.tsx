@@ -69,16 +69,23 @@ export default function OrdersTable({ data }: any) {
             return (
               <tr className="hover:bg-gray-300" {...row.getRowProps()}>
                 <td className="p-4 px-6 border-b lg:text-center">{rowId}</td>
-                {row.cells.map((cell: any) => (
-                  <td
-                    {...cell.getCellProps()}
-                    className="p-4 px-6 border-b lg:text-center"
-                  >
-                    <Link href={`${tableRoute}/${rowPaymentId}`} passHref>
-                      <a>{cell.render("Cell")}</a>
-                    </Link>
-                  </td>
-                ))}
+                {row.cells.map((cell: any) => {
+                  console.log("cell", cell);
+                  const cellClassName =
+                    cell.column.Header === "Fulfillment Status"
+                      ? cell.value
+                      : "";
+                  return (
+                    <td
+                      {...cell.getCellProps()}
+                      className={`p-4 px-6 border-b lg:text-center ${cellClassName}`}
+                    >
+                      <Link href={`${tableRoute}/${rowPaymentId}`} passHref>
+                        <a>{cell.render("Cell")}</a>
+                      </Link>
+                    </td>
+                  );
+                })}
               </tr>
             );
           })}
