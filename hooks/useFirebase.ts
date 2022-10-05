@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 
 import { createFirebaseApp } from "@/lib/firebaseConfig";
+import axios from "axios";
 
 export default function useFirebase() {
   const router = useRouter();
@@ -33,7 +34,7 @@ export default function useFirebase() {
     return db;
   }
 
-function writeData(data: any, dbNode: string) {
+  function writeData(data: any, dbNode: string) {
     const db = initializeDB();
     return set(ref(db, dbNode), data);
   }
@@ -59,6 +60,13 @@ function writeData(data: any, dbNode: string) {
     const provider = new GoogleAuthProvider();
     return signInWithPopup(auth, provider).then((result) => {
       const user = result.user;
+      axios
+        .post("/api/email/send-signup-email", {
+          email: user.email,
+          name: user.displayName,
+        })
+        .then((response) => console.log("email response", response))
+        .catch((err) => console.log("email error", err));
       writeData(JSON.stringify(user), `/users/${user.uid}/`).then(() => {
         toast.success(`Welcome, ${user?.displayName}`);
         router.push("/");

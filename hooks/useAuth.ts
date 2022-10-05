@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
 
 import useFirebase from "@/hooks/useFirebase";
+import axios from "axios";
 
 type dataType = {
   email: string;
@@ -58,6 +59,13 @@ export default function useAuth() {
             policy: data.policy,
             newsletter: data.newsletter,
           };
+          axios
+            .post("/api/email/send-signup-email", {
+              email,
+              name: displayName,
+            })
+            .then((response) => console.log("email response", response))
+            .catch((err) => console.log("email error", err));
           writeData(JSON.stringify(saveData), `/${dbRoute}/${user.uid}/`);
           if (router.asPath.includes("/admin")) {
             setCookie("admin", true, {
