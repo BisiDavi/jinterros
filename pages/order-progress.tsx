@@ -25,8 +25,6 @@ export default function OrderProgressPage() {
 
   const latestOrder = sortedData[0];
 
-  console.log("latestOrder", latestOrder);
-
   const images = [
     { img: "/note.webp", text: "Order Confirmed" },
     { img: "/order.webp", text: "Packaging Order" },

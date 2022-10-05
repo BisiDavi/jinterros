@@ -3,6 +3,7 @@ import { SpinnerLoader } from "@/components/loader/SpinnerRipple";
 import OrderStatusForm from "@/components/form/OrderStatusForm";
 import AdminDetailsView from "@/views/AdminDetailsView";
 import { formatDeliveryStatus, formatOrderObject } from "@/lib/formatOrders";
+import { useRouter } from "next/router";
 
 interface Props {
   slug: string;
@@ -17,6 +18,8 @@ export default function AdminOrderView({ slug }: Props) {
   const mainOrderGroup = orderGroup?.filter((item) => item.id === slug)[0];
   const deliveryStatus = formatDeliveryStatus(mainOrderGroup?.deliveryStatus);
 
+  const router = useRouter();
+
   return (
     <section className="container">
       {order === null ? (
@@ -30,7 +33,9 @@ export default function AdminOrderView({ slug }: Props) {
             </span>
           </h4>
           {formattedOrders && <AdminDetailsView order={order} />}
-          <OrderStatusForm orderData={mainOrderGroup} />
+          {router.asPath.includes("/admin") && (
+            <OrderStatusForm orderData={mainOrderGroup} />
+          )}
         </>
       )}
     </section>
