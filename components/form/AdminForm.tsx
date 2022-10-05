@@ -12,7 +12,7 @@ import useAuthMutation from "@/hooks/useAuthMutation";
 
 interface Props {
   type: "login" | "signup";
-} 
+}
 
 export default function AdminForm({ type }: Props) {
   const { useSignupMutation, useSigninMutation } = useAuthMutation();
@@ -28,7 +28,6 @@ export default function AdminForm({ type }: Props) {
   const buttonText = type === "login" ? "Login" : "Sign up";
 
   function onSubmit(data: any) {
-    console.log("data", data);
     if (type === "signup") {
       mutate({ userData: data, password: data.password });
     } else {

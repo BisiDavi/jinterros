@@ -15,7 +15,7 @@ export default function Input({ input, data }: Props) {
   const {
     register,
     formState: { errors },
-  }:any = useFormContext();
+  }: any = useFormContext();
 
   const disableInput = input?.disabled ? true : false;
 
@@ -27,6 +27,7 @@ export default function Input({ input, data }: Props) {
       : input.type;
 
   const inputId = input.id ? input.id : input.name;
+  const defaultValue = data && data[input.name] ? data[input.name] : "";
 
   return (
     <div className="form-control">
@@ -38,7 +39,7 @@ export default function Input({ input, data }: Props) {
           placeholder={input.placeholder}
           aria-invalid={errors[input.name] ? "true" : "false"}
           disabled={disableInput}
-          defaultValue={data[input.name]}
+          defaultValue={defaultValue}
           {...register(input.name)}
         />
         {input.type === "password" && (
