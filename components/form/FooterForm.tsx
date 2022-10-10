@@ -1,6 +1,7 @@
 import { useForm, FormProvider } from "react-hook-form";
 import Link from "next/link";
 import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
 
 import Button from "@/components/button";
 import { newsletterSchema } from "@/components/form/schema/adminSchema";
@@ -20,6 +21,7 @@ export default function FooterForm() {
   function onSubmit(data: any) {
     mutate(data.email, {
       onSuccess: () => {
+        axios.post("/api/email/newsletter-subscriber", { email: data.email });
         methods.reset();
       },
     });
