@@ -6,7 +6,6 @@ interface Props {
 }
 
 export default function AdminDetailsView({ order }: Props) {
- 
   return (
     <div className="content grid grid-cols-2 gap-4 border p-4">
       <div className="payer-details border p-4">

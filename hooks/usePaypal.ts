@@ -2,6 +2,7 @@
 import { useAppSelector } from "@/hooks/useRedux";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 import useCart from "@/hooks/useCart";
 import { resetPaymentForm } from "@/redux/form-slice";
@@ -92,6 +93,8 @@ export default function usePaypal() {
         dispatch(resetCart());
         dispatch(resetPaymentForm());
         dispatch(resetDeliveryFee());
+        axios.post("/api/admin-order-notification");
+        axios.post("/api/order-invoice", { cart, details });
         writeData(
           JSON.stringify(details),
           `/orders/${slug}/${authStatus.uid}`
