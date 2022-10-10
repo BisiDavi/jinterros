@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -25,6 +26,12 @@ export default function AdminOrderSummary() {
     }
     return 0;
   }
+
+  const chartData = [
+    getOrderTypeNumber("Fulfilled"),
+    getOrderTypeNumber("Unfulfilled"),
+    getOrderTypeNumber("Cancelled"),
+  ];
 
   function deliveryStatusCount(status: string) {
     return status === "On Delivery"
@@ -71,7 +78,7 @@ export default function AdminOrderSummary() {
             ))}
           </ul>
         </div>
-        <DoughnutChart />
+        <DoughnutChart orders={chartData} />
       </div>
     </div>
   );

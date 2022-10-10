@@ -3,14 +3,14 @@ import { Doughnut } from "react-chartjs-2";
 
 Chart.register(ArcElement, Tooltip, Legend);
 
-export default function DoughnutChart() {
+export default function DoughnutChart({ orders }: any) {
   const data = {
     labels: ["Delivered", "On Delivery", "Cancelled"],
     datasets: [
       {
         label: "Delivery Data",
-        data: [50, 25, 25],
-        backgroundColor: ["#F5AE30", "black", "#BD6A2C"],
+        data: orders,
+        backgroundColor: ["#F5AE30", "#BD6A2C", "black"],
         hoverOffset: 4,
       },
     ],
@@ -34,3 +34,5 @@ export default function DoughnutChart() {
     </div>
   );
 }
+
+// orders = { memoizedOrders };
