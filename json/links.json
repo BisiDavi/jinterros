@@ -75,9 +75,9 @@
     { "text": "TOTAL CUSTOMERS", "title": 65 }
   ],
   "orders": [
-    { "count": 25, "text": "On Delivery" },
-    { "count": 60, "text": "Delivered" },
-    { "count": 7, "text": "Cancelled" }
+    { "count": 0, "text": "On Delivery" },
+    { "count": 0, "text": "Delivered" },
+    { "count": 0, "text": "Cancelled" }
   ],
   "paymentGateway": ["/paypal.png", "/mastercard.png", "/visa.png"]
 }

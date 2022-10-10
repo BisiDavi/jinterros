@@ -4,6 +4,7 @@ import InfoCardGroupView from "@/views/InfoCardGroupView";
 import type { GetServerSidePropsContext } from "next";
 
 export default function Admin() {
+  
   return (
     <AdminLayout title="Dashboard">
       <InfoCardGroupView />

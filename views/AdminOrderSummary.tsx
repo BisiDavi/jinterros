@@ -15,7 +15,24 @@ const DoughnutChart = dynamic(
 );
 
 export default function AdminOrderSummary() {
-  const { formattedOrders } = useOrders();
+  const { formattedOrders, useMemoizedOrderData } = useOrders();
+  const memoizedOrders = useMemoizedOrderData(formattedOrders);
+
+  function getOrderTypeNumber(type: "Fulfilled" | "Unfulfilled" | "Cancelled") {
+    if (memoizedOrders) {
+      return memoizedOrders.filter((item) => item.fulfillmentStatus === type)
+        .length;
+    }
+    return 0;
+  }
+
+  function deliveryStatusCount(status: string) {
+    return status === "On Delivery"
+      ? getOrderTypeNumber("Unfulfilled")
+      : status === "Delivered"
+      ? getOrderTypeNumber("Fulfilled")
+      : getOrderTypeNumber("Cancelled");
+  }
 
   const totalOrders = formattedOrders?.length;
   return (
@@ -46,7 +63,9 @@ export default function AdminOrderSummary() {
                 key={item.count}
                 className="shadow rounded-xl text-center py-1 hover:bg-gray-100 bg-white"
               >
-                <h4 className="text-3xl font-medium">{item.count}</h4>
+                <h4 className="text-3xl font-medium">
+                  {deliveryStatusCount(item.text)}
+                </h4>
                 <p className="text-md my-1">{item.text}</p>
               </li>
             ))}
