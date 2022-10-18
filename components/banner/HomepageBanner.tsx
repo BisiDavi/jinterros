@@ -24,7 +24,11 @@ export default function HomepageBanner() {
             </div>
           </div>
           <div className="lg:w-2/3 w-full order-1 flex mx-auto lg:mt-40 block">
-            <img src="/rum-bottles.webp" alt="rum-bottles" className="-ml-4 lg:ml-0" />
+            <img
+              src="/rum-bottles.webp"
+              alt="rum-bottles"
+              className="-ml-4 lg:ml-0"
+            />
           </div>
         </div>
       </section>
@@ -41,6 +45,7 @@ export default function HomepageBanner() {
             .homepageBanner {
               height: unset;
               width: 100%;
+              background-image: url("/mobile-homepage-bg.webp");
             }
           }
         `}
