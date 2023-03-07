@@ -33,9 +33,9 @@ export default function ProductBanner({ product }: Props) {
         “A party is best enjoyed with a circle of friends and a bottle of rum.”
       </h4>
       <img
-        src="/rum-bottle.webp"
-        alt="jinterros"
-        title="jinterros"
+        src={product.productImage}
+        alt={product.title}
+        title={product.title}
         className="image-wrapper -mb-28 lg:-mb-4 lg:hidden mx-auto w-2/5 lg:w-auto justify-center"
       />
       <div className="shop-view bg-orange flex flex-col lg:flex-row px-8 py-32 lg:p-20 lg-h-800  lg:mb-40 shop-background-image w-screen">

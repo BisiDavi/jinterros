@@ -1,11 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { ref, get, child } from "firebase/database";
-import { useRouter } from "next/router";
 
 import DefaultLayout from "@/layout/DefaultLayout";
 import { initializeDB } from "@/lib/firebaseConfig";
-import Button from "@/components/button";
-import useCart from "@/hooks/useCart";
 import { formatDBData } from "@/lib/formatDBData";
 import { productType } from "@/types";
 import OtherProduct from "@/components/product/OtherProduct";
