@@ -53,7 +53,7 @@ const CartSlice = createSlice({
       if (state.cart === null) {
         state.cart = [cartData];
       } else if (state.cart !== null) {
-        const productIndex = state.cart.findIndex(
+        const productIndex = state.cart?.findIndex(
           (item) => item.title === title
         );
         if (productIndex === -1) {
