@@ -33,7 +33,7 @@ export default function ProductBanner({ product }: Props) {
       <h4 className="text-center text-xl font-bold my-4 title">
         “A party is best enjoyed with a circle of friends and a bottle of rum.”
       </h4>
-      <div className="image-wrapper -mb-20 w-1/2 lg:-mb-4 lg:hidden mx-auto lg:w-auto justify-center">
+      <div className="image-wrapper -mb-28 w-1/2 lg:-mb-4 lg:hidden mx-auto lg:w-auto justify-center">
         <Image
           src={product.productImage}
           alt={product.title}
@@ -53,7 +53,7 @@ export default function ProductBanner({ product }: Props) {
             height={914}
           />
         </div>
-        <div className="w-full px-10 py-20 lg:px-0 lg:py-0 lg:w-7/12 lg:text-xl">
+        <div className="w-full px-10 py-32 pb-20 lg:px-0 lg:py-0 lg:w-7/12 lg:text-xl">
           <h6 className="text-white description lg:mb-10 lg:w-5/6 lg:mt-40 ">
             {product.description}
           </h6>
