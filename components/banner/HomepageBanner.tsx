@@ -31,6 +31,7 @@ export default function HomepageBanner() {
               className="-ml-4 lg:ml-0"
               height={878}
               width={878}
+              priority
             />
           </div>
         </div>
