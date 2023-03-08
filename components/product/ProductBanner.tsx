@@ -33,17 +33,18 @@ export default function ProductBanner({ product }: Props) {
       <h4 className="text-center text-xl font-bold my-4 title">
         “A party is best enjoyed with a circle of friends and a bottle of rum.”
       </h4>
-      <div className="image-wrapper -mb-28 lg:-mb-4 lg:hidden mx-auto lg:w-auto justify-center">
+      <div className="image-wrapper -mb-20 w-1/2 lg:-mb-4 lg:hidden mx-auto lg:w-auto justify-center">
         <Image
           src={product.productImage}
           alt={product.title}
           title={product.title}
           width={383}
           height={914}
+          layout="responsive"
         />
       </div>
       <div className="shop-view bg-orange flex justify-between flex-col lg:flex-row lg-h-800  lg:mb-40 shop-background-image w-screen">
-        <div className="w-4/12 hidden h-full mt-16 ml-24 lg:flex relative">
+        <div className="w-4/12  hidden h-full mt-16 ml-24 lg:flex relative">
           <Image
             src={product.productImage}
             alt={product.title}
@@ -52,7 +53,7 @@ export default function ProductBanner({ product }: Props) {
             height={914}
           />
         </div>
-        <div className="w-full lg:w-7/12 lg:text-xl">
+        <div className="w-full px-10 py-20 lg:px-0 lg:py-0 lg:w-7/12 lg:text-xl">
           <h6 className="text-white description lg:mb-10 lg:w-5/6 lg:mt-40 ">
             {product.description}
           </h6>
@@ -89,6 +90,20 @@ export default function ProductBanner({ product }: Props) {
             font-size: 25px;
             line-height: 29px;
             color: #392a17;
+          }
+
+          @media (max-width: 768px) {
+            .description {
+              font-size: 18px;
+              line-height: 24px;
+            }
+            .feature_list {
+              margin-top: 20px;
+            }
+            .feature_list li {
+              font-size: 20px;
+              line-height: 24px;
+            }
           }
         `}
       </style>
