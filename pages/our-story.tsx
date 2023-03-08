@@ -20,9 +20,8 @@ export default function OurStory({ story }: Props) {
         <Image
           src={parsedStory.banner}
           alt="Our Story"
-          height={1300}
-          width={2000}
-          layout="responsive"
+          height={1334}
+          width={2001}
           className="mt-20"
           placeholder="blur"
           blurDataURL={parsedStory.banner}
