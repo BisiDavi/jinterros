@@ -38,26 +38,25 @@ export default function ProductBanner({ product }: Props) {
           src={product.productImage}
           alt={product.title}
           title={product.title}
-          width={1045}
-          height={1045}
+          width={383}
+          height={914}
         />
       </div>
-      <div className="shop-view bg-orange flex flex-col lg:flex-row px-8 py-32 lg:p-20 lg-h-800  lg:mb-40 shop-background-image w-screen">
-        <div className="w-full hidden h-full lg:flex lg:w-1/2 relative">
+      <div className="shop-view bg-orange flex flex-col lg:flex-row lg-h-800  lg:mb-40 shop-background-image w-screen">
+        <div className="w-full hidden h-full mt-10 ml-20 lg:flex   relative">
           <Image
             src={product.productImage}
             alt={product.title}
             title={product.title}
-            width={1045}
-            height={1045}
-            className="image-wrapper -mb-28 lg:-mb-4 lg:hidden mx-auto lg:w-auto justify-center"
+            width={383}
+            height={914}
           />
         </div>
-        <div className="w-full lg:w-1/2 lg:text-xl font-bold">
-          <h6 className="text-white  lg:mb-10 lg:w-3/4 lg:mt-20 ">
+        <div className="w-full lg:w-5/6 lg:text-xl">
+          <h6 className="text-white description lg:mb-10 lg:w-5/6 lg:mt-40 ">
             {product.description}
           </h6>
-          <ul>
+          <ul className="feature_list">
             {productDescriptonList.map((other) => (
               <li key={other.value} className="text-white my-2">
                 <span className="mr-1">{other.text}</span>
@@ -77,6 +76,18 @@ export default function ProductBanner({ product }: Props) {
         {`
           .title {
             font-family: "Ubuntu", sans-serif;
+            color: #392a17;
+          }
+          .description {
+            font-weight: 500;
+            font-size: 25px;
+            line-height: 29px;
+            color: #392a17;
+          }
+          .feature_list li {
+            font-weight: 700;
+            font-size: 25px;
+            line-height: 29px;
             color: #392a17;
           }
         `}
