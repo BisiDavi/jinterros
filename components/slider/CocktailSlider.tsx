@@ -13,7 +13,7 @@ const cocktailImages = [
 export default function CocktailSlider() {
   return (
     <Splide
-      options={{ rewind: true, autoplay: true }}
+      options={{ rewind: true, autoplay: true, pagination: false }}
       aria-label="our cocktails"
       className="mx-auto justify-center flex items-center container my-10"
     >
