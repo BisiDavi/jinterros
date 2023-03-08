@@ -35,10 +35,10 @@ export default function OurStory({ story }: Props) {
         />
         <div className="image-wrapper w-5/6 lg:w-2/5 mx-auto my-20 lg:mt-20 lg:mb-10">
           <Image
-            src="/rum-bottles-2.webp"
+            src="/rum-bottles.webp"
             alt="Rum bottles"
-            height={1000}
-            width={1000}
+            height={878}
+            width={878}
             layout="responsive"
           />
         </div>
