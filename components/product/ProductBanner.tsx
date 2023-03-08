@@ -42,8 +42,8 @@ export default function ProductBanner({ product }: Props) {
           height={914}
         />
       </div>
-      <div className="shop-view bg-orange flex flex-col lg:flex-row lg-h-800  lg:mb-40 shop-background-image w-screen">
-        <div className="w-3/6 hidden h-full mt-10 ml-20 lg:flex relative">
+      <div className="shop-view bg-orange flex justify-between flex-col lg:flex-row lg-h-800  lg:mb-40 shop-background-image w-screen">
+        <div className="w-4/12 hidden h-full mt-16 ml-24 lg:flex relative">
           <Image
             src={product.productImage}
             alt={product.title}
@@ -52,7 +52,7 @@ export default function ProductBanner({ product }: Props) {
             height={914}
           />
         </div>
-        <div className="w-full lg:w-5/6 lg:text-xl">
+        <div className="w-full lg:w-7/12 lg:text-xl">
           <h6 className="text-white description lg:mb-10 lg:w-5/6 lg:mt-40 ">
             {product.description}
           </h6>
