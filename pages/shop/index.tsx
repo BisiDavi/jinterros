@@ -4,9 +4,9 @@ import { ref, get, child } from "firebase/database";
 import DefaultLayout from "@/layout/DefaultLayout";
 import { initializeDB } from "@/lib/firebaseConfig";
 import { formatDBData } from "@/lib/formatDBData";
-import { productType } from "@/types";
 import OtherProduct from "@/components/product/OtherProduct";
 import ProductBanner from "@/components/product/ProductBanner";
+import type { productType } from "@/types";
 
 interface Props {
   products: string;

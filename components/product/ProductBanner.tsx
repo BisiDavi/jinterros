@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import useCart from "@/hooks/useCart";
 import { productType } from "@/types";
 import Button from "@/components/button";
@@ -29,22 +30,27 @@ export default function ProductBanner({ product }: Props) {
 
   return (
     <section className="content mt-36 lg:mt-60">
-      <h4 className="text-center text-xl font-bold my-4">
+      <h4 className="text-center text-xl font-bold my-4 title">
         “A party is best enjoyed with a circle of friends and a bottle of rum.”
       </h4>
-      <img
-        src={product.productImage}
-        alt={product.title}
-        title={product.title}
-        className="image-wrapper -mb-28 lg:-mb-4 lg:hidden mx-auto w-2/5 lg:w-auto justify-center"
-      />
+      <div className="image-wrapper -mb-28 lg:-mb-4 lg:hidden mx-auto lg:w-auto justify-center">
+        <Image
+          src={product.productImage}
+          alt={product.title}
+          title={product.title}
+          width={1045}
+          height={1045}
+        />
+      </div>
       <div className="shop-view bg-orange flex flex-col lg:flex-row px-8 py-32 lg:p-20 lg-h-800  lg:mb-40 shop-background-image w-screen">
         <div className="w-full hidden h-full lg:flex lg:w-1/2 relative">
-          <img
+          <Image
             src={product.productImage}
             alt={product.title}
             title={product.title}
-            className="image-wrapper mx-auto  h-full flex justify-center mt-40"
+            width={1045}
+            height={1045}
+            className="image-wrapper -mb-28 lg:-mb-4 lg:hidden mx-auto lg:w-auto justify-center"
           />
         </div>
         <div className="w-full lg:w-1/2 lg:text-xl font-bold">
@@ -67,6 +73,14 @@ export default function ProductBanner({ product }: Props) {
           />
         </div>
       </div>
+      <style jsx>
+        {`
+          .title {
+            font-family: "Ubuntu", sans-serif;
+            color: #392a17;
+          }
+        `}
+      </style>
     </section>
   );
 }
