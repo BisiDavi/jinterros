@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Button from "@/components/button";
+import Image from "next/image";
 
 export default function HomepageBanner() {
   return (
@@ -24,10 +25,12 @@ export default function HomepageBanner() {
             </div>
           </div>
           <div className="lg:w-2/3 w-full order-1 flex mx-auto lg:mt-40 block">
-            <img
+            <Image
               src="/rum-bottles.webp"
               alt="rum-bottles"
               className="-ml-4 lg:ml-0"
+              height={878}
+              width={878}
             />
           </div>
         </div>
