@@ -21,7 +21,7 @@ export default function Cocktails({ cocktails }: Props) {
       <div className="view mb-24">
         <div className="banner w-full relative">
           <Image
-            src="/jinterros-cocktail-banner.webp"
+            src="/cocktail_banner.webp"
             alt="Our Cocktails"
             height={950}
             width={1400}
