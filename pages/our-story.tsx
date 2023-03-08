@@ -20,8 +20,8 @@ export default function OurStory({ story }: Props) {
         <Image
           src={parsedStory.banner}
           alt="Our Story"
-          height={1000}
-          width={1500}
+          height={1300}
+          width={2000}
           layout="responsive"
           className="mt-20"
           placeholder="blur"
