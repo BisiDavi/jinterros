@@ -43,7 +43,7 @@ export default function ProductBanner({ product }: Props) {
         />
       </div>
       <div className="shop-view bg-orange flex flex-col lg:flex-row lg-h-800  lg:mb-40 shop-background-image w-screen">
-        <div className="w-full hidden h-full mt-10 ml-20 lg:flex   relative">
+        <div className="w-3/6 hidden h-full mt-10 ml-20 lg:flex relative">
           <Image
             src={product.productImage}
             alt={product.title}
