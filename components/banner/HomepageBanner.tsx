@@ -2,21 +2,25 @@ import Image from "next/image";
 
 import Button from "@/components/button";
 import banner from "@/public/homepage-bg.webp";
+import mobileBanner from "@/public/mobile-homepage-bg.webp";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 export default function HomepageBanner() {
+  const mobileDevice = useMediaQuery("(max-width:768px)");
+  const siteBanner = mobileDevice ? mobileBanner : banner;
   return (
     <>
       <section className="homepageBanner 2xl:px-20 pt-10 w-full flex mx-auto my-0">
-        <div className="banner -mt-40">
+        <div className="banner lg:-mt-40 -mt-32">
           <Image
             fill
             priority
-            src={banner}
+            src={siteBanner}
             alt="jinterros"
             placeholder="blur"
           />
         </div>
-        <div className="container -mt-20 position-relative items-center z-10 pb-14 lg:pb-0 lg:mx-auto flex lg:flex-row flex-col lg:px-0 lg:justify-between">
+        <div className="container lg:-mt-20 -mt-10 position-relative items-center z-10 pb-14 lg:pb-0 lg:mx-auto flex lg:flex-row flex-col lg:px-0 lg:justify-between">
           <div className="order-2 lg:order-1 lg:w-1/2 mx-auto flex justify-center px-0">
             <div className="text-content text-white px-0">
               <h3>
@@ -49,7 +53,6 @@ export default function HomepageBanner() {
             height: 100vh;
             width: 100%;
           }
-
           .homepageBanner {
             position: relative;
           }
@@ -72,11 +75,10 @@ export default function HomepageBanner() {
             line-height: 29px;
           }
           @media (max-width: 768px) {
-            .homepageBanner {
-              height: unset;
-              width: 100%;
-              background-image: url("/mobile-homepage-bg.webp");
+            .banner {
+              height: 90vh;
             }
+
             .text-content h3 {
               font-size: 36px;
               line-height: 50px;
