@@ -8,7 +8,7 @@ export default function InstagramFollow() {
       <h1 className="text-center text-xl lg:text-4xl font-bold lg:my-4">
         FOLLOW JINTERROS ON INSTAGRAM
       </h1>
-      <p className="text-center text-md lg:text-xl mb-4 lg:my-4">
+      <p className="text-center text-md lg:text-xl mb-4 my-8">
         Share your great times with Jinterros
       </p>
       <div className="image-grid grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-6">
@@ -31,8 +31,8 @@ export default function InstagramFollow() {
             font-family: "Lora", sans-serif;
             font-style: normal;
             font-weight: 700;
-            font-size: 56px;
-            line-height: 72px;
+            font-size: 48px;
+            line-height: 61px;
             color: #3a3a3a;
           }
           .instagramfollow p {
