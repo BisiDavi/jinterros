@@ -18,7 +18,7 @@ export default function CocktailView({ cocktails }: Props) {
 
   return (
     <section className="w-full my-6 2xl:px-10  px-5 lg:-mt-10 mb-20">
-      <h3 className="title mt-lg-32 my-14">FIND YOUR PERFECT COCKTAIL</h3>
+      <h3 className="title mt-lg-32 mb-14">FIND YOUR PERFECT COCKTAIL</h3>
       <div className="cocktail-group grid grid-cols-1 lg:grid-cols-3 gap-7">
         {cocktailArray &&
           showThreeCocktail.map((item: any) => (
