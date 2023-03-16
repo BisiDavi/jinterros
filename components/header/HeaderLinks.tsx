@@ -16,6 +16,17 @@ export default function HeaderLinks({ section }: Props) {
           </a>
         </Link>
       ))}
+      <style jsx>
+        {`
+          .text-light-brown {
+            font-family: "Lora";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 26px;
+          }
+        `}
+      </style>
     </>
   );
 }

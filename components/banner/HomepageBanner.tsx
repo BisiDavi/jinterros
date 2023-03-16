@@ -8,18 +8,17 @@ export default function HomepageBanner() {
     <>
       <section className="homepageBanner 2xl:px-20  w-full flex mx-auto my-0">
         <div className="container pb-14 lg:pb-0 lg:my-10 lg:mx-auto flex lg:flex-row flex-col px-5 lg:px-0 lg:justify-between items-center">
-          <div className="order-2 lg:order-1 lg:w-1/2 mx-auto flex justify-center">
-            <div className="text-content text-white">
-              <img src="/jinterros-white.webp" alt="Jinterros" />
-              <p className="text-xl text-center lg:text-left lg:text-3xl my-2">
-                Rum with Natural Flavours
-              </p>
-              <p className="text-xl lg:text-3xl text-center lg:text-left lg:w-4/5  lg:mt-6 my-2">
-                There is no wrong time to drink Jinterros. Enjoy it whenever.
+          <div className="order-2 lg:order-1 lg:w-1/2 mx-auto flex justify-center px-0">
+            <div className="text-content text-white px-0">
+              <h3>
+                Experience the <br /> New Taste of Rum
+              </h3>
+              <p className="text-xl lg:text-3xl text-center lg:text-left">
+                Each sip will take you on a sensory Journey.
               </p>
               <Button
                 href="/shop"
-                className="bg-dark-brown mx-auto lg:mx-0  hover:opacity-80 px-8 py-4 flex justify-center w-2/3 my-6 font-bold"
+                className="bg-dark-brown mx-auto mt-8 lg:mx-0  hover:opacity-80 px-8 py-4 flex justify-center w-2/3 my-6 font-bold"
                 text="SHOP NOW"
               />
             </div>
@@ -44,6 +43,21 @@ export default function HomepageBanner() {
             background-size: cover;
             height: 85vh;
             width: 100%;
+          }
+          .text-content h3 {
+            font-family: "Lora", sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 60px;
+            line-height: 78px;
+            margin-bottom: 0px;
+          }
+          .text-content p {
+            font-family: "Open Sans", sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 29px;
           }
           @media (max-width: 768px) {
             .homepageBanner {

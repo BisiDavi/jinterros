@@ -17,12 +17,9 @@ export default function Header() {
   const { mutate } = useSignoutMutation();
 
   const user = getAuthStatus();
-  const headerClassName = user ? "pb-6" : "";
 
   return (
-    <header
-      className={`bg-white w-full shadow-2xl fixed top-0 z-50 ${headerClassName}`}
-    >
+    <header className="bg-white w-full shadow-2xl fixed top-0 z-50">
       <nav className="container 2xl:px-20  mx-auto flex h-20 items-center justify-between relative">
         <HeaderLinks section="left" />
         <div className="w-40 mt-24 z-50">
@@ -57,6 +54,15 @@ export default function Header() {
           </div>
         )}
       </nav>
+      <style jsx>
+        {`
+          header.shadow-2xl {
+            height: 124px;
+            display: flex;
+            align-items: center;
+          }
+        `}
+      </style>
     </header>
   );
 }
