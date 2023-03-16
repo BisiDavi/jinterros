@@ -8,10 +8,11 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 export default function HomepageBanner() {
   const mobileDevice = useMediaQuery("(max-width:768px)");
   const siteBanner = mobileDevice ? mobileBanner : banner;
+
   return (
     <>
       <section className="homepageBanner 2xl:px-20 pt-10 w-full flex mx-auto my-0">
-        <div className="banner lg:-mt-40 -mt-32">
+        <div className="banner lg:-mt-40 -mt-24">
           <Image
             fill
             priority
@@ -75,10 +76,6 @@ export default function HomepageBanner() {
             line-height: 29px;
           }
           @media (max-width: 768px) {
-            .banner {
-              height: 90vh;
-            }
-
             .text-content h3 {
               font-size: 36px;
               line-height: 50px;
