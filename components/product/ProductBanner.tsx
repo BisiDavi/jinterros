@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
+
 import useCart from "@/hooks/useCart";
 import { productType } from "@/types";
 import Button from "@/components/button";
