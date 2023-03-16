@@ -44,8 +44,8 @@ export default function InstagramFollow() {
           }
           @media (max-width: 768px) {
             .instagramfollow h1 {
-              font-size: 32px;
-              line-height: 40px;
+              font-size: 28px;
+              line-height: 32px;
             }
             .instagramfollow p {
               font-size: 20px;

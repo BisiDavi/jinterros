@@ -58,9 +58,9 @@ export default function AdminOrderSummary() {
             </li>
             <li>
               <Link href="/admin/orders">
-                <a className="underline text-gray-500 hover:text-blue-500 text-sm">
+                <span className="underline text-gray-500 hover:text-blue-500 text-sm">
                   Manage Orders
-                </a>
+                </span>
               </Link>
             </li>
           </ul>

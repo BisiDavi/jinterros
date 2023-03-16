@@ -30,9 +30,9 @@ export default function Button({
     <>
       {href ? (
         <Link href={href}>
-          <a className={className} title={title}>
+          <span className={className} title={title}>
             {icon} {text}
-          </a>
+          </span>
         </Link>
       ) : (
         <button

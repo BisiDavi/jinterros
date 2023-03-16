@@ -61,7 +61,7 @@ export default function ProductTable() {
                 {row.cells.map((cell: any) => (
                   <td {...cell.getCellProps()} className="p-4 px-6 border-b">
                     <Link href={`/admin/products/${title}`} passHref>
-                      <a>{cell.render("Cell")}</a>
+                      {cell.render("Cell")}
                     </Link>
                   </td>
                 ))}

@@ -19,14 +19,12 @@ export default function OtherProduct({ otherProducts }: Props) {
               {otherProducts.map((item) => (
                 <li key={item.title} className="border p-4 rounded shadow h-96">
                   <Link href={`/shop/${toSlug(item.title)}`} passHref>
-                    <a>
-                      <img
-                        src={item.productImage}
-                        alt={item.title}
-                        className="h-90 mx-auto"
-                      />
-                      <h6>{item.title}</h6>
-                    </a>
+                    <img
+                      src={item.productImage}
+                      alt={item.title}
+                      className="h-90 mx-auto"
+                    />
+                    <h6>{item.title}</h6>
                   </Link>
                 </li>
               ))}

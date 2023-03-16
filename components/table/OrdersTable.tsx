@@ -80,7 +80,7 @@ export default function OrdersTable({ data }: any) {
                       className={`p-4 px-6 border-b lg:text-center ${cellClassName}`}
                     >
                       <Link href={`${tableRoute}/${rowPaymentId}`} passHref>
-                        <a>{cell.render("Cell")}</a>
+                        {cell.render("Cell")}
                       </Link>
                     </td>
                   );

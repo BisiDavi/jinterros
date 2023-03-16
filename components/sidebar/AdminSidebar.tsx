@@ -48,10 +48,10 @@ export default function AdminSidebar() {
               className={`${activeLink} flex items-center hover:bg-gray-300 p-1 text-brown-old-hover`}
             >
               <Link href={item.link} passHref>
-                <a className="pl-6 flex items-center font-medium text-xl w-full h-full">
+                <span className="pl-6 flex items-center font-medium text-xl w-full h-full">
                   <span className="mr-3">{displayIcons(item.text)}</span>
                   {item.text}
-                </a>
+                </span>
               </Link>
             </li>
           );

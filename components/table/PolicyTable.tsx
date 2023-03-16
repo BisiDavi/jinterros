@@ -62,7 +62,7 @@ export default function PolicyTable() {
                 {row.cells.map((cell: any) => (
                   <td {...cell.getCellProps()} className="p-4 px-6 border-b">
                     <Link href={`/admin/policies/${title}`} passHref>
-                      <a>{cell.render("Cell")}</a>
+                      {cell.render("Cell")}
                     </Link>
                   </td>
                 ))}

@@ -45,7 +45,7 @@ function LinkItem({ links, border }: LinkItemProps) {
                 onClick={onCloseHandler}
               >
                 <Link href={item.link}>
-                  <a className={`w-full ${activeLink}`}>{item.text}</a>
+                  <span className={`w-full ${activeLink}`}>{item.text}</span>
                 </Link>
               </li>
             )}

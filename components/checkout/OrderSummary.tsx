@@ -61,9 +61,9 @@ export default function OrderSummary() {
           </div>
         </div>
         <Link href="/cart" passHref>
-          <a className="text-rum-brown mt-2 hover:opacity-70 text-lg text-center flex mx-auto justify-center font-bold">
+          <span className="text-rum-brown mt-2 hover:opacity-70 text-lg text-center flex mx-auto justify-center font-bold">
             MODIFY CART
-          </a>
+          </span>
         </Link>
       </div>
     </div>

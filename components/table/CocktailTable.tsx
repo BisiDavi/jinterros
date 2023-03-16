@@ -61,9 +61,9 @@ export default function CocktailTable() {
                 {row.cells.map((cell: any) => (
                   <td {...cell.getCellProps()} className="p-4 px-6 border-b">
                     <Link href={`/admin/cocktails/${title}`} passHref>
-                      <a className="lg:h-full lg:w-full">
+                      <span className="lg:h-full lg:w-full">
                         {cell.render("Cell")}
-                      </a>
+                      </span>
                     </Link>
                   </td>
                 ))}

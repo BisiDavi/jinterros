@@ -75,7 +75,7 @@ export default function PageTable() {
               {row.cells.map((cell) => (
                 <td {...cell.getCellProps()} className="p-4 px-6 border-b">
                   <Link href={`/admin/pages/${title}`} passHref>
-                    <a>{cell.render("Cell")}</a>
+                    {cell.render("Cell")}
                   </Link>
                 </td>
               ))}

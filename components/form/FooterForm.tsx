@@ -57,9 +57,9 @@ export default function FooterForm() {
           <p className="text-xs font-light mt-1">
             By clicking the SUBSCRIBE button, you are agreeing to our
             <Link href="/privacy-and-conditions" passHref>
-              <a className="text-underline text-gray-500 ml-1">
+              <span className="text-underline text-gray-500 ml-1">
                 Privacy & Cookie Policy
-              </a>
+              </span>
             </Link>
           </p>
         </div>

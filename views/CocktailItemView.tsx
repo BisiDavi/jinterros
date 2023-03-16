@@ -11,7 +11,7 @@ export default function CocktailItemView({ item }: Props) {
   const itemLink = toSlug(item.title);
   return (
     <Link href={`/cocktails/${itemLink}`} passHref>
-      <a
+      <span
         key={item.cocktailImage}
         className="cocktail"
         data-aos="zoom-in-up"
@@ -32,7 +32,7 @@ export default function CocktailItemView({ item }: Props) {
             {item.title}
           </p>
         </div>
-      </a>
+      </span>
     </Link>
   );
 }

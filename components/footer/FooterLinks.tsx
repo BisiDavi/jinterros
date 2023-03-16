@@ -42,10 +42,10 @@ export function PolicyLinks({ policyLinks, className }: PolicyLinksProps) {
         return (
           <li key={`${linkItem.link}-${index}`} className="flex items-center">
             <Link href={linkItem.link} passHref>
-              <a className="underline flex hover:text-red-500 text-lg lg:text-xs">
+              <span className="underline flex hover:text-red-500 text-lg lg:text-xs">
                 {linkItem.text}
                 <span className="mx-1 hidden lg:flex">{showBorder}</span>
-              </a>
+              </span>
             </Link>
           </li>
         );
@@ -92,7 +92,7 @@ export function PageLinks({ pageLinks }: PageLinksProps) {
           {footerItem.group.map((groupItem, index) => (
             <li key={`${groupItem.link}-${index}`} className="my-2">
               <Link href={groupItem.link}>
-                <a className="font-light">{groupItem.text}</a>
+                <span className="font-light">{groupItem.text}</span>
               </Link>
             </li>
           ))}

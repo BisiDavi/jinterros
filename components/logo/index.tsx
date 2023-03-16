@@ -10,9 +10,7 @@ export default function Logo({ link }: Props) {
   return (
     <div>
       <Link href={logoLink}>
-        <a>
-          <Image src="/logo.webp" alt="logo" height={255} width={257} />
-        </a>
+        <Image src="/logo.webp" alt="logo" height={255} width={257} />
       </Link>
     </div>
   );
