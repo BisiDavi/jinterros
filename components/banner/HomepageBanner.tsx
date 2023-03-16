@@ -53,13 +53,13 @@ export default function HomepageBanner() {
           .banner {
             height: 100vh;
             width: 100%;
+            position: absolute;
           }
           .homepageBanner {
             position: relative;
+            height: 100vh;
           }
-          .banner {
-            position: absolute;
-          }
+
           .text-content h3 {
             font-family: "Lora", sans-serif;
             font-style: normal;
@@ -76,6 +76,9 @@ export default function HomepageBanner() {
             line-height: 29px;
           }
           @media (max-width: 768px) {
+            .banner {
+              overflow-y: hidden;
+            }
             .text-content h3 {
               font-size: 36px;
               line-height: 50px;
