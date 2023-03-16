@@ -37,7 +37,7 @@ export default function HomepageBanner() {
               />
             </div>
           </div>
-          <div className="lg:w-2/3 -ml-8 md:ml-0 w-full order-1 mt-10 flex mx-auto lg:mt-36 block">
+          <div className="lg:w-2/3 -ml-8 md:ml-0 w-full order-1 mt-10 flex mx-auto lg:mt-28 block">
             <Image
               src="/rum-bottles.webp"
               alt="rum-bottles"

@@ -12,7 +12,7 @@ export default function LearnmoreView() {
       <Button
         text="LEARN MORE"
         href="/our-story"
-        className="border border-brown-light lg:w-1/3 px-6 lg:h-20 items-center justify-center text-xl bg-dark-brown-hover hover:text-white lg:px-20 py-4 flex mx-auto my-10 lg:mt-24"
+        className="border border-brown-light lg:px-12 lg:h-20 items-center justify-center text-xl bg-dark-brown-hover hover:text-white py-4 flex mx-auto my-10 lg:mt-24"
       />
       <style jsx>
         {`
