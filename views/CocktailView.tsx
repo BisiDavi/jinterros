@@ -18,7 +18,7 @@ export default function CocktailView({ cocktails }: Props) {
 
   return (
     <section className="w-full my-6 2xl:px-10  px-5 lg:mt-20 mb-20">
-      <h3 className="title mt-32 mb-14">FIND YOUR PERFECT COCKTAIL</h3>
+      <h3 className="title mt-lg-32 my-14">FIND YOUR PERFECT COCKTAIL</h3>
       <div className="cocktail-group grid grid-cols-1 lg:grid-cols-3 gap-7">
         {cocktailArray &&
           showThreeCocktail.map((item: any) => (
@@ -31,7 +31,7 @@ export default function CocktailView({ cocktails }: Props) {
         href="/cocktails"
       />
       <CocktailSlider />
-      <p className="text-xl lg:-mt-20  lg:w-2/5 mx-auto text-center">
+      <p className="text-xl description lg:-mt-20 px-3 lg:w-3/5 mx-auto text-center">
         Jinterros Rum is a variety of delicious flavors to create unique
         cocktails. Ready to be used directly without pre-mix. All you need is
         ice and the necessary ingredients.
@@ -47,10 +47,22 @@ export default function CocktailView({ cocktails }: Props) {
             text-align: center;
             color: #392a17;
           }
+          .description {
+            font-family: "Open Sans";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 44px;
+            text-align: center;
+          }
           @media (max-width: 768px) {
             .title {
               font-size: 14px;
               line-height: 16px;
+            }
+            .description {
+              font-size: 20px;
+              line-height: 24px;
             }
           }
         `}
