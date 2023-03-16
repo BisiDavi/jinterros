@@ -7,7 +7,7 @@ export default function HomepageBanner() {
   return (
     <>
       <section className="homepageBanner 2xl:px-20  w-full flex mx-auto my-0">
-        <div className="container pb-14 lg:pb-0 lg:my-10 lg:mx-auto flex lg:flex-row flex-col px-5 lg:px-0 lg:justify-between items-center">
+        <div className="container pb-14 lg:pb-0 lg:my-10 lg:mx-auto flex lg:flex-row flex-col lg:px-0 lg:justify-between items-center">
           <div className="order-2 lg:order-1 lg:w-1/2 mx-auto flex justify-center px-0">
             <div className="text-content text-white px-0">
               <h3>
@@ -23,11 +23,11 @@ export default function HomepageBanner() {
               />
             </div>
           </div>
-          <div className="lg:w-2/3 w-full order-1 flex mx-auto lg:mt-40 block">
+          <div className="lg:w-2/3 -ml-8 md:ml-0 w-full order-1 mt-10 flex mx-auto lg:mt-40 block">
             <Image
               src="/rum-bottles.webp"
               alt="rum-bottles"
-              className="-ml-4 lg:ml-0"
+              className="-ml-20 lg:ml-0"
               height={878}
               width={878}
               priority
@@ -64,6 +64,16 @@ export default function HomepageBanner() {
               height: unset;
               width: 100%;
               background-image: url("/mobile-homepage-bg.webp");
+            }
+            .text-content h3 {
+              font-size: 36px;
+              line-height: 50px;
+              text-align: center;
+            }
+            .text-content p {
+              font-size: 18px;
+              line-height: 24px;
+              text-align: center;
             }
           }
         `}

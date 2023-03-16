@@ -45,6 +45,13 @@ export default function Button({
           {loading && <ButtonSpinner />} {icon} {!loading && text}
         </button>
       )}
+      <style jsx>
+        {`
+          button {
+            transition: 0.5s;
+          }
+        `}
+      </style>
     </>
   );
 }
