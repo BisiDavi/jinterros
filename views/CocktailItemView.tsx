@@ -10,7 +10,7 @@ interface Props {
 export default function CocktailItemView({ item }: Props) {
   const itemLink = toSlug(item.title);
   return (
-    <Link href={`/cocktails/${itemLink}`} passHref>
+    <Link href={`/cocktails/${itemLink}`} key={item.cocktailImage} passHref>
       <span
         key={item.cocktailImage}
         className="cocktail"
@@ -21,9 +21,9 @@ export default function CocktailItemView({ item }: Props) {
         <Image
           src={item.cocktailImage}
           alt={item.title}
-          height={650}
-          width={800}
-          layout="responsive"
+          // height={700}
+          // width={500}
+          fill
           placeholder="blur"
           blurDataURL={item.cocktailImage}
         />
@@ -33,6 +33,15 @@ export default function CocktailItemView({ item }: Props) {
           </p>
         </div>
       </span>
+      <style jsx>
+        {`
+          .cocktail {
+            height: 400px;
+            width:100%;
+            display:block;
+          }
+        `}
+      </style>
     </Link>
   );
 }
