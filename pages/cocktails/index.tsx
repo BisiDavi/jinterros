@@ -34,7 +34,7 @@ export default function Cocktails({ cocktails }: Props) {
           </div>
         </div>
         <div className="cocktail-images 2xl:px-10 container px-4 mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-6 lg:gap-8 my-10">
+          <div className="grid cocktail_grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-6 lg:gap-8 my-10">
             {cocktailArray &&
               cocktailArray.map((item: cocktailItemType) => (
                 <CocktailItemView key={item.title} item={item} />

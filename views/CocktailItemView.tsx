@@ -10,7 +10,14 @@ interface Props {
 export default function CocktailItemView({ item }: Props) {
   const itemLink = toSlug(item.title);
   return (
-    <Link href={`/cocktails/${itemLink}`} key={item.cocktailImage} passHref>
+    <Link
+      passHref
+      href={`/cocktails/${itemLink}`}
+      key={item.cocktailImage}
+      data-aos="zoom-in-up"
+      data-aos-easing="linear"
+      data-aos-duration="500"
+    >
       <span
         key={item.cocktailImage}
         className="cocktail"

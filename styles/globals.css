@@ -134,7 +134,12 @@
   border-left: 8px solid #bd6a2c;
 }
 
-.cocktail img:hover,
+.cocktail_grid a:hover {
+  transform: scale(1.1) !important;
+  transition: 0.5s;
+}
+
+.cocktail:hover,
 .image-grid img:hover,
 .product-grid img:hover {
   transform: scale(1.1) !important;
