@@ -28,7 +28,7 @@ export default function CocktailItemView({ item }: Props) {
         <Image
           src={item.cocktailImage}
           alt={item.title}
-          height={700}
+          height={800}
           width={500}
           placeholder="blur"
           blurDataURL={item.cocktailImage}
