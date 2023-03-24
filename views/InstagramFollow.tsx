@@ -8,7 +8,7 @@ export default function InstagramFollow() {
       <h1 className="text-center text-xl lg:text-4xl font-bold lg:my-4">
         FOLLOW JINTERROS ON INSTAGRAM
       </h1>
-      <p className="text-center text-md lg:text-xl mb-4 my-8">
+      <p className="text-center text-md lg:text-xl md:mb-8 mb-6 my-8">
         Share your great times with Jinterros
       </p>
       <div className="image-grid grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-6">

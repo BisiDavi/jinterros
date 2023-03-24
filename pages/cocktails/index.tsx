@@ -5,6 +5,7 @@ import DefaultLayout from "@/layout/DefaultLayout";
 import CocktailItemView from "@/views/CocktailItemView";
 import { initializeDB } from "@/lib/firebaseConfig";
 import { formatDBData } from "@/lib/formatDBData";
+import cocktailBanner from "@/public/cocktail_banner.webp";
 import type { cocktailItemType } from "@/types";
 
 interface Props {
@@ -20,13 +21,16 @@ export default function Cocktails({ cocktails }: Props) {
     <DefaultLayout title="Our Cocktails">
       <div className="view mb-24">
         <div className="banner w-full relative">
-          <Image
-            src="/cocktail_banner.webp"
-            alt="Our Cocktails"
-            height={950}
-            width={1400}
-            layout="responsive"
-          />
+          <div className="banner-wrapper">
+            <Image
+              src={cocktailBanner}
+              alt="Our Cocktails"
+              // height={950}
+              // width={1400}
+              placeholder="blur"
+              fill
+            />
+          </div>
           <div className="Cocktails lg:w-52 bg-dark-brown px-4 py-2 lg:h-16 bottom-0 left-0 absolute flex items-center justify-center text-xl text-white font-bold">
             <h4>COCKTAILS</h4>
           </div>
@@ -39,6 +43,14 @@ export default function Cocktails({ cocktails }: Props) {
               ))}
           </div>
         </div>
+        <style jsx>
+          {`
+            .banner-wrapper {
+              height: calc(100vw / 1.5);
+              width: 100%;
+            }
+          `}
+        </style>
       </div>
     </DefaultLayout>
   );
