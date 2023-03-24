@@ -41,7 +41,8 @@ export default function ProductBanner({ product }: Props) {
           title={product.title}
           width={383}
           height={914}
-          layout="responsive"
+          placeholder="blur"
+          blurDataURL={product.productImage}
         />
       </div>
       <div className="shop-view bg-orange flex justify-between flex-col lg:flex-row lg-h-800  lg:mb-40 shop-background-image w-screen">
