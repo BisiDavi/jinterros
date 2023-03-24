@@ -23,10 +23,8 @@ export default function CocktailItemView({ item }: Props) {
           alt={item.title}
           height={700}
           width={500}
-          // fill
           placeholder="blur"
           blurDataURL={item.cocktailImage}
-          sizes=""
         />
         <div className="text-view h-10 lg:h-16 bg-dark-brown w-full flex items-center justify-center hover:opacity-80">
           <p className="text-white text-center text-md lg:text-xl">
@@ -34,15 +32,6 @@ export default function CocktailItemView({ item }: Props) {
           </p>
         </div>
       </span>
-      <style jsx>
-        {`
-          .cocktail {
-            height: 400px;
-            width: 100%;
-            display: block;
-          }
-        `}
-      </style>
     </Link>
   );
 }
