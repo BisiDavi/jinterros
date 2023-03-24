@@ -5,21 +5,12 @@ import type { PropsWithChildren } from "react";
 import Footer from "@/components/footer/Footer";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { useAppSelector } from "@/hooks/useRedux";
+import Header from "@/components/header/Header";
+import MobileHeader from "@/components/header/MobileHeader";
 
 const DynamicMobleMenu = dynamic(
   () =>
     import(/* webpackChunkName: 'MobileMenu' */ "@/components/menu/MobileMenu")
-);
-
-const DynamicMobileHeader = dynamic(
-  () =>
-    import(
-      /* webpackChunkName: 'MobileHeader' */ "@/components/header/MobileHeader"
-    )
-);
-
-const DynamicHeader = dynamic(
-  () => import(/* webpackChunkName: 'Header' */ "@/components/header/Header")
 );
 
 const DynamicSlideCart = dynamic(
@@ -47,7 +38,7 @@ export default function DefaultLayout({
           <title>Welcome to Jinterros | Rum with Natural Flavours</title>
         )}
       </Head>
-      {mobileWidth ? <DynamicMobileHeader /> : <DynamicHeader />}
+      {mobileWidth ? <MobileHeader /> : <Header />}
       {slideCart && <DynamicSlideCart />}
       {mobileMenu && mobileWidth && <DynamicMobleMenu />}
       <main className="mt-20 main">{children}</main>
