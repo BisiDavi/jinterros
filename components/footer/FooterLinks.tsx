@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import Link from "next/link";
 
 interface SocialLinksProps {
@@ -65,7 +66,10 @@ export function PaymentLink({ paymentLinks }: PaymentLinkProps) {
       <ul className="flex items-center my-2">
         {paymentLinks.map((linkItem, index) => (
           <li key={`${linkItem}-${index}`} className="mr-4">
-            <img src={linkItem} alt="payment gateway" />
+            <img
+              src={linkItem}
+              alt="payment gateway"
+            />
           </li>
         ))}
       </ul>
